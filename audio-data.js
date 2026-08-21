@@ -18,83 +18,91 @@ const MANIFEST_PATH = path.join(OUTPUT_DIR, 'manifest.json');
 /** Textos customizados para slides com pouco conteúdo textual ou conteúdo dinâmico. */
 const NARRATION_OVERRIDES = {
   s1:
-    'Módulo de Treinamento. Segurança do Trabalho. NR 11 — EMPILHADEIRA. Inclui conteúdo complementar da NR 12. Treinamento de capacitação e reciclagem em movimentação, armazenagem e manuseio de materiais com empilhadeira conforme NR-11.',
+    'Módulo de Treinamento. Segurança do Trabalho. NR 06 — EMPILHADEIRA. Inclui conteúdo complementar da NR 12. Treinamento de capacitação e reciclagem em movimentação, armazenagem e manuseio de materiais com empilhadeira conforme NR-06.',
   s2:
-    'Apresentação. Bem-vindo ao Treinamento. NR11 - OPERADOR DE TRANSPALETEIRA. Assista ao vídeo de introdução e avance quando concluir.',
+    'Apresentação. Bem-vindo ao Treinamento. NR06 - OPERADOR DE TRANSPALETEIRA. Assista ao vídeo de introdução e avance quando concluir.',
   s6:
-    'Sumário. Conteúdo Programático. Módulo 1: Fundamentos, Legislação e Requisitos. Módulo 2: Conhecendo o Equipamento. Módulo 3: Procedimentos Operacionais e Operação Segura. Módulo 4: Movimentação, Cargas e Armazenamento. Módulo 5: Manutenção e Segurança com Baterias. Módulo 6: Gestão de Riscos, Emergências e EPIs. Módulo 7: NR 12 — Segurança no Trabalho em Máquinas e Equipamentos.',
+    'Sumário. Conteúdo Programático. Módulo 1: Introdução, Objetivo, CA e Hierarquia de Controle de Riscos. Módulo 2: Acidente de Trabalho e Doença Ocupacional. Módulo 3: Comportamentos e Condições Inseguras. Módulo 4: Conceitos de Perigo e Risco. Módulo 5: Proteção Auditiva. Módulo 6: Proteção Visual. Módulo 7: Proteção Respiratória. Módulo 8: Proteção das Mãos.',
   's-mod1':
-    'Início do Módulo 1. Fundamentos, Legislação e Requisitos.',
+    'Início do Módulo 1. Introdução, Objetivo, CA e Hierarquia de Controle de Riscos.',
   s2b:
-    'Vídeo. A Norma NR 11 e os Equipamentos Motorizados. Fundamentos, Legislação e Requisitos. Assista ao vídeo e conheça as exigências legais e a importância do treinamento de segurança na operação de transpaleteiras e outros equipamentos motorizados de movimentação de materiais. Avance quando concluir.',
+    'Introdução. O que são EPIs? Introdução, Objetivo, CA e Hierarquia de Controle de Riscos. Equipamento de Proteção Individual é todo equipamento de uso pessoal, utilizado pelo trabalhador para se proteger de riscos à sua segurança e saúde.',
   s2b2:
-    'Vídeo. Habilitação e o Cartão de Identificação. Fundamentos, Legislação e Requisitos. Assista ao vídeo sobre habilitação e o porte obrigatório do cartão de identificação na operação de transpaleteiras. Avance quando concluir.',
+    'Objetivo. Objetivo do Treinamento. Introdução, Objetivo, CA e Hierarquia de Controle de Riscos. Proporcionar aos participantes o conhecimento básico relacionado aos riscos presentes no ambiente de trabalho e apresentar formas de controle por meio de cuidados e uso adequado de proteção.',
   s2b3:
-    'Legislação. O Cartão de Identificação. Conforme o item 11.1.6 da NR-11, os operadores de equipamentos de transporte motorizado deverão ser habilitados e só poderão dirigir se durante o horário de trabalho portarem um cartão de identificação, com o nome e fotografia, em lugar visível. Veja a simulação do cartão de identificação à direita, com os dados do operador, fotografia, número de chapa e o respectivo setor de trabalho. Avance quando concluir.',
-  s2c:
-    'Vídeo. Validade do Cartão e Responsabilidade do Operador. Fundamentos, Legislação e Requisitos. Assista ao vídeo sobre a validade do cartão de identificação e a responsabilidade do operador. Avance quando concluir.',
-  s2d: null,
-  s2e: null, // montado a partir do deck do jogo Módulo 1
+    'Legislação. Certificado de Aprovação, CA. Introdução, Objetivo, CA e Hierarquia de Controle de Riscos. É um documento emitido pelo Ministério do Trabalho e Emprego, MTE, que comprova que um Equipamento de Proteção Individual foi testado e aprovado para proteger o trabalhador contra riscos específicos. Somente EPIs com CA válido podem ser comercializados e utilizados no Brasil. O CA garante que o equipamento atende aos requisitos técnicos de segurança, foi submetido a ensaios e avaliações de conformidade, e é adequado para a proteção indicada pelo fabricante.',
+  s2e:
+    'Quiz. Teste seu conhecimento. O que é CA, Certificado de Aprovação? Documento interno da empresa que comprova a entrega do EPI ao colaborador. Documento emitido pelo Ministério do Trabalho e Emprego que identifica se o EPI está em conformidade com as exigências da legislação vigente. Registro emitido pelo fabricante que indica apenas a validade comercial do produto.',
+  s2f:
+    'Vídeo. Hierarquia de Controle de Riscos. Assista ao vídeo e avance quando concluir.',
+  s2g:
+    'Associe. Hierarquia de Controle de Riscos. Associe cada conceito à categoria correta. A hierarquia organiza as medidas da mais eficaz até a menos eficaz: Eliminação, Redução ou Substituição, Controles de Engenharia, Controles Administrativos e EPI.',
   's-mod2':
-    'Início do Módulo 2. Conhecendo o Equipamento.',
-  's-mod2-video':
-    'Vídeo. Conhecendo a Transpaleteira. Conhecendo o Equipamento. Assista ao vídeo sobre os componentes principais e o funcionamento da transpaleteira. Avance quando concluir.',
-  's-mod2-video2':
-    'Vídeo. Transpaleteiras Elétricas e Tripuladas. Conhecendo o Equipamento. Assista ao vídeo sobre as transpaleteiras elétricas e tripuladas. Avance quando concluir.',
-  's-mod2-video3':
-    'Vídeo. Componentes Principais da Transpaleteira. Conhecendo o Equipamento. Assista ao vídeo sobre os componentes principais da transpaleteira. Avance quando concluir.',
-  's-mod2-video4':
-    'Vídeo. Faixas de Trânsito e Preferências de Passagem. Aptidão Psicofísica, Saúde e Regras de Acesso. Assista ao vídeo sobre faixas de trânsito e preferências de passagem. Avance quando concluir.',
-  's-mod2-video5':
-    'Vídeo. Bloqueio de Áreas Críticas e Estacionamento Preventivo. Aptidão Psicofísica, Saúde e Regras de Acesso. Assista ao vídeo sobre bloqueio de áreas críticas e estacionamento preventivo. Avance quando concluir.',
-  's-mod2-motoristas':
-    'Regras para Motoristas e Manobristas. Os motoristas e manobristas devem conduzir seus veículos de forma a proteger o pedestre. Velocidade máxima de 20 quilômetros por hora dentro da unidade. Pisca-alerta e faróis sempre ligados na circulação interna. Cinto obrigatório e somente condutor habilitado. Na faixa de pedestre, pare, olhe os dois lados e dê preferência ao pedestre, com contato visual. Proibido usar ou manusear celular ao dirigir. Nunca bloqueie áreas críticas: não pare sobre faixas, rampas ou em frente a equipamentos de emergência. Carga e descarga somente nas docas, em áreas sinalizadas. Na Red Zone, nunca pessoa e empilhadeira ao mesmo tempo. Parada segura do caminhão: desligado, freio estacionário acionado e trava-rodas. Se precisar descer, use a rota segura pela frente da doca e pelas faixas de pedestres.',
-  's-mod5-picking':
-    'Abastecimento do Picking. O processo de ressuprir, ou abastecer, o picking parece simples, mas se não for executado seguindo as regras, pode causar graves acidentes. Pessoas são prensadas entre paletes no momento do ressuprimento. Isto ocorre porque a visão do operador é obstruída por paletes, principalmente quando as pessoas estão abaixadas. No corredor de abastecimento, o operador avança com a empilhadeira em direção à célula de picking, onde pode haver um trabalhador abaixado e fora do campo de visão.',
-  's-mod5-video-picking':
-    'Vídeo. Protocolo de Aproximação Segura no Picking. Operações de Alta Complexidade, Ressuprimento de Picking e Docas. Assista ao vídeo sobre o protocolo de aproximação segura no picking. Avance quando concluir.',
-  's-mod5-aproximacao':
-    'A Regra Inicial de Ouro. Nunca se aproxime de uma empilhadeira em movimento. Mantenha-se à distância segura de 4 metros e faça contato visual com o condutor para chamar sua atenção. Os 3 passos para a aproximação segura: o pedestre só pode se aproximar e iniciar a conversa após o operador realizar rigorosamente estes três passos. Passo 1: parada total do equipamento. A empilhadeira deve estar completamente estática. Passo 2: descida completa do garfo até o solo. Os garfos devem ser baixados e deitados planos contra o chão. Passo 3: desligamento do motor e retirada da chave. O motor deve ser desligado e a chave de ignição removida pelo operador.',
-  's-mod5-doca':
-    'Protocolo crítico na doca. Durante todo o processo de carregamento ou descarregamento na doca, um protocolo crítico deve ser seguido. As chaves do caminhão nunca devem permanecer na ignição ou sob a posse do motorista. Elas devem ser recolhidas e mantidas sob a guarda da equipe de expedição para evitar que o veículo saia antes da hora. O motorista externo deve aguardar o fim da operação permanecendo de forma contínua dentro da área segura demarcada e protegida para pedestres. Ele é expressamente proibido de caminhar pela Red Zone ou pela baia operacional enquanto as empilhadeiras realizam as manobras de carga. Organização gera segurança.',
-  's-mod5-video-garfos':
-    'Vídeo. Riscos de Garfos Elevados e Movimentações Práticas. Operações de Alta Complexidade, Ressuprimento de Picking e Docas. Assista ao vídeo sobre os riscos de dirigir com garfos elevados e as movimentações práticas. Avance quando concluir.',
+    'Início do Módulo 2. Acidente de Trabalho e Doença Ocupacional.',
+  's-mod2-acidente':
+    'Conceito. O que é um Acidente de Trabalho? Acidente de Trabalho e Doença Ocupacional. Acidente de trabalho é aquele que ocorre a serviço da empresa ou em razão do trabalho, podendo causar lesões, doenças ou reduzir a capacidade de trabalho, de forma temporária ou permanente.',
+  's-mod2-tipos':
+    'Também são considerados. Outros Tipos de Acidente de Trabalho. Toque em cada card para saber mais. Acidentes Típicos: ocorrem pelo exercício do trabalho a serviço da empresa. Acidente de Trajeto: ocorre no percurso da residência para o local de trabalho. Doença Profissional ou do Trabalho: causada ou desencadeada pelas atividades realizadas no ambiente de trabalho.',
+  's-mod2-doenca':
+    'Conceito. Doença Ocupacional. Acidente de Trabalho e Doença Ocupacional. Doença ocupacional ou profissional é aquela causada ou desencadeada pelo trabalho, em razão da atividade exercida ou das condições do ambiente, podendo afetar a saúde do trabalhador ao longo do tempo. Exemplos mais comuns: Cervicalgia Ocupacional, Lombalgia Ocupacional e LER/DORT.',
+  's-mod3-causas':
+    'Comportamentos e Condições Inseguras. Por que os comportamentos inseguros acontecem? Na maioria das vezes, eles estão ligados a falhas humanas: seja por imperícia, negligência ou imprudência. Imperícia é a falta de conhecimento ou habilidade. Negligência é quando a pessoa sabe o que fazer, mas não faz com o devido cuidado. Imprudência é assumir riscos desnecessários.',
+  's-mod3-jogo':
+    'Associe. Imperícia, Negligência ou Imprudência. Associe cada situação ao conceito correto. Imperícia: falta de habilidade técnica e de conhecimento básico. Negligência: omissão de cuidados e precauções exigidas. Imprudência: ação sem a devida cautela, mesmo conhecendo os procedimentos corretos.',
+  's-mod4-conceitos':
+    'Conceitos. Perigo e Risco. Perigo: condição, situação ou agente com potencial de causar dano, contribuindo para a ocorrência de lesões, doenças ou outros prejuízos à saúde. Risco: chance de ocorrência de dano, considerando a probabilidade e a gravidade associada à exposição ao perigo. O perigo pode existir sem risco. O risco surge quando há exposição ao perigo. A consequência pode ser acidentes, lesões, doenças ou outro dano à saúde.',
+  's-mod4-video':
+    'Vídeo. Perigo e Risco. Conceitos de Perigo e Risco. Assista ao vídeo e avance quando concluir.',
+  's-mod4-quiz':
+    'Quiz. Teste seu conhecimento. Durante o trajeto ao trabalho, o que caracteriza corretamente o risco na situação apresentada? Dirigir em alta velocidade ou desrespeitar as leis de trânsito. Chegar ao destino com segurança. A possibilidade de ocorrer um acidente de trânsito devido à exposição a condições perigosas.',
+  's-mod5-video':
+    'Vídeo. Proteção Auditiva. Assista ao vídeo e avance quando concluir.',
+  's-mod5-ruido':
+    'Estamos expostos ao ruído no dia a dia. Em casa, no trabalho e até viajando ou nos divertindo, estamos expostos ao ruído em nossa vida diária. O ruído no trabalho se apresenta como a situação mais perigosa em função das muitas máquinas e equipamentos ruidosos existentes, e o longo tempo que passamos sob estas condições. Atenção: o ruído contínuo e excessivo pode causar a perda ou a redução da audição.',
+  's-mod5-fatores1':
+    'O que influencia o risco? Parte 1. Tempo de exposição: quanto maior este tempo, maior o perigo. Tipos de ruído: contínuo ocorre sem parar; intermitente ocorre de vez em quando; de impacto ocorre de repente.',
+  's-mod5-fatores2':
+    'O que influencia o risco? Parte 2. Sensibilidade individual: varia de acordo com a idade e com a resistência do organismo de cada pessoa. Distância da fonte ruidosa: quanto mais próximo, maior o perigo. Intensidade: quanto maior a intensidade, maior o risco para o trabalhador.',
+  's-mod5-efeito-trabalho':
+    'Efeito do ruído no trabalho. O ruído excessivo prejudica a concentração, a comunicação entre colegas e a percepção de sinais de alerta, aumentando o risco de acidentes.',
   's-mod6':
-    'Início do Módulo 6. Abastecimento (Pit Stop), Zoneamento de Risco e Comportamento.',
+    'Início do Módulo 6. Proteção Visual.',
   's-mod6-video':
-    'Vídeo. O Pit Stop e as Regras de Entrada. Abastecimento (Pit Stop), Zoneamento de Risco e Comportamento. Assista ao vídeo sobre o pit stop e as regras de entrada. Avance quando concluir.',
+    'Vídeo. O Pit Stop e as Regras de Entrada. Proteção Visual. Assista ao vídeo sobre o pit stop e as regras de entrada. Avance quando concluir.',
   's-mod6-video2':
-    'Vídeo. Proibições Críticas no Abastecimento. Abastecimento (Pit Stop), Zoneamento de Risco e Comportamento. Assista ao vídeo sobre as proibições críticas no abastecimento. Avance quando concluir.',
+    'Vídeo. Proibições Críticas no Abastecimento. Proteção Visual. Assista ao vídeo sobre as proibições críticas no abastecimento. Avance quando concluir.',
   's-mod6-guia':
     'Guia rápido de segurança do Pit Stop. Regras fundamentais para a baia de abastecimento de GLP e baterias. A área de abastecimento é uma das zonas de maior risco químico e de explosão do armazém. Três regras de acesso e operação. Primeira: permitido apenas um equipamento por vez dentro da baia. Aguarde a sua vez na fila recuada. Segunda: o operador deve apenas estacionar, desligar a máquina e puxar o freio. A troca do cilindro de GLP ou a conexão das baterias é de responsabilidade exclusiva do técnico abastecedor habilitado. Terceira: respeite os avisos de piso e mantenha as saídas do Pit Stop sempre totalmente livres. Fontes de ignição proibidas, tolerância zero. Proibido fumar ou portar qualquer chama exposta. Proibido manusear celulares ou qualquer dispositivo eletrônico ligado, pelo perigo de faíscas estáticas e distração.',
   's-mod6-video3':
-    'Vídeo. Manobra de Abastecimento pelo Técnico. Abastecimento (Pit Stop), Zoneamento de Risco e Comportamento. Assista ao vídeo sobre a manobra de abastecimento pelo técnico. Avance quando concluir.',
+    'Vídeo. Manobra de Abastecimento pelo Técnico. Proteção Visual. Assista ao vídeo sobre a manobra de abastecimento pelo técnico. Avance quando concluir.',
   's-mod6-zonas':
     'Zoneamento de risco do armazém. Entenda onde cada máquina e pessoa deve circular. Para evitar colisões e atropelamentos, o armazém é dividido em três setores de fluxo. Conhecer e respeitar essas barreiras invisíveis é um dever de todos. Zona vermelha: movimentação de empilhadeira. Risco altíssimo de atropelamento e prensagem. Pedestres e ajudantes são proibidos nas ruas de estoque, salvo com bloqueio de segurança. Zona amarela: operações mistas. Risco médio, tráfego compartilhado controlado. Permitido apenas ajudantes com paleteiras e conferentes em auditoria de cargas. Zona verde: paleteiras e pedestres. Risco baixo. Empilhadeiras motorizadas são proibidas nestas vias.',
   's-mod6-video4':
-    'Vídeo. Condições Adversas de Luz e Ofuscamento. Abastecimento (Pit Stop), Zoneamento de Risco e Comportamento. Assista ao vídeo sobre condições adversas de luz e ofuscamento. Avance quando concluir.',
+    'Vídeo. Condições Adversas de Luz e Ofuscamento. Proteção Visual. Assista ao vídeo sobre condições adversas de luz e ofuscamento. Avance quando concluir.',
   's-mod6-video5':
-    'Vídeo. Comportamento e a Tolerância Zero a Brincadeiras. Abastecimento (Pit Stop), Zoneamento de Risco e Comportamento. Assista ao vídeo sobre comportamento e a tolerância zero a brincadeiras. Avance quando concluir.',
+    'Vídeo. Comportamento e a Tolerância Zero a Brincadeiras. Proteção Visual. Assista ao vídeo sobre comportamento e a tolerância zero a brincadeiras. Avance quando concluir.',
   's-mod6-video6':
-    'Vídeo. Compromisso Coletivo e Encerramento. Abastecimento (Pit Stop), Zoneamento de Risco e Comportamento. Assista ao vídeo de compromisso coletivo e encerramento. Avance quando concluir.',
+    'Vídeo. Compromisso Coletivo e Encerramento. Proteção Visual. Assista ao vídeo de compromisso coletivo e encerramento. Avance quando concluir.',
   's-mod7':
-    'Início do Módulo 7. NR 12 — Segurança no Trabalho em Máquinas e Equipamentos.',
+    'Início do Módulo 7. Proteção Respiratória.',
   's-mod7-video':
-    'Vídeo. O que é a NR 12 e o seu Objetivo. NR 12 — Segurança no Trabalho em Máquinas e Equipamentos. Assista ao vídeo sobre o que é a NR 12 e o seu objetivo. Avance quando concluir.',
+    'Vídeo. O que é a NR 12 e o seu Objetivo. Proteção Respiratória. Assista ao vídeo sobre o que é a NR 12 e o seu objetivo. Avance quando concluir.',
   's-mod7-video2':
-    'Vídeo. Os Deveres e Responsabilidades do Operador. NR 12 — Segurança no Trabalho em Máquinas e Equipamentos. Assista ao vídeo sobre os deveres e responsabilidades do operador. Avance quando concluir.',
+    'Vídeo. Os Deveres e Responsabilidades do Operador. Proteção Respiratória. Assista ao vídeo sobre os deveres e responsabilidades do operador. Avance quando concluir.',
   's-mod7-pilares':
     'Os quatro pilares de responsabilidade do operador. A sua atitude determina a segurança de todos. A NR 12 estabelece quatro responsabilidades diárias. Primeiro: inspeção diária. Verifique o estado mecânico e os sistemas de segurança antes de iniciar o turno, sem nenhuma exceção. Segundo: comunicação de falhas. Barulho estranho, mau funcionamento, folga no freio ou falha em luzes: não opere. Comunique imediatamente o supervisor ou a manutenção. Terceiro: respeito absoluto à capacidade. Nunca exceda o limite máximo de carga da placa do fabricante. A sobrecarga gera perda de controle e tombamentos. Quarto: seguir os procedimentos internos de tráfego, manuseio e segurança da empresa.',
   's-mod7-video3':
-    'Vídeo. Identificando os Riscos Mecânicos e Elétricos. NR 12 — Segurança no Trabalho em Máquinas e Equipamentos. Assista ao vídeo sobre os riscos mecânicos e elétricos. Avance quando concluir.',
+    'Vídeo. Identificando os Riscos Mecânicos e Elétricos. Proteção Respiratória. Assista ao vídeo sobre os riscos mecânicos e elétricos. Avance quando concluir.',
   's-mod7-video4':
-    'Vídeo. Dispositivos de Segurança Obrigatórios. NR 12 — Segurança no Trabalho em Máquinas e Equipamentos. Assista ao vídeo sobre os dispositivos de segurança obrigatórios. Avance quando concluir.',
+    'Vídeo. Dispositivos de Segurança Obrigatórios. Proteção Respiratória. Assista ao vídeo sobre os dispositivos de segurança obrigatórios. Avance quando concluir.',
   's-mod7-protecao':
     'Sistemas de proteção e regras de proteção física. Dispositivos obrigatórios: seus escudos contra acidentes. Nunca neutralize, altere ou opere com qualquer dispositivo de segurança desligado ou danificado. Verifique diariamente: a grade de proteção superior, que resguarda a cabeça em caso de queda de objetos; o botão de desligamento de emergência, que trava a energia, a tração e a hidráulica; e a buzina, o giroflex e o alarme de ré, que avisam pedestres em áreas ruidosas. Duas regras de ouro: o cinto de segurança é obrigatório em todos os deslocamentos — em um tombamento, evita que o operador seja arremessado e esmagado pelo chassi. E o corpo deve permanecer sempre dentro do perímetro da cabine: nunca apoie o corpo na coluna de elevação nem coloque membros para fora com o veículo em movimento.',
   's-mod7-video5':
-    'Vídeo. Condutas Proibidas e Boas Práticas. NR 12 — Segurança no Trabalho em Máquinas e Equipamentos. Assista ao vídeo sobre condutas proibidas e boas práticas. Avance quando concluir.',
+    'Vídeo. Condutas Proibidas e Boas Práticas. Proteção Respiratória. Assista ao vídeo sobre condutas proibidas e boas práticas. Avance quando concluir.',
+  's-mod8':
+    'Início do Módulo 8. Proteção das Mãos.',
   's-fim':
-    'Parabéns. Você concluiu o treinamento NR 11 — Operador de Empilhadeira, com conteúdo complementar da NR 12. Por mérito, dedicação e compromisso com a segurança, você percorreu os sete módulos e demonstrou responsabilidade com a sua vida e com a vida dos seus colegas. A segurança é um direito de todos e um dever de cada um. Continue fazendo a sua parte.',
+    'Parabéns. Você concluiu o treinamento NR 06 — Operador de Empilhadeira, com conteúdo complementar da NR 12. Por mérito, dedicação e compromisso com a segurança, você percorreu os sete módulos e demonstrou responsabilidade com a sua vida e com a vida dos seus colegas. A segurança é um direito de todos e um dever de cada um. Continue fazendo a sua parte.',
 };
 
 function cleanText(text) {
@@ -172,11 +180,11 @@ function parseQm2Questions(html) {
 
 function buildMod1Narration(deck) {
   if (!deck.length) {
-    return 'Quiz NR-11 — Módulo 1. Legislação e Requisitos. Responda a três perguntas rápidas sobre os conceitos legais do módulo e valide seu aprendizado.';
+    return 'Quiz NR-06 — Módulo 1. Legislação e Requisitos. Responda a três perguntas rápidas sobre os conceitos legais do módulo e valide seu aprendizado.';
   }
 
   const parts = [
-    'Quiz NR-11 — Módulo 1. Legislação e Requisitos. Responda a três perguntas rápidas sobre os conceitos legais do módulo e valide seu aprendizado.',
+    'Quiz NR-06 — Módulo 1. Legislação e Requisitos. Responda a três perguntas rápidas sobre os conceitos legais do módulo e valide seu aprendizado.',
   ];
 
   deck.forEach((item, index) => {
@@ -220,11 +228,11 @@ function buildMod2tfNarration(deck) {
 
 function buildMod2Narration(questions) {
   if (!questions.length) {
-    return 'Quiz — Módulo 2. Conhecendo o Equipamento. Responda cinco perguntas sobre o equipamento. Acerte pelo menos três questões para concluir o módulo.';
+    return 'Quiz — Módulo 2. Acidente de Trabalho e Doença Ocupacional. Responda cinco perguntas sobre o equipamento. Acerte pelo menos três questões para concluir o módulo.';
   }
 
   const parts = [
-    'Quiz. Conhecendo o Equipamento. Quiz — Módulo 2. Responda cinco perguntas sobre tipos de transpaleteiras, capacidade de carga, componentes principais, painel de controle e funcionamento do timão. Acerte pelo menos três questões para concluir o módulo.',
+    'Quiz. Acidente de Trabalho e Doença Ocupacional. Quiz — Módulo 2. Responda cinco perguntas sobre tipos de transpaleteiras, capacidade de carga, componentes principais, painel de controle e funcionamento do timão. Acerte pelo menos três questões para concluir o módulo.',
   ];
 
   questions.forEach((item, index) => {
