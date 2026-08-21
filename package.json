@@ -1,7 +1,7 @@
 {
-  "name": "nr-18-femsa",
+  "name": "nr06-epi-femsa",
   "version": "1.0.0",
-  "description": "",
+  "description": "NR 06 — Equipamento de Proteção Individual — FEMSA / Tecno-Cursos",
   "main": "audio-data.js",
   "scripts": {
     "manifest": "node audio-data.js",
@@ -11,16 +11,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/claratecnocursos/nr-18-femsa.git"
+    "url": "git+https://github.com/rvopires/nr06-epi-femsa.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/claratecnocursos/nr-18-femsa/issues"
+    "url": "https://github.com/rvopires/nr06-epi-femsa/issues"
   },
-  "homepage": "https://github.com/claratecnocursos/nr-18-femsa#readme",
+  "homepage": "https://github.com/rvopires/nr06-epi-femsa#readme",
   "dependencies": {
     "jsdom": "^29.1.1"
   }
