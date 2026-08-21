@@ -1341,6 +1341,23 @@
         overflow: hidden;
       }
 
+      #s2 .video-wrap,
+      #s2b .video-wrap,
+      #s2b2 .video-wrap {
+        width: min(100%, calc(70vh * 9 / 16));
+        max-width: min(100%, calc(70vh * 9 / 16));
+      }
+
+      #s2 .video-box,
+      #s2 .video-box.video-box-916,
+      #s2b .video-box,
+      #s2b .video-box.video-box-916,
+      #s2b2 .video-box,
+      #s2b2 .video-box.video-box-916 {
+        aspect-ratio: 9 / 16 !important;
+        width: 100% !important;
+      }
+
       /* Navigation adjustments */
       .video-slide~#nav {
         background: transparent;
@@ -5734,6 +5751,32 @@
       background: #000;
     }
 
+    #s2 .video-wrap,
+    #s2b .video-wrap,
+    #s2b2 .video-wrap {
+      width: min(360px, 100%);
+      max-width: min(360px, calc((100dvh - 240px) * 9 / 16));
+      margin: 0 auto;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    #s2b .video-wrap,
+    #s2b2 .video-wrap {
+      width: min(280px, 100%);
+      max-width: min(280px, calc((100dvh - 260px) * 9 / 16));
+    }
+
+    #s2 .video-box,
+    #s2 .video-box.video-box-916,
+    #s2b .video-box,
+    #s2b .video-box.video-box-916,
+    #s2b2 .video-box,
+    #s2b2 .video-box.video-box-916 {
+      aspect-ratio: 9 / 16 !important;
+      width: 100% !important;
+      height: auto !important;
+    }
+
     .video-box.req-item::after {
       display: none !important;
     }
@@ -6720,6 +6763,18 @@
 
       .video-wrap {
         max-width: min(1300px, calc((100vh - 235px) * 16 / 9));
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      }
+
+      #s2 .video-wrap {
+        width: min(420px, calc((100vh - 235px) * 9 / 16));
+        max-width: min(420px, calc((100vh - 235px) * 9 / 16));
+      }
+
+      #s2b .video-wrap,
+      #s2b2 .video-wrap {
+        width: min(280px, calc((100vh - 260px) * 9 / 16));
+        max-width: min(280px, calc((100vh - 260px) * 9 / 16));
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
       }
 
@@ -10741,13 +10796,13 @@
         </div>
         <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
           <div class="video-wrap">
-            <div class="video-box">
-              <iframe id="panda-fb2d53a1-3fb8-473a-82a5-24466e1d10a7"
-                src="https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=fb2d53a1-3fb8-473a-82a5-24466e1d10a7"
+            <div class="video-box video-box-916">
+              <iframe id="panda-2be0903c-8986-449e-9d49-bd3e5067da1c"
+                src="https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=2be0903c-8986-449e-9d49-bd3e5067da1c"
                 frameborder="0" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
                 allowfullscreen="true" fetchpriority="high"
                 style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-                title="Introdução à NR 06 e o Nosso Objetivo">
+                title="Bem-vindo ao Treinamento">
               </iframe>
             </div>
           </div>
@@ -11005,11 +11060,14 @@
             <p>Equipamento de Proteção Individual é todo equipamento de uso pessoal, utilizado pelo trabalhador para se proteger de riscos à sua segurança e saúde.</p>
           </div>
           <div class="video-wrap">
-            <div class="video-box" style="display:flex;align-items:center;justify-content:center;">
-              <div style="text-align:center;color:rgba(120, 1, 22, 0.45);">
-                <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
-                <div style="font-size:11px;margin-top:10px;letter-spacing:.06em;text-transform:uppercase;">Vídeo a inserir</div>
-              </div>
+            <div class="video-box video-box-916">
+              <iframe id="panda-ec6cee3e-3652-4613-9833-2082b1b38d14"
+                src="https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=ec6cee3e-3652-4613-9833-2082b1b38d14"
+                frameborder="0" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                allowfullscreen="true" fetchpriority="high"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+                title="O que são EPIs?">
+              </iframe>
             </div>
           </div>
         </div>
@@ -11031,11 +11089,14 @@
             <p>Proporcionar aos participantes o conhecimento básico relacionado aos riscos presentes no ambiente de trabalho e apresentar formas de controle por meio de cuidados e uso adequado de proteção.</p>
           </div>
           <div class="video-wrap">
-            <div class="video-box" style="display:flex;align-items:center;justify-content:center;">
-              <div style="text-align:center;color:rgba(120, 1, 22, 0.45);">
-                <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
-                <div style="font-size:11px;margin-top:10px;letter-spacing:.06em;text-transform:uppercase;">Vídeo a inserir</div>
-              </div>
+            <div class="video-box video-box-916">
+              <iframe id="panda-f68c95d7-c23d-4705-a542-99bf6eb362e1"
+                src="https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=f68c95d7-c23d-4705-a542-99bf6eb362e1"
+                frameborder="0" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                allowfullscreen="true" fetchpriority="high"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+                title="Objetivo do Treinamento">
+              </iframe>
             </div>
           </div>
         </div>
