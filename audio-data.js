@@ -65,42 +65,56 @@ const NARRATION_OVERRIDES = {
     'O que influencia o risco? Parte 2. Sensibilidade individual: varia de acordo com a idade e com a resistência do organismo de cada pessoa. Distância da fonte ruidosa: quanto mais próximo, maior o perigo. Intensidade: quanto maior a intensidade, maior o risco para o trabalhador.',
   's-mod5-efeito-trabalho':
     'Efeito do ruído no trabalho. O ruído excessivo prejudica a concentração, a comunicação entre colegas e a percepção de sinais de alerta, aumentando o risco de acidentes.',
+  's-mod5-efeito-organismo':
+    'Efeito do ruído no organismo. Além da perda auditiva, a exposição contínua ao ruído pode causar estresse, fadiga, irritabilidade e distúrbios do sono. Assista ao vídeo e avance quando concluir.',
+  's-mod5-perda':
+    'Formas de perda auditiva. Toque em cada card para saber mais. Trauma acústico: perda auditiva repentina causada por ruídos de impacto, como explosões. Perda auditiva temporária: ocorre após exposição a ruído intenso e a audição volta ao normal após algum tempo longe do ruído. Perda auditiva permanente: ocorre pela exposição repetida durante longos períodos a ruídos de alta intensidade e é irreversível.',
+  's-mod5-video-sinais':
+    'Vídeo. Sinais de Perda Auditiva. Proteção Auditiva. Assista ao vídeo e avance quando concluir.',
+  's-mod5-quiz1':
+    'Quiz. Qual das opções não é um sinal de perda auditiva? Zumbidos ou sons estranhos na orelha após o trabalho. Incapacidade de ouvir sons baixos ou de alta frequência. Entender facilmente o que as pessoas dizem ao telefone. Dificuldade em ouvir e entender uma conversa ou falar ao telefone.',
+  's-mod5-protetores':
+    'Tipos de protetores. Espuma moldável: adaptam-se aos canais auditivos, são descartáveis, confortáveis e permitem o uso com outros EPIs. Pré-moldados: feitos em silicone, reutilizáveis e devem ser higienizados. Tipo concha: protegem os dois ouvidos de forma igual, com diferentes níveis de proteção.',
+  's-mod5-quiz2':
+    'Quiz. Qual a afirmação correta sobre os protetores auditivos? Os protetores tipo concha cobrem os ouvidos e garantem proteção uniforme, com opções de diferentes níveis. Os protetores de espuma moldável são rígidos e não se adaptam ao formato do ouvido. Os protetores pré-moldados são descartáveis e não podem ser reutilizados.',
   's-mod6':
     'Início do Módulo 6. Proteção Visual.',
   's-mod6-video':
-    'Vídeo. O Pit Stop e as Regras de Entrada. Proteção Visual. Assista ao vídeo sobre o pit stop e as regras de entrada. Avance quando concluir.',
-  's-mod6-video2':
-    'Vídeo. Proibições Críticas no Abastecimento. Proteção Visual. Assista ao vídeo sobre as proibições críticas no abastecimento. Avance quando concluir.',
-  's-mod6-guia':
-    'Guia rápido de segurança do Pit Stop. Regras fundamentais para a baia de abastecimento de GLP e baterias. A área de abastecimento é uma das zonas de maior risco químico e de explosão do armazém. Três regras de acesso e operação. Primeira: permitido apenas um equipamento por vez dentro da baia. Aguarde a sua vez na fila recuada. Segunda: o operador deve apenas estacionar, desligar a máquina e puxar o freio. A troca do cilindro de GLP ou a conexão das baterias é de responsabilidade exclusiva do técnico abastecedor habilitado. Terceira: respeite os avisos de piso e mantenha as saídas do Pit Stop sempre totalmente livres. Fontes de ignição proibidas, tolerância zero. Proibido fumar ou portar qualquer chama exposta. Proibido manusear celulares ou qualquer dispositivo eletrônico ligado, pelo perigo de faíscas estáticas e distração.',
-  's-mod6-video3':
-    'Vídeo. Manobra de Abastecimento pelo Técnico. Proteção Visual. Assista ao vídeo sobre a manobra de abastecimento pelo técnico. Avance quando concluir.',
-  's-mod6-zonas':
-    'Zoneamento de risco do armazém. Entenda onde cada máquina e pessoa deve circular. Para evitar colisões e atropelamentos, o armazém é dividido em três setores de fluxo. Conhecer e respeitar essas barreiras invisíveis é um dever de todos. Zona vermelha: movimentação de empilhadeira. Risco altíssimo de atropelamento e prensagem. Pedestres e ajudantes são proibidos nas ruas de estoque, salvo com bloqueio de segurança. Zona amarela: operações mistas. Risco médio, tráfego compartilhado controlado. Permitido apenas ajudantes com paleteiras e conferentes em auditoria de cargas. Zona verde: paleteiras e pedestres. Risco baixo. Empilhadeiras motorizadas são proibidas nestas vias.',
-  's-mod6-video4':
-    'Vídeo. Condições Adversas de Luz e Ofuscamento. Proteção Visual. Assista ao vídeo sobre condições adversas de luz e ofuscamento. Avance quando concluir.',
-  's-mod6-video5':
-    'Vídeo. Comportamento e a Tolerância Zero a Brincadeiras. Proteção Visual. Assista ao vídeo sobre comportamento e a tolerância zero a brincadeiras. Avance quando concluir.',
-  's-mod6-video6':
-    'Vídeo. Compromisso Coletivo e Encerramento. Proteção Visual. Assista ao vídeo de compromisso coletivo e encerramento. Avance quando concluir.',
+    'Vídeo. Proteção Visual. Assista ao vídeo e avance quando concluir.',
+  's-mod6-riscos':
+    'Riscos que sua visão corre. No ambiente de trabalho, a visão está exposta a diversos riscos: partículas, respingos químicos, radiação, luminosidade intensa e impactos que podem causar lesões, muitas vezes irreversíveis. Por isso, conhecer esses riscos e usar corretamente a proteção visual é essencial para preservar um dos sentidos mais importantes para o trabalho e para a vida.',
+  's-mod6-funcionamento':
+    'Como funciona a visão e sua importância. A visão é o sentido que mais envia informações ao cérebro, sendo essencial para o aprendizado e a comunicação. Defesas naturais: quando um corpo estranho entra no olho, o organismo produz lágrimas automaticamente para ajudar a expulsá-lo. Outra defesa importante é o reflexo de fechar os olhos rapidamente ao perceber uma ameaça imediata.',
+  's-mod6-armazenamento':
+    'Armazenamento e substituição. Mantenha os óculos em local apropriado, como um armário, e nunca os deixe apoiados sobre as lentes, para evitar danos e garantir a proteção. Ao identificar danos ou desgaste que comprometam a visão, solicite imediatamente a substituição dos óculos por um novo.',
+  's-mod6-higienizacao':
+    'Higienização dos óculos. Utilize água e sabão neutro para limpar os óculos e evite o uso de solventes. Após a limpeza, seque com pano macio. Em óculos com tratamento antiembaçante, prefira a limpeza com pano seco, pois lavagens frequentes podem reduzir sua eficácia.',
   's-mod7':
     'Início do Módulo 7. Proteção Respiratória.',
   's-mod7-video':
-    'Vídeo. O que é a NR 12 e o seu Objetivo. Proteção Respiratória. Assista ao vídeo sobre o que é a NR 12 e o seu objetivo. Avance quando concluir.',
-  's-mod7-video2':
-    'Vídeo. Os Deveres e Responsabilidades do Operador. Proteção Respiratória. Assista ao vídeo sobre os deveres e responsabilidades do operador. Avance quando concluir.',
-  's-mod7-pilares':
-    'Os quatro pilares de responsabilidade do operador. A sua atitude determina a segurança de todos. A NR 12 estabelece quatro responsabilidades diárias. Primeiro: inspeção diária. Verifique o estado mecânico e os sistemas de segurança antes de iniciar o turno, sem nenhuma exceção. Segundo: comunicação de falhas. Barulho estranho, mau funcionamento, folga no freio ou falha em luzes: não opere. Comunique imediatamente o supervisor ou a manutenção. Terceiro: respeito absoluto à capacidade. Nunca exceda o limite máximo de carga da placa do fabricante. A sobrecarga gera perda de controle e tombamentos. Quarto: seguir os procedimentos internos de tráfego, manuseio e segurança da empresa.',
-  's-mod7-video3':
-    'Vídeo. Identificando os Riscos Mecânicos e Elétricos. Proteção Respiratória. Assista ao vídeo sobre os riscos mecânicos e elétricos. Avance quando concluir.',
-  's-mod7-video4':
-    'Vídeo. Dispositivos de Segurança Obrigatórios. Proteção Respiratória. Assista ao vídeo sobre os dispositivos de segurança obrigatórios. Avance quando concluir.',
-  's-mod7-protecao':
-    'Sistemas de proteção e regras de proteção física. Dispositivos obrigatórios: seus escudos contra acidentes. Nunca neutralize, altere ou opere com qualquer dispositivo de segurança desligado ou danificado. Verifique diariamente: a grade de proteção superior, que resguarda a cabeça em caso de queda de objetos; o botão de desligamento de emergência, que trava a energia, a tração e a hidráulica; e a buzina, o giroflex e o alarme de ré, que avisam pedestres em áreas ruidosas. Duas regras de ouro: o cinto de segurança é obrigatório em todos os deslocamentos — em um tombamento, evita que o operador seja arremessado e esmagado pelo chassi. E o corpo deve permanecer sempre dentro do perímetro da cabine: nunca apoie o corpo na coluna de elevação nem coloque membros para fora com o veículo em movimento.',
-  's-mod7-video5':
-    'Vídeo. Condutas Proibidas e Boas Práticas. Proteção Respiratória. Assista ao vídeo sobre condutas proibidas e boas práticas. Avance quando concluir.',
+    'Vídeo. Proteção Respiratória. Assista ao vídeo e avance quando concluir.',
+  's-mod7-epr':
+    'Como se proteger? Uma das formas de se proteger contra a inalação de contaminantes atmosféricos é através do uso de Equipamento de Proteção Respiratória, o EPR. Esses equipamentos, chamados respiradores ou máscaras, cobrem a boca e o nariz e protegem a respiração por meio de filtros ou fornecimento de ar.',
+  's-mod7-video-tipos':
+    'Vídeo. Tipos de Respiradores. Proteção Respiratória. Assista ao vídeo e avance quando concluir.',
+  's-mod7-tipos':
+    'Tipos de respiradores. Peça semifacial filtrante, PFF: máscara descartável que cobre nariz e boca, filtrando partículas presentes no ar, indicada para exposições a poeiras e névoas. Semifacial com filtro: respirador reutilizável, com corpo de borracha ou silicone e filtros ou cartuchos substituíveis, indicado para vapores orgânicos, gases e partículas. Máscara com fornecimento de ar: fornece ar respirável de uma fonte externa, usada em ambientes com atmosferas mais críticas ou deficientes de oxigênio.',
+  's-mod7-pff':
+    'Eficiência dos filtros PFF. PFF1: 80% de eficácia. PFF2: 94% de eficácia. PFF3: 99,9% de eficácia.',
+  's-mod7-quiz':
+    'Quiz. Qual alternativa não corresponde a um cuidado adequado com o respirador? Inspecionar se o respirador não está danificado. Lavar filtros e cartuchos para aumentar a durabilidade. Fazer o ajuste correto para evitar a entrada de contaminantes. Lavar respiradores reutilizáveis com água e detergente neutro.',
   's-mod8':
     'Início do Módulo 8. Proteção das Mãos.',
+  's-mod8-riscos':
+    'Conhecendo os riscos. Desatenção. Uso de adornos. Falta de proteção em máquinas e equipamentos. Uso de objetos cortantes, como estiletes e facas. Uso de equipamentos inadequados. Uso inadequado de produtos químicos. Importante: conhecendo os riscos existentes no seu local de trabalho, você conseguirá prevenir mais facilmente os acidentes.',
+  's-mod8-prevenir':
+    'Formas de prevenir. Identificar e conhecer os riscos do setor. Participar de treinamentos. Utilizar todos os EPIs recomendados. Trabalhar de maneira segura. Comunicar todas as condições de risco. Respeitar seus limites. Seguir as normas, procedimentos e regras da empresa. Atenção: trabalhar preventivamente é a melhor forma de evitar acidentes graves, portanto, seja preventivo.',
+  's-mod8-quiz':
+    'Quiz. Qual alternativa não é um tipo comum de lesão nas mãos? Corte. Crescimento das unhas. Perfuração. Queimaduras.',
+  's-mod8-luvas-riscos':
+    'Medidas de controle. Grupos de risco. Existem diversos modelos diferentes de luvas de segurança, e cada um deles oferece proteção para determinados grupos de risco. Riscos físicos ou mecânicos: cortes, abrasões, perfurações, choques. Riscos químicos ou biológicos: bactérias, fungos, parasitas, vírus.',
+  's-mod8-luvas-tipos':
+    'Principais modelos de luvas. Luva anticorte: protege contra cortes nas mãos. Luva de látex natural: flexível e resistente, protege contra ácidos, álcool e produtos químicos. Luva de látex nitrílica: excelente proteção contra óleos, solventes, gordura animal e graxa. Luva de PVC: flexível, excelente proteção contra ácidos, cáusticos, bases, álcoois e abrasões. Luva de vaqueta e raspa de couro: boas opções para o risco de abrasão e até mesmo solda, pois o couro é muito resistente.',
   's-fim':
     'Parabéns. Você concluiu o treinamento NR 06 — Operador de Empilhadeira, com conteúdo complementar da NR 12. Por mérito, dedicação e compromisso com a segurança, você percorreu os sete módulos e demonstrou responsabilidade com a sua vida e com a vida dos seus colegas. A segurança é um direito de todos e um dever de cada um. Continue fazendo a sua parte.',
 };

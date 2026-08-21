@@ -1416,6 +1416,88 @@
       color: #ffe6a3;
     }
 
+    .epi-pff-table {
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto;
+      border-collapse: separate;
+      border-spacing: 0 10px;
+    }
+
+    .epi-pff-table td,
+    .epi-pff-table th {
+      padding: 14px 18px;
+      text-align: left;
+      font-family: var(--font-p);
+    }
+
+    .epi-pff-table th {
+      font-family: var(--font-h);
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: rgba(247, 181, 56, 0.65);
+      padding-bottom: 4px;
+    }
+
+    .epi-pff-table tr.epi-pff-row td {
+      background: linear-gradient(160deg, #a1122e 0%, #780116 48%, #5A0111 100%);
+      border: 1px solid rgba(255, 45, 74, 0.45);
+      color: #f7b538;
+    }
+
+    .epi-pff-table tr.epi-pff-row td:first-child {
+      border-radius: 14px 0 0 14px;
+      font-family: var(--font-h);
+      font-weight: 800;
+      color: #f7b538;
+    }
+
+    .epi-pff-table tr.epi-pff-row td:last-child {
+      border-radius: 0 14px 14px 0;
+      font-weight: 800;
+    }
+
+    .epi-glove-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .epi-glove-card {
+      background: linear-gradient(160deg, #a1122e 0%, #780116 48%, #5A0111 100%);
+      border: 1px solid rgba(255, 45, 74, 0.45);
+      border-radius: 16px;
+      padding: 18px 20px;
+      box-shadow:
+        0 0 16px rgba(255, 45, 74, 0.28),
+        0 16px 32px rgba(0, 0, 0, 0.28);
+    }
+
+    .epi-glove-card h5 {
+      font-family: var(--font-h);
+      font-size: 14.5px;
+      color: #f7b538;
+      margin: 0 0 6px;
+    }
+
+    .epi-glove-card p {
+      font-family: var(--font-p);
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: #f7b538;
+      margin: 0;
+    }
+
+    @media (max-width: 700px) {
+      .epi-glove-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .epi-badge-tag {
       display: inline-block;
       background: rgba(247, 181, 56, 0.14);
@@ -1657,115 +1739,206 @@
     }
 
     #s2e .q-opt,
-    #s-mod4-quiz .q-opt {
+    #s-mod4-quiz .q-opt,
+    #s-mod5-quiz1 .q-opt,
+    #s-mod5-quiz2 .q-opt ,
+    #s-mod7-quiz .q-opt ,
+    #s-mod8-quiz .q-opt {
       border: 1px solid transparent;
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
     }
 
     #s2e .q-opt:nth-child(1),
-    #s-mod4-quiz .q-opt:nth-child(1) {
+    #s-mod4-quiz .q-opt:nth-child(1),
+    #s-mod5-quiz1 .q-opt:nth-child(1),
+    #s-mod5-quiz2 .q-opt:nth-child(1) ,
+    #s-mod7-quiz .q-opt:nth-child(1) ,
+    #s-mod8-quiz .q-opt:nth-child(1) {
       background: #1e3a8a;
       border-color: #1e40af;
       color: #ffffff;
     }
 
     #s2e .q-opt:nth-child(1):hover:not(.answered),
-    #s-mod4-quiz .q-opt:nth-child(1):hover:not(.answered) {
+    #s-mod4-quiz .q-opt:nth-child(1):hover:not(.answered),
+    #s-mod5-quiz1 .q-opt:nth-child(1):hover:not(.answered),
+    #s-mod5-quiz2 .q-opt:nth-child(1):hover:not(.answered) ,
+    #s-mod7-quiz .q-opt:nth-child(1):hover:not(.answered) ,
+    #s-mod8-quiz .q-opt:nth-child(1):hover:not(.answered) {
       background: #1d4ed8;
       border-color: #ffffff;
     }
 
     #s2e .q-opt:nth-child(1) .opt-l,
-    #s-mod4-quiz .q-opt:nth-child(1) .opt-l {
+    #s-mod4-quiz .q-opt:nth-child(1) .opt-l,
+    #s-mod5-quiz1 .q-opt:nth-child(1) .opt-l,
+    #s-mod5-quiz2 .q-opt:nth-child(1) .opt-l ,
+    #s-mod7-quiz .q-opt:nth-child(1) .opt-l ,
+    #s-mod8-quiz .q-opt:nth-child(1) .opt-l {
       background: #ffffff;
       border-color: #ffffff;
       color: #1e3a8a;
     }
 
     #s2e .q-opt:nth-child(2),
-    #s-mod4-quiz .q-opt:nth-child(2) {
+    #s-mod4-quiz .q-opt:nth-child(2),
+    #s-mod5-quiz1 .q-opt:nth-child(2),
+    #s-mod5-quiz2 .q-opt:nth-child(2) ,
+    #s-mod7-quiz .q-opt:nth-child(2) ,
+    #s-mod8-quiz .q-opt:nth-child(2) {
       background: #7c3aed;
       border-color: #6d28d9;
       color: #ffffff;
     }
 
     #s2e .q-opt:nth-child(2):hover:not(.answered),
-    #s-mod4-quiz .q-opt:nth-child(2):hover:not(.answered) {
+    #s-mod4-quiz .q-opt:nth-child(2):hover:not(.answered),
+    #s-mod5-quiz1 .q-opt:nth-child(2):hover:not(.answered),
+    #s-mod5-quiz2 .q-opt:nth-child(2):hover:not(.answered) ,
+    #s-mod7-quiz .q-opt:nth-child(2):hover:not(.answered) ,
+    #s-mod8-quiz .q-opt:nth-child(2):hover:not(.answered) {
       background: #8b5cf6;
       border-color: #ffffff;
     }
 
     #s2e .q-opt:nth-child(2) .opt-l,
-    #s-mod4-quiz .q-opt:nth-child(2) .opt-l {
+    #s-mod4-quiz .q-opt:nth-child(2) .opt-l,
+    #s-mod5-quiz1 .q-opt:nth-child(2) .opt-l,
+    #s-mod5-quiz2 .q-opt:nth-child(2) .opt-l ,
+    #s-mod7-quiz .q-opt:nth-child(2) .opt-l ,
+    #s-mod8-quiz .q-opt:nth-child(2) .opt-l {
       background: #ffffff;
       border-color: #ffffff;
       color: #7c3aed;
     }
 
     #s2e .q-opt:nth-child(3),
-    #s-mod4-quiz .q-opt:nth-child(3) {
+    #s-mod4-quiz .q-opt:nth-child(3),
+    #s-mod5-quiz1 .q-opt:nth-child(3),
+    #s-mod5-quiz2 .q-opt:nth-child(3) ,
+    #s-mod7-quiz .q-opt:nth-child(3) ,
+    #s-mod8-quiz .q-opt:nth-child(3) {
       background: #ea580c;
       border-color: #c2410c;
       color: #ffffff;
     }
 
     #s2e .q-opt:nth-child(3):hover:not(.answered),
-    #s-mod4-quiz .q-opt:nth-child(3):hover:not(.answered) {
+    #s-mod4-quiz .q-opt:nth-child(3):hover:not(.answered),
+    #s-mod5-quiz1 .q-opt:nth-child(3):hover:not(.answered),
+    #s-mod5-quiz2 .q-opt:nth-child(3):hover:not(.answered) ,
+    #s-mod7-quiz .q-opt:nth-child(3):hover:not(.answered) ,
+    #s-mod8-quiz .q-opt:nth-child(3):hover:not(.answered) {
       background: #f97316;
       border-color: #ffffff;
     }
 
     #s2e .q-opt:nth-child(3) .opt-l,
-    #s-mod4-quiz .q-opt:nth-child(3) .opt-l {
+    #s-mod4-quiz .q-opt:nth-child(3) .opt-l,
+    #s-mod5-quiz1 .q-opt:nth-child(3) .opt-l,
+    #s-mod5-quiz2 .q-opt:nth-child(3) .opt-l ,
+    #s-mod7-quiz .q-opt:nth-child(3) .opt-l ,
+    #s-mod8-quiz .q-opt:nth-child(3) .opt-l {
       background: #ffffff;
       border-color: #ffffff;
       color: #ea580c;
     }
 
+    #s-mod5-quiz1 .q-opt:nth-child(4) ,
+    #s-mod7-quiz .q-opt:nth-child(4) ,
+    #s-mod8-quiz .q-opt:nth-child(4) {
+      background: #0e7490;
+      border-color: #155e75;
+      color: #ffffff;
+    }
+
+    #s-mod5-quiz1 .q-opt:nth-child(4):hover:not(.answered) ,
+    #s-mod7-quiz .q-opt:nth-child(4):hover:not(.answered) ,
+    #s-mod8-quiz .q-opt:nth-child(4):hover:not(.answered) {
+      background: #0891b2;
+      border-color: #ffffff;
+    }
+
+    #s-mod5-quiz1 .q-opt:nth-child(4) .opt-l ,
+    #s-mod7-quiz .q-opt:nth-child(4) .opt-l ,
+    #s-mod8-quiz .q-opt:nth-child(4) .opt-l {
+      background: #ffffff;
+      border-color: #ffffff;
+      color: #0e7490;
+    }
+
     #s2e .q-opt.correct,
-    #s-mod4-quiz .q-opt.correct {
+    #s-mod4-quiz .q-opt.correct,
+    #s-mod5-quiz1 .q-opt.correct,
+    #s-mod5-quiz2 .q-opt.correct ,
+    #s-mod7-quiz .q-opt.correct ,
+    #s-mod8-quiz .q-opt.correct {
       background: #1b7a42 !important;
       border-color: #145c32 !important;
       color: #ffffff !important;
     }
 
     #s2e .q-opt.correct .opt-l,
-    #s-mod4-quiz .q-opt.correct .opt-l {
+    #s-mod4-quiz .q-opt.correct .opt-l,
+    #s-mod5-quiz1 .q-opt.correct .opt-l,
+    #s-mod5-quiz2 .q-opt.correct .opt-l ,
+    #s-mod7-quiz .q-opt.correct .opt-l ,
+    #s-mod8-quiz .q-opt.correct .opt-l {
       background: #ffffff !important;
       border-color: #ffffff !important;
       color: #1b7a42 !important;
     }
 
     #s2e .q-opt.wrong,
-    #s-mod4-quiz .q-opt.wrong {
+    #s-mod4-quiz .q-opt.wrong,
+    #s-mod5-quiz1 .q-opt.wrong,
+    #s-mod5-quiz2 .q-opt.wrong ,
+    #s-mod7-quiz .q-opt.wrong ,
+    #s-mod8-quiz .q-opt.wrong {
       background: #c0392b !important;
       border-color: #922b21 !important;
       color: #ffffff !important;
     }
 
     #s2e .q-opt.wrong .opt-l,
-    #s-mod4-quiz .q-opt.wrong .opt-l {
+    #s-mod4-quiz .q-opt.wrong .opt-l,
+    #s-mod5-quiz1 .q-opt.wrong .opt-l,
+    #s-mod5-quiz2 .q-opt.wrong .opt-l ,
+    #s-mod7-quiz .q-opt.wrong .opt-l ,
+    #s-mod8-quiz .q-opt.wrong .opt-l {
       background: #ffffff !important;
       border-color: #ffffff !important;
       color: #c0392b !important;
     }
 
     #s2e .q-opt.selected,
-    #s-mod4-quiz .q-opt.selected {
+    #s-mod4-quiz .q-opt.selected,
+    #s-mod5-quiz1 .q-opt.selected,
+    #s-mod5-quiz2 .q-opt.selected ,
+    #s-mod7-quiz .q-opt.selected ,
+    #s-mod8-quiz .q-opt.selected {
       outline: 3px solid #780116;
       outline-offset: 3px;
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28), 0 0 0 6px rgba(120, 1, 22, 0.18);
     }
 
     #s2e .epi-quiz-actions,
-    #s-mod4-quiz .epi-quiz-actions {
+    #s-mod4-quiz .epi-quiz-actions,
+    #s-mod5-quiz1 .epi-quiz-actions,
+    #s-mod5-quiz2 .epi-quiz-actions ,
+    #s-mod7-quiz .epi-quiz-actions ,
+    #s-mod8-quiz .epi-quiz-actions {
       display: flex;
       justify-content: center;
       margin-top: 22px;
     }
 
     #s2e .epi-quiz-check,
-    #s-mod4-quiz .epi-quiz-check {
+    #s-mod4-quiz .epi-quiz-check,
+    #s-mod5-quiz1 .epi-quiz-check,
+    #s-mod5-quiz2 .epi-quiz-check ,
+    #s-mod7-quiz .epi-quiz-check ,
+    #s-mod8-quiz .epi-quiz-check {
       align-self: center;
       text-transform: uppercase;
       font-size: 14px;
@@ -1773,7 +1946,11 @@
     }
 
     #s2e .epi-quiz-check:disabled,
-    #s-mod4-quiz .epi-quiz-check:disabled {
+    #s-mod4-quiz .epi-quiz-check:disabled,
+    #s-mod5-quiz1 .epi-quiz-check:disabled,
+    #s-mod5-quiz2 .epi-quiz-check:disabled ,
+    #s-mod7-quiz .epi-quiz-check:disabled ,
+    #s-mod8-quiz .epi-quiz-check:disabled {
       opacity: 0.45;
       cursor: not-allowed;
       transform: none;
@@ -1781,7 +1958,11 @@
     }
 
     #s2e .q-feedback.ok,
-    #s-mod4-quiz .q-feedback.ok {
+    #s-mod4-quiz .q-feedback.ok,
+    #s-mod5-quiz1 .q-feedback.ok,
+    #s-mod5-quiz2 .q-feedback.ok ,
+    #s-mod7-quiz .q-feedback.ok ,
+    #s-mod8-quiz .q-feedback.ok {
       background: #1b7a42;
       border: 2px solid #145c32;
       border-left: 6px solid #0e4726;
@@ -1790,7 +1971,11 @@
     }
 
     #s2e .q-feedback.nok,
-    #s-mod4-quiz .q-feedback.nok {
+    #s-mod4-quiz .q-feedback.nok,
+    #s-mod5-quiz1 .q-feedback.nok,
+    #s-mod5-quiz2 .q-feedback.nok ,
+    #s-mod7-quiz .q-feedback.nok ,
+    #s-mod8-quiz .q-feedback.nok {
       background: #780116;
       border: 2px solid #5A0111;
       color: #f7b538;
@@ -12118,6 +12303,179 @@
           </svg></div>
       </section>
 
+      <!-- ── S-MOD5-EFEITO-ORGANISMO: Efeito do ruído no organismo ── -->
+      <section class="slide" id="s-mod5-efeito-organismo">
+        <div class="top-bar">
+          <div><span class="section-tag">🩺 Efeitos</span>
+            <div class="slide-title" style="margin-top:6px">Efeito do ruído <span>no organismo</span></div>
+            <div class="slide-subtitle">Proteção Auditiva</div>
+          </div>
+        </div>
+        <div class="content-area" style="display:grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; max-width: 1050px; margin: 0 auto; width:100%;">
+          <div class="epi-card">
+            <p>Além da perda auditiva, a exposição contínua ao ruído pode causar estresse, fadiga, irritabilidade e distúrbios do sono.</p>
+          </div>
+          <div class="video-wrap">
+            <div class="video-box" style="display:flex;align-items:center;justify-content:center;">
+              <div style="text-align:center;color:rgba(120, 1, 22, 0.45);">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
+                <div style="font-size:10px;margin-top:8px;letter-spacing:.06em;text-transform:uppercase;">Vídeo a inserir</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
+          </svg></div>
+      </section>
+
+      <!-- ── S-MOD5-PERDA: Formas de Perda Auditiva ── -->
+      <section class="slide" id="s-mod5-perda">
+        <div class="top-bar">
+          <div><span class="section-tag">📂 Perda da Audição</span>
+            <div class="slide-title" style="margin-top:6px">Formas de <span>Perda Auditiva</span></div>
+            <div class="slide-subtitle">Toque em cada card para saber mais</div>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="epi-info-grid">
+            <div class="epi-info-card" onclick="epiToggleCard(this)">
+              <h4>Trauma Acústico <svg class="epi-toggle-ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></h4>
+              <p>É a perda auditiva repentina causada por ruídos de impacto. Ex: explosões de dinamite e bombas.</p>
+            </div>
+            <div class="epi-info-card" onclick="epiToggleCard(this)">
+              <h4>Perda Auditiva Temporária <svg class="epi-toggle-ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></h4>
+              <p>Ocorre após exposição a ruído intenso, mesmo por curto período de tempo. A audição volta ao normal após algum tempo longe do ruído. Ex: discoteca e trio elétrico.</p>
+              <div class="video-wrap" style="max-width:100%;" onclick="event.stopPropagation()">
+                <div class="video-box" style="display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;">
+                  <div style="text-align:center;color:rgba(247, 181, 56, 0.55);">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
+                    <div style="font-size:9px;margin-top:6px;letter-spacing:.06em;text-transform:uppercase;">Vídeo a inserir</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="epi-info-card" onclick="epiToggleCard(this)">
+              <h4>Perda Auditiva Permanente <svg class="epi-toggle-ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></h4>
+              <p>Ocorre pela exposição repetida durante longos períodos a ruídos de alta intensidade. É irreversível, pois destrói as células auditivas. Ex: trabalho em ambiente ruidoso.</p>
+            </div>
+          </div>
+        </div>
+        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
+          </svg></div>
+      </section>
+
+      <!-- ── S-MOD5-VIDEO-SINAIS: Vídeo — Sinais de Perda Auditiva ── -->
+      <section class="slide video-slide" id="s-mod5-video-sinais">
+        <div class="top-bar">
+          <div><span class="section-tag">📹 Vídeo</span>
+            <div class="slide-title" style="margin-top:6px">Sinais de <span>Perda Auditiva</span></div>
+            <div class="slide-subtitle">Proteção Auditiva</div>
+          </div>
+        </div>
+        <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+          <div class="video-wrap">
+            <div class="video-box" style="display:flex;align-items:center;justify-content:center;">
+              <div style="text-align:center;color:rgba(120, 1, 22, 0.45);">
+                <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
+                <div style="font-size:11px;margin-top:10px;letter-spacing:.06em;text-transform:uppercase;">Vídeo a inserir</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
+          </svg></div>
+      </section>
+
+      <!-- ── S-MOD5-QUIZ1: Quiz — Sinais de Perda Auditiva ── -->
+      <section class="slide" id="s-mod5-quiz1">
+        <div class="top-bar">
+          <div><span class="section-tag">🎯 Quiz</span>
+            <div class="slide-title" style="margin-top:6px">Teste seu <span>Conhecimento</span></div>
+            <div class="slide-subtitle">Proteção Auditiva — Sinais de Perda Auditiva</div>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="epi-quiz-wrap">
+            <p class="epi-quiz-q">Qual das opções NÃO é um sinal de perda auditiva?</p>
+            <div class="q-options" id="epiq-audicao-options">
+              <div class="q-opt" data-correct="false" onclick="epiQuizSelect(this)"><div class="opt-l">A</div><span>Zumbidos ou sons estranhos na orelha, notados após o período de trabalho, em ambientes silenciosos ou ao dormir.</span></div>
+              <div class="q-opt" data-correct="false" onclick="epiQuizSelect(this)"><div class="opt-l">B</div><span>Incapacidade de ouvir sons baixos ou de alta frequência.</span></div>
+              <div class="q-opt" data-correct="true" onclick="epiQuizSelect(this)"><div class="opt-l">C</div><span>Entender facilmente o que as pessoas dizem ao telefone.</span></div>
+              <div class="q-opt" data-correct="false" onclick="epiQuizSelect(this)"><div class="opt-l">D</div><span>Dificuldade em ouvir e entender uma conversa ou falar ao telefone.</span></div>
+            </div>
+            <div class="q-feedback" id="epiq-audicao-feedback"></div>
+            <div class="epi-quiz-actions">
+              <button type="button" class="btn-start epi-quiz-check" id="epiq-audicao-check" onclick="epiQuizCheck('epiq-audicao')">Verificar resposta</button>
+            </div>
+          </div>
+          <div class="req-item" id="epiq-audicao-req" style="display:none"></div>
+        </div>
+        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
+          </svg></div>
+      </section>
+
+      <!-- ── S-MOD5-PROTETORES: Tipos de Protetores Auditivos ── -->
+      <section class="slide" id="s-mod5-protetores">
+        <div class="top-bar">
+          <div><span class="section-tag">🎧 Proteção Auditiva</span>
+            <div class="slide-title" style="margin-top:6px">Tipos de <span>Protetores</span></div>
+            <div class="slide-subtitle">Proteção Auditiva</div>
+          </div>
+        </div>
+        <div class="content-area" style="max-width:1100px;margin:0 auto;width:100%;">
+          <div class="epi-img-ph" style="max-width:340px;margin:0 auto 22px;"><img src="img/picking.png" alt="Tipos de protetores auditivos"></div>
+          <div class="epi-info-grid">
+            <div class="epi-info-card epi-open" style="cursor:default;">
+              <h4>Espuma Moldável</h4>
+              <p>Adaptam-se aos formatos de canais auditivos por serem de espuma moldável. São descartáveis, confortáveis e permitem o uso com outros EPIs.</p>
+            </div>
+            <div class="epi-info-card epi-open" style="cursor:default;">
+              <h4>Pré-Moldados</h4>
+              <p>Feitos em silicone, disponíveis em três tamanhos. Suas flanges flexíveis proporcionam conforto, boa vedação e fácil colocação. São reutilizáveis e devem ser higienizados.</p>
+            </div>
+            <div class="epi-info-card epi-open" style="cursor:default;">
+              <h4>Tipo Concha</h4>
+              <p>Protegem os dois ouvidos de forma igual, com modelos que oferecem diferentes níveis de proteção.</p>
+            </div>
+          </div>
+        </div>
+        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
+          </svg></div>
+      </section>
+
+      <!-- ── S-MOD5-QUIZ2: Quiz — Tipos de Protetores Auditivos ── -->
+      <section class="slide" id="s-mod5-quiz2">
+        <div class="top-bar">
+          <div><span class="section-tag">🎯 Quiz</span>
+            <div class="slide-title" style="margin-top:6px">Teste seu <span>Conhecimento</span></div>
+            <div class="slide-subtitle">Proteção Auditiva — Tipos de Protetores Auditivos</div>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="epi-quiz-wrap">
+            <p class="epi-quiz-q">Qual a afirmação correta sobre os protetores auditivos?</p>
+            <div class="q-options" id="epiq-protetor-options">
+              <div class="q-opt" data-correct="true" onclick="epiQuizSelect(this)"><div class="opt-l">A</div><span>Os protetores tipo concha cobrem os ouvidos e garantem proteção uniforme, com opções de diferentes níveis.</span></div>
+              <div class="q-opt" data-correct="false" onclick="epiQuizSelect(this)"><div class="opt-l">B</div><span>Os protetores de espuma moldável são rígidos e não se adaptam ao formato do ouvido.</span></div>
+              <div class="q-opt" data-correct="false" onclick="epiQuizSelect(this)"><div class="opt-l">C</div><span>Os protetores pré-moldados são descartáveis e não podem ser reutilizados.</span></div>
+            </div>
+            <div class="q-feedback" id="epiq-protetor-feedback"></div>
+            <div class="epi-quiz-actions">
+              <button type="button" class="btn-start epi-quiz-check" id="epiq-protetor-check" onclick="epiQuizCheck('epiq-protetor')">Verificar resposta</button>
+            </div>
+          </div>
+          <div class="req-item" id="epiq-protetor-req" style="display:none"></div>
+        </div>
+        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
+          </svg></div>
+      </section>
+
       <!-- ── S-MOD5-GAME: DESAFIO — Central de Manutenção ── -->
       <section class="slide" id="s-mod5-game">
         <style>
@@ -12328,629 +12686,48 @@
           </svg></div>
       </section>
 
-      <!-- ── S-MOD6-VIDEO: VÍDEO — O Pit Stop e as Regras de Entrada ── -->
+      <!-- ── S-MOD6-VIDEO: Vídeo — Proteção Visual ── -->
       <section class="slide video-slide" id="s-mod6-video">
         <div class="top-bar">
           <div><span class="section-tag">📹 Vídeo</span>
-            <div class="slide-title" style="margin-top:6px">O Pit Stop <span>e as Regras de Entrada</span></div>
+            <div class="slide-title" style="margin-top:6px">Proteção <span>Visual</span></div>
             <div class="slide-subtitle">Proteção Visual</div>
           </div>
         </div>
         <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
           <div class="video-wrap">
-            <div class="video-box">
-              <iframe id="panda-97f29445-ac4c-423a-ba10-486dc37619d2"
-                src="https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=97f29445-ac4c-423a-ba10-486dc37619d2"
-                frameborder="0" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
-                allowfullscreen="true" fetchpriority="high"
-                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-                title="O Pit Stop e as Regras de Entrada — NR06 - OPERADOR DE EMPILHADEIRA">
-              </iframe>
-            </div>
-          </div>
-        </div>
-        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
-          </svg></div>
-      </section>
-
-      <!-- ── S-MOD6-VIDEO2: VÍDEO — Proibições Críticas no Abastecimento ── -->
-      <section class="slide video-slide" id="s-mod6-video2">
-        <div class="top-bar">
-          <div><span class="section-tag">📹 Vídeo</span>
-            <div class="slide-title" style="margin-top:6px">Proibições Críticas <span>no Abastecimento</span></div>
-            <div class="slide-subtitle">Proteção Visual</div>
-          </div>
-        </div>
-        <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
-          <div class="video-wrap">
-            <div class="video-box">
-              <iframe id="panda-e652bb0f-b575-4470-9e72-3b68ec5a4da2"
-                src="https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=e652bb0f-b575-4470-9e72-3b68ec5a4da2"
-                frameborder="0" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
-                allowfullscreen="true" fetchpriority="high"
-                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-                title="Proibições Críticas no Abastecimento — NR06 - OPERADOR DE EMPILHADEIRA">
-              </iframe>
-            </div>
-          </div>
-        </div>
-        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
-          </svg></div>
-      </section>
-
-      <!-- ── S-MOD6-GUIA: GUIA RÁPIDO DE SEGURANÇA DO PIT STOP ── -->
-      <section class="slide" id="s-mod6-guia">
-        <style>
-          #s-mod6-guia .ps-content {
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            padding: clamp(12px,2.2cqh,22px) clamp(22px,4cqw,44px) clamp(68px,10cqh,100px);
-            width: 100%; box-sizing: border-box; min-height: 0;
-            overflow: hidden; container-type: size;
-          }
-          #s-mod6-guia .ps-shell {
-            display: flex; flex-direction: column; gap: clamp(10px,1.6cqh,16px);
-            width: min(100%, 1120px); margin: 0 auto;
-            min-height: 0;
-          }
-          #s-mod6-guia .ps-hero {
-            position: relative; overflow: hidden; flex-shrink: 0;
-            display: flex; align-items: center; gap: 16px;
-            padding: clamp(14px,2.2cqh,20px) clamp(16px,2.2cqw,22px);
-            background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
-            border: 1px solid rgba(120, 1, 22, 0.32);
-            border-radius: 18px;
-            box-shadow: 0 18px 40px rgba(0,0,0,0.28);
-          }
-          #s-mod6-guia .ps-hero::before {
-            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
-            background: linear-gradient(180deg, #780116, #9A1A32);
-          }
-          #s-mod6-guia .ps-hero-icon {
-            flex-shrink: 0; width: clamp(44px,7cqh,54px); height: clamp(44px,7cqh,54px);
-            border-radius: 14px;
-            background: linear-gradient(135deg, #780116, #5A0111);
-            display: flex; align-items: center; justify-content: center;
-            font-size: clamp(22px,3.6cqh,28px);
-            box-shadow: 0 8px 20px rgba(120, 1, 22, 0.4);
-          }
-          #s-mod6-guia .ps-kicker {
-            font-family: var(--font-h); font-size: 11px; font-weight: 800;
-            letter-spacing: 0.12em; text-transform: uppercase;
-            color: #9A1A32; margin: 0 0 4px;
-          }
-          #s-mod6-guia .ps-hero p {
-            font-family: var(--font-p); font-size: clamp(14px,2.3cqh,16px);
-            color: rgba(255,255,255,0.9); margin: 0; line-height: 1.45;
-          }
-          #s-mod6-guia .ps-hero strong { color: #9A1A32; font-weight: 800; }
-          #s-mod6-guia .ps-grid {
-            display: grid; grid-template-columns: 1fr 1fr 1fr;
-            gap: clamp(10px,1.6cqw,16px);
-          }
-          #s-mod6-guia .ps-card {
-            position: relative; overflow: hidden;
-            display: flex; flex-direction: column; justify-content: flex-start;
-            gap: 10px;
-            padding: clamp(16px,2.6cqh,22px) clamp(14px,1.8cqw,18px);
-            background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
-            border: 1px solid rgba(120, 1, 22, 0.28);
-            border-radius: 18px;
-            box-shadow: 0 18px 40px rgba(0,0,0,0.28);
-            min-width: 0;
-          }
-          #s-mod6-guia .ps-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-            background: linear-gradient(90deg, #780116, #9A1A32);
-          }
-          #s-mod6-guia .ps-card.ban::before {
-            background: linear-gradient(90deg, #e74c3c, #ff7675);
-          }
-          #s-mod6-guia .ps-top {
-            display: flex; align-items: center; gap: 12px;
-          }
-          #s-mod6-guia .ps-num {
-            font-family: var(--font-h); font-weight: 900;
-            font-size: clamp(26px,5cqh,36px); line-height: 1;
-            color: rgba(120, 1, 22, 0.3);
-            letter-spacing: -0.04em;
-          }
-          #s-mod6-guia .ps-ico {
-            width: 42px; height: 42px; border-radius: 50%;
-            background: linear-gradient(135deg, #780116, #5A0111);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 20px; flex-shrink: 0;
-            box-shadow: 0 8px 18px rgba(120, 1, 22, 0.4);
-          }
-          #s-mod6-guia .ps-card.ban .ps-ico {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-            box-shadow: 0 8px 18px rgba(231, 76, 60, 0.4);
-          }
-          #s-mod6-guia .ps-label {
-            font-family: var(--font-h); font-size: 11px; font-weight: 800;
-            letter-spacing: 0.1em; text-transform: uppercase; color: #9A1A32; margin: 0;
-          }
-          #s-mod6-guia .ps-card.ban .ps-label { color: #ff7675; }
-          #s-mod6-guia .ps-card h3 {
-            font-family: var(--font-h); font-size: clamp(15px,2.4cqh,18px);
-            font-weight: 900; color: #fff; margin: 0; line-height: 1.25;
-          }
-          #s-mod6-guia .ps-card p {
-            font-family: var(--font-p); font-size: clamp(13px,2cqh,15px);
-            color: rgba(255,255,255,0.82); margin: 0; line-height: 1.45;
-          }
-          #s-mod6-guia .ps-card strong { color: #9A1A32; font-weight: 800; }
-          #s-mod6-guia .ps-card.ban p strong { color: #ff7675; }
-          #s-mod6-guia .ps-bans {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: clamp(10px,1.6cqw,16px);
-          }
-          #s-mod6-guia .ps-carousel-nav { display: none; }
-          @media (min-width: 769px) and (max-height: 820px) {
-            #s-mod6-guia .ps-hero p, #s-mod6-guia .ps-card p { font-size: 13px; }
-            #s-mod6-guia .ps-card h3 { font-size: 15px; }
-            #s-mod6-guia .ps-card { padding: 14px 16px; gap: 8px; }
-          }
-          @media screen and (max-width: 768px) and (orientation: portrait) {
-            @keyframes psFadeIn {
-              from { opacity: 0; transform: translateX(18px); }
-              to   { opacity: 1; transform: translateX(0); }
-            }
-            #s-mod6-guia { overflow: hidden; }
-            #s-mod6-guia .slide-title { font-size: 22px !important; }
-            #s-mod6-guia .slide-subtitle { display: none; }
-            #s-mod6-guia .ps-content {
-              overflow: hidden !important;
-              justify-content: center !important;
-              padding: 8px 20px 88px !important;
-              gap: 14px;
-            }
-            #s-mod6-guia .ps-shell {
-              height: auto; width: 100%; max-width: 360px; gap: 0;
-            }
-            #s-mod6-guia .ps-grid,
-            #s-mod6-guia .ps-bans {
-              display: block; width: 100%;
-            }
-            #s-mod6-guia .ps-hero,
-            #s-mod6-guia .ps-card { display: none !important; }
-            #s-mod6-guia .ps-hero.ps-slide-active,
-            #s-mod6-guia .ps-card.ps-slide-active {
-              display: flex !important;
-              animation: psFadeIn 0.3s ease forwards;
-            }
-            #s-mod6-guia .ps-hero.ps-slide-active {
-              flex-direction: column;
-              align-items: flex-start;
-              min-height: 220px;
-              padding: 22px 20px 22px 24px;
-              gap: 14px;
-            }
-            #s-mod6-guia .ps-card.ps-slide-active {
-              min-height: 280px;
-              padding: 26px 22px 26px 24px;
-              gap: 12px;
-              justify-content: center;
-            }
-            #s-mod6-guia .ps-hero p,
-            #s-mod6-guia .ps-card p { font-size: 15px !important; line-height: 1.5; }
-            #s-mod6-guia .ps-card h3 { font-size: 20px !important; }
-            #s-mod6-guia .ps-kicker,
-            #s-mod6-guia .ps-label { font-size: 12px; }
-            #s-mod6-guia .ps-carousel-nav {
-              display: flex !important;
-              align-items: center; justify-content: center; gap: 16px;
-              width: 100%; max-width: 360px; margin: 0 auto; flex-shrink: 0;
-            }
-            #s-mod6-guia .ps-nav-btn {
-              background: linear-gradient(135deg, #780116, #5A0111);
-              color: #fff; border: none; border-radius: 50%;
-              width: 46px; height: 46px; min-width: 46px; min-height: 46px;
-              cursor: pointer; display: flex; align-items: center; justify-content: center;
-              box-shadow: 0 6px 16px rgba(120, 1, 22, 0.4);
-              touch-action: manipulation; -webkit-tap-highlight-color: transparent;
-            }
-            #s-mod6-guia .ps-nav-btn:active:not(:disabled) { transform: scale(0.94); }
-            #s-mod6-guia .ps-nav-btn:disabled { opacity: 0.3; cursor: default; }
-            #s-mod6-guia .ps-nav-btn svg { pointer-events: none; }
-            #s-mod6-guia .ps-counter {
-              font-family: var(--font-h); font-size: 14px; font-weight: 800;
-              color: rgba(255,255,255,0.9); min-width: 56px; text-align: center;
-              letter-spacing: 0.04em;
-            }
-          }
-        </style>
-        <div class="top-bar">
-          <div><span class="section-tag">📘 Conteúdo</span>
-            <div class="slide-title" style="margin-top:6px">Guia Rápido de Segurança <span>do Pit Stop</span></div>
-            <div class="slide-subtitle">Proteção Visual</div>
-          </div>
-        </div>
-        <div class="content-area ps-content">
-          <div class="ps-shell">
-            <div class="ps-hero ps-slide ps-slide-active">
-              <div class="ps-hero-icon">⛽</div>
-              <div>
-                <p class="ps-kicker">Baia de abastecimento — GLP e baterias</p>
-                <p>A área de abastecimento é uma das zonas de maior <strong>risco químico e de explosão</strong> do armazém. O respeito às regras de acesso garante que as recargas ocorram sem incidentes.</p>
-              </div>
-            </div>
-            <div class="ps-grid">
-              <article class="ps-card ps-slide">
-                <div class="ps-top">
-                  <span class="ps-num">1</span>
-                  <span class="ps-ico">🚧</span>
-                </div>
-                <p class="ps-label">Acesso e operação</p>
-                <h3>Limite de espaço</h3>
-                <p>Permitido apenas <strong>1 equipamento por vez</strong> dentro da baia. Aguarde a sua vez na fila recuada.</p>
-              </article>
-              <article class="ps-card ps-slide">
-                <div class="ps-top">
-                  <span class="ps-num">2</span>
-                  <span class="ps-ico">🔧</span>
-                </div>
-                <p class="ps-label">Acesso e operação</p>
-                <h3>Operação exclusiva</h3>
-                <p>O operador só <strong>estaciona, desliga e puxa o freio</strong>. A troca do GLP ou a conexão das baterias é do técnico abastecedor habilitado.</p>
-              </article>
-              <article class="ps-card ps-slide">
-                <div class="ps-top">
-                  <span class="ps-num">3</span>
-                  <span class="ps-ico">🚸</span>
-                </div>
-                <p class="ps-label">Acesso e operação</p>
-                <h3>Sinalização visual</h3>
-                <p>Respeite os avisos de piso e mantenha as <strong>saídas do Pit Stop sempre livres</strong>.</p>
-              </article>
-            </div>
-            <div class="ps-bans">
-              <article class="ps-card ban ps-slide">
-                <div class="ps-top">
-                  <span class="ps-ico">🚭</span>
-                  <p class="ps-label">Tolerância zero</p>
-                </div>
-                <h3>Fumo e chama</h3>
-                <p>Proibido <strong>fumar</strong> ou portar qualquer <strong>chama exposta</strong> na baia de abastecimento.</p>
-              </article>
-              <article class="ps-card ban ps-slide">
-                <div class="ps-top">
-                  <span class="ps-ico">📵</span>
-                  <p class="ps-label">Tolerância zero</p>
-                </div>
-                <h3>Celular e eletrônicos</h3>
-                <p>Proibido manusear <strong>celulares</strong> ou qualquer dispositivo eletrônico ligado — risco de faíscas estáticas e distração.</p>
-              </article>
-            </div>
-          </div>
-
-          <div class="ps-carousel-nav" id="ps-carousel-nav">
-            <button type="button" class="ps-nav-btn" id="ps-prev" aria-label="Anterior" onclick="psCarouselNav(-1)">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-            <span class="ps-counter" id="ps-counter">1 / 6</span>
-            <button type="button" class="ps-nav-btn" id="ps-next" aria-label="Próximo" onclick="psCarouselNav(1)">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
-            </button>
-          </div>
-        </div>
-        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
-          </svg></div>
-      </section>
-
-      <!-- ── S-MOD6-VIDEO3: VÍDEO — Manobra de Abastecimento pelo Técnico ── -->
-      <section class="slide video-slide" id="s-mod6-video3">
-        <div class="top-bar">
-          <div><span class="section-tag">📹 Vídeo</span>
-            <div class="slide-title" style="margin-top:6px">Manobra de Abastecimento <span>pelo Técnico</span></div>
-            <div class="slide-subtitle">Proteção Visual</div>
-          </div>
-        </div>
-        <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
-          <div class="video-wrap">
-            <div class="video-box">
-              <iframe id="panda-76ed2594-5fa2-4e71-8d3b-6d5d4d92617e"
-                src="https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=76ed2594-5fa2-4e71-8d3b-6d5d4d92617e"
-                frameborder="0" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
-                allowfullscreen="true" fetchpriority="high"
-                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-                title="Manobra de Abastecimento pelo Técnico — NR06 - OPERADOR DE EMPILHADEIRA">
-              </iframe>
-            </div>
-          </div>
-        </div>
-        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
-          </svg></div>
-      </section>
-
-      <!-- ── S-MOD6-ZONAS: ZONEAMENTO DE RISCO DO ARMAZÉM ── -->
-      <section class="slide" id="s-mod6-zonas">
-        <style>
-          #s-mod6-zonas .zn-content {
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            padding: 12px 28px 92px;
-            width: 100%; box-sizing: border-box; min-height: 0;
-            overflow: hidden; container-type: size;
-          }
-          #s-mod6-zonas .zn-shell {
-            display: flex; flex-direction: column; gap: 12px;
-            width: min(100%, 1180px); margin: 0 auto;
-          }
-          #s-mod6-zonas .zn-hero {
-            position: relative;
-            display: flex; align-items: center; gap: 12px;
-            padding: 10px 16px;
-            background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
-            border: 1px solid rgba(120, 1, 22, 0.32);
-            border-radius: 14px;
-            box-shadow: 0 18px 40px rgba(0,0,0,0.28);
-          }
-          #s-mod6-zonas .zn-hero::before {
-            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
-            background: linear-gradient(180deg, #780116, #9A1A32);
-          }
-          #s-mod6-zonas .zn-hero-icon {
-            flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px;
-            background: linear-gradient(135deg, #780116, #5A0111);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 18px;
-            box-shadow: 0 8px 20px rgba(120, 1, 22, 0.4);
-          }
-          #s-mod6-zonas .zn-kicker {
-            font-family: var(--font-h); font-size: 10px; font-weight: 800;
-            letter-spacing: 0.12em; text-transform: uppercase;
-            color: #9A1A32; margin: 0 0 2px;
-          }
-          #s-mod6-zonas .zn-hero p {
-            font-family: var(--font-p); font-size: 13px;
-            color: rgba(255,255,255,0.9); margin: 0; line-height: 1.35;
-          }
-          #s-mod6-zonas .zn-hero strong { color: #9A1A32; font-weight: 800; }
-          #s-mod6-zonas .zn-body {
-            display: grid;
-            grid-template-columns: 1.08fr 0.92fr;
-            gap: 14px;
-            align-items: stretch;
-            min-height: 0;
-          }
-          #s-mod6-zonas .zn-map-wrap {
-            display: flex; flex-direction: column;
-            padding: 8px;
-            background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
-            border: 1px solid rgba(120, 1, 22, 0.28);
-            border-radius: 16px;
-            box-shadow: 0 18px 40px rgba(0,0,0,0.28);
-            min-width: 0; min-height: 0;
-            overflow: hidden;
-          }
-          #s-mod6-zonas .zn-map-wrap img {
-            display: block;
-            width: 100%; height: 100%;
-            min-height: 0;
-            object-fit: cover;
-            object-position: 50% 48%;
-            transform: scale(1.22);
-            transform-origin: center;
-            border-radius: 10px;
-            background: #dce4ee;
-          }
-          #s-mod6-zonas .zn-cards {
-            display: flex; flex-direction: column;
-            gap: 10px; min-width: 0;
-          }
-          #s-mod6-zonas .zn-card {
-            position: relative;
-            display: flex; flex-direction: column; justify-content: center;
-            gap: 7px;
-            flex: 1 1 auto;
-            padding: 14px 16px 14px 18px;
-            box-sizing: border-box;
-            overflow: visible;
-            min-height: min-content;
-            background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
-            border: 1px solid rgba(120, 1, 22, 0.28);
-            border-radius: 14px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.24);
-          }
-          #s-mod6-zonas .zn-card::before {
-            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
-            border-radius: 14px 0 0 14px;
-          }
-          #s-mod6-zonas .zn-card.z-red::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
-          #s-mod6-zonas .zn-card.z-yel::before { background: linear-gradient(180deg, #f1c40f, #d4a017); }
-          #s-mod6-zonas .zn-card.z-grn::before { background: linear-gradient(180deg, #2ecc71, #1e8449); }
-          #s-mod6-zonas .zn-card-top {
-            display: flex; align-items: flex-start; gap: 8px;
-          }
-          #s-mod6-zonas .zn-card-head {
-            min-width: 0; flex: 1;
-            display: flex; flex-direction: column; gap: 2px;
-          }
-          #s-mod6-zonas .zn-badge {
-            flex-shrink: 0;
-            width: 28px; height: 28px; border-radius: 8px;
-            display: flex; align-items: center; justify-content: center;
-            font-family: var(--font-h); font-weight: 900; font-size: 13px; color: #fff;
-          }
-          #s-mod6-zonas .z-red .zn-badge { background: linear-gradient(135deg, #e74c3c, #c0392b); }
-          #s-mod6-zonas .z-yel .zn-badge { background: linear-gradient(135deg, #f1c40f, #d4a017); color: #1a1200; }
-          #s-mod6-zonas .z-grn .zn-badge { background: linear-gradient(135deg, #2ecc71, #1e8449); }
-          #s-mod6-zonas .zn-card h3 {
-            font-family: var(--font-h); font-size: 14px;
-            font-weight: 900; color: #fff; margin: 0; line-height: 1.25;
-          }
-          #s-mod6-zonas .zn-risk {
-            font-family: var(--font-h); font-size: 10.5px; font-weight: 800;
-            letter-spacing: 0.04em; text-transform: uppercase; margin: 0;
-            line-height: 1.3;
-          }
-          #s-mod6-zonas .z-red .zn-risk { color: #ff7675; }
-          #s-mod6-zonas .z-yel .zn-risk { color: #f1c40f; }
-          #s-mod6-zonas .z-grn .zn-risk { color: #2ecc71; }
-          #s-mod6-zonas .zn-card p {
-            font-family: var(--font-p); font-size: 13px;
-            color: rgba(255,255,255,0.88); margin: 0; line-height: 1.4;
-          }
-          #s-mod6-zonas .zn-card strong { color: #9A1A32; font-weight: 800; }
-          #s-mod6-zonas .zn-carousel-nav { display: none; }
-          @media screen and (max-width: 768px) and (orientation: portrait) {
-            @keyframes znFadeIn {
-              from { opacity: 0; transform: translateX(18px); }
-              to   { opacity: 1; transform: translateX(0); }
-            }
-            #s-mod6-zonas { overflow: hidden; }
-            #s-mod6-zonas .slide-title { font-size: 22px !important; }
-            #s-mod6-zonas .slide-subtitle { display: none; }
-            #s-mod6-zonas .zn-content {
-              overflow: hidden !important;
-              justify-content: center !important;
-              padding: 8px 20px 88px !important;
-              gap: 14px;
-            }
-            #s-mod6-zonas .zn-shell {
-              height: auto; width: 100%; max-width: 360px; gap: 0;
-            }
-            #s-mod6-zonas .zn-body { display: block; }
-            #s-mod6-zonas .zn-hero,
-            #s-mod6-zonas .zn-map-wrap,
-            #s-mod6-zonas .zn-card { display: none !important; }
-            #s-mod6-zonas .zn-hero.zn-slide-active,
-            #s-mod6-zonas .zn-map-wrap.zn-slide-active,
-            #s-mod6-zonas .zn-card.zn-slide-active {
-              display: flex !important;
-              animation: znFadeIn 0.3s ease forwards;
-            }
-            #s-mod6-zonas .zn-cards { display: block; width: 100%; }
-            #s-mod6-zonas .zn-hero.zn-slide-active {
-              min-height: 200px; padding: 22px 20px 22px 24px;
-            }
-            #s-mod6-zonas .zn-map-wrap.zn-slide-active {
-              flex-direction: column; padding: 12px;
-            }
-            #s-mod6-zonas .zn-map-wrap img {
-              height: auto; max-height: 42vh; width: 100%;
-              object-fit: cover; transform: scale(1.12);
-            }
-            #s-mod6-zonas .zn-card.zn-slide-active {
-              min-height: 280px; padding: 26px 22px; gap: 12px; justify-content: flex-start;
-            }
-            #s-mod6-zonas .zn-hero p,
-            #s-mod6-zonas .zn-card p { font-size: 15px !important; }
-            #s-mod6-zonas .zn-card h3 { font-size: 18px !important; }
-            #s-mod6-zonas .zn-carousel-nav {
-              display: flex !important;
-              align-items: center; justify-content: center; gap: 16px;
-              width: 100%; max-width: 360px; margin: 0 auto; flex-shrink: 0;
-            }
-            #s-mod6-zonas .zn-nav-btn {
-              background: linear-gradient(135deg, #780116, #5A0111);
-              color: #fff; border: none; border-radius: 50%;
-              width: 46px; height: 46px; min-width: 46px; min-height: 46px;
-              cursor: pointer; display: flex; align-items: center; justify-content: center;
-              box-shadow: 0 6px 16px rgba(120, 1, 22, 0.4);
-              touch-action: manipulation; -webkit-tap-highlight-color: transparent;
-            }
-            #s-mod6-zonas .zn-nav-btn:active:not(:disabled) { transform: scale(0.94); }
-            #s-mod6-zonas .zn-nav-btn:disabled { opacity: 0.3; cursor: default; }
-            #s-mod6-zonas .zn-nav-btn svg { pointer-events: none; }
-            #s-mod6-zonas .zn-counter {
-              font-family: var(--font-h); font-size: 14px; font-weight: 800;
-              color: rgba(255,255,255,0.9); min-width: 56px; text-align: center;
-            }
-          }
-        </style>
-        <div class="top-bar">
-          <div><span class="section-tag">📘 Conteúdo</span>
-            <div class="slide-title" style="margin-top:6px">Zoneamento de Risco <span>do Armazém</span></div>
-            <div class="slide-subtitle">Proteção Visual</div>
-          </div>
-        </div>
-        <div class="content-area zn-content">
-          <div class="zn-shell">
-            <div class="zn-hero zn-slide zn-slide-active">
-              <div class="zn-hero-icon">🗺️</div>
-              <div>
-                <p class="zn-kicker">Onde cada máquina e pessoa deve circular</p>
-                <p>Para evitar colisões e atropelamentos, o armazém é dividido em <strong>três setores de fluxo</strong>. Conhecer e respeitar essas barreiras invisíveis é um dever de todos.</p>
-              </div>
-            </div>
-            <div class="zn-body">
-              <div class="zn-map-wrap zn-slide">
-                <img src="img/MAPEAMENTO.png" alt="Mapeamento de risco do armazém — zonas vermelha, amarela e verde">
-              </div>
-              <div class="zn-cards">
-                <article class="zn-card z-red zn-slide">
-                  <div class="zn-card-top">
-                    <span class="zn-badge">1</span>
-                    <div class="zn-card-head">
-                      <h3>Zonas de movimentação de empilhadeira</h3>
-                      <p class="zn-risk">Risco altíssimo — atropelamento e prensagem</p>
-                    </div>
-                  </div>
-                  <p>O trânsito de ajudantes e pedestres comuns é <strong>estritamente proibido</strong> nessas ruas de estoque, salvo em atividades sob procedimento de bloqueio de segurança.</p>
-                </article>
-                <article class="zn-card z-yel zn-slide">
-                  <div class="zn-card-top">
-                    <span class="zn-badge">2</span>
-                    <div class="zn-card-head">
-                      <h3>Zonas de operações mistas</h3>
-                      <p class="zn-risk">Risco médio — tráfego compartilhado controlado</p>
-                    </div>
-                  </div>
-                  <p>Permitido o trânsito compartilhado apenas para <strong>ajudantes com paleteiras</strong> manuais/elétricas e <strong>conferentes</strong> em auditoria de cargas.</p>
-                </article>
-                <article class="zn-card z-grn zn-slide">
-                  <div class="zn-card-top">
-                    <span class="zn-badge">3</span>
-                    <div class="zn-card-head">
-                      <h3>Zonas de paleteiras e pedestres</h3>
-                      <p class="zn-risk">Risco baixo — mecânico reduzido</p>
-                    </div>
-                  </div>
-                  <p>Áreas exclusivas para pedestres e paleteiras manuais. O tráfego de <strong>empilhadeiras motorizadas é proibido</strong> nestas vias.</p>
-                </article>
+            <div class="video-box" style="display:flex;align-items:center;justify-content:center;">
+              <div style="text-align:center;color:rgba(120, 1, 22, 0.45);">
+                <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
+                <div style="font-size:11px;margin-top:10px;letter-spacing:.06em;text-transform:uppercase;">Vídeo a inserir</div>
               </div>
             </div>
           </div>
-
-          <div class="zn-carousel-nav" id="zn-carousel-nav">
-            <button type="button" class="zn-nav-btn" id="zn-prev" aria-label="Anterior" onclick="znCarouselNav(-1)">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-            <span class="zn-counter" id="zn-counter">1 / 5</span>
-            <button type="button" class="zn-nav-btn" id="zn-next" aria-label="Próximo" onclick="znCarouselNav(1)">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
-            </button>
-          </div>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
           </svg></div>
       </section>
 
-      <!-- ── S-MOD6-VIDEO4: VÍDEO — Condições Adversas de Luz e Ofuscamento ── -->
-      <section class="slide video-slide" id="s-mod6-video4">
+      <!-- ── S-MOD6-RISCOS: Riscos que sua visão corre ── -->
+      <section class="slide" id="s-mod6-riscos">
         <div class="top-bar">
-          <div><span class="section-tag">📹 Vídeo</span>
-            <div class="slide-title" style="margin-top:6px">Condições Adversas de Luz <span>e Ofuscamento</span></div>
+          <div><span class="section-tag">👁️ Contexto</span>
+            <div class="slide-title" style="margin-top:6px">Riscos que <span>sua visão corre</span></div>
             <div class="slide-subtitle">Proteção Visual</div>
           </div>
         </div>
-        <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+        <div class="content-area" style="display:grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; max-width: 1050px; margin: 0 auto; width:100%;">
+          <div class="epi-card">
+            <p>No ambiente de trabalho, a visão está exposta a diversos riscos: partículas, respingos químicos, radiação, luminosidade intensa e impactos que podem causar lesões, muitas vezes irreversíveis.</p>
+            <p>Por isso, conhecer esses riscos e usar corretamente a proteção visual é essencial para preservar um dos sentidos mais importantes para o trabalho e para a vida.</p>
+          </div>
           <div class="video-wrap">
-            <div class="video-box">
-              <iframe id="panda-faa41109-72ad-4a63-872b-064bc9c101f1"
-                src="https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=faa41109-72ad-4a63-872b-064bc9c101f1"
-                frameborder="0" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
-                allowfullscreen="true" fetchpriority="high"
-                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-                title="Condições Adversas de Luz e Ofuscamento — NR06 - OPERADOR DE EMPILHADEIRA">
-              </iframe>
+            <div class="video-box" style="display:flex;align-items:center;justify-content:center;">
+              <div style="text-align:center;color:rgba(120, 1, 22, 0.45);">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
+                <div style="font-size:10px;margin-top:8px;letter-spacing:.06em;text-transform:uppercase;">Vídeo a inserir</div>
+              </div>
             </div>
           </div>
         </div>
@@ -12959,52 +12736,63 @@
           </svg></div>
       </section>
 
-      <!-- ── S-MOD6-VIDEO5: VÍDEO — Comportamento e a Tolerância Zero a Brincadeiras ── -->
-      <section class="slide video-slide" id="s-mod6-video5">
+      <!-- ── S-MOD6-FUNCIONAMENTO: Como funciona a visão ── -->
+      <section class="slide" id="s-mod6-funcionamento">
         <div class="top-bar">
-          <div><span class="section-tag">📹 Vídeo</span>
-            <div class="slide-title" style="margin-top:6px">Comportamento e a Tolerância Zero <span>a Brincadeiras</span></div>
+          <div><span class="section-tag">🧠 Fisiologia</span>
+            <div class="slide-title" style="margin-top:6px">Como funciona a visão <span>e sua importância</span></div>
             <div class="slide-subtitle">Proteção Visual</div>
           </div>
         </div>
-        <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
-          <div class="video-wrap">
-            <div class="video-box">
-              <iframe id="panda-faa41109-72ad-4a63-872b-064bc9c101f1-b"
-                src="https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=faa41109-72ad-4a63-872b-064bc9c101f1"
-                frameborder="0" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
-                allowfullscreen="true" fetchpriority="high"
-                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-                title="Comportamento e a Tolerância Zero a Brincadeiras — NR06 - OPERADOR DE EMPILHADEIRA">
-              </iframe>
-            </div>
+        <div class="content-area" style="display:grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; max-width: 1050px; margin: 0 auto; width:100%;">
+          <div class="epi-card">
+            <p>A visão é o sentido que mais envia informações ao cérebro, sendo essencial para o aprendizado e a comunicação.</p>
+            <h4 style="margin-top:8px;">Defesas naturais</h4>
+            <p>Quando um corpo estranho entra no olho, o organismo produz lágrimas automaticamente para ajudar a expulsá-lo. Outra defesa importante é o reflexo de fechar os olhos rapidamente ao perceber uma ameaça imediata.</p>
           </div>
+          <div class="epi-img-ph"><img src="img/INICIAL3D.png" alt="Como funciona a visão"></div>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
           </svg></div>
       </section>
 
-      <!-- ── S-MOD6-VIDEO6: VÍDEO — Compromisso Coletivo e Encerramento ── -->
-      <section class="slide video-slide" id="s-mod6-video6">
+      <!-- ── S-MOD6-ARMAZENAMENTO: Armazenamento e Substituição ── -->
+      <section class="slide" id="s-mod6-armazenamento">
         <div class="top-bar">
-          <div><span class="section-tag">📹 Vídeo</span>
-            <div class="slide-title" style="margin-top:6px">Compromisso Coletivo <span>e Encerramento</span></div>
+          <div><span class="section-tag">🗄️ Cuidados</span>
+            <div class="slide-title" style="margin-top:6px">Armazenamento <span>e Substituição</span></div>
             <div class="slide-subtitle">Proteção Visual</div>
           </div>
         </div>
-        <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
-          <div class="video-wrap">
-            <div class="video-box">
-              <iframe id="panda-5c549a8d-183e-4795-8b81-98954c945b87"
-                src="https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=5c549a8d-183e-4795-8b81-98954c945b87"
-                frameborder="0" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
-                allowfullscreen="true" fetchpriority="high"
-                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-                title="Compromisso Coletivo e Encerramento — NR06 - OPERADOR DE EMPILHADEIRA">
-              </iframe>
-            </div>
+        <div class="content-area" style="display:grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; max-width: 1050px; margin: 0 auto; width:100%;">
+          <div class="epi-card">
+            <h4>Armazenamento</h4>
+            <p>Mantenha os óculos em local apropriado, como um armário, e nunca os deixe apoiados sobre as lentes, para evitar danos e garantir a proteção.</p>
+            <h4 style="margin-top:16px;">Substituição</h4>
+            <p>Ao identificar danos ou desgaste que comprometam a visão, solicite imediatamente a substituição dos óculos por um novo.</p>
           </div>
+          <div class="epi-img-ph"><img src="img/PAGE-INICIAL.png" alt="Armazenamento de óculos de proteção"></div>
+        </div>
+        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
+          </svg></div>
+      </section>
+
+      <!-- ── S-MOD6-HIGIENIZACAO: Higienização dos Óculos ── -->
+      <section class="slide" id="s-mod6-higienizacao">
+        <div class="top-bar">
+          <div><span class="section-tag">🧼 Cuidados</span>
+            <div class="slide-title" style="margin-top:6px">Higienização <span>dos Óculos</span></div>
+            <div class="slide-subtitle">Proteção Visual</div>
+          </div>
+        </div>
+        <div class="content-area" style="display:grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; max-width: 1050px; margin: 0 auto; width:100%;">
+          <div class="epi-card">
+            <p>Utilize água e sabão neutro para limpar os óculos e evite o uso de solventes. Após a limpeza, seque com pano macio.</p>
+            <p>Em óculos com tratamento antiembaçante, prefira a limpeza com pano seco, pois lavagens frequentes podem reduzir sua eficácia.</p>
+          </div>
+          <div class="epi-img-ph"><img src="img/3x4.png" alt="Higienização de óculos de proteção"></div>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
@@ -13290,270 +13078,22 @@
           </svg></div>
       </section>
 
-      <!-- ── S-MOD7-VIDEO: VÍDEO — O que é a NR 12 e o seu Objetivo ── -->
+      <!-- ── S-MOD7-VIDEO: Vídeo — Proteção Respiratória ── -->
       <section class="slide video-slide" id="s-mod7-video">
         <div class="top-bar">
           <div><span class="section-tag">📹 Vídeo</span>
-            <div class="slide-title" style="margin-top:6px">O que é a NR 12 <span>e o seu Objetivo</span></div>
+            <div class="slide-title" style="margin-top:6px">Proteção <span>Respiratória</span></div>
             <div class="slide-subtitle">Proteção Respiratória</div>
           </div>
         </div>
         <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
           <div class="video-wrap">
-            <div class="video-box">
-              <iframe id="panda-cc397e93-6f57-405b-9649-13bbfaf56e10"
-                src="https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=cc397e93-6f57-405b-9649-13bbfaf56e10"
-                frameborder="0" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
-                allowfullscreen="true" fetchpriority="high"
-                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-                title="O que é a NR 12 e o seu Objetivo — NR06 - OPERADOR DE EMPILHADEIRA">
-              </iframe>
-            </div>
-          </div>
-        </div>
-        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
-          </svg></div>
-      </section>
-
-      <!-- ── S-MOD7-VIDEO2: VÍDEO — Os Deveres e Responsabilidades do Operador ── -->
-      <section class="slide video-slide" id="s-mod7-video2">
-        <div class="top-bar">
-          <div><span class="section-tag">📹 Vídeo</span>
-            <div class="slide-title" style="margin-top:6px">Os Deveres e Responsabilidades <span>do Operador</span></div>
-            <div class="slide-subtitle">Proteção Respiratória</div>
-          </div>
-        </div>
-        <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
-          <div class="video-wrap">
-            <div class="video-box">
-              <iframe id="panda-d6d1d0b0-9d73-4735-b0c3-afe04c9b25ab"
-                src="https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=d6d1d0b0-9d73-4735-b0c3-afe04c9b25ab"
-                frameborder="0" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
-                allowfullscreen="true" fetchpriority="high"
-                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-                title="Os Deveres e Responsabilidades do Operador — NR06 - OPERADOR DE EMPILHADEIRA">
-              </iframe>
-            </div>
-          </div>
-        </div>
-        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
-          </svg></div>
-      </section>
-
-      <!-- ── S-MOD7-PILARES: OS 4 PILARES DE RESPONSABILIDADE ── -->
-      <section class="slide" id="s-mod7-pilares">
-        <style>
-          #s-mod7-pilares .pl-content {
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            padding: 14px 28px 92px;
-            width: 100%; box-sizing: border-box; min-height: 0;
-            overflow: hidden; container-type: size;
-          }
-          #s-mod7-pilares .pl-shell {
-            display: flex; flex-direction: column; gap: 12px;
-            width: min(100%, 1120px); margin: 0 auto;
-          }
-          #s-mod7-pilares .pl-hero {
-            position: relative;
-            display: flex; align-items: center; gap: 14px;
-            padding: 12px 18px;
-            background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
-            border: 1px solid rgba(120, 1, 22, 0.32);
-            border-radius: 16px;
-            box-shadow: 0 18px 40px rgba(0,0,0,0.28);
-          }
-          #s-mod7-pilares .pl-hero::before {
-            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
-            background: linear-gradient(180deg, #780116, #9A1A32);
-          }
-          #s-mod7-pilares .pl-hero-icon {
-            flex-shrink: 0; width: 42px; height: 42px; border-radius: 12px;
-            background: linear-gradient(135deg, #780116, #5A0111);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 20px;
-            box-shadow: 0 8px 20px rgba(120, 1, 22, 0.4);
-          }
-          #s-mod7-pilares .pl-kicker {
-            font-family: var(--font-h); font-size: 11px; font-weight: 800;
-            letter-spacing: 0.1em; text-transform: uppercase;
-            color: #9A1A32; margin: 0 0 3px;
-          }
-          #s-mod7-pilares .pl-hero p {
-            font-family: var(--font-p); font-size: 14px;
-            color: rgba(255,255,255,0.9); margin: 0; line-height: 1.4;
-          }
-          #s-mod7-pilares .pl-hero strong { color: #9A1A32; font-weight: 800; }
-          #s-mod7-pilares .pl-grid {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 12px;
-          }
-          #s-mod7-pilares .pl-card {
-            position: relative;
-            display: flex; flex-direction: column; gap: 8px;
-            padding: 16px 18px 16px 18px;
-            box-sizing: border-box;
-            overflow: visible;
-            background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
-            border: 1px solid rgba(120, 1, 22, 0.28);
-            border-radius: 16px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.24);
-            min-width: 0;
-          }
-          #s-mod7-pilares .pl-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-            background: linear-gradient(90deg, #780116, #9A1A32);
-            border-radius: 16px 16px 0 0;
-          }
-          #s-mod7-pilares .pl-top {
-            display: flex; align-items: center; gap: 10px;
-          }
-          #s-mod7-pilares .pl-badge {
-            flex-shrink: 0; width: 32px; height: 32px; border-radius: 9px;
-            background: linear-gradient(135deg, #780116, #5A0111);
-            color: #fff;
-            display: flex; align-items: center; justify-content: center;
-            font-family: var(--font-h); font-weight: 900; font-size: 15px;
-            box-shadow: 0 6px 14px rgba(120, 1, 22, 0.35);
-          }
-          #s-mod7-pilares .pl-ico {
-            flex-shrink: 0; font-size: 20px; line-height: 1;
-          }
-          #s-mod7-pilares .pl-label {
-            font-family: var(--font-h); font-size: 11px; font-weight: 800;
-            letter-spacing: 0.08em; text-transform: uppercase;
-            color: #9A1A32; margin: 0;
-          }
-          #s-mod7-pilares .pl-card h3 {
-            font-family: var(--font-h); font-size: 16px;
-            font-weight: 900; color: #fff; margin: 0; line-height: 1.25;
-          }
-          #s-mod7-pilares .pl-card p {
-            font-family: var(--font-p); font-size: 13.5px;
-            color: rgba(255,255,255,0.86); margin: 0; line-height: 1.45;
-          }
-          #s-mod7-pilares .pl-card strong { color: #9A1A32; font-weight: 800; }
-          #s-mod7-pilares .pl-carousel-nav { display: none; }
-          @media screen and (max-width: 768px) and (orientation: portrait) {
-            @keyframes plFadeIn {
-              from { opacity: 0; transform: translateX(18px); }
-              to   { opacity: 1; transform: translateX(0); }
-            }
-            #s-mod7-pilares { overflow: hidden; }
-            #s-mod7-pilares .slide-title { font-size: 20px !important; }
-            #s-mod7-pilares .slide-subtitle { display: none; }
-            #s-mod7-pilares .pl-content {
-              overflow: hidden !important;
-              justify-content: center !important;
-              padding: 8px 20px 88px !important;
-              gap: 14px;
-            }
-            #s-mod7-pilares .pl-shell {
-              height: auto; width: 100%; max-width: 360px; gap: 0;
-            }
-            #s-mod7-pilares .pl-grid { display: block; width: 100%; }
-            #s-mod7-pilares .pl-hero,
-            #s-mod7-pilares .pl-card { display: none !important; }
-            #s-mod7-pilares .pl-hero.pl-slide-active,
-            #s-mod7-pilares .pl-card.pl-slide-active {
-              display: flex !important;
-              animation: plFadeIn 0.3s ease forwards;
-            }
-            #s-mod7-pilares .pl-hero.pl-slide-active {
-              min-height: 200px; padding: 22px 20px 22px 24px;
-            }
-            #s-mod7-pilares .pl-card.pl-slide-active {
-              min-height: 280px; padding: 26px 22px; gap: 12px; justify-content: center;
-            }
-            #s-mod7-pilares .pl-hero p,
-            #s-mod7-pilares .pl-card p { font-size: 15px !important; }
-            #s-mod7-pilares .pl-card h3 { font-size: 18px !important; }
-            #s-mod7-pilares .pl-carousel-nav {
-              display: flex !important;
-              align-items: center; justify-content: center; gap: 16px;
-              width: 100%; max-width: 360px; margin: 0 auto; flex-shrink: 0;
-            }
-            #s-mod7-pilares .pl-nav-btn {
-              background: linear-gradient(135deg, #780116, #5A0111);
-              color: #fff; border: none; border-radius: 50%;
-              width: 46px; height: 46px; min-width: 46px; min-height: 46px;
-              cursor: pointer; display: flex; align-items: center; justify-content: center;
-              box-shadow: 0 6px 16px rgba(120, 1, 22, 0.4);
-              touch-action: manipulation; -webkit-tap-highlight-color: transparent;
-            }
-            #s-mod7-pilares .pl-nav-btn:active:not(:disabled) { transform: scale(0.94); }
-            #s-mod7-pilares .pl-nav-btn:disabled { opacity: 0.3; cursor: default; }
-            #s-mod7-pilares .pl-nav-btn svg { pointer-events: none; }
-            #s-mod7-pilares .pl-counter {
-              font-family: var(--font-h); font-size: 14px; font-weight: 800;
-              color: rgba(255,255,255,0.9); min-width: 56px; text-align: center;
-            }
-          }
-        </style>
-        <div class="top-bar">
-          <div><span class="section-tag">📘 Conteúdo</span>
-            <div class="slide-title" style="margin-top:6px">Os 4 Pilares de Responsabilidade <span>do Operador</span></div>
-            <div class="slide-subtitle">Proteção Respiratória</div>
-          </div>
-        </div>
-        <div class="content-area pl-content">
-          <div class="pl-shell">
-            <div class="pl-hero pl-slide pl-slide-active">
-              <div class="pl-hero-icon">🛡️</div>
-              <div>
-                <p class="pl-kicker">A sua atitude determina a segurança de todos</p>
-                <p>O operador de equipamentos motorizados desempenha um papel ativo na prevenção de acidentes. A NR 12 estabelece <strong>quatro responsabilidades diárias</strong> que o trabalhador deve cumprir de forma irrestrita na sua rotina.</p>
+            <div class="video-box" style="display:flex;align-items:center;justify-content:center;">
+              <div style="text-align:center;color:rgba(120, 1, 22, 0.45);">
+                <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
+                <div style="font-size:11px;margin-top:10px;letter-spacing:.06em;text-transform:uppercase;">Vídeo a inserir</div>
               </div>
             </div>
-            <div class="pl-grid">
-              <article class="pl-card pl-slide">
-                <div class="pl-top">
-                  <span class="pl-badge">1</span>
-                  <span class="pl-ico">🔍</span>
-                  <p class="pl-label">Antes de operar</p>
-                </div>
-                <h3>Inspeção diária</h3>
-                <p>Verifique minuciosamente o estado mecânico e os <strong>sistemas de segurança</strong> da máquina antes de iniciar o turno. Essa inspeção deve ocorrer <strong>sem nenhuma exceção</strong>.</p>
-              </article>
-              <article class="pl-card pl-slide">
-                <div class="pl-top">
-                  <span class="pl-badge">2</span>
-                  <span class="pl-ico">📢</span>
-                  <p class="pl-label">Não opere com defeito</p>
-                </div>
-                <h3>Comunicação de falhas</h3>
-                <p>Barulho estranho, mau funcionamento no timão, folga no freio ou falha em luzes: <strong>não tente operar</strong>. Comunique imediatamente o supervisor ou a manutenção.</p>
-              </article>
-              <article class="pl-card pl-slide">
-                <div class="pl-top">
-                  <span class="pl-badge">3</span>
-                  <span class="pl-ico">⚖️</span>
-                  <p class="pl-label">Limite da máquina</p>
-                </div>
-                <h3>Respeito absoluto à capacidade</h3>
-                <p>Nunca exceda o <strong>limite máximo de carga</strong> indicado na placa do fabricante no chassi. A sobrecarga gera perda de controle e tombamentos.</p>
-              </article>
-              <article class="pl-card pl-slide">
-                <div class="pl-top">
-                  <span class="pl-badge">4</span>
-                  <span class="pl-ico">📋</span>
-                  <p class="pl-label">Rotina da empresa</p>
-                </div>
-                <h3>Seguir os procedimentos internos</h3>
-                <p>Mantenha-se fiel aos protocolos de tráfego, manuseio e segurança da <strong>integração</strong> e dos <strong>treinamentos oficiais</strong> da empresa.</p>
-              </article>
-            </div>
-          </div>
-          <div class="pl-carousel-nav" id="pl-carousel-nav">
-            <button type="button" class="pl-nav-btn" id="pl-prev" aria-label="Anterior" onclick="plCarouselNav(-1)">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-            <span class="pl-counter" id="pl-counter">1 / 5</span>
-            <button type="button" class="pl-nav-btn" id="pl-next" aria-label="Próximo" onclick="plCarouselNav(1)">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
-            </button>
           </div>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
@@ -13561,295 +13101,42 @@
           </svg></div>
       </section>
 
-      <!-- ── S-MOD7-VIDEO3: VÍDEO — Identificando os Riscos Mecânicos e Elétricos ── -->
-      <section class="slide video-slide" id="s-mod7-video3">
+      <!-- ── S-MOD7-EPR: Como se proteger? ── -->
+      <section class="slide" id="s-mod7-epr">
+        <div class="top-bar">
+          <div><span class="section-tag">😷 Proteção Respiratória</span>
+            <div class="slide-title" style="margin-top:6px">Como se <span>proteger?</span></div>
+            <div class="slide-subtitle">Proteção Respiratória</div>
+          </div>
+        </div>
+        <div class="content-area" style="display:grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; max-width: 1050px; margin: 0 auto; width:100%;">
+          <div class="epi-card">
+            <p>Uma das formas de se proteger contra a inalação de contaminantes atmosféricos é através do uso de <strong>Equipamento de Proteção Respiratória (EPR)</strong>.</p>
+            <p>Esses equipamentos, chamados respiradores ou máscaras, cobrem a boca e o nariz e protegem a respiração por meio de filtros ou fornecimento de ar.</p>
+          </div>
+          <div class="epi-img-ph"><img src="img/BACKGROUND.png" alt="Equipamento de Proteção Respiratória"></div>
+        </div>
+        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
+          </svg></div>
+      </section>
+
+      <!-- ── S-MOD7-VIDEO-TIPOS: Vídeo — Tipos de Respiradores ── -->
+      <section class="slide video-slide" id="s-mod7-video-tipos">
         <div class="top-bar">
           <div><span class="section-tag">📹 Vídeo</span>
-            <div class="slide-title" style="margin-top:6px">Identificando os Riscos <span>Mecânicos e Elétricos</span></div>
+            <div class="slide-title" style="margin-top:6px">Tipos de <span>Respiradores</span></div>
             <div class="slide-subtitle">Proteção Respiratória</div>
           </div>
         </div>
         <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
           <div class="video-wrap">
-            <div class="video-box">
-              <iframe id="panda-a1290233-466a-4de3-a12f-b66ec64b521d"
-                src="https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=a1290233-466a-4de3-a12f-b66ec64b521d"
-                frameborder="0" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
-                allowfullscreen="true" fetchpriority="high"
-                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-                title="Identificando os Riscos Mecânicos e Elétricos — NR06 - OPERADOR DE EMPILHADEIRA">
-              </iframe>
-            </div>
-          </div>
-        </div>
-        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
-          </svg></div>
-      </section>
-
-      <!-- ── S-MOD7-VIDEO4: VÍDEO — Dispositivos de Segurança Obrigatórios ── -->
-      <section class="slide video-slide" id="s-mod7-video4">
-        <div class="top-bar">
-          <div><span class="section-tag">📹 Vídeo</span>
-            <div class="slide-title" style="margin-top:6px">Dispositivos de Segurança <span>Obrigatórios</span></div>
-            <div class="slide-subtitle">Proteção Respiratória</div>
-          </div>
-        </div>
-        <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
-          <div class="video-wrap">
-            <div class="video-box">
-              <iframe id="panda-0f997206-f4a1-4074-93fe-2e95bd21f566"
-                src="https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=0f997206-f4a1-4074-93fe-2e95bd21f566"
-                frameborder="0" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
-                allowfullscreen="true" fetchpriority="high"
-                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-                title="Dispositivos de Segurança Obrigatórios — NR06 - OPERADOR DE EMPILHADEIRA">
-              </iframe>
-            </div>
-          </div>
-        </div>
-        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
-          </svg></div>
-      </section>
-
-      <!-- ── S-MOD7-PROTECAO: SISTEMAS DE PROTEÇÃO E REGRAS DE PROTEÇÃO FÍSICA ── -->
-      <section class="slide" id="s-mod7-protecao">
-        <style>
-          #s-mod7-protecao .sp-content {
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            padding: 12px 28px 92px;
-            width: 100%; box-sizing: border-box; min-height: 0;
-            overflow: hidden; container-type: size;
-          }
-          #s-mod7-protecao .sp-shell {
-            display: flex; flex-direction: column; gap: 10px;
-            width: min(100%, 1120px); margin: 0 auto;
-          }
-          #s-mod7-protecao .sp-hero {
-            position: relative;
-            display: flex; align-items: center; gap: 14px;
-            padding: 12px 18px;
-            background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
-            border: 1px solid rgba(120, 1, 22, 0.32);
-            border-radius: 16px;
-            box-shadow: 0 18px 40px rgba(0,0,0,0.28);
-          }
-          #s-mod7-protecao .sp-hero::before {
-            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
-            background: linear-gradient(180deg, #780116, #9A1A32);
-          }
-          #s-mod7-protecao .sp-hero-icon {
-            flex-shrink: 0; width: 42px; height: 42px; border-radius: 12px;
-            background: linear-gradient(135deg, #780116, #5A0111);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 20px;
-            box-shadow: 0 8px 20px rgba(120, 1, 22, 0.4);
-          }
-          #s-mod7-protecao .sp-kicker {
-            font-family: var(--font-h); font-size: 11px; font-weight: 800;
-            letter-spacing: 0.1em; text-transform: uppercase;
-            color: #9A1A32; margin: 0 0 3px;
-          }
-          #s-mod7-protecao .sp-hero p {
-            font-family: var(--font-p); font-size: 14px;
-            color: rgba(255,255,255,0.9); margin: 0; line-height: 1.4;
-          }
-          #s-mod7-protecao .sp-hero strong { color: #9A1A32; font-weight: 800; }
-          #s-mod7-protecao .sp-devices {
-            display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;
-          }
-          #s-mod7-protecao .sp-rules {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
-          }
-          #s-mod7-protecao .sp-card {
-            position: relative;
-            display: flex; flex-direction: column; gap: 8px;
-            padding: 14px 16px;
-            box-sizing: border-box;
-            overflow: visible;
-            background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
-            border: 1px solid rgba(120, 1, 22, 0.28);
-            border-radius: 16px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.24);
-            min-width: 0;
-          }
-          #s-mod7-protecao .sp-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-            background: linear-gradient(90deg, #780116, #9A1A32);
-            border-radius: 16px 16px 0 0;
-          }
-          #s-mod7-protecao .sp-card.sp-gold {
-            border-color: rgba(245, 197, 24, 0.38);
-          }
-          #s-mod7-protecao .sp-card.sp-gold::before {
-            background: linear-gradient(90deg, #f5c518, #ffe27a);
-          }
-          #s-mod7-protecao .sp-top {
-            display: flex; align-items: center; gap: 10px;
-          }
-          #s-mod7-protecao .sp-badge {
-            flex-shrink: 0; width: 30px; height: 30px; border-radius: 9px;
-            background: linear-gradient(135deg, #780116, #5A0111);
-            color: #fff;
-            display: flex; align-items: center; justify-content: center;
-            font-family: var(--font-h); font-weight: 900; font-size: 14px;
-            box-shadow: 0 6px 14px rgba(120, 1, 22, 0.35);
-          }
-          #s-mod7-protecao .sp-card.sp-gold .sp-badge {
-            background: linear-gradient(135deg, #f5c518, #d4a017);
-            color: #1a1200;
-            box-shadow: 0 6px 14px rgba(245, 197, 24, 0.35);
-          }
-          #s-mod7-protecao .sp-ico { flex-shrink: 0; font-size: 18px; line-height: 1; }
-          #s-mod7-protecao .sp-label {
-            font-family: var(--font-h); font-size: 10px; font-weight: 800;
-            letter-spacing: 0.08em; text-transform: uppercase;
-            color: #9A1A32; margin: 0;
-          }
-          #s-mod7-protecao .sp-card.sp-gold .sp-label { color: #ffe27a; }
-          #s-mod7-protecao .sp-card h3 {
-            font-family: var(--font-h); font-size: 15px;
-            font-weight: 900; color: #fff; margin: 0; line-height: 1.25;
-          }
-          #s-mod7-protecao .sp-card p {
-            font-family: var(--font-p); font-size: 13px;
-            color: rgba(255,255,255,0.86); margin: 0; line-height: 1.42;
-          }
-          #s-mod7-protecao .sp-card strong { color: #9A1A32; font-weight: 800; }
-          #s-mod7-protecao .sp-card.sp-gold strong { color: #ffe27a; }
-          #s-mod7-protecao .sp-carousel-nav { display: none; }
-          @media screen and (max-width: 768px) and (orientation: portrait) {
-            @keyframes spFadeIn {
-              from { opacity: 0; transform: translateX(18px); }
-              to   { opacity: 1; transform: translateX(0); }
-            }
-            #s-mod7-protecao { overflow: hidden; }
-            #s-mod7-protecao .slide-title { font-size: 18px !important; }
-            #s-mod7-protecao .slide-subtitle { display: none; }
-            #s-mod7-protecao .sp-content {
-              overflow: hidden !important;
-              justify-content: center !important;
-              padding: 8px 20px 88px !important;
-              gap: 14px;
-            }
-            #s-mod7-protecao .sp-shell {
-              height: auto; width: 100%; max-width: 360px; gap: 0;
-            }
-            #s-mod7-protecao .sp-devices,
-            #s-mod7-protecao .sp-rules { display: block; width: 100%; }
-            #s-mod7-protecao .sp-hero,
-            #s-mod7-protecao .sp-card { display: none !important; }
-            #s-mod7-protecao .sp-hero.sp-slide-active,
-            #s-mod7-protecao .sp-card.sp-slide-active {
-              display: flex !important;
-              animation: spFadeIn 0.3s ease forwards;
-            }
-            #s-mod7-protecao .sp-hero.sp-slide-active {
-              min-height: 200px; padding: 22px 20px 22px 24px;
-            }
-            #s-mod7-protecao .sp-card.sp-slide-active {
-              min-height: 280px; padding: 26px 22px; gap: 12px; justify-content: center;
-            }
-            #s-mod7-protecao .sp-hero p,
-            #s-mod7-protecao .sp-card p { font-size: 15px !important; }
-            #s-mod7-protecao .sp-card h3 { font-size: 18px !important; }
-            #s-mod7-protecao .sp-carousel-nav {
-              display: flex !important;
-              align-items: center; justify-content: center; gap: 16px;
-              width: 100%; max-width: 360px; margin: 0 auto; flex-shrink: 0;
-            }
-            #s-mod7-protecao .sp-nav-btn {
-              background: linear-gradient(135deg, #780116, #5A0111);
-              color: #fff; border: none; border-radius: 50%;
-              width: 46px; height: 46px; min-width: 46px; min-height: 46px;
-              cursor: pointer; display: flex; align-items: center; justify-content: center;
-              box-shadow: 0 6px 16px rgba(120, 1, 22, 0.4);
-              touch-action: manipulation; -webkit-tap-highlight-color: transparent;
-            }
-            #s-mod7-protecao .sp-nav-btn:active:not(:disabled) { transform: scale(0.94); }
-            #s-mod7-protecao .sp-nav-btn:disabled { opacity: 0.3; cursor: default; }
-            #s-mod7-protecao .sp-nav-btn svg { pointer-events: none; }
-            #s-mod7-protecao .sp-counter {
-              font-family: var(--font-h); font-size: 14px; font-weight: 800;
-              color: rgba(255,255,255,0.9); min-width: 56px; text-align: center;
-            }
-          }
-        </style>
-        <div class="top-bar">
-          <div><span class="section-tag">📘 Conteúdo</span>
-            <div class="slide-title" style="margin-top:6px">Sistemas de Proteção <span>e Regras de Proteção Física</span></div>
-            <div class="slide-subtitle">Proteção Respiratória</div>
-          </div>
-        </div>
-        <div class="content-area sp-content">
-          <div class="sp-shell">
-            <div class="sp-hero sp-slide sp-slide-active">
-              <div class="sp-hero-icon">🛡️</div>
-              <div>
-                <p class="sp-kicker">Dispositivos obrigatórios: seus escudos contra acidentes</p>
-                <p>Os equipamentos de movimentação possuem proteções especiais para resguardar a vida do operador e a integridade de terceiros. <strong>Nunca neutralize, altere ou opere</strong> com qualquer dispositivo de segurança desligado ou danificado.</p>
+            <div class="video-box" style="display:flex;align-items:center;justify-content:center;">
+              <div style="text-align:center;color:rgba(120, 1, 22, 0.45);">
+                <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
+                <div style="font-size:11px;margin-top:10px;letter-spacing:.06em;text-transform:uppercase;">Vídeo a inserir</div>
               </div>
             </div>
-            <div class="sp-devices">
-              <article class="sp-card sp-slide">
-                <div class="sp-top">
-                  <span class="sp-badge">1</span>
-                  <span class="sp-ico">🪖</span>
-                  <p class="sp-label">Checklist diário</p>
-                </div>
-                <h3>Grade de proteção superior</h3>
-                <p>Resguarda a <strong>cabeça do operador</strong> em caso de queda de caixas ou objetos de alturas elevadas.</p>
-              </article>
-              <article class="sp-card sp-slide">
-                <div class="sp-top">
-                  <span class="sp-badge">2</span>
-                  <span class="sp-ico">🛑</span>
-                  <p class="sp-label">Checklist diário</p>
-                </div>
-                <h3>Botão de desligamento de emergência</h3>
-                <p>Trava imediatamente o <strong>fornecimento de energia</strong> e cessa as funções de tração e hidráulica da máquina.</p>
-              </article>
-              <article class="sp-card sp-slide">
-                <div class="sp-top">
-                  <span class="sp-badge">3</span>
-                  <span class="sp-ico">🚨</span>
-                  <p class="sp-label">Checklist diário</p>
-                </div>
-                <h3>Buzina, giroflex e alarme de ré</h3>
-                <p>Emitem sinais visuais e sonoros indispensáveis para <strong>avisar pedestres</strong> em áreas ruidosas de estoque.</p>
-              </article>
-            </div>
-            <div class="sp-rules">
-              <article class="sp-card sp-gold sp-slide">
-                <div class="sp-top">
-                  <span class="sp-badge">1</span>
-                  <span class="sp-ico">🔒</span>
-                  <p class="sp-label">Regra de ouro</p>
-                </div>
-                <h3>Cinto de segurança sem exceções</h3>
-                <p>O uso do cinto é <strong>obrigatório em todos os deslocamentos</strong>. Em um tombamento, ele evita que o operador seja arremessado e esmagado pelo chassi.</p>
-              </article>
-              <article class="sp-card sp-gold sp-slide">
-                <div class="sp-top">
-                  <span class="sp-badge">2</span>
-                  <span class="sp-ico">🧍</span>
-                  <p class="sp-label">Regra de ouro</p>
-                </div>
-                <h3>Corpo sempre dentro do perímetro</h3>
-                <p>Mantenha braços, pernas, mãos e cabeça <strong>dentro da cabine</strong>. Nunca apoie o corpo na coluna de elevação nem coloque membros para fora em movimento.</p>
-              </article>
-            </div>
-          </div>
-          <div class="sp-carousel-nav" id="sp-carousel-nav">
-            <button type="button" class="sp-nav-btn" id="sp-prev" aria-label="Anterior" onclick="spCarouselNav(-1)">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-            <span class="sp-counter" id="sp-counter">1 / 6</span>
-            <button type="button" class="sp-nav-btn" id="sp-next" aria-label="Próximo" onclick="spCarouselNav(1)">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
-            </button>
           </div>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
@@ -13857,26 +13144,81 @@
           </svg></div>
       </section>
 
-      <!-- ── S-MOD7-VIDEO5: VÍDEO — Condutas Proibidas e Boas Práticas ── -->
-      <section class="slide video-slide" id="s-mod7-video5">
+      <!-- ── S-MOD7-TIPOS: Tipos de Respiradores ── -->
+      <section class="slide" id="s-mod7-tipos">
         <div class="top-bar">
-          <div><span class="section-tag">📹 Vídeo</span>
-            <div class="slide-title" style="margin-top:6px">Condutas Proibidas <span>e Boas Práticas</span></div>
+          <div><span class="section-tag">🎭 Tipos</span>
+            <div class="slide-title" style="margin-top:6px">Tipos de <span>Respiradores</span></div>
             <div class="slide-subtitle">Proteção Respiratória</div>
           </div>
         </div>
-        <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
-          <div class="video-wrap">
-            <div class="video-box">
-              <iframe id="panda-ad8793ee-48ad-49b9-9e45-2d35960c9204"
-                src="https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=ad8793ee-48ad-49b9-9e45-2d35960c9204"
-                frameborder="0" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
-                allowfullscreen="true" fetchpriority="high"
-                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-                title="Condutas Proibidas e Boas Práticas — NR06 - OPERADOR DE EMPILHADEIRA">
-              </iframe>
+        <div class="content-area" style="max-width:1100px;margin:0 auto;width:100%;">
+          <div class="epi-info-grid">
+            <div class="epi-info-card epi-open" style="cursor:default;">
+              <h4>Peça Semifacial Filtrante (PFF)</h4>
+              <p>Máscara descartável que cobre nariz e boca, filtrando partículas presentes no ar. Indicada para exposições a poeiras e névoas.</p>
+            </div>
+            <div class="epi-info-card epi-open" style="cursor:default;">
+              <h4>Semifacial com Filtro</h4>
+              <p>Respirador reutilizável, com corpo de borracha ou silicone e filtros/cartuchos substituíveis, indicado para vapores orgânicos, gases e partículas.</p>
+            </div>
+            <div class="epi-info-card epi-open" style="cursor:default;">
+              <h4>Máscara com Fornecimento de Ar</h4>
+              <p>Fornece ar respirável de uma fonte externa (linha de ar ou cilindro), usada em ambientes com atmosferas mais críticas ou deficientes de oxigênio.</p>
             </div>
           </div>
+        </div>
+        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
+          </svg></div>
+      </section>
+
+      <!-- ── S-MOD7-PFF: Eficiência dos Filtros PFF ── -->
+      <section class="slide" id="s-mod7-pff">
+        <div class="top-bar">
+          <div><span class="section-tag">🧪 Filtros</span>
+            <div class="slide-title" style="margin-top:6px">Eficiência dos <span>Filtros PFF</span></div>
+            <div class="slide-subtitle">Proteção Respiratória</div>
+          </div>
+        </div>
+        <div class="content-area">
+          <table class="epi-pff-table">
+            <thead><tr><th>Modelo</th><th>Eficácia</th></tr></thead>
+            <tbody>
+              <tr class="epi-pff-row"><td>PFF1</td><td>80% de eficácia</td></tr>
+              <tr class="epi-pff-row"><td>PFF2</td><td>94% de eficácia</td></tr>
+              <tr class="epi-pff-row"><td>PFF3</td><td>99,9% de eficácia</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
+          </svg></div>
+      </section>
+
+      <!-- ── S-MOD7-QUIZ: Quiz — Cuidados com o Respirador ── -->
+      <section class="slide" id="s-mod7-quiz">
+        <div class="top-bar">
+          <div><span class="section-tag">🎯 Quiz</span>
+            <div class="slide-title" style="margin-top:6px">Teste seu <span>Conhecimento</span></div>
+            <div class="slide-subtitle">Proteção Respiratória — Cuidados com o Respirador</div>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="epi-quiz-wrap">
+            <p class="epi-quiz-q">Qual alternativa NÃO corresponde a um cuidado adequado com o respirador?</p>
+            <div class="q-options" id="epiq-respirador-options">
+              <div class="q-opt" data-correct="false" onclick="epiQuizSelect(this)"><div class="opt-l">A</div><span>Inspecionar se o respirador não está danificado.</span></div>
+              <div class="q-opt" data-correct="true" onclick="epiQuizSelect(this)"><div class="opt-l">B</div><span>Lavar filtros e cartuchos para aumentar a durabilidade.</span></div>
+              <div class="q-opt" data-correct="false" onclick="epiQuizSelect(this)"><div class="opt-l">C</div><span>Fazer o ajuste correto para evitar a entrada de contaminantes.</span></div>
+              <div class="q-opt" data-correct="false" onclick="epiQuizSelect(this)"><div class="opt-l">D</div><span>Lavar respiradores reutilizáveis com água e detergente neutro.</span></div>
+            </div>
+            <div class="q-feedback" id="epiq-respirador-feedback"></div>
+            <div class="epi-quiz-actions">
+              <button type="button" class="btn-start epi-quiz-check" id="epiq-respirador-check" onclick="epiQuizCheck('epiq-respirador')">Verificar resposta</button>
+            </div>
+          </div>
+          <div class="req-item" id="epiq-respirador-req" style="display:none"></div>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
@@ -14145,6 +13487,157 @@
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,65 C360,20 720,90 1080,40 C1260,15 1390,70 1440,60 L1440,100 L0,100 Z"
               fill="rgba(120, 1, 22,0.07)" />
+          </svg></div>
+      </section>
+
+      <!-- ── S-MOD8-RISCOS: Conhecendo os Riscos ── -->
+      <section class="slide" id="s-mod8-riscos">
+        <div class="top-bar">
+          <div><span class="section-tag">✋ Riscos</span>
+            <div class="slide-title" style="margin-top:6px">Conhecendo <span>os Riscos</span></div>
+            <div class="slide-subtitle">Proteção das Mãos</div>
+          </div>
+        </div>
+        <div class="content-area" style="display:grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; max-width: 1050px; margin: 0 auto; width:100%;">
+          <div class="epi-card">
+            <ul class="epi-list">
+              <li>Desatenção;</li>
+              <li>Uso de adornos;</li>
+              <li>Falta de proteção em máquinas e equipamentos;</li>
+              <li>Uso de objetos cortantes (estiletes e facas);</li>
+              <li>Uso de equipamentos inadequados;</li>
+              <li>Uso inadequado de produtos químicos;</li>
+            </ul>
+            <div class="epi-note" style="margin-top:16px;"><strong>Importante:</strong> conhecendo os riscos existentes no seu local de trabalho, você conseguirá prevenir mais facilmente os acidentes.</div>
+          </div>
+          <div class="epi-img-ph"><img src="img/BACKGROUND.png" alt="Riscos para as mãos no ambiente de trabalho"></div>
+        </div>
+        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
+          </svg></div>
+      </section>
+
+      <!-- ── S-MOD8-PREVENIR: Formas de Prevenir ── -->
+      <section class="slide" id="s-mod8-prevenir">
+        <div class="top-bar">
+          <div><span class="section-tag">🛡️ Prevenção</span>
+            <div class="slide-title" style="margin-top:6px">Formas de <span>Prevenir</span></div>
+            <div class="slide-subtitle">Proteção das Mãos</div>
+          </div>
+        </div>
+        <div class="content-area" style="display:grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; max-width: 1050px; margin: 0 auto; width:100%;">
+          <div class="epi-card">
+            <ul class="epi-list">
+              <li>Identificar e conhecer os riscos do setor;</li>
+              <li>Participar de treinamentos;</li>
+              <li>Utilizar todos os EPIs recomendados;</li>
+              <li>Trabalhar de maneira segura;</li>
+              <li>Comunicar todas as condições de risco;</li>
+              <li>Respeitar seus limites;</li>
+              <li>Seguir as normas, procedimentos e regras da empresa;</li>
+            </ul>
+            <div class="epi-note" style="margin-top:16px;"><strong>Atenção:</strong> trabalhar preventivamente é a melhor forma de evitar acidentes graves, portanto, seja preventivo!</div>
+          </div>
+          <div class="epi-img-ph"><img src="img/ANDAR RÉ.png" alt="Formas de prevenir acidentes"></div>
+        </div>
+        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
+          </svg></div>
+      </section>
+
+      <!-- ── S-MOD8-QUIZ: Quiz — Tipos de Lesão ── -->
+      <section class="slide" id="s-mod8-quiz">
+        <div class="top-bar">
+          <div><span class="section-tag">🎯 Quiz</span>
+            <div class="slide-title" style="margin-top:6px">Teste seu <span>Conhecimento</span></div>
+            <div class="slide-subtitle">Proteção das Mãos — Tipos de Lesão</div>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="epi-quiz-wrap">
+            <p class="epi-quiz-q">Qual alternativa NÃO é um tipo comum de lesão nas mãos?</p>
+            <div class="q-options" id="epiq-lesao-options">
+              <div class="q-opt" data-correct="false" onclick="epiQuizSelect(this)"><div class="opt-l">A</div><span>Corte</span></div>
+              <div class="q-opt" data-correct="true" onclick="epiQuizSelect(this)"><div class="opt-l">B</div><span>Crescimento das unhas</span></div>
+              <div class="q-opt" data-correct="false" onclick="epiQuizSelect(this)"><div class="opt-l">C</div><span>Perfuração</span></div>
+              <div class="q-opt" data-correct="false" onclick="epiQuizSelect(this)"><div class="opt-l">D</div><span>Queimaduras</span></div>
+            </div>
+            <div class="q-feedback" id="epiq-lesao-feedback"></div>
+            <div class="epi-quiz-actions">
+              <button type="button" class="btn-start epi-quiz-check" id="epiq-lesao-check" onclick="epiQuizCheck('epiq-lesao')">Verificar resposta</button>
+            </div>
+          </div>
+          <div class="req-item" id="epiq-lesao-req" style="display:none"></div>
+        </div>
+        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
+          </svg></div>
+      </section>
+
+      <!-- ── S-MOD8-LUVAS-RISCOS: Grupos de Risco ── -->
+      <section class="slide" id="s-mod8-luvas-riscos">
+        <div class="top-bar">
+          <div><span class="section-tag">🧤 Luvas de Segurança</span>
+            <div class="slide-title" style="margin-top:6px">Medidas de Controle — <span>Grupos de Risco</span></div>
+            <div class="slide-subtitle">Proteção das Mãos</div>
+          </div>
+        </div>
+        <div class="content-area" style="max-width:1050px;margin:0 auto;width:100%;">
+          <div style="display:grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center;">
+            <p style="color:#f7b538; font-size:15.5px; line-height:1.65; font-family:var(--font-p);">Existem diversos modelos diferentes de luvas de segurança, e cada um deles oferece proteção para determinados grupos de risco, que podem ser divididos entre:</p>
+            <div class="epi-img-ph"><img src="img/REDZONE.png" alt="Grupos de risco para as mãos"></div>
+          </div>
+          <div class="epi-glove-grid" style="margin-top:22px;">
+            <div class="epi-glove-card">
+              <h5>Riscos Físicos ou Mecânicos</h5>
+              <p>Cortes, abrasões, perfurações, choques, etc.</p>
+            </div>
+            <div class="epi-glove-card">
+              <h5>Riscos Químicos ou Biológicos</h5>
+              <p>Bactérias, fungos, parasitas, vírus, etc.</p>
+            </div>
+          </div>
+        </div>
+        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
+          </svg></div>
+      </section>
+
+      <!-- ── S-MOD8-LUVAS-TIPOS: Principais Modelos de Luvas ── -->
+      <section class="slide" id="s-mod8-luvas-tipos">
+        <div class="top-bar">
+          <div><span class="section-tag">🧤 Luvas de Segurança</span>
+            <div class="slide-title" style="margin-top:6px">Principais Modelos <span>de Luvas</span></div>
+            <div class="slide-subtitle">Proteção das Mãos</div>
+          </div>
+        </div>
+        <div class="content-area" style="max-width:1100px;margin:0 auto;width:100%;">
+          <div class="epi-img-ph" style="max-width:340px;margin:0 auto 22px;"><img src="img/MAPEAMENTO.png" alt="Modelos de luvas de segurança"></div>
+          <div class="epi-glove-grid" style="max-width:980px;margin:0 auto;">
+            <div class="epi-glove-card">
+              <h5>Luva Anticorte</h5>
+              <p>Protege contra cortes nas mãos.</p>
+            </div>
+            <div class="epi-glove-card">
+              <h5>Luva de Látex Natural</h5>
+              <p>Flexível e resistente, protege contra ácidos, álcool e produtos químicos.</p>
+            </div>
+            <div class="epi-glove-card">
+              <h5>Luva de Látex Nitrílica</h5>
+              <p>Oferece uma excelente proteção, principalmente contra óleos, solventes, gordura animal e graxa.</p>
+            </div>
+            <div class="epi-glove-card">
+              <h5>Luva de PVC</h5>
+              <p>Flexível. Excelente proteção contra ácidos, cáusticos, bases, álcoois e, também, abrasões.</p>
+            </div>
+            <div class="epi-glove-card" style="grid-column: 1 / -1;">
+              <h5>Luva de Vaqueta e Raspa de Couro</h5>
+              <p>Boas opções para o risco de abrasão e até mesmo solda, pois o couro é muito resistente.</p>
+            </div>
+          </div>
+        </div>
+        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
           </svg></div>
       </section>
 
