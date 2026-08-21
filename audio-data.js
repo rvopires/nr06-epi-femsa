@@ -18,9 +18,9 @@ const MANIFEST_PATH = path.join(OUTPUT_DIR, 'manifest.json');
 /** Textos customizados para slides com pouco conteúdo textual ou conteúdo dinâmico. */
 const NARRATION_OVERRIDES = {
   s1:
-    'Módulo de Treinamento. Segurança do Trabalho. NR 06 — EMPILHADEIRA. Inclui conteúdo complementar da NR 12. Treinamento de capacitação e reciclagem em movimentação, armazenagem e manuseio de materiais com empilhadeira conforme NR-06.',
+    'Módulo de Treinamento. Segurança do Trabalho. NR 06 — Equipamento de Proteção Individual. Treinamento sobre o uso correto de Equipamentos de Proteção Individual: conceitos, hierarquia de controle de riscos, acidentes e doenças ocupacionais, e a proteção auditiva, visual, respiratória e das mãos, conforme a NR-06.',
   s2:
-    'Apresentação. Bem-vindo ao Treinamento. NR06 - OPERADOR DE TRANSPALETEIRA. Assista ao vídeo de introdução e avance quando concluir.',
+    'Apresentação. Bem-vindo ao Treinamento. NR 06 — Equipamento de Proteção Individual. Assista ao vídeo de introdução e avance quando concluir.',
   s6:
     'Sumário. Conteúdo Programático. Módulo 1: Introdução, Objetivo, CA e Hierarquia de Controle de Riscos. Módulo 2: Acidente de Trabalho e Doença Ocupacional. Módulo 3: Comportamentos e Condições Inseguras. Módulo 4: Conceitos de Perigo e Risco. Módulo 5: Proteção Auditiva. Módulo 6: Proteção Visual. Módulo 7: Proteção Respiratória. Módulo 8: Proteção das Mãos.',
   's-mod1':
@@ -116,7 +116,7 @@ const NARRATION_OVERRIDES = {
   's-mod8-luvas-tipos':
     'Principais modelos de luvas. Luva anticorte: protege contra cortes nas mãos. Luva de látex natural: flexível e resistente, protege contra ácidos, álcool e produtos químicos. Luva de látex nitrílica: excelente proteção contra óleos, solventes, gordura animal e graxa. Luva de PVC: flexível, excelente proteção contra ácidos, cáusticos, bases, álcoois e abrasões. Luva de vaqueta e raspa de couro: boas opções para o risco de abrasão e até mesmo solda, pois o couro é muito resistente.',
   's-fim':
-    'Parabéns. Você concluiu o treinamento NR 06 — Operador de Empilhadeira, com conteúdo complementar da NR 12. Por mérito, dedicação e compromisso com a segurança, você percorreu os sete módulos e demonstrou responsabilidade com a sua vida e com a vida dos seus colegas. A segurança é um direito de todos e um dever de cada um. Continue fazendo a sua parte.',
+    'Parabéns. Você concluiu o treinamento NR 06 — Equipamento de Proteção Individual. Por mérito, dedicação e compromisso com a segurança, você percorreu os oito módulos e demonstrou responsabilidade com a sua vida e com a vida dos seus colegas. A segurança é um direito de todos e um dever de cada um. Continue fazendo a sua parte.',
 };
 
 function cleanText(text) {
@@ -246,7 +246,7 @@ function buildMod2Narration(questions) {
   }
 
   const parts = [
-    'Quiz. Acidente de Trabalho e Doença Ocupacional. Quiz — Módulo 2. Responda cinco perguntas sobre tipos de transpaleteiras, capacidade de carga, componentes principais, painel de controle e funcionamento do timão. Acerte pelo menos três questões para concluir o módulo.',
+    'Quiz. Acidente de Trabalho e Doença Ocupacional. Quiz — Módulo 2. Responda cinco perguntas sobre o conteúdo do módulo. Acerte pelo menos três questões para concluir o módulo.',
   ];
 
   questions.forEach((item, index) => {
@@ -422,11 +422,11 @@ function parseM7gDeck(html) {
 
 function buildM7gNarration(deck) {
   if (!deck.length) {
-    return 'Missão NR 12, Módulo 7. Cinco perguntas simples sobre a norma, os deveres do operador, os riscos, os dispositivos e as condutas.';
+    return 'Missão NR 06, Módulo 7. Cinco perguntas simples sobre a norma, os deveres do trabalhador, os riscos, os dispositivos e as condutas.';
   }
 
   const parts = [
-    'Missão NR 12, Módulo 7. Cinco perguntas simples sobre a norma, os deveres do operador, os riscos, os dispositivos e as condutas.',
+    'Missão NR 06, Módulo 7. Cinco perguntas simples sobre a norma, os deveres do trabalhador, os riscos, os dispositivos e as condutas.',
   ];
 
   deck.forEach((item, index) => {
@@ -472,11 +472,11 @@ function parseQm6Questions(html) {
 
 function buildMod3Narration(deck) {
   if (!deck.length) {
-    return 'Desafio do Módulo 3. Permitido ou Proibido. Decida se cada prática de procedimento operacional ou condução de transpaleteira pode ou não ser realizada. Conclua o jogo para validar o módulo.';
+    return 'Desafio do Módulo 3. Permitido ou Proibido. Decida se cada prática de segurança no trabalho pode ou não ser realizada. Conclua o jogo para validar o módulo.';
   }
 
   const parts = [
-    'Desafio do Módulo 3. Permitido ou Proibido. Decida se cada prática de procedimento operacional ou condução de transpaleteira pode ou não ser realizada. Cinco situações sobre inspeção, trânsito interno, postura e estacionamento seguro.',
+    'Desafio do Módulo 3. Permitido ou Proibido. Decida se cada prática de segurança no trabalho pode ou não ser realizada. Cinco situações sobre inspeção, postura e procedimentos seguros.',
   ];
 
   deck.forEach((item, index) => {
