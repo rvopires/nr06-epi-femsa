@@ -59,34 +59,34 @@ const NARRATION_OVERRIDES = {
     'Vídeo. Proteção Auditiva. Assista ao vídeo e avance quando concluir.',
   's-mod5-ruido':
     'Estamos expostos ao ruído no dia a dia. Em casa, no trabalho e até viajando ou nos divertindo, estamos expostos ao ruído em nossa vida diária. O ruído no trabalho se apresenta como a situação mais perigosa em função das muitas máquinas e equipamentos ruidosos existentes, e o longo tempo que passamos sob estas condições. Atenção: o ruído contínuo e excessivo pode causar a perda ou a redução da audição.',
+  's-mod5-video-riscos':
+    'Vídeo. Riscos do som. Proteção Auditiva. Assista ao vídeo e avance quando concluir.',
   's-mod5-fatores1':
     'O que influencia o risco? Parte 1. Tempo de exposição: quanto maior este tempo, maior o perigo. Tipos de ruído: contínuo ocorre sem parar; intermitente ocorre de vez em quando; de impacto ocorre de repente.',
   's-mod5-fatores2':
     'O que influencia o risco? Parte 2. Sensibilidade individual: varia de acordo com a idade e com a resistência do organismo de cada pessoa. Distância da fonte ruidosa: quanto mais próximo, maior o perigo. Intensidade: quanto maior a intensidade, maior o risco para o trabalhador.',
   's-mod5-efeito-trabalho':
-    'Efeito do ruído no trabalho. O ruído excessivo prejudica a concentração, a comunicação entre colegas e a percepção de sinais de alerta, aumentando o risco de acidentes.',
+    'Efeito do ruído no trabalho. Observe a imagem e avance quando estiver pronto.',
   's-mod5-efeito-organismo':
-    'Efeito do ruído no organismo. Além da perda auditiva, a exposição contínua ao ruído pode causar estresse, fadiga, irritabilidade e distúrbios do sono. Assista ao vídeo e avance quando concluir.',
+    'Efeito do ruído no organismo. Observe a imagem e avance quando estiver pronto.',
   's-mod5-perda':
     'Formas de perda auditiva. Toque em cada card para saber mais. Trauma acústico: perda auditiva repentina causada por ruídos de impacto, como explosões. Perda auditiva temporária: ocorre após exposição a ruído intenso e a audição volta ao normal após algum tempo longe do ruído. Perda auditiva permanente: ocorre pela exposição repetida durante longos períodos a ruídos de alta intensidade e é irreversível.',
   's-mod5-video-sinais':
     'Vídeo. Sinais de Perda Auditiva. Proteção Auditiva. Assista ao vídeo e avance quando concluir.',
-  's-mod5-quiz1':
-    'Quiz. Qual das opções não é um sinal de perda auditiva? Zumbidos ou sons estranhos na orelha após o trabalho. Incapacidade de ouvir sons baixos ou de alta frequência. Entender facilmente o que as pessoas dizem ao telefone. Dificuldade em ouvir e entender uma conversa ou falar ao telefone.',
   's-mod5-protetores':
-    'Tipos de protetores. Espuma moldável: adaptam-se aos canais auditivos, são descartáveis, confortáveis e permitem o uso com outros EPIs. Pré-moldados: feitos em silicone, reutilizáveis e devem ser higienizados. Tipo concha: protegem os dois ouvidos de forma igual, com diferentes níveis de proteção.',
-  's-mod5-quiz2':
-    'Quiz. Qual a afirmação correta sobre os protetores auditivos? Os protetores tipo concha cobrem os ouvidos e garantem proteção uniforme, com opções de diferentes níveis. Os protetores de espuma moldável são rígidos e não se adaptam ao formato do ouvido. Os protetores pré-moldados são descartáveis e não podem ser reutilizados.',
+    'Tipos de protetores. Toque em cada card para saber mais. Espuma moldável: adaptam-se aos canais auditivos, são descartáveis, confortáveis e permitem o uso com outros EPIs. Pré-moldados: feitos em silicone, reutilizáveis e devem ser higienizados. Tipo concha: protegem os dois ouvidos de forma igual, com diferentes níveis de proteção.',
   's-mod6':
     'Início do Módulo 6. Proteção Visual.',
   's-mod6-video':
     'Vídeo. Proteção Visual. Assista ao vídeo e avance quando concluir.',
+  's-mod6-video-riscos':
+    'Vídeo. Riscos que sua visão corre. Proteção Visual. Assista ao vídeo e avance quando concluir.',
   's-mod6-riscos':
     'Riscos que sua visão corre. No ambiente de trabalho, a visão está exposta a diversos riscos: partículas, respingos químicos, radiação, luminosidade intensa e impactos que podem causar lesões, muitas vezes irreversíveis. Por isso, conhecer esses riscos e usar corretamente a proteção visual é essencial para preservar um dos sentidos mais importantes para o trabalho e para a vida.',
   's-mod6-funcionamento':
     'Como funciona a visão e sua importância. A visão é o sentido que mais envia informações ao cérebro, sendo essencial para o aprendizado e a comunicação. Defesas naturais: quando um corpo estranho entra no olho, o organismo produz lágrimas automaticamente para ajudar a expulsá-lo. Outra defesa importante é o reflexo de fechar os olhos rapidamente ao perceber uma ameaça imediata.',
   's-mod6-armazenamento':
-    'Armazenamento e substituição. Mantenha os óculos em local apropriado, como um armário, e nunca os deixe apoiados sobre as lentes, para evitar danos e garantir a proteção. Ao identificar danos ou desgaste que comprometam a visão, solicite imediatamente a substituição dos óculos por um novo.',
+    'Armazenamento e substituição. Armazenamento: mantenha os óculos em local apropriado, como um armário, e nunca os deixe apoiados sobre as lentes, para evitar danos e garantir a proteção. Substituição: ao identificar danos ou desgaste que comprometam a visão, solicite imediatamente a substituição dos óculos por um novo.',
   's-mod6-higienizacao':
     'Higienização dos óculos. Utilize água e sabão neutro para limpar os óculos e evite o uso de solventes. Após a limpeza, seque com pano macio. Em óculos com tratamento antiembaçante, prefira a limpeza com pano seco, pois lavagens frequentes podem reduzir sua eficácia.',
   's-mod7':
@@ -319,16 +319,20 @@ function parseM4gDeck(html) {
 
 function buildM4gNarration(deck) {
   if (!deck.length) {
-    return 'Desafio Módulo 4 — Turno Relâmpago. Responda Certo ou Errado para cinco afirmações sobre estabilidade de carga, paletes, tipos de carga e armazenamento.';
+    return 'Quiz NR-06 — Módulo 4. Responda as perguntas sobre perigo e risco. Escolha a alternativa e toque em Verificar resposta.';
   }
 
+  const letters = ['A', 'B', 'C', 'D'];
   const parts = [
-    'Desafio Módulo 4 — Turno Relâmpago. Responda Certo ou Errado para cinco afirmações sobre estabilidade de carga, paletes, tipos de carga e armazenamento.',
+    'Quiz NR-06 — Módulo 4. Responda as perguntas sobre perigo e risco. Escolha a alternativa e toque em Verificar resposta.',
   ];
 
   deck.forEach((item, index) => {
-    parts.push(`Afirmação ${index + 1}: ${cleanText(item.text)}`);
-    parts.push(`Resposta correta: ${item.ans ? 'Certo' : 'Errado'}. ${cleanText(item.tip)}`);
+    parts.push(`Pergunta ${index + 1}: ${cleanText(item.q)}`);
+    (item.opts || []).forEach((opt, optIndex) => {
+      parts.push(`Alternativa ${letters[optIndex] || optIndex + 1}: ${cleanText(opt)}`);
+    });
+    parts.push(`Resposta correta: alternativa ${letters[item.ans] || item.ans + 1}. ${cleanText(item.tipOk || item.tip || '')}`);
   });
 
   return parts.join(' ');
@@ -347,27 +351,27 @@ function parseM5gDeck(html) {
 
 function buildM5gNarration(deck) {
   if (!deck.length) {
-    return 'Desafio Módulo 5 — Picking, Docas e Protocolos. Leia cinco situações reais e escolha a atitude correta.';
+    return 'Quiz NR-06 — Módulo 5. Responda 6 perguntas sobre proteção auditiva. Escolha a alternativa e toque em Verificar resposta. Para avançar, é preciso acertar pelo menos 4 de 6.';
   }
 
-  const letters = ['A', 'B', 'C'];
+  const letters = ['A', 'B', 'C', 'D'];
   const parts = [
-    'Desafio Módulo 5 — Picking, Docas e Protocolos. Leia cinco situações reais e escolha a atitude correta.',
+    'Quiz NR-06 — Módulo 5. Responda 6 perguntas sobre proteção auditiva. Escolha a alternativa e toque em Verificar resposta. Para avançar, é preciso acertar pelo menos 4 de 6.',
   ];
 
   deck.forEach((item, index) => {
-    parts.push(`Situação ${index + 1}: ${cleanText(item.sit)}`);
-    item.opts.forEach((opt, optIndex) => {
+    parts.push(`Pergunta ${index + 1}: ${cleanText(item.q)}`);
+    (item.opts || []).forEach((opt, optIndex) => {
       parts.push(`Alternativa ${letters[optIndex] || optIndex + 1}: ${cleanText(opt)}`);
     });
-    parts.push(`Resposta correta: alternativa ${letters[item.ans] || item.ans + 1}. ${cleanText(item.fb)}`);
+    parts.push(`Resposta correta: alternativa ${letters[item.ans] || item.ans + 1}. ${cleanText(item.tipOk || item.fb || '')}`);
   });
 
   return parts.join(' ');
 }
 
 function parseM6gDeck(html) {
-  const match = html.match(/var\s+m6gRounds\s*=\s*(\[[\s\S]*?\n\s*\]);/);
+  const match = html.match(/var\s+m6gDeck\s*=\s*(\[[\s\S]*?\n\s*\]);/);
   if (!match) return [];
 
   try {
@@ -379,31 +383,16 @@ function parseM6gDeck(html) {
 
 function buildM6gNarration(deck) {
   if (!deck.length) {
-    return 'Missão Pit Stop, Módulo 6. Três etapas práticas: acesso ao Pit Stop, proibições e ordem da manobra.';
+    return 'Quiz NR-06 — Módulo 6. Liberado ou Não? Avalie situações de proteção visual e diga se a prática está liberada ou não liberada.';
   }
 
   const parts = [
-    'Missão Pit Stop, Módulo 6. Três etapas práticas: acesso ao Pit Stop, proibições e ordem da manobra.',
+    'Quiz NR-06 — Módulo 6. Liberado ou Não? Avalie situações de proteção visual e diga se a prática está liberada ou não liberada.',
   ];
 
   deck.forEach((item, index) => {
-    parts.push(`Etapa ${index + 1}: ${cleanText(item.title)}. ${cleanText(item.inst)}`);
-    if (item.type === 'order') {
-      parts.push('Ordem correta:');
-      item.items.forEach((opt, optIndex) => {
-        parts.push(`Passo ${optIndex + 1}: ${cleanText(opt.t)}`);
-      });
-    } else if (item.type === 'select') {
-      const yes = item.items.filter((opt) => opt.ok).map((opt) => cleanText(opt.t));
-      const no = item.items.filter((opt) => !opt.ok).map((opt) => cleanText(opt.t));
-      parts.push(`Marque: ${yes.join('; ')}.`);
-      if (no.length) parts.push(`Não marque: ${no.join('; ')}.`);
-    } else {
-      item.items.forEach((opt) => {
-        parts.push(`${opt.ok ? 'Regra correta' : 'Opção incorreta'}: ${cleanText(opt.t)}`);
-      });
-    }
-    parts.push(cleanText(item.fb));
+    parts.push(`Situação ${index + 1}: ${cleanText(item.sit)}`);
+    parts.push(`Resposta correta: ${item.liberado ? 'Liberado' : 'Não liberado'}. ${cleanText(item.tipOk || '')}`);
   });
 
   return parts.join(' ');
