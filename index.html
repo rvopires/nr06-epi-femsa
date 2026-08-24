@@ -1578,6 +1578,25 @@
       box-shadow: 0 20px 44px rgba(0, 0, 0, 0.3);
     }
 
+    #s2b3 .epi-img-ph {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      width: 100%;
+      max-height: min(58vh, 520px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #s2b3 .epi-img-ph img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: min(58vh, 520px);
+      object-fit: contain;
+    }
+
     .epi-info-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -11123,7 +11142,7 @@
               <li>É adequado para a proteção indicada pelo fabricante.</li>
             </ul>
           </div>
-          <div class="epi-img-ph"><img src="img/3x4.png" alt="Certificado de Aprovação (CA) do EPI"></div>
+          <div class="epi-img-ph"><img src="img/ca-valido.png" alt="Certificado de Aprovação (CA) válido"></div>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
@@ -11168,11 +11187,14 @@
         </div>
         <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
           <div class="video-wrap">
-            <div class="video-box" style="display:flex;align-items:center;justify-content:center;">
-              <div style="text-align:center;color:rgba(120, 1, 22, 0.45);">
-                <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
-                <div style="font-size:11px;margin-top:10px;letter-spacing:.06em;text-transform:uppercase;">Vídeo a inserir</div>
-              </div>
+            <div class="video-box">
+              <iframe id="panda-95b5dee6-717f-4fdd-aec8-bff1d82703f1"
+                src="https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=95b5dee6-717f-4fdd-aec8-bff1d82703f1"
+                frameborder="0" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                allowfullscreen="true" fetchpriority="high"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+                title="Hierarquia de Controle de Riscos">
+              </iframe>
             </div>
           </div>
         </div>
@@ -11183,6 +11205,36 @@
 
       <!-- ── S2g: Jogo — Hierarquia de Controle de Riscos ── -->
       <section class="slide" id="s2g">
+        <style>
+          #s2g #epi-hier-intro {
+            padding: 32px 24px 36px;
+            background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
+            border: 1px solid rgba(120, 1, 22, 0.28);
+            border-radius: 24px;
+            box-shadow: 0 28px 64px rgba(0, 0, 0, 0.4);
+            max-width: 640px;
+          }
+          #s2g #epi-hier-intro .ic-circle {
+            background: linear-gradient(135deg, #ff4d6d, #c9184a);
+            box-shadow: 0 0 16px rgba(255, 77, 109, 0.45);
+          }
+          #s2g #epi-hier-intro .btn-start {
+            background: linear-gradient(135deg, #ff4d6d, #c9184a);
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(201, 24, 74, 0.45);
+          }
+          #s2g #epi-hier-intro .btn-start:hover {
+            background: linear-gradient(135deg, #ff6b85, #e11d48);
+          }
+          #s2g #epi-hier-result {
+            padding: 24px 20px;
+            background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
+            border-radius: 28px;
+            border: 1px solid rgba(255,255,255,0.1);
+            animation: slideUp 0.6s ease;
+            max-width: 640px;
+          }
+        </style>
         <div class="top-bar">
           <div><span class="section-tag">🧩 Associe</span>
             <div class="slide-title" style="margin-top:6px">Hierarquia de <span>Controle de Riscos</span></div>
@@ -11191,8 +11243,8 @@
         <div class="content-area">
           <div id="epi-hier-intro" class="epi-match-wrap" style="text-align:center; animation: fadeIn 0.8s ease;">
             <div class="ic-circle" style="margin: 0 auto 24px; width: 96px; height: 96px; font-size: 48px;">🧩</div>
-            <h3 style="font-family:var(--font-h); font-size:24px; color:#780116; margin-bottom:12px;">Associe cada conceito à categoria correta</h3>
-            <p style="color:#780116; font-size:15.5px; line-height:1.65; margin-bottom:26px; max-width:600px; margin-left:auto; margin-right:auto;">A hierarquia de controle de riscos organiza as medidas de proteção da mais eficaz (elimina o risco na origem) até a menos eficaz (protege apenas o indivíduo): <strong>Eliminação, Redução/Substituição, Controles de Engenharia, Controles Administrativos e EPI</strong>. Leia cada frase e escolha a categoria correspondente.</p>
+            <h3 style="font-family:var(--font-h); font-size:26px; color:var(--white); margin-bottom:12px;">Quiz NR-06 — Módulo 1</h3>
+            <p style="color:rgba(255,255,255,0.72); font-size:16px; line-height:1.65; margin-bottom:28px; max-width:600px; margin-left:auto; margin-right:auto;">A hierarquia de controle de riscos organiza as medidas de proteção da mais eficaz (elimina o risco na origem) até a menos eficaz (protege apenas o indivíduo): <strong>Eliminação, Redução/Substituição, Controles de Engenharia, Controles Administrativos e EPI</strong>. Leia cada frase e escolha a categoria correspondente.</p>
             <button class="btn-start" style="padding: 16px 40px; font-size: 15px; text-transform: uppercase;" onclick="epiMatchStart('epi-hier')">INICIAR</button>
           </div>
           <div id="epi-hier-play" class="epi-match-wrap" style="display:none;">
@@ -11203,10 +11255,11 @@
             <div id="epi-hier-feedback" class="epi-match-feedback"></div>
           </div>
           <div id="epi-hier-result" class="epi-match-wrap epi-match-result" style="display:none; text-align:center;">
-            <div style="font-size: 56px; margin-bottom: 12px;">🏅</div>
+            <div class="r-icon" style="font-size: 56px; margin-bottom: 12px;">🏅</div>
             <h3 style="font-family:var(--font-h); font-size: clamp(24px, 5vw, 30px); color:#f7b538; margin-bottom:8px; font-weight:900;">Associação Concluída!</h3>
             <div class="r-status ap" style="display:inline-block; padding: 6px 18px; font-size: 13px; margin-bottom:12px; font-weight:700;">Módulo 1 — Hierarquia Validada</div>
-            <p style="color:#f7b538; font-size:15px; line-height:1.55; margin-bottom:8px;">Você organizou corretamente a hierarquia: Eliminação, Redução/Substituição, Controles de Engenharia, Controles Administrativos e EPI — da medida mais eficaz até a última barreira de proteção.</p>
+            <p style="color:rgba(255,255,255,0.88); font-size:15px; line-height:1.55; margin-bottom:20px;">Você organizou corretamente a hierarquia: Eliminação, Redução/Substituição, Controles de Engenharia, Controles Administrativos e EPI — da medida mais eficaz até a última barreira de proteção.</p>
+            <button class="btn-retry" style="background: #f7b538; color: #780116; font-weight: 800; border-radius: 99px; padding: 12px 32px;" onclick="epiMatchStart('epi-hier')">JOGAR NOVAMENTE</button>
           </div>
           <div class="req-item" id="epi-hier-req" style="display:none"></div>
         </div>
@@ -13807,6 +13860,8 @@
     @media (min-width: 768px) {
       #s2e .mod1-game-wrap,
       #s-mod2-game .mod2tf-wrap,
+      #s2g #epi-hier-intro,
+      #s2g #epi-hier-result,
       #s-mod3-game .m3g-wrap,
       #s-mod4-game .m4g-wrap,
       #s-mod5-game .m5g-wrap,
@@ -13817,6 +13872,7 @@
         margin-top: 56px !important;
       }
       #s-mod2-game #mod2tf-intro,
+      #s2g #epi-hier-intro,
       #s-mod3-game #m3g-intro,
       #s-mod3-game #m3g-result,
       #s-mod4-game #m4g-intro,
@@ -13832,6 +13888,7 @@
         border-radius: 32px !important;
       }
       #s-mod2-game #mod2tf-intro .ic-circle,
+      #s2g #epi-hier-intro .ic-circle,
       #s-mod3-game #m3g-intro .ic-circle,
       #s-mod4-game #m4g-intro .ic-circle,
       #s-mod5-game #m5g-intro .ic-circle,
@@ -13844,6 +13901,7 @@
         margin: 0 auto 32px !important;
       }
       #s-mod2-game #mod2tf-intro h3,
+      #s2g #epi-hier-intro h3,
       #s-mod3-game #m3g-intro h3,
       #s-mod4-game #m4g-intro h3,
       #s-mod5-game #m5g-intro h3,
@@ -13855,6 +13913,7 @@
         line-height: 1.2 !important;
       }
       #s-mod2-game #mod2tf-intro p,
+      #s2g #epi-hier-intro p,
       #s-mod3-game #m3g-intro p,
       #s-mod4-game #m4g-intro p,
       #s-mod5-game #m5g-intro p,
@@ -13866,6 +13925,7 @@
         margin-bottom: 40px !important;
       }
       #s-mod2-game #mod2tf-intro .btn-start,
+      #s2g #epi-hier-intro .btn-start,
       #s-mod3-game #m3g-intro .btn-start,
       #s-mod4-game #m4g-intro .btn-start,
       #s-mod5-game #m5g-intro .btn-start,
@@ -13879,6 +13939,8 @@
     @media (min-width: 769px) and (max-height: 860px) {
       #s2e .mod1-game-wrap,
       #s-mod2-game .mod2tf-wrap,
+      #s2g #epi-hier-intro,
+      #s2g #epi-hier-result,
       #s-mod3-game .m3g-wrap,
       #s-mod4-game .m4g-wrap,
       #s-mod5-game .m5g-wrap,
@@ -13889,6 +13951,7 @@
         margin-top: 30px !important;
       }
       #s-mod2-game #mod2tf-intro,
+      #s2g #epi-hier-intro,
       #s-mod3-game #m3g-intro,
       #s-mod3-game #m3g-result,
       #s-mod4-game #m4g-intro,
@@ -13904,6 +13967,7 @@
         border-radius: 28px !important;
       }
       #s-mod2-game #mod2tf-intro .ic-circle,
+      #s2g #epi-hier-intro .ic-circle,
       #s-mod3-game #m3g-intro .ic-circle,
       #s-mod4-game #m4g-intro .ic-circle,
       #s-mod5-game #m5g-intro .ic-circle,
@@ -13916,6 +13980,7 @@
         margin: 0 auto 22px !important;
       }
       #s-mod2-game #mod2tf-intro h3,
+      #s2g #epi-hier-intro h3,
       #s-mod3-game #m3g-intro h3,
       #s-mod4-game #m4g-intro h3,
       #s-mod5-game #m5g-intro h3,
@@ -13926,6 +13991,7 @@
         margin-bottom: 14px !important;
       }
       #s-mod2-game #mod2tf-intro p,
+      #s2g #epi-hier-intro p,
       #s-mod3-game #m3g-intro p,
       #s-mod4-game #m4g-intro p,
       #s-mod5-game #m5g-intro p,
@@ -13937,6 +14003,7 @@
         margin-bottom: 26px !important;
       }
       #s-mod2-game #mod2tf-intro .btn-start,
+      #s2g #epi-hier-intro .btn-start,
       #s-mod3-game #m3g-intro .btn-start,
       #s-mod4-game #m4g-intro .btn-start,
       #s-mod5-game #m5g-intro .btn-start,
@@ -13951,6 +14018,7 @@
     @media screen and (max-width: 768px) {
       #s2e #mod1-game-intro,
       #s-mod2-game #mod2tf-intro,
+      #s2g #epi-hier-intro,
       #s-mod3-game #m3g-intro,
       #s-mod4-game #m4g-intro,
       #s-mod5-game #m5g-intro,
@@ -13974,6 +14042,7 @@
       }
       #s2e #mod1-game-intro .ic-circle,
       #s-mod2-game #mod2tf-intro .ic-circle,
+      #s2g #epi-hier-intro .ic-circle,
       #s-mod3-game #m3g-intro .ic-circle,
       #s-mod4-game #m4g-intro .ic-circle,
       #s-mod5-game #m5g-intro .ic-circle,
@@ -13989,6 +14058,7 @@
       }
       #s2e #mod1-game-intro h3,
       #s-mod2-game #mod2tf-intro h3,
+      #s2g #epi-hier-intro h3,
       #s-mod3-game #m3g-intro h3,
       #s-mod4-game #m4g-intro h3,
       #s-mod5-game #m5g-intro h3,
@@ -14005,6 +14075,7 @@
       }
       #s2e #mod1-game-intro p,
       #s-mod2-game #mod2tf-intro p,
+      #s2g #epi-hier-intro p,
       #s-mod3-game #m3g-intro p,
       #s-mod4-game #m4g-intro p,
       #s-mod5-game #m5g-intro p,
@@ -14021,6 +14092,7 @@
       }
       #s2e #mod1-game-intro .btn-start,
       #s-mod2-game #mod2tf-intro .btn-start,
+      #s2g #epi-hier-intro .btn-start,
       #s-mod3-game #m3g-intro .btn-start,
       #s-mod4-game #m4g-intro .btn-start,
       #s-mod5-game #m5g-intro .btn-start,
