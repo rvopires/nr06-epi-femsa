@@ -951,12 +951,22 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
     }
 
     #logo img {
       height: 54px;
       width: auto;
       display: block;
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      #logo {
+        cursor: pointer;
+        touch-action: manipulation;
+      }
     }
 
     /* ── SLIDE COUNTER ── */
@@ -2323,6 +2333,7 @@
     #s-mod5-game #m5g-intro .ic-circle,
     #s-mod6-game #m6g-intro .ic-circle,
     #s-mod7-game #m7g-intro .ic-circle,
+    #s-mod8-game #m8g-intro .ic-circle,
     #s2e #mod1-game-intro .ic-circle {
       background: linear-gradient(135deg, #ff4d6d, #c9184a);
       box-shadow: 0 0 16px rgba(255, 77, 109, 0.45);
@@ -2335,12 +2346,13 @@
     #s-mod5-game #m5g-intro .btn-start,
     #s-mod6-game #m6g-intro .btn-start,
     #s-mod7-game #m7g-intro .btn-start,
+    #s-mod8-game #m8g-intro .btn-start,
     #s2e #mod1-game-intro .btn-start,
     #s2e .epi-quiz-check,
     #s-mod4-game .epi-quiz-check,
     #s-mod5-game .epi-quiz-check,
     #s-mod7-quiz .epi-quiz-check,
-    #s-mod8-quiz .epi-quiz-check {
+    #s-mod8-game .epi-quiz-check {
       background: linear-gradient(135deg, #ff4d6d, #c9184a);
       color: #fff;
       box-shadow: 0 10px 30px rgba(201, 24, 74, 0.45);
@@ -2353,12 +2365,13 @@
     #s-mod5-game #m5g-intro .btn-start:hover,
     #s-mod6-game #m6g-intro .btn-start:hover,
     #s-mod7-game #m7g-intro .btn-start:hover,
+    #s-mod8-game #m8g-intro .btn-start:hover,
     #s2e #mod1-game-intro .btn-start:hover,
     #s2e .epi-quiz-check:hover:not(:disabled),
     #s-mod4-game .epi-quiz-check:hover:not(:disabled),
     #s-mod5-game .epi-quiz-check:hover:not(:disabled),
     #s-mod7-quiz .epi-quiz-check:hover:not(:disabled),
-    #s-mod8-quiz .epi-quiz-check:hover:not(:disabled) {
+    #s-mod8-game .epi-quiz-check:hover:not(:disabled) {
       background: linear-gradient(135deg, #ff6b85, #e11d48);
     }
 
@@ -2370,6 +2383,7 @@
     #s-mod5-game #m5g-intro,
     #s-mod6-game #m6g-intro,
     #s-mod7-game #m7g-intro,
+    #s-mod8-game #m8g-intro,
     #s2e #mod1-game-intro {
       position: relative;
       overflow: hidden;
@@ -2388,6 +2402,7 @@
     #s-mod5-game #m5g-intro::before,
     #s-mod6-game #m6g-intro::before,
     #s-mod7-game #m7g-intro::before,
+    #s-mod8-game #m8g-intro::before,
     #s2e #mod1-game-intro::before {
       content: '';
       position: absolute;
@@ -2408,6 +2423,7 @@
     #s-mod5-game #m5g-intro::after,
     #s-mod6-game #m6g-intro::after,
     #s-mod7-game #m7g-intro::after,
+    #s-mod8-game #m8g-intro::after,
     #s2e #mod1-game-intro::after {
       content: '';
       position: absolute;
@@ -2428,6 +2444,7 @@
     #s-mod5-game #m5g-intro > *,
     #s-mod6-game #m6g-intro > *,
     #s-mod7-game #m7g-intro > *,
+    #s-mod8-game #m8g-intro > *,
     #s2e #mod1-game-intro > * {
       position: relative;
       z-index: 1;
@@ -2440,6 +2457,7 @@
     #s-mod5-game #m5g-intro .ic-circle,
     #s-mod6-game #m6g-intro .ic-circle,
     #s-mod7-game #m7g-intro .ic-circle,
+    #s-mod8-game #m8g-intro .ic-circle,
     #s2e #mod1-game-intro .ic-circle {
       box-shadow:
         0 0 0 4px rgba(247, 181, 56, 0.28),
@@ -2453,6 +2471,7 @@
     #s-mod5-game #m5g-intro h3,
     #s-mod6-game #m6g-intro h3,
     #s-mod7-game #m7g-intro h3,
+    #s-mod8-game #m8g-intro h3,
     #s2e #mod1-game-intro h3 {
       color: #fff !important;
       text-shadow: 0 2px 18px rgba(247, 181, 56, 0.28);
@@ -2466,6 +2485,7 @@
     #s-mod5-game #m5g-intro .btn-start,
     #s-mod6-game #m6g-intro .btn-start,
     #s-mod7-game #m7g-intro .btn-start,
+    #s-mod8-game #m8g-intro .btn-start,
     #s2e #mod1-game-intro .btn-start {
       border: 1.5px solid rgba(247, 181, 56, 0.55);
       box-shadow:
@@ -2493,7 +2513,7 @@
     #s-mod4-game .q-opt,
     #s-mod5-game .q-opt,
     #s-mod7-quiz .q-opt,
-    #s-mod8-quiz .q-opt {
+    #s-mod8-game .q-opt {
       border: 1px solid transparent;
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
     }
@@ -2502,7 +2522,7 @@
     #s-mod4-game .q-opt:nth-child(1),
     #s-mod5-game .q-opt:nth-child(1),
     #s-mod7-quiz .q-opt:nth-child(1),
-    #s-mod8-quiz .q-opt:nth-child(1) {
+    #s-mod8-game .q-opt:nth-child(1) {
       background: #1e3a8a;
       border-color: #1e40af;
       color: #ffffff;
@@ -2512,7 +2532,7 @@
     #s-mod4-game .q-opt:nth-child(1):hover:not(.answered),
     #s-mod5-game .q-opt:nth-child(1):hover:not(.answered),
     #s-mod7-quiz .q-opt:nth-child(1):hover:not(.answered),
-    #s-mod8-quiz .q-opt:nth-child(1):hover:not(.answered) {
+    #s-mod8-game .q-opt:nth-child(1):hover:not(.answered) {
       background: #1d4ed8;
       border-color: #ffffff;
     }
@@ -2521,7 +2541,7 @@
     #s-mod4-game .q-opt:nth-child(1) .opt-l,
     #s-mod5-game .q-opt:nth-child(1) .opt-l,
     #s-mod7-quiz .q-opt:nth-child(1) .opt-l,
-    #s-mod8-quiz .q-opt:nth-child(1) .opt-l {
+    #s-mod8-game .q-opt:nth-child(1) .opt-l {
       background: #ffffff;
       border-color: #ffffff;
       color: #1e3a8a;
@@ -2531,7 +2551,7 @@
     #s-mod4-game .q-opt:nth-child(2),
     #s-mod5-game .q-opt:nth-child(2),
     #s-mod7-quiz .q-opt:nth-child(2),
-    #s-mod8-quiz .q-opt:nth-child(2) {
+    #s-mod8-game .q-opt:nth-child(2) {
       background: #7c3aed;
       border-color: #6d28d9;
       color: #ffffff;
@@ -2541,7 +2561,7 @@
     #s-mod4-game .q-opt:nth-child(2):hover:not(.answered),
     #s-mod5-game .q-opt:nth-child(2):hover:not(.answered),
     #s-mod7-quiz .q-opt:nth-child(2):hover:not(.answered),
-    #s-mod8-quiz .q-opt:nth-child(2):hover:not(.answered) {
+    #s-mod8-game .q-opt:nth-child(2):hover:not(.answered) {
       background: #8b5cf6;
       border-color: #ffffff;
     }
@@ -2550,7 +2570,7 @@
     #s-mod4-game .q-opt:nth-child(2) .opt-l,
     #s-mod5-game .q-opt:nth-child(2) .opt-l,
     #s-mod7-quiz .q-opt:nth-child(2) .opt-l,
-    #s-mod8-quiz .q-opt:nth-child(2) .opt-l {
+    #s-mod8-game .q-opt:nth-child(2) .opt-l {
       background: #ffffff;
       border-color: #ffffff;
       color: #7c3aed;
@@ -2560,7 +2580,7 @@
     #s-mod4-game .q-opt:nth-child(3),
     #s-mod5-game .q-opt:nth-child(3),
     #s-mod7-quiz .q-opt:nth-child(3),
-    #s-mod8-quiz .q-opt:nth-child(3) {
+    #s-mod8-game .q-opt:nth-child(3) {
       background: #ea580c;
       border-color: #c2410c;
       color: #ffffff;
@@ -2570,7 +2590,7 @@
     #s-mod4-game .q-opt:nth-child(3):hover:not(.answered),
     #s-mod5-game .q-opt:nth-child(3):hover:not(.answered),
     #s-mod7-quiz .q-opt:nth-child(3):hover:not(.answered),
-    #s-mod8-quiz .q-opt:nth-child(3):hover:not(.answered) {
+    #s-mod8-game .q-opt:nth-child(3):hover:not(.answered) {
       background: #f97316;
       border-color: #ffffff;
     }
@@ -2579,7 +2599,7 @@
     #s-mod4-game .q-opt:nth-child(3) .opt-l,
     #s-mod5-game .q-opt:nth-child(3) .opt-l,
     #s-mod7-quiz .q-opt:nth-child(3) .opt-l,
-    #s-mod8-quiz .q-opt:nth-child(3) .opt-l {
+    #s-mod8-game .q-opt:nth-child(3) .opt-l {
       background: #ffffff;
       border-color: #ffffff;
       color: #ea580c;
@@ -2587,7 +2607,7 @@
 
     #s-mod5-game .q-opt:nth-child(4),
     #s-mod7-quiz .q-opt:nth-child(4),
-    #s-mod8-quiz .q-opt:nth-child(4) {
+    #s-mod8-game .q-opt:nth-child(4) {
       background: #0e7490;
       border-color: #155e75;
       color: #ffffff;
@@ -2595,14 +2615,14 @@
 
     #s-mod5-game .q-opt:nth-child(4):hover:not(.answered),
     #s-mod7-quiz .q-opt:nth-child(4):hover:not(.answered),
-    #s-mod8-quiz .q-opt:nth-child(4):hover:not(.answered) {
+    #s-mod8-game .q-opt:nth-child(4):hover:not(.answered) {
       background: #0891b2;
       border-color: #ffffff;
     }
 
     #s-mod5-game .q-opt:nth-child(4) .opt-l,
     #s-mod7-quiz .q-opt:nth-child(4) .opt-l,
-    #s-mod8-quiz .q-opt:nth-child(4) .opt-l {
+    #s-mod8-game .q-opt:nth-child(4) .opt-l {
       background: #ffffff;
       border-color: #ffffff;
       color: #0e7490;
@@ -2612,7 +2632,7 @@
     #s-mod4-game .q-opt.correct,
     #s-mod5-game .q-opt.correct,
     #s-mod7-quiz .q-opt.correct,
-    #s-mod8-quiz .q-opt.correct {
+    #s-mod8-game .q-opt.correct {
       background: #1b7a42 !important;
       border-color: #145c32 !important;
       color: #ffffff !important;
@@ -2622,7 +2642,7 @@
     #s-mod4-game .q-opt.correct .opt-l,
     #s-mod5-game .q-opt.correct .opt-l,
     #s-mod7-quiz .q-opt.correct .opt-l,
-    #s-mod8-quiz .q-opt.correct .opt-l {
+    #s-mod8-game .q-opt.correct .opt-l {
       background: #ffffff !important;
       border-color: #ffffff !important;
       color: #1b7a42 !important;
@@ -2632,7 +2652,7 @@
     #s-mod4-game .q-opt.wrong,
     #s-mod5-game .q-opt.wrong,
     #s-mod7-quiz .q-opt.wrong,
-    #s-mod8-quiz .q-opt.wrong {
+    #s-mod8-game .q-opt.wrong {
       background: #c0392b !important;
       border-color: #922b21 !important;
       color: #ffffff !important;
@@ -2642,7 +2662,7 @@
     #s-mod4-game .q-opt.wrong .opt-l,
     #s-mod5-game .q-opt.wrong .opt-l,
     #s-mod7-quiz .q-opt.wrong .opt-l,
-    #s-mod8-quiz .q-opt.wrong .opt-l {
+    #s-mod8-game .q-opt.wrong .opt-l {
       background: #ffffff !important;
       border-color: #ffffff !important;
       color: #c0392b !important;
@@ -2652,7 +2672,7 @@
     #s-mod4-game .q-opt.selected,
     #s-mod5-game .q-opt.selected,
     #s-mod7-quiz .q-opt.selected,
-    #s-mod8-quiz .q-opt.selected {
+    #s-mod8-game .q-opt.selected {
       outline: 3px solid #780116;
       outline-offset: 3px;
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28), 0 0 0 6px rgba(120, 1, 22, 0.18);
@@ -2662,7 +2682,7 @@
     #s-mod4-game .q-opt.answered:not(.correct):not(.wrong),
     #s-mod5-game .q-opt.answered:not(.correct):not(.wrong),
     #s-mod7-quiz .q-opt.answered:not(.correct):not(.wrong),
-    #s-mod8-quiz .q-opt.answered:not(.correct):not(.wrong) {
+    #s-mod8-game .q-opt.answered:not(.correct):not(.wrong) {
       background: #6b7280 !important;
       border-color: #4b5563 !important;
       color: rgba(255, 255, 255, 0.55) !important;
@@ -2675,7 +2695,7 @@
     #s-mod4-game .q-opt.answered:not(.correct):not(.wrong) .opt-l,
     #s-mod5-game .q-opt.answered:not(.correct):not(.wrong) .opt-l,
     #s-mod7-quiz .q-opt.answered:not(.correct):not(.wrong) .opt-l,
-    #s-mod8-quiz .q-opt.answered:not(.correct):not(.wrong) .opt-l {
+    #s-mod8-game .q-opt.answered:not(.correct):not(.wrong) .opt-l {
       background: rgba(255, 255, 255, 0.22) !important;
       border-color: rgba(255, 255, 255, 0.22) !important;
       color: #4b5563 !important;
@@ -2685,12 +2705,12 @@
     #s-mod4-game .q-opt.correct,
     #s-mod5-game .q-opt.correct,
     #s-mod7-quiz .q-opt.correct,
-    #s-mod8-quiz .q-opt.correct,
+    #s-mod8-game .q-opt.correct,
     #s2e .q-opt.wrong,
     #s-mod4-game .q-opt.wrong,
     #s-mod5-game .q-opt.wrong,
     #s-mod7-quiz .q-opt.wrong,
-    #s-mod8-quiz .q-opt.wrong {
+    #s-mod8-game .q-opt.wrong {
       outline: none;
     }
 
@@ -2698,7 +2718,7 @@
     #s-mod4-game .epi-quiz-actions,
     #s-mod5-game .epi-quiz-actions,
     #s-mod7-quiz .epi-quiz-actions,
-    #s-mod8-quiz .epi-quiz-actions {
+    #s-mod8-game .epi-quiz-actions {
       display: flex;
       justify-content: center;
       margin-top: 22px;
@@ -2708,7 +2728,7 @@
     #s-mod4-game .epi-quiz-check,
     #s-mod5-game .epi-quiz-check,
     #s-mod7-quiz .epi-quiz-check,
-    #s-mod8-quiz .epi-quiz-check {
+    #s-mod8-game .epi-quiz-check {
       align-self: center;
       text-transform: uppercase;
       font-size: 14px;
@@ -2719,7 +2739,7 @@
     #s-mod4-game .epi-quiz-check:disabled,
     #s-mod5-game .epi-quiz-check:disabled,
     #s-mod7-quiz .epi-quiz-check:disabled,
-    #s-mod8-quiz .epi-quiz-check:disabled {
+    #s-mod8-game .epi-quiz-check:disabled {
       opacity: 0.45;
       cursor: not-allowed;
       transform: none;
@@ -2730,7 +2750,7 @@
     #s-mod4-game .q-feedback.ok,
     #s-mod5-game .q-feedback.ok,
     #s-mod7-quiz .q-feedback.ok,
-    #s-mod8-quiz .q-feedback.ok {
+    #s-mod8-game .q-feedback.ok {
       background: #1b7a42;
       border: 2px solid #145c32;
       border-left: 6px solid #0e4726;
@@ -2742,7 +2762,7 @@
     #s-mod4-game .q-feedback.nok,
     #s-mod5-game .q-feedback.nok,
     #s-mod7-quiz .q-feedback.nok,
-    #s-mod8-quiz .q-feedback.nok {
+    #s-mod8-game .q-feedback.nok {
       background: #780116;
       border: 2px solid #5A0111;
       color: #f7b538;
@@ -7233,6 +7253,7 @@
     #s-mod5-game #m5g-result,
     #s-mod6-game #m6g-result,
     #s-mod7-game #m7g-result,
+    #s-mod8-game #m8g-result,
     #s2g .epi-match-result {
       padding: 20px 20px 22px !important;
       max-width: min(520px, 92%) !important;
@@ -7249,6 +7270,7 @@
     #s-mod5-game #m5g-result .r-icon,
     #s-mod6-game #m6g-result .r-icon,
     #s-mod7-game #m7g-result .r-icon,
+    #s-mod8-game #m8g-result .r-icon,
     #s2g .epi-match-result .r-icon {
       font-size: 40px !important;
       margin-bottom: 8px !important;
@@ -7262,6 +7284,7 @@
     #s-mod5-game #m5g-result h3,
     #s-mod6-game #m6g-result h3,
     #s-mod7-game #m7g-result h3,
+    #s-mod8-game #m8g-result h3,
     #s2g .epi-match-result h3 {
       font-size: clamp(18px, 3.5vw, 22px) !important;
       margin-bottom: 6px !important;
@@ -7275,6 +7298,7 @@
     #s-mod5-game #m5g-result-msg,
     #s-mod6-game #m6g-result p,
     #s-mod7-game #m7g-result p,
+    #s-mod8-game #m8g-result p,
     #s2g .epi-match-result p,
     #s-mod3-game #epi-inp-result p {
       font-size: 14px !important;
@@ -7287,7 +7311,8 @@
     #s-mod4-game #m4g-result .r-status,
     #s-mod5-game #m5g-result .r-status,
     #s-mod6-game #m6g-result .r-status,
-    #s-mod7-game #m7g-result .r-status {
+    #s-mod7-game #m7g-result .r-status,
+    #s-mod8-game #m8g-result .r-status {
       padding: 4px 12px !important;
       font-size: 11px !important;
       margin-bottom: 8px !important;
@@ -7300,6 +7325,7 @@
     #s-mod5-game #m5g-result .btn-retry,
     #s-mod6-game #m6g-result .btn-retry,
     #s-mod7-game #m7g-result .btn-retry,
+    #s-mod8-game #m8g-result .btn-retry,
     #s2g .epi-match-result .btn-retry {
       margin-top: 8px !important;
       padding: 10px 22px !important;
@@ -15312,11 +15338,40 @@
         </div>
         <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
           <div class="video-wrap">
-            <div class="video-box" style="display:flex;align-items:center;justify-content:center;">
-              <div style="text-align:center;color:rgba(120, 1, 22, 0.45);">
-                <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
-                <div style="font-size:11px;margin-top:10px;letter-spacing:.06em;text-transform:uppercase;">Vídeo a inserir</div>
-              </div>
+            <div class="video-box">
+              <iframe id="panda-0ff6e27b-5dea-403e-ad15-43edf6ba1d3c"
+                src="https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=0ff6e27b-5dea-403e-ad15-43edf6ba1d3c"
+                frameborder="0" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                allowfullscreen="true" fetchpriority="high"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+                title="Proteção Respiratória">
+              </iframe>
+            </div>
+          </div>
+        </div>
+        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
+          </svg></div>
+      </section>
+
+      <!-- ── S-MOD7-VIDEO-VISUAL: Vídeo — Proteção Visual no Trabalho ── -->
+      <section class="slide video-slide" id="s-mod7-video-visual">
+        <div class="top-bar">
+          <div><span class="section-tag">📹 Vídeo</span>
+            <div class="slide-title" style="margin-top:6px">Proteção Visual <span>no Trabalho</span></div>
+            <div class="slide-subtitle">Proteção Visual no Trabalho</div>
+          </div>
+        </div>
+        <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+          <div class="video-wrap">
+            <div class="video-box">
+              <iframe id="panda-f2504352-7a42-463a-8e5f-65e3347666e5"
+                src="https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=f2504352-7a42-463a-8e5f-65e3347666e5"
+                frameborder="0" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                allowfullscreen="true" fetchpriority="high"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+                title="Proteção Visual no Trabalho">
+              </iframe>
             </div>
           </div>
         </div>
@@ -15327,40 +15382,154 @@
 
       <!-- ── S-MOD7-EPR: Como se proteger? ── -->
       <section class="slide" id="s-mod7-epr">
+        <style>
+          #s-mod7-epr .content-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            overflow-y: auto;
+          }
+          #s-mod7-epr .m7-static-grid {
+            width: 100%;
+            max-width: 560px;
+            margin: 0 auto;
+          }
+          #s-mod7-epr .m7-static-card {
+            background: #fff;
+            border: 1.5px solid rgba(120,1,22,.16);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 16px 36px rgba(0,0,0,.18);
+            display: flex;
+            flex-direction: column;
+          }
+          #s-mod7-epr .m7-static-card img {
+            width: 100%;
+            height: clamp(220px, 38vh, 340px);
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+          }
+          #s-mod7-epr .m7-static-body {
+            padding: 16px 18px 18px;
+            background: linear-gradient(90deg, #ecfeff, #cffafe);
+            border-top: 3px solid #0891b2;
+          }
+          #s-mod7-epr .m7-static-body h4 {
+            margin: 0 0 8px;
+            font-family: var(--font-h);
+            font-size: clamp(16px, 1.8vw, 19px);
+            font-weight: 800;
+            color: #780116;
+          }
+          #s-mod7-epr .m7-static-body p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.55;
+            color: rgba(61,1,11,.9);
+          }
+          #s-mod7-epr .m7-static-body p + p { margin-top: 8px; }
+        </style>
         <div class="top-bar">
           <div><span class="section-tag">😷 Proteção Respiratória</span>
             <div class="slide-title" style="margin-top:6px">Como se <span>proteger?</span></div>
             <div class="slide-subtitle">Proteção Respiratória</div>
           </div>
         </div>
-        <div class="content-area" style="display:grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; max-width: 1050px; margin: 0 auto; width:100%;">
-          <div class="epi-card">
-            <p>Uma das formas de se proteger contra a inalação de contaminantes atmosféricos é através do uso de <strong>Equipamento de Proteção Respiratória (EPR)</strong>.</p>
-            <p>Esses equipamentos, chamados respiradores ou máscaras, cobrem a boca e o nariz e protegem a respiração por meio de filtros ou fornecimento de ar.</p>
+        <div class="content-area">
+          <div class="m7-static-grid">
+            <article class="m7-static-card">
+              <img src="img/PAGINA46.png" alt="Equipamento de Proteção Respiratória">
+              <div class="m7-static-body">
+                <h4>Equipamento de Proteção Respiratória (EPR)</h4>
+                <p>Uma das formas de se proteger contra a inalação de contaminantes atmosféricos é através do uso de <strong>Equipamento de Proteção Respiratória (EPR)</strong>.</p>
+                <p>Esses equipamentos, chamados respiradores ou máscaras, cobrem a boca e o nariz e protegem a respiração por meio de filtros ou fornecimento de ar.</p>
+              </div>
+            </article>
           </div>
-          <div class="epi-img-ph"><img src="img/BACKGROUND.png" alt="Equipamento de Proteção Respiratória"></div>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
           </svg></div>
       </section>
 
-      <!-- ── S-MOD7-VIDEO-TIPOS: Vídeo — Tipos de Respiradores ── -->
-      <section class="slide video-slide" id="s-mod7-video-tipos">
+      <!-- ── S-MOD7-TIPOS-IMG: Classificação dos Respiradores ── -->
+      <section class="slide" id="s-mod7-video-tipos">
+        <style>
+          #s-mod7-video-tipos .content-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            overflow-y: auto;
+          }
+          #s-mod7-video-tipos .m7-static-grid {
+            width: 100%;
+            max-width: 920px;
+            margin: 0 auto;
+          }
+          #s-mod7-video-tipos .m7-static-card {
+            background: #fff;
+            border: 1.5px solid rgba(120,1,22,.16);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 16px 36px rgba(0,0,0,.18);
+            display: flex;
+            flex-direction: column;
+          }
+          #s-mod7-video-tipos .m7-static-media {
+            width: 100%;
+            background: #f8fafc;
+            overflow: hidden;
+          }
+          #s-mod7-video-tipos .m7-static-media img {
+            width: 100%;
+            height: auto;
+            max-height: min(58vh, 520px);
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            margin: 0 auto;
+          }
+          #s-mod7-video-tipos .m7-static-body {
+            padding: 14px 18px 16px;
+            background: linear-gradient(90deg, #fff7ed, #ffedd5);
+            border-top: 3px solid #ea580c;
+          }
+          #s-mod7-video-tipos .m7-static-body h4 {
+            margin: 0 0 6px;
+            font-family: var(--font-h);
+            font-size: clamp(15px, 1.6vw, 18px);
+            font-weight: 800;
+            color: #780116;
+          }
+          #s-mod7-video-tipos .m7-static-body p {
+            margin: 0;
+            font-size: 13.5px;
+            line-height: 1.5;
+            color: rgba(61,1,11,.9);
+          }
+        </style>
         <div class="top-bar">
-          <div><span class="section-tag">📹 Vídeo</span>
+          <div><span class="section-tag">🎭 Tipos</span>
             <div class="slide-title" style="margin-top:6px">Tipos de <span>Respiradores</span></div>
             <div class="slide-subtitle">Proteção Respiratória</div>
           </div>
         </div>
-        <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
-          <div class="video-wrap">
-            <div class="video-box" style="display:flex;align-items:center;justify-content:center;">
-              <div style="text-align:center;color:rgba(120, 1, 22, 0.45);">
-                <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
-                <div style="font-size:11px;margin-top:10px;letter-spacing:.06em;text-transform:uppercase;">Vídeo a inserir</div>
+        <div class="content-area">
+          <div class="m7-static-grid">
+            <article class="m7-static-card">
+              <div class="m7-static-media">
+                <img src="img/PAGINA47.png" alt="Classificação dos tipos de respiradores">
               </div>
-            </div>
+              <div class="m7-static-body">
+                <h4>Purificador de ar e Adução de ar</h4>
+                <p>Os respiradores se dividem em <strong>purificadores de ar</strong> (sem manutenção, baixa manutenção, com manutenção, peça facial inteira e ar forçado/PAPR) e de <strong>adução de ar</strong> (ar mandado e máscara autônoma).</p>
+              </div>
+            </article>
           </div>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
@@ -15370,26 +15539,290 @@
 
       <!-- ── S-MOD7-TIPOS: Tipos de Respiradores ── -->
       <section class="slide" id="s-mod7-tipos">
+        <style>
+          #s-mod7-tipos .content-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            overflow-y: auto;
+          }
+          #s-mod7-tipos .m7-static-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            width: 100%;
+            max-width: 1040px;
+            margin: 0 auto;
+          }
+          #s-mod7-tipos .m7-static-card {
+            background: #fff;
+            border: 1.5px solid rgba(120,1,22,.16);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 16px 36px rgba(0,0,0,.18);
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            transition: transform .2s ease, box-shadow .2s ease;
+          }
+          #s-mod7-tipos .m7-static-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(120,1,22,.18);
+          }
+          #s-mod7-tipos .m7-static-media {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: #f8fafc;
+            overflow: hidden;
+          }
+          #s-mod7-tipos .m7-static-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+          }
+          #s-mod7-tipos .m7-static-body {
+            padding: 14px 14px 16px;
+            flex: 1;
+          }
+          #s-mod7-tipos .m7-static-card--cyan .m7-static-body {
+            background: linear-gradient(90deg, #ecfeff, #cffafe);
+            border-top: 3px solid #0891b2;
+          }
+          #s-mod7-tipos .m7-static-card--teal .m7-static-body {
+            background: linear-gradient(90deg, #f0fdfa, #ccfbf1);
+            border-top: 3px solid #0d9488;
+          }
+          #s-mod7-tipos .m7-static-card--wine .m7-static-body {
+            background: linear-gradient(90deg, #fff1f2, #ffe4e6);
+            border-top: 3px solid #780116;
+          }
+          #s-mod7-tipos .m7-static-body h4 {
+            margin: 0 0 8px;
+            font-family: var(--font-h);
+            font-size: clamp(14px, 1.5vw, 16px);
+            font-weight: 800;
+            color: #780116;
+            line-height: 1.25;
+          }
+          #s-mod7-tipos .m7-static-body p {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.5;
+            color: rgba(61,1,11,.9);
+          }
+          @media (max-width: 860px) {
+            #s-mod7-tipos .m7-static-grid {
+              grid-template-columns: 1fr;
+              max-width: 380px;
+            }
+            #s-mod7-tipos .m7-static-media {
+              aspect-ratio: 16 / 10;
+            }
+          }
+        </style>
         <div class="top-bar">
           <div><span class="section-tag">🎭 Tipos</span>
             <div class="slide-title" style="margin-top:6px">Tipos de <span>Respiradores</span></div>
             <div class="slide-subtitle">Proteção Respiratória</div>
           </div>
         </div>
-        <div class="content-area" style="max-width:1100px;margin:0 auto;width:100%;">
-          <div class="epi-info-grid">
-            <div class="epi-info-card epi-open" style="cursor:default;">
-              <h4>Peça Semifacial Filtrante (PFF)</h4>
-              <p>Máscara descartável que cobre nariz e boca, filtrando partículas presentes no ar. Indicada para exposições a poeiras e névoas.</p>
-            </div>
-            <div class="epi-info-card epi-open" style="cursor:default;">
-              <h4>Semifacial com Filtro</h4>
-              <p>Respirador reutilizável, com corpo de borracha ou silicone e filtros/cartuchos substituíveis, indicado para vapores orgânicos, gases e partículas.</p>
-            </div>
-            <div class="epi-info-card epi-open" style="cursor:default;">
-              <h4>Máscara com Fornecimento de Ar</h4>
-              <p>Fornece ar respirável de uma fonte externa (linha de ar ou cilindro), usada em ambientes com atmosferas mais críticas ou deficientes de oxigênio.</p>
-            </div>
+        <div class="content-area">
+          <div class="m7-static-grid">
+            <article class="m7-static-card m7-static-card--cyan">
+              <div class="m7-static-media">
+                <img src="img/SEMIFACIAL.png" alt="Peça Semifacial Filtrante">
+              </div>
+              <div class="m7-static-body">
+                <h4>Peça Semifacial Filtrante (PFF)</h4>
+                <p>Máscara descartável que cobre nariz e boca, filtrando partículas presentes no ar. Indicada para exposições a poeiras e névoas.</p>
+              </div>
+            </article>
+            <article class="m7-static-card m7-static-card--teal">
+              <div class="m7-static-media">
+                <img src="img/SEMIFACIALCOMFILTRO.png" alt="Semifacial com Filtro">
+              </div>
+              <div class="m7-static-body">
+                <h4>Semifacial com Filtro</h4>
+                <p>Respirador reutilizável, com corpo de borracha ou silicone e filtros/cartuchos substituíveis, indicado para vapores orgânicos, gases e partículas.</p>
+              </div>
+            </article>
+            <article class="m7-static-card m7-static-card--wine">
+              <div class="m7-static-media">
+                <img src="img/MASCARADEAR.png" alt="Máscara com Fornecimento de Ar">
+              </div>
+              <div class="m7-static-body">
+                <h4>Máscara com Fornecimento de Ar</h4>
+                <p>Fornece ar respirável de uma fonte externa (linha de ar ou cilindro), usada em ambientes com atmosferas mais críticas ou deficientes de oxigênio.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
+          </svg></div>
+      </section>
+
+      <!-- ── S-MOD7-COLOCAR-REUTILIZAVEL: Colocação — Reutilizáveis ── -->
+      <section class="slide" id="s-mod7-colocar-reutilizavel">
+        <style>
+          #s-mod7-colocar-reutilizavel .content-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            overflow-y: auto;
+          }
+          #s-mod7-colocar-reutilizavel .m7-static-grid {
+            width: 100%;
+            max-width: 920px;
+            margin: 0 auto;
+          }
+          #s-mod7-colocar-reutilizavel .m7-static-card {
+            background: #fff;
+            border: 1.5px solid rgba(120,1,22,.16);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 16px 36px rgba(0,0,0,.18);
+            display: flex;
+            flex-direction: column;
+          }
+          #s-mod7-colocar-reutilizavel .m7-static-media {
+            width: 100%;
+            background: #f8fafc;
+            overflow: hidden;
+          }
+          #s-mod7-colocar-reutilizavel .m7-static-media img {
+            width: 100%;
+            height: auto;
+            max-height: min(58vh, 520px);
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            margin: 0 auto;
+          }
+          #s-mod7-colocar-reutilizavel .m7-static-body {
+            padding: 14px 18px 16px;
+            background: linear-gradient(90deg, #eff6ff, #dbeafe);
+            border-top: 3px solid #2563eb;
+          }
+          #s-mod7-colocar-reutilizavel .m7-static-body h4 {
+            margin: 0 0 6px;
+            font-family: var(--font-h);
+            font-size: clamp(15px, 1.6vw, 18px);
+            font-weight: 800;
+            color: #780116;
+          }
+          #s-mod7-colocar-reutilizavel .m7-static-body p {
+            margin: 0;
+            font-size: 13.5px;
+            line-height: 1.5;
+            color: rgba(61,1,11,.9);
+          }
+        </style>
+        <div class="top-bar">
+          <div><span class="section-tag">😷 Colocação</span>
+            <div class="slide-title" style="margin-top:6px">Respiradores <span>Reutilizáveis</span></div>
+            <div class="slide-subtitle">Proteção Respiratória</div>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="m7-static-grid">
+            <article class="m7-static-card">
+              <div class="m7-static-media">
+                <img src="img/PAGINA49.png" alt="Como colocar respiradores reutilizáveis de silicone ou elastômero">
+              </div>
+              <div class="m7-static-body">
+                <h4>Silicone ou elastômero sintético</h4>
+                <p>Ajuste os tirantes, confira a vedação com pressão positiva e negativa e, se houver vazamento, reajuste a posição e a tensão dos elásticos.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
+          </svg></div>
+      </section>
+
+      <!-- ── S-MOD7-COLOCAR-DESCARTAVEL: Colocação — Descartáveis ── -->
+      <section class="slide" id="s-mod7-colocar-descartavel">
+        <style>
+          #s-mod7-colocar-descartavel .content-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            overflow-y: auto;
+          }
+          #s-mod7-colocar-descartavel .m7-static-grid {
+            width: 100%;
+            max-width: 920px;
+            margin: 0 auto;
+          }
+          #s-mod7-colocar-descartavel .m7-static-card {
+            background: #fff;
+            border: 1.5px solid rgba(120,1,22,.16);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 16px 36px rgba(0,0,0,.18);
+            display: flex;
+            flex-direction: column;
+          }
+          #s-mod7-colocar-descartavel .m7-static-media {
+            width: 100%;
+            background: #f8fafc;
+            overflow: hidden;
+          }
+          #s-mod7-colocar-descartavel .m7-static-media img {
+            width: 100%;
+            height: auto;
+            max-height: min(58vh, 520px);
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            margin: 0 auto;
+          }
+          #s-mod7-colocar-descartavel .m7-static-body {
+            padding: 14px 18px 16px;
+            background: linear-gradient(90deg, #ecfeff, #cffafe);
+            border-top: 3px solid #0891b2;
+          }
+          #s-mod7-colocar-descartavel .m7-static-body h4 {
+            margin: 0 0 6px;
+            font-family: var(--font-h);
+            font-size: clamp(15px, 1.6vw, 18px);
+            font-weight: 800;
+            color: #780116;
+          }
+          #s-mod7-colocar-descartavel .m7-static-body p {
+            margin: 0;
+            font-size: 13.5px;
+            line-height: 1.5;
+            color: rgba(61,1,11,.9);
+          }
+        </style>
+        <div class="top-bar">
+          <div><span class="section-tag">😷 Colocação</span>
+            <div class="slide-title" style="margin-top:6px">Respiradores <span>Descartáveis</span></div>
+            <div class="slide-subtitle">Proteção Respiratória</div>
+          </div>
+        </div>
+        <div class="content-area">
+          <div class="m7-static-grid">
+            <article class="m7-static-card">
+              <div class="m7-static-media">
+                <img src="img/PAGINA50.png" alt="Como colocar respiradores descartáveis">
+              </div>
+              <div class="m7-static-body">
+                <h4>Colocação e teste de vedação</h4>
+                <p>Apoie no queixo, cubra nariz e boca, ajuste elásticos e grampo nasal. Faça o teste de vedação — inspire (valvulados) ou expire (não valvulados) — e reajuste se houver vazamento.</p>
+              </div>
+            </article>
           </div>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
@@ -15399,6 +15832,137 @@
 
       <!-- ── S-MOD7-PFF: Eficiência dos Filtros PFF ── -->
       <section class="slide" id="s-mod7-pff">
+        <style>
+          #s-mod7-pff .content-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-y: auto;
+          }
+          #s-mod7-pff .m7-pff-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            width: 100%;
+            max-width: 980px;
+            margin: 0 auto;
+          }
+          #s-mod7-pff .m7-pff-card {
+            background: #fff;
+            border: 1.5px solid rgba(120,1,22,.14);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 16px 36px rgba(0,0,0,.16);
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            transition: transform .2s ease, box-shadow .2s ease;
+          }
+          #s-mod7-pff .m7-pff-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(120,1,22,.18);
+          }
+          #s-mod7-pff .m7-pff-top {
+            padding: 22px 18px 16px;
+            text-align: center;
+            color: #fff;
+          }
+          #s-mod7-pff .m7-pff-card--1 .m7-pff-top {
+            background: linear-gradient(145deg, #f59e0b, #d97706);
+          }
+          #s-mod7-pff .m7-pff-card--2 .m7-pff-top {
+            background: linear-gradient(145deg, #fb7185, #e11d48);
+          }
+          #s-mod7-pff .m7-pff-card--3 .m7-pff-top {
+            background: linear-gradient(145deg, #780116, #5A0111);
+          }
+          #s-mod7-pff .m7-pff-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.18);
+            border: 2px solid rgba(255,255,255,.45);
+            font-family: var(--font-h);
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: .02em;
+            margin-bottom: 10px;
+          }
+          #s-mod7-pff .m7-pff-top h4 {
+            margin: 0;
+            font-family: var(--font-h);
+            font-size: clamp(18px, 2vw, 22px);
+            font-weight: 900;
+          }
+          #s-mod7-pff .m7-pff-body {
+            padding: 18px 16px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex: 1;
+          }
+          #s-mod7-pff .m7-pff-pct {
+            font-family: var(--font-h);
+            font-size: clamp(28px, 4vw, 36px);
+            font-weight: 900;
+            color: #780116;
+            line-height: 1;
+            text-align: center;
+          }
+          #s-mod7-pff .m7-pff-pct span {
+            font-size: 0.45em;
+            font-weight: 800;
+            color: rgba(120,1,22,.55);
+            margin-left: 2px;
+          }
+          #s-mod7-pff .m7-pff-label {
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: rgba(61,1,11,.7);
+            letter-spacing: .04em;
+            text-transform: uppercase;
+          }
+          #s-mod7-pff .m7-pff-bar {
+            height: 10px;
+            border-radius: 999px;
+            background: rgba(120,1,22,.08);
+            overflow: hidden;
+          }
+          #s-mod7-pff .m7-pff-fill {
+            height: 100%;
+            border-radius: 999px;
+          }
+          #s-mod7-pff .m7-pff-card--1 .m7-pff-fill {
+            width: 80%;
+            background: linear-gradient(90deg, #fbbf24, #d97706);
+          }
+          #s-mod7-pff .m7-pff-card--2 .m7-pff-fill {
+            width: 94%;
+            background: linear-gradient(90deg, #fb7185, #e11d48);
+          }
+          #s-mod7-pff .m7-pff-card--3 .m7-pff-fill {
+            width: 99.9%;
+            background: linear-gradient(90deg, #f7b538, #780116);
+          }
+          #s-mod7-pff .m7-pff-hint {
+            margin: 0;
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.45;
+            color: rgba(61,1,11,.78);
+          }
+          @media (max-width: 760px) {
+            #s-mod7-pff .m7-pff-grid {
+              grid-template-columns: 1fr;
+              max-width: 380px;
+            }
+          }
+        </style>
         <div class="top-bar">
           <div><span class="section-tag">🧪 Filtros</span>
             <div class="slide-title" style="margin-top:6px">Eficiência dos <span>Filtros PFF</span></div>
@@ -15406,292 +15970,342 @@
           </div>
         </div>
         <div class="content-area">
-          <table class="epi-pff-table">
-            <thead><tr><th>Modelo</th><th>Eficácia</th></tr></thead>
-            <tbody>
-              <tr class="epi-pff-row"><td>PFF1</td><td>80% de eficácia</td></tr>
-              <tr class="epi-pff-row"><td>PFF2</td><td>94% de eficácia</td></tr>
-              <tr class="epi-pff-row"><td>PFF3</td><td>99,9% de eficácia</td></tr>
-            </tbody>
-          </table>
+          <div class="m7-pff-grid">
+            <article class="m7-pff-card m7-pff-card--1">
+              <div class="m7-pff-top">
+                <div class="m7-pff-badge">PFF1</div>
+                <h4>Filtro PFF1</h4>
+              </div>
+              <div class="m7-pff-body">
+                <div class="m7-pff-pct">80<span>%</span></div>
+                <div class="m7-pff-label">de eficácia</div>
+                <div class="m7-pff-bar"><div class="m7-pff-fill"></div></div>
+                <p class="m7-pff-hint">Proteção básica contra partículas.</p>
+              </div>
+            </article>
+            <article class="m7-pff-card m7-pff-card--2">
+              <div class="m7-pff-top">
+                <div class="m7-pff-badge">PFF2</div>
+                <h4>Filtro PFF2</h4>
+              </div>
+              <div class="m7-pff-body">
+                <div class="m7-pff-pct">94<span>%</span></div>
+                <div class="m7-pff-label">de eficácia</div>
+                <div class="m7-pff-bar"><div class="m7-pff-fill"></div></div>
+                <p class="m7-pff-hint">Proteção intermediária contra partículas.</p>
+              </div>
+            </article>
+            <article class="m7-pff-card m7-pff-card--3">
+              <div class="m7-pff-top">
+                <div class="m7-pff-badge">PFF3</div>
+                <h4>Filtro PFF3</h4>
+              </div>
+              <div class="m7-pff-body">
+                <div class="m7-pff-pct">99,9<span>%</span></div>
+                <div class="m7-pff-label">de eficácia</div>
+                <div class="m7-pff-bar"><div class="m7-pff-fill"></div></div>
+                <p class="m7-pff-hint">Máxima proteção contra partículas.</p>
+              </div>
+            </article>
+          </div>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
           </svg></div>
       </section>
 
-      <!-- ── S-MOD7-QUIZ: Quiz — Cuidados com o Respirador ── -->
-      <section class="slide" id="s-mod7-quiz">
+      <!-- ── S-MOD7-VIDEO-PFF: Vídeo — Barba e Respirador ── -->
+      <section class="slide video-slide" id="s-mod7-video-pff">
         <div class="top-bar">
-          <div><span class="section-tag">🎯 Quiz</span>
-            <div class="slide-title" style="margin-top:6px">Teste seu <span>Conhecimento</span></div>
-            <div class="slide-subtitle">Proteção Respiratória — Cuidados com o Respirador</div>
+          <div><span class="section-tag">📹 Vídeo</span>
+            <div class="slide-title" style="margin-top:6px">Barba e <span>Respirador</span></div>
+            <div class="slide-subtitle">Proteção Respiratória</div>
           </div>
         </div>
-        <div class="content-area">
-          <div class="epi-quiz-wrap">
-            <p class="epi-quiz-q">Qual alternativa NÃO corresponde a um cuidado adequado com o respirador?</p>
-            <div class="q-options" id="epiq-respirador-options">
-              <div class="q-opt" data-correct="false" onclick="epiQuizSelect(this)"><div class="opt-l">A</div><span>Inspecionar se o respirador não está danificado.</span></div>
-              <div class="q-opt" data-correct="true" onclick="epiQuizSelect(this)"><div class="opt-l">B</div><span>Lavar filtros e cartuchos para aumentar a durabilidade.</span></div>
-              <div class="q-opt" data-correct="false" onclick="epiQuizSelect(this)"><div class="opt-l">C</div><span>Fazer o ajuste correto para evitar a entrada de contaminantes.</span></div>
-              <div class="q-opt" data-correct="false" onclick="epiQuizSelect(this)"><div class="opt-l">D</div><span>Lavar respiradores reutilizáveis com água e detergente neutro.</span></div>
-            </div>
-            <div class="q-feedback" id="epiq-respirador-feedback"></div>
-            <div class="epi-quiz-actions">
-              <button type="button" class="btn-start epi-quiz-check" id="epiq-respirador-check" onclick="epiQuizCheck('epiq-respirador')">Verificar resposta</button>
+        <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+          <div class="video-wrap">
+            <div class="video-box">
+              <iframe id="panda-ea22ad21-5c26-405c-9307-25fc01ce4303"
+                src="https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=ea22ad21-5c26-405c-9307-25fc01ce4303"
+                frameborder="0" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                allowfullscreen="true" fetchpriority="high"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+                title="Barba e Respirador">
+              </iframe>
             </div>
           </div>
-          <div class="req-item" id="epiq-respirador-req" style="display:none"></div>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
           </svg></div>
       </section>
 
+      <!-- ── S-MOD7-GAME: Quiz — Filtro Certo ── -->
       <section class="slide" id="s-mod7-game">
         <style>
           #s-mod7-game .content-area {
-            display: flex; align-items: center; justify-content: center;
+            padding-top: 12px !important;
+            padding-bottom: 110px !important;
+            justify-content: center;
+            align-items: center;
+            min-height: 0;
+            flex: 1 1 auto;
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
             container-type: size;
           }
           #s-mod7-game .m7g-wrap {
-            width: 100%; max-width: clamp(360px, 68cqw, 860px); margin: 0 auto;
-          }
-          #s-mod7-game .m7g-wrap.is-play {
-            flex: 1 1 auto;
-            width: min(940px, 96%);
-            max-width: 940px !important;
-            margin: 0 auto !important;
-            min-height: 0;
-            display: flex; flex-direction: column;
+            flex-shrink: 0;
+            width: 100%;
+            max-width: clamp(360px, 68cqw, 720px);
+            margin: 0 auto;
           }
           #s-mod7-game #m7g-intro,
           #s-mod7-game #m7g-result {
-            padding: clamp(24px,10cqh,64px) clamp(24px,6cqw,48px);
+            padding: clamp(24px,8cqh,48px) clamp(22px,5cqw,40px) !important;
             background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
             border: 1px solid rgba(120, 1, 22,0.28);
             border-radius: clamp(16px,3cqw,26px);
             box-shadow: 0 28px 64px rgba(0,0,0,0.4);
             box-sizing: border-box;
+            text-align: center;
           }
-          #s-mod7-game #m7g-play {
-            flex: 1 1 auto;
-            min-height: 0;
-            height: 100%;
-            display: flex; flex-direction: column;
-            padding: clamp(14px, 2.6cqh, 24px) clamp(18px, 3.4cqw, 32px);
-            overflow: hidden;
-            background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
-            border: 1px solid rgba(120, 1, 22,0.28);
-            border-radius: clamp(16px,3cqw,24px);
-            box-shadow: 0 28px 64px rgba(0,0,0,0.4);
-            box-sizing: border-box;
+          #s-mod7-game #m7g-result h3 { color: #f7b538 !important; }
+          #s-mod7-game #m7g-result-msg {
+            color: #fff8e7 !important;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.55;
+          }
+          #s-mod7-game #m7g-result .r-status {
+            color: #fff;
+            background: rgba(247, 181, 56, 0.22);
+            border: 1px solid #f7b538;
+            border-radius: 99px;
+          }
+          #s-mod7-game #m7g-result .btn-retry {
+            background: #f7b538 !important;
+            color: #780116 !important;
+            border: none !important;
+            font-weight: 800 !important;
           }
           #s-mod7-game #m7g-intro .ic-circle {
-            width: clamp(64px,20cqh,120px) !important;
-            height: clamp(64px,20cqh,120px) !important;
-            font-size: clamp(32px,10cqh,60px) !important;
-            margin: 0 auto clamp(20px,7cqh,44px) !important;
+            width: clamp(64px,18cqh,104px) !important;
+            height: clamp(64px,18cqh,104px) !important;
+            font-size: clamp(30px,9cqh,52px) !important;
+            margin: 0 auto clamp(16px,5cqh,28px) !important;
           }
           #s-mod7-game #m7g-intro h3 {
-            font-size: clamp(20px,6.5cqh,36px) !important;
-            margin-bottom: clamp(10px,3.5cqh,22px) !important;
+            font-size: clamp(20px,5.5cqh,28px) !important;
+            margin-bottom: clamp(8px,2.5cqh,14px) !important;
           }
           #s-mod7-game #m7g-intro p {
-            font-size: clamp(13.5px,3cqh,17px) !important;
+            font-size: clamp(13.5px,2.8cqh,16px) !important;
             line-height: 1.5 !important;
-            margin-bottom: clamp(16px,8cqh,52px) !important;
-          }
-          #s-mod7-game #m7g-intro .btn-start {
-            padding: clamp(12px,3cqh,18px) clamp(28px,5cqw,44px) !important;
-            font-size: clamp(13px,2.2cqh,15px) !important;
+            margin-bottom: clamp(16px,6cqh,28px) !important;
           }
           #s-mod7-game .m7g-top-row {
             display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: clamp(6px, 1.2cqh, 10px); gap: 8px; flex-shrink: 0;
+            margin-bottom: 12px; gap: 8px;
           }
-          #s-mod7-game .m7g-label {
-            font-family: var(--font-h); font-size: clamp(11px, 1.8cqh, 13px); font-weight: 800;
-            letter-spacing: 0.08em; text-transform: uppercase; color: #780116;
+          #s-mod7-game .m7g-stamp {
+            font-family: var(--font-h); font-size: 11px; font-weight: 800;
+            letter-spacing: .1em; text-transform: uppercase;
+            color: #780116; background: rgba(120,1,22,.08);
+            border: 1px solid rgba(120,1,22,.18); border-radius: 999px;
+            padding: 5px 12px;
           }
           #s-mod7-game .m7g-counter {
-            font-family: var(--font-h); font-size: clamp(12px, 2cqh, 14px); font-weight: 700;
-            color: var(--white); background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.1); border-radius: 999px; padding: 4px 14px;
+            font-family: var(--font-h); font-size: 13px; font-weight: 700;
+            color: #780116; letter-spacing: .04em;
           }
-          #s-mod7-game .m7g-bar-bg {
-            height: clamp(6px, 1cqh, 8px); background: rgba(255,255,255,0.05); border-radius: 4px;
-            overflow: hidden; border: 1px solid rgba(255,255,255,0.08);
-            margin-bottom: clamp(8px, 1.6cqh, 14px); flex-shrink: 0;
+          #s-mod7-game .m7g-air {
+            height: 10px; border-radius: 999px; background: rgba(120,1,22,.1);
+            overflow: hidden; margin-bottom: 14px; border: 1px solid rgba(120,1,22,.12);
           }
-          #s-mod7-game .m7g-bar-fill {
-            height: 100%; width: 0%; background: linear-gradient(90deg, #780116, #ffc837);
-            transition: width 0.45s cubic-bezier(0.4,0,0.2,1);
+          #s-mod7-game .m7g-air-fill {
+            height: 100%; width: 0%;
+            background: linear-gradient(90deg, #22d3ee, #0891b2 55%, #f7b538);
+            transition: width .45s ease;
           }
-          #s-mod7-game .m7g-card {
-            background: rgba(0,0,0,0.28); border: 1px solid rgba(255,255,255,0.14);
-            border-radius: 16px; padding: clamp(10px, 2cqh, 16px) clamp(14px, 2.5cqw, 20px);
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center; text-align: center;
-            margin-bottom: clamp(8px, 1.6cqh, 14px); flex-shrink: 0;
+          #s-mod7-game .m7g-case {
+            background: #fff;
+            border: 1.5px solid rgba(120,1,22,.16);
+            border-radius: 20px;
+            padding: 20px 18px;
+            box-shadow: 0 14px 32px rgba(120,1,22,.12);
+            margin-bottom: 14px;
+            text-align: left;
           }
-          #s-mod7-game .m7g-emoji { font-size: clamp(22px, 4.2cqh, 32px); margin-bottom: 4px; line-height: 1; }
-          #s-mod7-game .m7g-round-title {
-            font-family: var(--font-h); font-size: clamp(16px, 3.2cqh, 22px); font-weight: 800;
-            color: var(--cream); margin: 0 0 4px; line-height: 1.2;
+          #s-mod7-game .m7g-case-kicker {
+            font-family: var(--font-h);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #0891b2;
+            margin-bottom: 8px;
           }
-          #s-mod7-game .m7g-round-instr {
-            font-family: var(--font-p); font-size: clamp(13px, 2.4cqh, 16px);
-            color: rgba(255,255,255,0.75); margin: 0; line-height: 1.35;
+          #s-mod7-game .m7g-case-text {
+            margin: 0;
+            font-size: clamp(15px, 2.2vw, 17px);
+            line-height: 1.55;
+            color: #3d010b;
+            font-weight: 600;
           }
-          #s-mod7-game #m7g-stage { flex: 1 1 auto; min-height: 0; display: flex; }
-          #s-mod7-game #m7g-stage > * { flex: 1; width: 100%; min-height: 0; }
-          #s-mod7-game .m7g-grid {
-            display: grid; grid-template-columns: repeat(2, 1fr);
-            grid-auto-rows: 1fr;
-            gap: clamp(8px, 1.5cqh, 12px); width: 100%;
+          #s-mod7-game .m7g-options {
+            display: grid;
+            gap: 10px;
           }
-          #s-mod7-game .m7g-grid.m7g-col { grid-template-columns: 1fr; }
-          #s-mod7-game .m7g-tile {
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            gap: 8px; padding: clamp(10px, 2cqh, 16px) clamp(10px, 1.8cqw, 14px);
-            min-height: 0;
-            border-radius: 14px; border: 1px solid rgba(255,255,255,0.12);
-            background: rgba(255,255,255,0.04); cursor: pointer; color: #fff;
-            font-family: var(--font-h); font-size: clamp(13px, 2.3cqh, 16px); font-weight: 700;
-            text-align: center; line-height: 1.3;
-            transition: background 0.2s, border-color 0.2s, transform 0.15s;
+          #s-mod7-game .m7g-opt {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-align: left;
+            border: 2px solid rgba(120,1,22,.14);
+            border-radius: 16px;
+            padding: 14px 14px;
+            background: #fff;
+            cursor: pointer;
+            font-family: var(--font-p);
+            font-size: 14.5px;
+            font-weight: 650;
+            color: #3d010b;
+            line-height: 1.4;
+            box-shadow: 0 8px 20px rgba(120,1,22,.08);
+            transition: transform .15s ease, border-color .2s ease, box-shadow .2s ease;
           }
-          #s-mod7-game .m7g-grid.m7g-col .m7g-tile {
-            flex-direction: row; justify-content: flex-start; text-align: left;
-            gap: 14px; padding: clamp(12px, 2.2cqh, 18px) clamp(14px, 2.4cqw, 20px);
+          #s-mod7-game .m7g-opt:hover:not(:disabled) {
+            transform: translateY(-2px);
+            border-color: rgba(8,145,178,.45);
+            box-shadow: 0 12px 26px rgba(8,145,178,.16);
           }
-          #s-mod7-game .m7g-tile:hover:not(:disabled) { background: rgba(0,187,249,0.08); border-color: rgba(0,187,249,0.35); }
-          #s-mod7-game .m7g-tile:active:not(:disabled) { transform: scale(0.98); }
-          #s-mod7-game .m7g-tile-emoji { font-size: clamp(22px, 4cqh, 30px); line-height: 1; flex-shrink: 0; }
-          #s-mod7-game .m7g-tile.is-on { border-color: #780116; background: rgba(0,187,249,0.16); }
-          #s-mod7-game .m7g-tile.is-ok { border-color: #27ae60; background: rgba(39,174,96,0.16); }
-          #s-mod7-game .m7g-tile.is-bad { border-color: #e74c3c; background: rgba(231,76,60,0.14); }
-          #s-mod7-game .m7g-tile:disabled { pointer-events: none; }
-          #s-mod7-game .m7g-order {
-            display: flex; flex-direction: column; gap: clamp(8px, 1.5cqh, 12px); width: 100%;
+          #s-mod7-game .m7g-opt:disabled { cursor: default; }
+          #s-mod7-game .m7g-chip {
+            flex-shrink: 0;
+            min-width: 58px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-h);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: .04em;
+            color: #fff;
+            padding: 0 8px;
           }
-          #s-mod7-game .m7g-order-item {
-            display: flex; align-items: center; gap: 14px; width: 100%;
-            flex: 1 1 auto;
-            padding: clamp(12px, 2cqh, 18px) clamp(14px, 2.4cqw, 20px); border-radius: 14px;
-            border: 1px solid rgba(255,255,255,0.12);
-            background: rgba(255,255,255,0.04); cursor: pointer; color: #fff;
-            font-family: var(--font-h); font-size: clamp(14px, 2.4cqh, 16px); font-weight: 700; text-align: left;
-            transition: background 0.2s, border-color 0.2s;
+          #s-mod7-game .m7g-opt:nth-child(1) .m7g-chip { background: linear-gradient(145deg, #f59e0b, #d97706); }
+          #s-mod7-game .m7g-opt:nth-child(2) .m7g-chip { background: linear-gradient(145deg, #22d3ee, #0891b2); }
+          #s-mod7-game .m7g-opt:nth-child(3) .m7g-chip { background: linear-gradient(145deg, #780116, #5A0111); }
+          #s-mod7-game .m7g-opt.is-ok {
+            border-color: #22c55e;
+            background: #f0fdf4;
+            box-shadow: 0 0 0 3px rgba(34,197,94,.25);
           }
-          #s-mod7-game .m7g-order-item:hover:not(:disabled) { background: rgba(0,187,249,0.08); border-color: rgba(0,187,249,0.35); }
-          #s-mod7-game .m7g-order-item.is-locked {
-            border-color: #27ae60; background: rgba(39,174,96,0.14); cursor: default;
+          #s-mod7-game .m7g-opt.is-bad {
+            border-color: #ef4444;
+            background: #fef2f2;
+            box-shadow: 0 0 0 3px rgba(239,68,68,.22);
           }
-          #s-mod7-game .m7g-order-item.is-bad {
-            border-color: #e74c3c; background: rgba(231,76,60,0.12);
-            animation: m7gShake 0.4s ease;
-          }
-          #s-mod7-game .m7g-order-item.is-bad .m7g-step-num {
-            background: #e74c3c; border-color: #e74c3c; color: #fff;
-          }
-          @keyframes m7gShake {
-            10%,90% { transform: translateX(-2px); } 20%,80% { transform: translateX(3px); }
-            30%,50%,70% { transform: translateX(-5px); } 40%,60% { transform: translateX(5px); }
-          }
-          #s-mod7-game .m7g-step-num {
-            min-width: clamp(28px, 4.2cqh, 34px); height: clamp(28px, 4.2cqh, 34px); border-radius: 50%;
-            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
-            display: flex; align-items: center; justify-content: center;
-            font-size: clamp(12px, 2cqh, 14px); color: #780116; flex-shrink: 0;
-          }
-          #s-mod7-game .m7g-order-item.is-locked .m7g-step-num {
-            background: #27ae60; border-color: #27ae60; color: #fff;
-          }
-          #s-mod7-game .m7g-confirm {
-            display: none; width: 100%; margin-top: clamp(8px, 1.6cqh, 14px); border: none; cursor: pointer;
-            padding: clamp(12px, 2.2cqh, 16px) 20px; border-radius: 999px;
-            background: linear-gradient(135deg, #780116, #5A0111);
-            color: #fff; font-family: var(--font-h); font-weight: 800;
-            font-size: clamp(13px, 2.2cqh, 15px); letter-spacing: 0.06em; text-transform: uppercase;
-            box-shadow: 0 8px 20px rgba(0,187,249,0.28); flex-shrink: 0;
-          }
-          #s-mod7-game .m7g-confirm:disabled { opacity: 0.4; cursor: default; }
+          #s-mod7-game .m7g-opt.is-dim { opacity: .4; filter: grayscale(.35); }
           #s-mod7-game .m7g-feedback {
-            min-height: 0; text-align: center; font-family: var(--font-h); font-weight: 700;
-            font-size: clamp(12px, 2.2cqh, 14px); margin-top: clamp(6px, 1.2cqh, 10px); letter-spacing: 0.02em;
-            line-height: 1.35; flex-shrink: 0;
+            margin-top: 12px;
+            min-height: 44px;
+            border-radius: 14px;
+            padding: 12px 14px;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.45;
+            text-align: center;
+            display: none;
           }
-          #s-mod7-game .m7g-feedback.ok  { color: #2ecc71; }
-          #s-mod7-game .m7g-feedback.err { color: #e74c3c; }
-          #s-mod7-game .m7g-hint { display: none; }
-          #s-mod7-game .m7g-score-ring {
-            width: 120px; height: 120px; border-radius: 50%;
-            background: conic-gradient(#780116 0%, transparent 0%);
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 18px; position: relative; box-shadow: 0 0 36px rgba(120, 1, 22,0.2);
+          #s-mod7-game .m7g-feedback.ok {
+            display: block;
+            background: #1b7a42;
+            color: #fff;
+            border: 2px solid #145c32;
           }
-          #s-mod7-game .m7g-score-ring::before {
-            content: ''; position: absolute; inset: 8px; border-radius: 50%; background: #0f1923;
+          #s-mod7-game .m7g-feedback.nok {
+            display: block;
+            background: #780116;
+            color: #f7b538;
+            border: 2px solid #5A0111;
           }
-          #s-mod7-game .m7g-score-num {
-            font-family: var(--font-h); font-size: 30px; font-weight: 900; color: #780116;
-            position: relative; z-index: 1; line-height: 1;
+          #s-mod7-game .m7g-review {
+            display: none;
+            text-align: left;
+            margin: 8px auto 16px;
+            max-width: 480px;
+            padding: 14px 16px 12px;
+            border: 1.5px solid #f7b538;
+            border-radius: 14px;
+            background: rgba(247, 181, 56, 0.08);
           }
-          #s-mod7-game .m7g-score-label {
-            font-family: var(--font-h); font-size: 11px; color: rgba(255,255,255,0.5);
-            position: relative; z-index: 1;
+          #s-mod7-game .m7g-review-title {
+            font-family: var(--font-h);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            color: #f7b538;
+            margin-bottom: 8px;
+          }
+          #s-mod7-game #m7g-review-list {
+            margin: 0;
+            padding-left: 18px;
+            color: #fff8e7;
+            font-size: 14px;
+            line-height: 1.55;
+            font-weight: 600;
           }
         </style>
 
         <div class="top-bar">
           <span class="section-tag">🎮 DESAFIO</span>
-          <div class="slide-title" style="margin-top:6px">Missão — <span>NR 06</span></div>
+          <div class="slide-title" style="margin-top:6px">Quiz — <span>Módulo 7</span></div>
         </div>
 
         <div class="content-area">
-          <div class="m7g-wrap">
-            <div id="m7g-intro" style="text-align:center; animation: fadeIn 0.8s ease;">
-              <div class="ic-circle" style="margin: 0 auto 24px; width: 96px; height: 96px; font-size: 48px;">🛡️</div>
-              <h3 style="font-family:var(--font-h); font-size:26px; color:var(--white); margin-bottom:12px;">
-                Missão NR 06 — Módulo 7</h3>
-              <p style="color:rgba(255,255,255,0.72); font-size:16px; line-height:1.65; margin-bottom:28px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                São <strong>5 perguntas simples</strong> sobre a NR 06. Toque na resposta certa e valide o módulo!
-              </p>
-              <button class="btn-start" onclick="startM7Game()" style="padding: 16px 40px; font-size: 15px; text-transform: uppercase;">
-                INICIAR DESAFIO
-              </button>
-            </div>
+          <div id="m7g-intro" class="m7g-wrap" style="animation: fadeIn 0.8s ease;">
+            <div class="ic-circle" style="margin: 0 auto 24px; width: 96px; height: 96px; font-size: 48px;">😷</div>
+            <h3 style="font-family:var(--font-h); font-size:26px; color:var(--white); margin-bottom:12px;">
+              Quiz NR-06 — Módulo 7</h3>
+            <p style="color:rgba(255,255,255,0.72); font-size:16px; line-height:1.65; margin-bottom:28px; max-width: 580px; margin-left: auto; margin-right: auto;">
+              Atividade <strong>Filtro Certo</strong>: leia a situação e escolha a proteção ou o cuidado adequado. São <strong>6 desafios</strong>. Para avançar, acerte pelo menos <strong>4 de 6</strong>.
+            </p>
+            <button class="btn-start" onclick="startM7Game()" style="padding: 16px 40px; font-size: 15px; text-transform: uppercase;">
+              INICIAR
+            </button>
+          </div>
 
-            <div id="m7g-play" style="display:none;">
-              <div class="m7g-top-row">
-                <span class="m7g-label" id="m7g-label">Etapa 1</span>
-                <span class="m7g-counter" id="m7g-counter">1 / 5</span>
-              </div>
-              <div class="m7g-bar-bg"><div class="m7g-bar-fill" id="m7g-bar"></div></div>
-              <div class="m7g-card">
-                <div class="m7g-emoji" id="m7g-emoji">🛡️</div>
-                <h3 class="m7g-round-title" id="m7g-round-title">...</h3>
-                <p class="m7g-round-instr" id="m7g-round-instr">...</p>
-              </div>
-              <div id="m7g-stage"></div>
-              <button type="button" class="m7g-confirm" id="m7g-confirm" onclick="m7gConfirmSelect()">CONFIRMAR SELEÇÃO</button>
-              <div class="m7g-feedback" id="m7g-feedback"></div>
-              <p class="m7g-hint" id="m7g-hint">Toque para interagir</p>
+          <div id="m7g-play" class="m7g-wrap" style="display:none;">
+            <div class="m7g-top-row">
+              <span class="m7g-stamp" id="m7g-stamp">Filtro Certo</span>
+              <span class="m7g-counter" id="m7g-counter">1 / 6</span>
             </div>
+            <div class="m7g-air"><div class="m7g-air-fill" id="m7g-air"></div></div>
+            <div class="m7g-case">
+              <div class="m7g-case-kicker" id="m7g-kicker">Situação</div>
+              <p class="m7g-case-text" id="m7g-case"></p>
+            </div>
+            <div class="m7g-options" id="m7g-options"></div>
+            <div class="m7g-feedback" id="m7g-feedback"></div>
+          </div>
 
-            <div id="m7g-result" style="display:none; text-align:center; animation:slideUp 0.6s ease;">
-              <div class="m7g-score-ring" id="m7g-score-ring">
-                <div><div class="m7g-score-num" id="m7g-score-num">0</div><div class="m7g-score-label">/ 5</div></div>
-              </div>
-              <h3 style="font-family:var(--font-h); font-size:clamp(22px,4vw,28px); color:var(--gold); margin-bottom:8px; font-weight:900;">Desafio Concluído!</h3>
-              <div class="r-status ap" id="m7g-badge" style="display:inline-block; padding:6px 18px; font-size:13px; margin-bottom:14px; font-weight:700;">Módulo 7 — Missão NR 06 Validada</div>
-              <p id="m7g-result-msg" style="color:rgba(255,255,255,0.88); font-size:15px; line-height:1.55; margin-bottom:22px; max-width:480px; margin-left:auto; margin-right:auto;"></p>
-              <button class="btn-retry" onclick="resetM7Game()" style="background:var(--white); color:var(--black); font-weight:800; border-radius:99px; padding:12px 32px;">JOGAR NOVAMENTE</button>
+          <div id="m7g-result" class="m7g-wrap" style="display:none; animation: slideUp 0.6s ease;">
+            <div id="m7g-result-icon" class="r-icon" style="font-size: 40px; margin-bottom: 8px;">🏅</div>
+            <h3 id="m7g-result-title" style="font-family:var(--font-h); font-size: clamp(20px, 4vw, 24px); color:#f7b538; margin-bottom:8px; font-weight:900;">
+              Desafio Concluído!</h3>
+            <div id="m7g-result-status" class="r-status ap" style="display:inline-block; padding: 4px 14px; font-size: 12px; margin-bottom:10px; font-weight:700;">
+              Módulo 7
             </div>
+            <p id="m7g-result-msg" style="color:#fff8e7; font-size:15px; line-height:1.55; margin-bottom:12px;"></p>
+            <div id="m7g-review" class="m7g-review">
+              <div class="m7g-review-title">REVISE ESTES TEMAS:</div>
+              <ul id="m7g-review-list"></ul>
+            </div>
+            <button class="btn-retry" style="background:#f7b538; color:#780116; font-weight:800; border-radius:99px; padding:10px 24px;" onclick="resetM7Game()">JOGAR NOVAMENTE</button>
           </div>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
@@ -15714,27 +16328,156 @@
           </svg></div>
       </section>
 
+      <!-- ── S-MOD8-VIDEO: Vídeo — Proteção das Mãos ── -->
+      <section class="slide video-slide" id="s-mod8-video">
+        <div class="top-bar">
+          <div><span class="section-tag">📹 Vídeo</span>
+            <div class="slide-title" style="margin-top:6px">Proteção <span>das Mãos</span></div>
+            <div class="slide-subtitle">Proteção das Mãos</div>
+          </div>
+        </div>
+        <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+          <div class="video-wrap">
+            <div class="video-box">
+              <iframe id="panda-93a9bad8-ac57-4535-8fc2-697b4f0b6c6e"
+                src="https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=93a9bad8-ac57-4535-8fc2-697b4f0b6c6e"
+                frameborder="0" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                allowfullscreen="true" fetchpriority="high"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+                title="Proteção das Mãos">
+              </iframe>
+            </div>
+          </div>
+        </div>
+        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
+          </svg></div>
+      </section>
+
       <!-- ── S-MOD8-RISCOS: Conhecendo os Riscos ── -->
       <section class="slide" id="s-mod8-riscos">
+        <style>
+          #s-mod8-riscos .content-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            overflow-y: auto;
+          }
+          #s-mod8-riscos .m8-static-grid {
+            width: 100%;
+            max-width: 1040px;
+            margin: 0 auto;
+          }
+          #s-mod8-riscos .m8-static-card {
+            background: #fff;
+            border: 1.5px solid rgba(120,1,22,.16);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 16px 36px rgba(0,0,0,.18);
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            min-height: 0;
+          }
+          #s-mod8-riscos .m8-static-media {
+            width: 100%;
+            background: #f8fafc;
+            overflow: hidden;
+            min-height: 0;
+          }
+          #s-mod8-riscos .m8-static-media img {
+            width: 100%;
+            height: 100%;
+            min-height: clamp(220px, 42vh, 360px);
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            background: #f8fafc;
+          }
+          #s-mod8-riscos .m8-static-body {
+            padding: 18px 18px 20px;
+            background: linear-gradient(180deg, #fff7ed, #ffedd5);
+            border-left: 3px solid #ea580c;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+          #s-mod8-riscos .m8-static-body h4 {
+            margin: 0 0 12px;
+            font-family: var(--font-h);
+            font-size: clamp(15px, 1.6vw, 18px);
+            font-weight: 800;
+            color: #780116;
+          }
+          #s-mod8-riscos .m8-risk-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 0 0 14px;
+          }
+          #s-mod8-riscos .m8-risk-tags span {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(120,1,22,.08);
+            border: 1px solid rgba(120,1,22,.14);
+            color: #3d010b;
+            font-size: 12.5px;
+            font-weight: 700;
+            line-height: 1.3;
+          }
+          #s-mod8-riscos .m8-static-body p {
+            margin: 0;
+            font-size: 13.5px;
+            line-height: 1.5;
+            color: rgba(61,1,11,.9);
+          }
+          #s-mod8-riscos .m8-static-body p strong {
+            color: #780116;
+          }
+          @media (max-width: 820px) {
+            #s-mod8-riscos .m8-static-card {
+              grid-template-columns: 1fr;
+            }
+            #s-mod8-riscos .m8-static-body {
+              border-left: none;
+              border-top: 3px solid #ea580c;
+            }
+            #s-mod8-riscos .m8-static-media img {
+              min-height: 0;
+              max-height: min(40vh, 320px);
+              height: auto;
+            }
+          }
+        </style>
         <div class="top-bar">
           <div><span class="section-tag">✋ Riscos</span>
             <div class="slide-title" style="margin-top:6px">Conhecendo <span>os Riscos</span></div>
             <div class="slide-subtitle">Proteção das Mãos</div>
           </div>
         </div>
-        <div class="content-area" style="display:grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; max-width: 1050px; margin: 0 auto; width:100%;">
-          <div class="epi-card">
-            <ul class="epi-list">
-              <li>Desatenção;</li>
-              <li>Uso de adornos;</li>
-              <li>Falta de proteção em máquinas e equipamentos;</li>
-              <li>Uso de objetos cortantes (estiletes e facas);</li>
-              <li>Uso de equipamentos inadequados;</li>
-              <li>Uso inadequado de produtos químicos;</li>
-            </ul>
-            <div class="epi-note" style="margin-top:16px;"><strong>Importante:</strong> conhecendo os riscos existentes no seu local de trabalho, você conseguirá prevenir mais facilmente os acidentes.</div>
+        <div class="content-area">
+          <div class="m8-static-grid">
+            <article class="m8-static-card">
+              <div class="m8-static-media">
+                <img src="img/pag54.png" alt="Riscos para as mãos no ambiente de trabalho">
+              </div>
+              <div class="m8-static-body">
+                <h4>Principais riscos no dia a dia</h4>
+                <div class="m8-risk-tags">
+                  <span>Desatenção</span>
+                  <span>Uso de adornos</span>
+                  <span>Falta de proteção</span>
+                  <span>Objetos cortantes</span>
+                  <span>Equipamentos inadequados</span>
+                  <span>Produtos químicos</span>
+                </div>
+                <p><strong>Importante:</strong> conhecendo os riscos existentes no seu local de trabalho, você conseguirá prevenir mais facilmente os acidentes.</p>
+              </div>
+            </article>
           </div>
-          <div class="epi-img-ph"><img src="img/BACKGROUND.png" alt="Riscos para as mãos no ambiente de trabalho"></div>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
@@ -15743,55 +16486,116 @@
 
       <!-- ── S-MOD8-PREVENIR: Formas de Prevenir ── -->
       <section class="slide" id="s-mod8-prevenir">
+        <style>
+          #s-mod8-prevenir .content-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            overflow-y: auto;
+          }
+          #s-mod8-prevenir .m8-static-grid {
+            width: 100%;
+            max-width: 1040px;
+            margin: 0 auto;
+          }
+          #s-mod8-prevenir .m8-static-card {
+            background: #fff;
+            border: 1.5px solid rgba(120,1,22,.16);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 16px 36px rgba(0,0,0,.18);
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            min-height: 0;
+          }
+          #s-mod8-prevenir .m8-static-media {
+            width: 100%;
+            background: #f8fafc;
+            overflow: hidden;
+            min-height: 0;
+          }
+          #s-mod8-prevenir .m8-static-media img {
+            width: 100%;
+            height: 100%;
+            min-height: clamp(220px, 42vh, 360px);
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            background: #f8fafc;
+          }
+          #s-mod8-prevenir .m8-static-body {
+            padding: 18px 18px 20px;
+            background: linear-gradient(180deg, #f0fdfa, #ccfbf1);
+            border-left: 3px solid #0d9488;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+          #s-mod8-prevenir .m8-static-body h4 {
+            margin: 0 0 10px;
+            font-family: var(--font-h);
+            font-size: clamp(15px, 1.6vw, 18px);
+            font-weight: 800;
+            color: #780116;
+          }
+          #s-mod8-prevenir .m8-static-body ul {
+            margin: 0 0 12px;
+            padding-left: 18px;
+            color: rgba(61,1,11,.9);
+            font-size: 13.5px;
+            line-height: 1.5;
+            font-weight: 600;
+          }
+          #s-mod8-prevenir .m8-static-body li { margin-bottom: 4px; }
+          #s-mod8-prevenir .m8-static-body p {
+            margin: 0;
+            font-size: 13.5px;
+            line-height: 1.5;
+            color: rgba(61,1,11,.9);
+          }
+          #s-mod8-prevenir .m8-static-body p strong { color: #780116; }
+          @media (max-width: 820px) {
+            #s-mod8-prevenir .m8-static-card { grid-template-columns: 1fr; }
+            #s-mod8-prevenir .m8-static-body {
+              border-left: none;
+              border-top: 3px solid #0d9488;
+            }
+            #s-mod8-prevenir .m8-static-media img {
+              min-height: 0;
+              max-height: min(40vh, 320px);
+              height: auto;
+            }
+          }
+        </style>
         <div class="top-bar">
           <div><span class="section-tag">🛡️ Prevenção</span>
             <div class="slide-title" style="margin-top:6px">Formas de <span>Prevenir</span></div>
             <div class="slide-subtitle">Proteção das Mãos</div>
           </div>
         </div>
-        <div class="content-area" style="display:grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; max-width: 1050px; margin: 0 auto; width:100%;">
-          <div class="epi-card">
-            <ul class="epi-list">
-              <li>Identificar e conhecer os riscos do setor;</li>
-              <li>Participar de treinamentos;</li>
-              <li>Utilizar todos os EPIs recomendados;</li>
-              <li>Trabalhar de maneira segura;</li>
-              <li>Comunicar todas as condições de risco;</li>
-              <li>Respeitar seus limites;</li>
-              <li>Seguir as normas, procedimentos e regras da empresa;</li>
-            </ul>
-            <div class="epi-note" style="margin-top:16px;"><strong>Atenção:</strong> trabalhar preventivamente é a melhor forma de evitar acidentes graves, portanto, seja preventivo!</div>
-          </div>
-          <div class="epi-img-ph"><img src="img/ANDAR RÉ.png" alt="Formas de prevenir acidentes"></div>
-        </div>
-        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
-          </svg></div>
-      </section>
-
-      <!-- ── S-MOD8-QUIZ: Quiz — Tipos de Lesão ── -->
-      <section class="slide" id="s-mod8-quiz">
-        <div class="top-bar">
-          <div><span class="section-tag">🎯 Quiz</span>
-            <div class="slide-title" style="margin-top:6px">Teste seu <span>Conhecimento</span></div>
-            <div class="slide-subtitle">Proteção das Mãos — Tipos de Lesão</div>
-          </div>
-        </div>
         <div class="content-area">
-          <div class="epi-quiz-wrap">
-            <p class="epi-quiz-q">Qual alternativa NÃO é um tipo comum de lesão nas mãos?</p>
-            <div class="q-options" id="epiq-lesao-options">
-              <div class="q-opt" data-correct="false" onclick="epiQuizSelect(this)"><div class="opt-l">A</div><span>Corte</span></div>
-              <div class="q-opt" data-correct="true" onclick="epiQuizSelect(this)"><div class="opt-l">B</div><span>Crescimento das unhas</span></div>
-              <div class="q-opt" data-correct="false" onclick="epiQuizSelect(this)"><div class="opt-l">C</div><span>Perfuração</span></div>
-              <div class="q-opt" data-correct="false" onclick="epiQuizSelect(this)"><div class="opt-l">D</div><span>Queimaduras</span></div>
-            </div>
-            <div class="q-feedback" id="epiq-lesao-feedback"></div>
-            <div class="epi-quiz-actions">
-              <button type="button" class="btn-start epi-quiz-check" id="epiq-lesao-check" onclick="epiQuizCheck('epiq-lesao')">Verificar resposta</button>
-            </div>
+          <div class="m8-static-grid">
+            <article class="m8-static-card">
+              <div class="m8-static-media">
+                <img src="img/formas-de-prevenir.png" alt="Formas de prevenir acidentes">
+              </div>
+              <div class="m8-static-body">
+                <h4>Trabalhe de forma preventiva</h4>
+                <ul>
+                  <li>Identificar e conhecer os riscos do setor</li>
+                  <li>Participar de treinamentos</li>
+                  <li>Utilizar todos os EPIs recomendados</li>
+                  <li>Trabalhar de maneira segura</li>
+                  <li>Comunicar todas as condições de risco</li>
+                  <li>Respeitar seus limites</li>
+                  <li>Seguir normas, procedimentos e regras</li>
+                </ul>
+                <p><strong>Atenção:</strong> trabalhar preventivamente é a melhor forma de evitar acidentes graves.</p>
+              </div>
+            </article>
           </div>
-          <div class="req-item" id="epiq-lesao-req" style="display:none"></div>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
@@ -15800,26 +16604,114 @@
 
       <!-- ── S-MOD8-LUVAS-RISCOS: Grupos de Risco ── -->
       <section class="slide" id="s-mod8-luvas-riscos">
+        <style>
+          #s-mod8-luvas-riscos .content-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            overflow-y: auto;
+          }
+          #s-mod8-luvas-riscos .m8-lead {
+            margin: 0;
+            max-width: 860px;
+            text-align: center;
+            color: #780116;
+            font-size: 14.5px;
+            line-height: 1.5;
+            font-weight: 600;
+          }
+          #s-mod8-luvas-riscos .m8-static-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            width: 100%;
+            max-width: 1040px;
+            margin: 0 auto;
+          }
+          #s-mod8-luvas-riscos .m8-static-card {
+            background: #fff;
+            border: 1.5px solid rgba(120,1,22,.16);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 16px 36px rgba(0,0,0,.18);
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+          }
+          #s-mod8-luvas-riscos .m8-static-media {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #f8fafc;
+            overflow: hidden;
+          }
+          #s-mod8-luvas-riscos .m8-static-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+          }
+          #s-mod8-luvas-riscos .m8-static-body {
+            padding: 14px 16px 16px;
+            flex: 1;
+          }
+          #s-mod8-luvas-riscos .m8-static-card--orange .m8-static-body {
+            background: linear-gradient(90deg, #fff7ed, #ffedd5);
+            border-top: 3px solid #ea580c;
+          }
+          #s-mod8-luvas-riscos .m8-static-card--teal .m8-static-body {
+            background: linear-gradient(90deg, #ecfeff, #cffafe);
+            border-top: 3px solid #0891b2;
+          }
+          #s-mod8-luvas-riscos .m8-static-body h4 {
+            margin: 0 0 8px;
+            font-family: var(--font-h);
+            font-size: clamp(15px, 1.6vw, 18px);
+            font-weight: 800;
+            color: #780116;
+          }
+          #s-mod8-luvas-riscos .m8-static-body p {
+            margin: 0;
+            font-size: 13.5px;
+            line-height: 1.5;
+            color: rgba(61,1,11,.9);
+          }
+          @media (max-width: 760px) {
+            #s-mod8-luvas-riscos .m8-static-grid {
+              grid-template-columns: 1fr;
+              max-width: 420px;
+            }
+          }
+        </style>
         <div class="top-bar">
           <div><span class="section-tag">🧤 Luvas de Segurança</span>
             <div class="slide-title" style="margin-top:6px">Medidas de Controle — <span>Grupos de Risco</span></div>
             <div class="slide-subtitle">Proteção das Mãos</div>
           </div>
         </div>
-        <div class="content-area" style="max-width:1050px;margin:0 auto;width:100%;">
-          <div style="display:grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center;">
-            <p style="color:#f7b538; font-size:15.5px; line-height:1.65; font-family:var(--font-p);">Existem diversos modelos diferentes de luvas de segurança, e cada um deles oferece proteção para determinados grupos de risco, que podem ser divididos entre:</p>
-            <div class="epi-img-ph"><img src="img/REDZONE.png" alt="Grupos de risco para as mãos"></div>
-          </div>
-          <div class="epi-glove-grid" style="margin-top:22px;">
-            <div class="epi-glove-card">
-              <h5>Riscos Físicos ou Mecânicos</h5>
-              <p>Cortes, abrasões, perfurações, choques, etc.</p>
-            </div>
-            <div class="epi-glove-card">
-              <h5>Riscos Químicos ou Biológicos</h5>
-              <p>Bactérias, fungos, parasitas, vírus, etc.</p>
-            </div>
+        <div class="content-area">
+          <p class="m8-lead">Cada modelo de luva protege um grupo de risco. Eles se dividem em:</p>
+          <div class="m8-static-grid">
+            <article class="m8-static-card m8-static-card--orange">
+              <div class="m8-static-media">
+                <img src="img/riscosfisicos.png" alt="Riscos físicos ou mecânicos">
+              </div>
+              <div class="m8-static-body">
+                <h4>Riscos Físicos ou Mecânicos</h4>
+                <p>Cortes, abrasões, perfurações, choques, etc.</p>
+              </div>
+            </article>
+            <article class="m8-static-card m8-static-card--teal">
+              <div class="m8-static-media">
+                <img src="img/riscosquimicos.png" alt="Riscos químicos ou biológicos">
+              </div>
+              <div class="m8-static-body">
+                <h4>Riscos Químicos ou Biológicos</h4>
+                <p>Bactérias, fungos, parasitas, vírus, etc.</p>
+              </div>
+            </article>
           </div>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
@@ -15829,35 +16721,585 @@
 
       <!-- ── S-MOD8-LUVAS-TIPOS: Principais Modelos de Luvas ── -->
       <section class="slide" id="s-mod8-luvas-tipos">
+        <style>
+          #s-mod8-luvas-tipos .content-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            overflow-y: auto;
+          }
+          #s-mod8-luvas-tipos .m8l-viewport {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+          }
+          #s-mod8-luvas-tipos .m8-static-card {
+            background: #fff;
+            border: 1.5px solid rgba(120,1,22,.16);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 14px 32px rgba(0,0,0,.16);
+            display: none;
+            flex-direction: column;
+            min-width: 0;
+            animation: fadeIn .35s ease;
+          }
+          #s-mod8-luvas-tipos .m8-static-card.m8l-card-active {
+            display: flex;
+          }
+          #s-mod8-luvas-tipos .m8-static-media {
+            width: 100%;
+            height: clamp(200px, 36vh, 300px);
+            background: #f8fafc;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            box-sizing: border-box;
+          }
+          #s-mod8-luvas-tipos .m8-static-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+          }
+          #s-mod8-luvas-tipos .m8-static-body {
+            padding: 14px 16px 16px;
+          }
+          #s-mod8-luvas-tipos .m8-static-card--1 .m8-static-body {
+            background: linear-gradient(90deg, #fff7ed, #ffedd5);
+            border-top: 3px solid #ea580c;
+          }
+          #s-mod8-luvas-tipos .m8-static-card--2 .m8-static-body {
+            background: linear-gradient(90deg, #ecfeff, #cffafe);
+            border-top: 3px solid #0891b2;
+          }
+          #s-mod8-luvas-tipos .m8-static-card--3 .m8-static-body {
+            background: linear-gradient(90deg, #f0fdfa, #ccfbf1);
+            border-top: 3px solid #0d9488;
+          }
+          #s-mod8-luvas-tipos .m8-static-card--4 .m8-static-body {
+            background: linear-gradient(90deg, #eff6ff, #dbeafe);
+            border-top: 3px solid #2563eb;
+          }
+          #s-mod8-luvas-tipos .m8-static-card--5 .m8-static-body {
+            background: linear-gradient(90deg, #fff1f2, #ffe4e6);
+            border-top: 3px solid #780116;
+          }
+          #s-mod8-luvas-tipos .m8-static-body h4 {
+            margin: 0 0 6px;
+            font-family: var(--font-h);
+            font-size: clamp(15px, 1.8vw, 18px);
+            font-weight: 800;
+            color: #780116;
+            line-height: 1.25;
+          }
+          #s-mod8-luvas-tipos .m8-static-body p {
+            margin: 0;
+            font-size: 13.5px;
+            line-height: 1.5;
+            color: rgba(61,1,11,.9);
+          }
+          #s-mod8-luvas-tipos .m8l-carousel-hint {
+            margin: 0;
+            font-family: var(--font-b);
+            font-size: 13px;
+            font-weight: 700;
+            color: #780116;
+            text-align: center;
+            letter-spacing: 0.02em;
+            animation: m8lHintPulse 2s ease-in-out infinite;
+          }
+          #s-mod8-luvas-tipos .m8l-carousel-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 4px;
+          }
+          #s-mod8-luvas-tipos .m8l-carousel-btn {
+            background: linear-gradient(145deg, #ff6b85 0%, #ff4d6d 45%, #c9184a 100%);
+            color: #fff;
+            border: 3px solid #fff;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            min-width: 56px;
+            min-height: 56px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow:
+              0 0 0 3px rgba(247, 181, 56, 0.55),
+              0 8px 22px rgba(201, 24, 74, 0.55);
+            transition: filter .15s ease, transform .15s ease, box-shadow .15s ease;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            position: relative;
+            z-index: 2;
+          }
+          #s-mod8-luvas-tipos .m8l-carousel-btn#m8l-next:not(:disabled) {
+            animation: m8lArrowPulse 1.4s ease-in-out infinite;
+          }
+          #s-mod8-luvas-tipos .m8l-carousel-btn:hover:not(:disabled) {
+            filter: brightness(1.08);
+            transform: scale(1.1);
+            animation: none;
+            box-shadow:
+              0 0 0 4px rgba(247, 181, 56, 0.75),
+              0 10px 28px rgba(201, 24, 74, 0.6);
+          }
+          #s-mod8-luvas-tipos .m8l-carousel-btn:active:not(:disabled) {
+            transform: scale(0.96);
+          }
+          #s-mod8-luvas-tipos .m8l-carousel-btn:disabled {
+            opacity: .28;
+            cursor: default;
+            animation: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,.15);
+            border-color: rgba(255,255,255,.5);
+          }
+          #s-mod8-luvas-tipos .m8l-carousel-btn svg {
+            width: 24px;
+            height: 24px;
+            pointer-events: none;
+          }
+          #s-mod8-luvas-tipos .m8l-carousel-counter {
+            font-family: var(--font-h);
+            font-size: 15px;
+            font-weight: 800;
+            color: #780116;
+            min-width: 56px;
+            text-align: center;
+          }
+          @keyframes m8lArrowPulse {
+            0%, 100% {
+              transform: scale(1);
+              box-shadow:
+                0 0 0 3px rgba(247, 181, 56, 0.45),
+                0 8px 22px rgba(201, 24, 74, 0.5);
+            }
+            50% {
+              transform: scale(1.12);
+              box-shadow:
+                0 0 0 6px rgba(247, 181, 56, 0.8),
+                0 12px 30px rgba(201, 24, 74, 0.65);
+            }
+          }
+          @keyframes m8lHintPulse {
+            0%, 100% { opacity: 0.75; }
+            50% { opacity: 1; }
+          }
+          #s-mod8-luvas-tipos .m8l-dots {
+            display: flex;
+            justify-content: center;
+            gap: 7px;
+            margin-top: 2px;
+          }
+          #s-mod8-luvas-tipos .m8l-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: none;
+            padding: 0;
+            background: rgba(120,1,22,.22);
+            cursor: pointer;
+          }
+          #s-mod8-luvas-tipos .m8l-dot.is-on {
+            background: #780116;
+            transform: scale(1.15);
+          }
+        </style>
         <div class="top-bar">
           <div><span class="section-tag">🧤 Luvas de Segurança</span>
             <div class="slide-title" style="margin-top:6px">Principais Modelos <span>de Luvas</span></div>
             <div class="slide-subtitle">Proteção das Mãos</div>
           </div>
         </div>
-        <div class="content-area" style="max-width:1100px;margin:0 auto;width:100%;">
-          <div class="epi-img-ph" style="max-width:340px;margin:0 auto 22px;"><img src="img/MAPEAMENTO.png" alt="Modelos de luvas de segurança"></div>
-          <div class="epi-glove-grid" style="max-width:980px;margin:0 auto;">
-            <div class="epi-glove-card">
-              <h5>Luva Anticorte</h5>
-              <p>Protege contra cortes nas mãos.</p>
+        <div class="content-area">
+          <div class="m8l-viewport" id="m8l-viewport">
+            <article class="m8-static-card m8-static-card--1 m8l-card-active">
+              <div class="m8-static-media">
+                <img src="img/luva-anticorte.png" alt="Luva Anticorte">
+              </div>
+              <div class="m8-static-body">
+                <h4>Luva Anticorte</h4>
+                <p>Protege contra cortes nas mãos.</p>
+              </div>
+            </article>
+            <article class="m8-static-card m8-static-card--2">
+              <div class="m8-static-media">
+                <img src="img/luva-latex-natural.png" alt="Luva de Látex Natural">
+              </div>
+              <div class="m8-static-body">
+                <h4>Luva de Látex Natural</h4>
+                <p>Flexível e resistente, protege contra ácidos, álcool e produtos químicos.</p>
+              </div>
+            </article>
+            <article class="m8-static-card m8-static-card--3">
+              <div class="m8-static-media">
+                <img src="img/luva-latex-nitrilica.png" alt="Luva de Látex Nitrílica">
+              </div>
+              <div class="m8-static-body">
+                <h4>Luva de Látex Nitrílica</h4>
+                <p>Excelente proteção contra óleos, solventes, gordura animal e graxa.</p>
+              </div>
+            </article>
+            <article class="m8-static-card m8-static-card--4">
+              <div class="m8-static-media">
+                <img src="img/luva-pvc.png" alt="Luva de PVC">
+              </div>
+              <div class="m8-static-body">
+                <h4>Luva de PVC</h4>
+                <p>Flexível. Protege contra ácidos, cáusticos, bases, álcoois e abrasões.</p>
+              </div>
+            </article>
+            <article class="m8-static-card m8-static-card--5">
+              <div class="m8-static-media">
+                <img src="img/luva-vaqueta-raspa.png" alt="Luva de Vaqueta e Raspa de Couro">
+              </div>
+              <div class="m8-static-body">
+                <h4>Luva de Vaqueta e Raspa</h4>
+                <p>Boas opções para abrasão e solda, pois o couro é muito resistente.</p>
+              </div>
+            </article>
+          </div>
+          <div class="m8l-carousel-nav" aria-label="Navegação dos modelos de luvas">
+            <button type="button" class="m8l-carousel-btn" id="m8l-prev" onclick="m8lCarouselNav(-1)" aria-label="Anterior">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <span class="m8l-carousel-counter" id="m8l-counter">1 / 5</span>
+            <button type="button" class="m8l-carousel-btn" id="m8l-next" onclick="m8lCarouselNav(1)" aria-label="Próximo modelo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+          <p class="m8l-carousel-hint">Clique nas setas para avançar</p>
+          <div class="m8l-dots" id="m8l-dots" aria-hidden="true"></div>
+        </div>
+        <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
+          </svg></div>
+      </section>
+
+      <!-- ── S-MOD8-GAME: Desafio — Luva Certa ── -->
+      <section class="slide" id="s-mod8-game">
+        <style>
+          #s-mod8-game .content-area {
+            padding-top: 12px !important;
+            padding-bottom: 110px !important;
+            justify-content: center;
+            align-items: center;
+            min-height: 0;
+            flex: 1 1 auto;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            container-type: size;
+          }
+          #s-mod8-game .m8g-wrap {
+            flex-shrink: 0;
+            width: 100%;
+            max-width: clamp(360px, 68cqw, 720px);
+            margin: 0 auto;
+          }
+          #s-mod8-game #m8g-intro,
+          #s-mod8-game #m8g-result {
+            padding: clamp(24px,8cqh,48px) clamp(22px,5cqw,40px) !important;
+            background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
+            border: 1px solid rgba(120, 1, 22,0.28);
+            border-radius: clamp(16px,3cqw,26px);
+            box-shadow: 0 28px 64px rgba(0,0,0,0.4);
+            box-sizing: border-box;
+            text-align: center;
+          }
+          #s-mod8-game #m8g-result h3 { color: #f7b538 !important; }
+          #s-mod8-game #m8g-result-msg {
+            color: #fff8e7 !important;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.55;
+          }
+          #s-mod8-game #m8g-result .r-status {
+            color: #fff;
+            background: rgba(247, 181, 56, 0.22);
+            border: 1px solid #f7b538;
+            border-radius: 99px;
+          }
+          #s-mod8-game #m8g-result .btn-retry {
+            background: #f7b538 !important;
+            color: #780116 !important;
+            border: none !important;
+            font-weight: 800 !important;
+          }
+          #s-mod8-game #m8g-intro .ic-circle {
+            width: clamp(64px,18cqh,104px) !important;
+            height: clamp(64px,18cqh,104px) !important;
+            font-size: clamp(30px,9cqh,52px) !important;
+            margin: 0 auto clamp(16px,5cqh,28px) !important;
+          }
+          #s-mod8-game #m8g-intro h3 {
+            font-size: clamp(20px,5.5cqh,28px) !important;
+            margin-bottom: clamp(8px,2.5cqh,14px) !important;
+          }
+          #s-mod8-game #m8g-intro p {
+            font-size: clamp(13.5px,2.8cqh,16px) !important;
+            line-height: 1.5 !important;
+            margin-bottom: clamp(16px,6cqh,28px) !important;
+          }
+          #s-mod8-game .m8g-top-row {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 12px; gap: 8px;
+          }
+          #s-mod8-game .m8g-stamp {
+            font-family: var(--font-h); font-size: 11px; font-weight: 800;
+            letter-spacing: .1em; text-transform: uppercase;
+            color: #9a3412; background: rgba(234,88,12,.12);
+            border: 1px solid rgba(234,88,12,.28); border-radius: 999px;
+            padding: 5px 12px;
+          }
+          #s-mod8-game .m8g-counter {
+            font-family: var(--font-h); font-size: 13px; font-weight: 700;
+            color: #780116; letter-spacing: .04em;
+          }
+          #s-mod8-game .m8g-shield {
+            height: 10px; border-radius: 999px; background: rgba(120,1,22,.1);
+            overflow: hidden; margin-bottom: 14px; border: 1px solid rgba(120,1,22,.12);
+          }
+          #s-mod8-game .m8g-shield-fill {
+            height: 100%; width: 0%;
+            background: linear-gradient(90deg, #fb923c, #ea580c 50%, #f7b538);
+            transition: width .45s ease;
+          }
+          #s-mod8-game .m8g-case {
+            background: #fff;
+            border: 1.5px solid rgba(234,88,12,.22);
+            border-radius: 20px;
+            padding: 20px 18px;
+            box-shadow: 0 14px 32px rgba(234,88,12,.12);
+            margin-bottom: 14px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+          }
+          #s-mod8-game .m8g-case::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; bottom: 0;
+            width: 5px;
+            background: linear-gradient(180deg, #fb923c, #ea580c);
+          }
+          #s-mod8-game .m8g-case-kicker {
+            font-family: var(--font-h);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #ea580c;
+            margin-bottom: 8px;
+            padding-left: 8px;
+          }
+          #s-mod8-game .m8g-case-text {
+            margin: 0;
+            padding-left: 8px;
+            font-size: clamp(15px, 2.2vw, 17px);
+            line-height: 1.55;
+            color: #3d010b;
+            font-weight: 600;
+          }
+          #s-mod8-game .m8g-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+          }
+          #s-mod8-game .m8g-opt {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 8px;
+            text-align: center;
+            border: 2px solid rgba(120,1,22,.14);
+            border-radius: 18px;
+            padding: 16px 10px 14px;
+            background: #fff;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(120,1,22,.08);
+            transition: transform .15s ease, border-color .2s ease, box-shadow .2s ease;
+            min-height: 132px;
+          }
+          #s-mod8-game .m8g-opt:hover:not(:disabled) {
+            transform: translateY(-3px);
+            border-color: rgba(234,88,12,.5);
+            box-shadow: 0 14px 28px rgba(234,88,12,.18);
+          }
+          #s-mod8-game .m8g-opt:disabled { cursor: default; }
+          #s-mod8-game .m8g-ico {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: #fff;
+            box-shadow: 0 6px 14px rgba(0,0,0,.18);
+            flex-shrink: 0;
+          }
+          #s-mod8-game .m8g-opt:nth-child(1) .m8g-ico { background: linear-gradient(145deg, #fb923c, #ea580c); }
+          #s-mod8-game .m8g-opt:nth-child(2) .m8g-ico { background: linear-gradient(145deg, #f7b538, #d97706); }
+          #s-mod8-game .m8g-opt:nth-child(3) .m8g-ico { background: linear-gradient(145deg, #780116, #5A0111); }
+          #s-mod8-game .m8g-opt-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            min-width: 0;
+          }
+          #s-mod8-game .m8g-opt-name {
+            display: block;
+            font-family: var(--font-h);
+            font-size: 13px;
+            font-weight: 900;
+            color: #780116;
+            line-height: 1.25;
+          }
+          #s-mod8-game .m8g-opt-desc {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(61,1,11,.75);
+            line-height: 1.35;
+          }
+          #s-mod8-game .m8g-opt.is-ok {
+            border-color: #22c55e;
+            background: #f0fdf4;
+            box-shadow: 0 0 0 3px rgba(34,197,94,.25);
+          }
+          #s-mod8-game .m8g-opt.is-bad {
+            border-color: #ef4444;
+            background: #fef2f2;
+            box-shadow: 0 0 0 3px rgba(239,68,68,.22);
+          }
+          #s-mod8-game .m8g-opt.is-dim { opacity: .4; filter: grayscale(.35); }
+          #s-mod8-game .m8g-feedback {
+            margin-top: 12px;
+            min-height: 44px;
+            border-radius: 14px;
+            padding: 12px 14px;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.45;
+            text-align: center;
+            display: none;
+          }
+          #s-mod8-game .m8g-feedback.ok {
+            display: block;
+            background: #1b7a42;
+            color: #fff;
+            border: 2px solid #145c32;
+          }
+          #s-mod8-game .m8g-feedback.nok {
+            display: block;
+            background: #780116;
+            color: #f7b538;
+            border: 2px solid #5A0111;
+          }
+          #s-mod8-game .m8g-review {
+            display: none;
+            text-align: left;
+            margin: 8px auto 16px;
+            max-width: 480px;
+            padding: 14px 16px 12px;
+            border: 1.5px solid #f7b538;
+            border-radius: 14px;
+            background: rgba(247, 181, 56, 0.08);
+          }
+          #s-mod8-game .m8g-review-title {
+            font-family: var(--font-h);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            color: #f7b538;
+            margin-bottom: 8px;
+          }
+          #s-mod8-game #m8g-review-list {
+            margin: 0;
+            padding-left: 18px;
+            color: #fff8e7;
+            font-size: 14px;
+            line-height: 1.55;
+            font-weight: 600;
+          }
+          @media (max-width: 640px) {
+            #s-mod8-game .m8g-options {
+              grid-template-columns: 1fr;
+            }
+            #s-mod8-game .m8g-opt {
+              flex-direction: row;
+              text-align: left;
+              min-height: 0;
+              padding: 12px 14px;
+              gap: 12px;
+            }
+            #s-mod8-game .m8g-opt-text {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 2px;
+              min-width: 0;
+            }
+          }
+        </style>
+
+        <div class="top-bar">
+          <span class="section-tag">🎮 DESAFIO</span>
+          <div class="slide-title" style="margin-top:6px">Quiz — <span>Módulo 8</span></div>
+        </div>
+
+        <div class="content-area">
+          <div id="m8g-intro" class="m8g-wrap" style="animation: fadeIn 0.8s ease;">
+            <div class="ic-circle" style="margin: 0 auto 24px; width: 96px; height: 96px; font-size: 48px;">🧤</div>
+            <h3 style="font-family:var(--font-h); font-size:26px; color:var(--white); margin-bottom:12px;">
+              Quiz NR-06 — Módulo 8</h3>
+            <p style="color:rgba(255,255,255,0.72); font-size:16px; line-height:1.65; margin-bottom:28px; max-width: 580px; margin-left: auto; margin-right: auto;">
+              Atividade <strong>Luva Certa</strong>: leia a situação e toque na luva ou atitude correta. O feedback é automático. São <strong>6 desafios</strong>. Para avançar, acerte pelo menos <strong>4 de 6</strong>.
+            </p>
+            <button class="btn-start" onclick="startM8Game()" style="padding: 16px 40px; font-size: 15px; text-transform: uppercase;">
+              INICIAR
+            </button>
+          </div>
+
+          <div id="m8g-play" class="m8g-wrap" style="display:none;">
+            <div class="m8g-top-row">
+              <span class="m8g-stamp" id="m8g-stamp">Luva Certa</span>
+              <span class="m8g-counter" id="m8g-counter">1 / 6</span>
             </div>
-            <div class="epi-glove-card">
-              <h5>Luva de Látex Natural</h5>
-              <p>Flexível e resistente, protege contra ácidos, álcool e produtos químicos.</p>
+            <div class="m8g-shield"><div class="m8g-shield-fill" id="m8g-shield"></div></div>
+            <div class="m8g-case">
+              <div class="m8g-case-kicker" id="m8g-kicker">Situação</div>
+              <p class="m8g-case-text" id="m8g-case"></p>
             </div>
-            <div class="epi-glove-card">
-              <h5>Luva de Látex Nitrílica</h5>
-              <p>Oferece uma excelente proteção, principalmente contra óleos, solventes, gordura animal e graxa.</p>
+            <div class="m8g-options" id="m8g-options"></div>
+            <div class="m8g-feedback" id="m8g-feedback"></div>
+          </div>
+
+          <div id="m8g-result" class="m8g-wrap" style="display:none; animation: slideUp 0.6s ease;">
+            <div id="m8g-result-icon" class="r-icon" style="font-size: 40px; margin-bottom: 8px;">🏅</div>
+            <h3 id="m8g-result-title" style="font-family:var(--font-h); font-size: clamp(20px, 4vw, 24px); color:#f7b538; margin-bottom:8px; font-weight:900;">
+              Desafio Concluído!</h3>
+            <div id="m8g-result-status" class="r-status ap" style="display:inline-block; padding: 4px 14px; font-size: 12px; margin-bottom:10px; font-weight:700;">
+              Módulo 8
             </div>
-            <div class="epi-glove-card">
-              <h5>Luva de PVC</h5>
-              <p>Flexível. Excelente proteção contra ácidos, cáusticos, bases, álcoois e, também, abrasões.</p>
+            <p id="m8g-result-msg" style="color:#fff8e7; font-size:15px; line-height:1.55; margin-bottom:12px;"></p>
+            <div id="m8g-review" class="m8g-review">
+              <div class="m8g-review-title">REVISE ESTES TEMAS:</div>
+              <ul id="m8g-review-list"></ul>
             </div>
-            <div class="epi-glove-card" style="grid-column: 1 / -1;">
-              <h5>Luva de Vaqueta e Raspa de Couro</h5>
-              <p>Boas opções para o risco de abrasão e até mesmo solda, pois o couro é muito resistente.</p>
-            </div>
+            <button class="btn-retry" style="background:#f7b538; color:#780116; font-weight:800; border-radius:99px; padding:10px 24px;" onclick="resetM8Game()">JOGAR NOVAMENTE</button>
           </div>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
@@ -15868,6 +17310,22 @@
       <!-- ── S-FIM: CONCLUSÃO DO TREINAMENTO ── -->
       <section class="slide" id="s-fim">
         <style>
+          #s-fim {
+            background-color: #f7b538;
+            background-image:
+              linear-gradient(180deg, rgba(61, 1, 11, 0.28) 0%, rgba(61, 1, 11, 0.12) 45%, rgba(61, 1, 11, 0.22) 100%),
+              url('img/FINAL.png');
+            background-position: center, center;
+            background-repeat: no-repeat, no-repeat;
+            background-size: auto, cover;
+          }
+          #s-fim .slide-title {
+            color: #fff !important;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+          }
+          #s-fim .slide-title span {
+            color: #f7b538 !important;
+          }
           #s-fim .content-area {
             display: flex; align-items: center; justify-content: center;
             overflow-y: auto;
@@ -15877,35 +17335,231 @@
             width: 100%; max-width: clamp(360px, 68cqw, 860px); margin: 0 auto;
           }
           #s-fim .fim-card {
-            text-align: center; animation: fadeIn 0.8s ease;
-            padding: clamp(24px,10cqh,64px) clamp(24px,6cqw,48px);
-            background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
-            border: 1px solid rgba(120, 1, 22,0.28);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding: clamp(28px,10cqh,64px) clamp(24px,6cqw,48px);
+            background:
+              linear-gradient(145deg, rgba(255,255,255,0.08) 0%, transparent 42%),
+              linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
+            border: 1.5px solid rgba(247, 181, 56, 0.48);
             border-radius: clamp(16px,3cqw,26px);
-            box-shadow: 0 28px 64px rgba(0,0,0,0.4);
+            box-shadow:
+              0 28px 64px rgba(0,0,0,0.45),
+              0 0 0 1px rgba(255,255,255,0.08) inset,
+              0 0 56px rgba(247, 181, 56, 0.2);
             box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(28px) scale(0.96);
+          }
+          #s-fim.active .fim-card {
+            animation: fimCardIn 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+                       fimCardFloat 4.5s ease-in-out 0.85s infinite;
+          }
+          #s-fim .fim-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 12%; right: 12%;
+            height: 3px;
+            border-radius: 0 0 8px 8px;
+            background: linear-gradient(90deg, transparent, #f7b538 30%, #ffe08a 50%, #f7b538 70%, transparent);
+            background-size: 200% 100%;
+            pointer-events: none;
+            z-index: 2;
+          }
+          #s-fim.active .fim-card::before {
+            animation: fimShine 2.8s ease-in-out infinite;
+          }
+          #s-fim .fim-card::after {
+            content: '';
+            position: absolute;
+            top: -28%; left: 50%;
+            transform: translateX(-50%);
+            width: 280px; height: 280px;
+            background: radial-gradient(circle, rgba(247, 181, 56, 0.26) 0%, transparent 68%);
+            pointer-events: none;
+            z-index: 0;
+          }
+          #s-fim.active .fim-card::after {
+            animation: fimGlowPulse 3.2s ease-in-out infinite;
+          }
+          #s-fim .fim-card > * {
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(14px);
+          }
+          #s-fim.active .fim-card > * {
+            animation: fimItemIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          }
+          #s-fim.active .fim-card > *:nth-child(1) { animation-delay: 0.18s; }
+          #s-fim.active .fim-card > *:nth-child(2) { animation-delay: 0.30s; }
+          #s-fim.active .fim-card > *:nth-child(3) { animation-delay: 0.42s; }
+          #s-fim.active .fim-card > *:nth-child(4) { animation-delay: 0.52s; }
+          #s-fim.active .fim-card > *:nth-child(5) { animation-delay: 0.62s; }
+          #s-fim.active .fim-card > *:nth-child(6) { animation-delay: 0.72s; }
+          #s-fim .fim-eyebrow {
+            display: inline-block;
+            font-family: var(--font-h);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #ffe08a;
+            margin-bottom: 14px;
+            padding: 7px 16px;
+            border-radius: 99px;
+            background: rgba(247, 181, 56, 0.16);
+            border: 1px solid rgba(247, 181, 56, 0.45);
+            box-shadow: 0 0 18px rgba(247, 181, 56, 0.18);
           }
           #s-fim .fim-card .ic-circle {
-            margin: 0 auto 24px; width: 96px; height: 96px;
+            margin: 0 auto 20px;
+            width: 96px; height: 96px;
+            background: linear-gradient(145deg, #ff6b85, #ff4d6d 40%, #c9184a);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow:
+              0 0 0 4px rgba(247, 181, 56, 0.32),
+              0 0 28px rgba(255, 77, 109, 0.55);
           }
-          #s-fim .fim-card .ic-circle svg { width: 48%; height: 48%; }
+          #s-fim.active .fim-card .ic-circle {
+            animation: fimItemIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.30s forwards,
+                       fimTrophyGlow 2.4s ease-in-out 0.9s infinite;
+          }
+          #s-fim .fim-card .ic-circle svg {
+            width: 48%; height: 48%;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,.25));
+          }
           #s-fim .fim-card h3 {
-            font-family: var(--font-h); font-size: 26px; color: var(--white);
-            margin-bottom: 12px; font-weight: 700;
+            font-family: var(--font-h);
+            font-size: clamp(26px, 4.5cqw, 40px);
+            color: #fff;
+            margin-bottom: 10px;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            text-shadow: 0 2px 18px rgba(247, 181, 56, 0.32);
+          }
+          #s-fim .fim-card h3 span {
+            color: #f7b538;
+            display: inline-block;
+          }
+          #s-fim.active .fim-card h3 span {
+            animation: fimBang 1.8s ease-in-out 1.1s infinite;
           }
           #s-fim .fim-card p {
-            color: rgba(255,255,255,0.72); font-size: 16px; line-height: 1.65;
-            margin-bottom: 28px; max-width: 600px; margin-left: auto; margin-right: auto;
+            color: rgba(255,255,255,0.82);
+            font-size: clamp(14px, 2.2cqw, 17px);
+            line-height: 1.65;
+            margin-bottom: 24px;
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          #s-fim .fim-divider {
+            width: 72px;
+            height: 2px;
+            margin: 0 auto 22px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, transparent, #f7b538, transparent);
+            transform-origin: center;
+          }
+          #s-fim.active .fim-divider {
+            animation: fimItemIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.52s forwards,
+                       fimDividerPulse 2.6s ease-in-out 1.2s infinite;
           }
           #s-fim .fim-chips {
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
           }
           #s-fim .fim-chip {
-            font-family: var(--font-h); font-weight: 800; font-size: 13px;
-            letter-spacing: 0.06em; text-transform: uppercase; color: #fff;
-            background: linear-gradient(135deg, #780116, #5A0111);
-            border-radius: 99px; padding: 16px 28px;
-            box-shadow: 0 8px 20px rgba(0,187,249,0.28);
+            font-family: var(--font-h);
+            font-weight: 800;
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(247, 181, 56, 0.45);
+            border-radius: 99px;
+            padding: 12px 22px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.22);
+            transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+          }
+          #s-fim .fim-chip:nth-child(1) {
+            background: linear-gradient(135deg, rgba(247,181,56,0.32), rgba(247,181,56,0.1));
+            color: #ffe08a;
+          }
+          #s-fim.active .fim-chip {
+            animation: fimChipPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            opacity: 0;
+          }
+          #s-fim.active .fim-chip:nth-child(1) { animation-delay: 0.85s; }
+          #s-fim.active .fim-chip:nth-child(2) { animation-delay: 0.97s; }
+          #s-fim.active .fim-chip:nth-child(3) { animation-delay: 1.09s; }
+          #s-fim .fim-chip:hover {
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 10px 22px rgba(247, 181, 56, 0.28);
+            background: rgba(247, 181, 56, 0.22);
+          }
+          @keyframes fimCardIn {
+            to { opacity: 1; transform: translateY(0) scale(1); }
+          }
+          @keyframes fimCardFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+          }
+          @keyframes fimItemIn {
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes fimChipPop {
+            from { opacity: 0; transform: scale(0.7) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+          }
+          @keyframes fimShine {
+            0%, 100% { background-position: 0% 50%; opacity: 0.75; }
+            50% { background-position: 100% 50%; opacity: 1; }
+          }
+          @keyframes fimGlowPulse {
+            0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+            50% { opacity: 1; transform: translateX(-50%) scale(1.12); }
+          }
+          @keyframes fimDividerPulse {
+            0%, 100% { opacity: 0.7; transform: scaleX(1); }
+            50% { opacity: 1; transform: scaleX(1.25); }
+          }
+          @keyframes fimBang {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.12) rotate(6deg); }
+          }
+          @keyframes fimTrophyGlow {
+            0%, 100% {
+              box-shadow:
+                0 0 0 4px rgba(247, 181, 56, 0.28),
+                0 0 22px rgba(255, 77, 109, 0.45);
+              transform: scale(1);
+            }
+            50% {
+              box-shadow:
+                0 0 0 6px rgba(247, 181, 56, 0.5),
+                0 0 36px rgba(255, 77, 109, 0.7);
+              transform: scale(1.05);
+            }
+          }
+          @media (prefers-reduced-motion: reduce) {
+            #s-fim .fim-card,
+            #s-fim.active .fim-card,
+            #s-fim .fim-card > *,
+            #s-fim.active .fim-card > *,
+            #s-fim.active .fim-card .ic-circle,
+            #s-fim.active .fim-card::before,
+            #s-fim.active .fim-card::after,
+            #s-fim.active .fim-divider,
+            #s-fim.active .fim-card h3 span,
+            #s-fim.active .fim-chip {
+              animation: none !important;
+              opacity: 1 !important;
+              transform: none !important;
+            }
           }
         </style>
         <div class="top-bar">
@@ -15915,6 +17569,7 @@
         <div class="content-area">
           <div class="fim-wrap">
             <div class="fim-card">
+              <div class="fim-eyebrow">Certificado de conclusão</div>
               <div class="ic-circle" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M8 21h8" />
@@ -15924,7 +17579,8 @@
                   <path d="M7 6H5a2.5 2.5 0 0 0 0 5h2" />
                 </svg>
               </div>
-              <h3>Parabéns!</h3>
+              <h3>Parabéns<span>!</span></h3>
+              <div class="fim-divider" aria-hidden="true"></div>
               <p>Você concluiu o treinamento NR 06 — Equipamento de Proteção Individual. Por mérito, dedicação e compromisso com a segurança, você percorreu os 8 módulos.</p>
               <div class="fim-chips">
                 <span class="fim-chip">8 módulos</span>
@@ -15988,6 +17644,7 @@
       #s-mod5-game #m5g-intro,
       #s-mod6-game #m6g-intro,
       #s-mod7-game #m7g-intro,
+    #s-mod8-game #m8g-intro,
       #s-fim .fim-card {
         padding: 52px 64px 56px !important;
         border-radius: 32px !important;
@@ -16011,6 +17668,7 @@
       #s-mod5-game #m5g-intro .ic-circle,
       #s-mod6-game #m6g-intro .ic-circle,
       #s-mod7-game #m7g-intro .ic-circle,
+    #s-mod8-game #m8g-intro .ic-circle,
       #s-fim .fim-card .ic-circle {
         width: 132px !important;
         height: 132px !important;
@@ -16024,6 +17682,7 @@
       #s-mod5-game #m5g-intro h3,
       #s-mod6-game #m6g-intro h3,
       #s-mod7-game #m7g-intro h3,
+    #s-mod8-game #m8g-intro h3,
       #s-fim .fim-card h3 {
         font-size: 40px !important;
         margin-bottom: 20px !important;
@@ -16074,6 +17733,7 @@
       #s-mod5-game #m5g-intro,
       #s-mod6-game #m6g-intro,
       #s-mod7-game #m7g-intro,
+    #s-mod8-game #m8g-intro,
       #s-fim .fim-card {
         padding: 38px 46px 44px !important;
         border-radius: 28px !important;
@@ -16097,6 +17757,7 @@
       #s-mod5-game #m5g-intro .ic-circle,
       #s-mod6-game #m6g-intro .ic-circle,
       #s-mod7-game #m7g-intro .ic-circle,
+    #s-mod8-game #m8g-intro .ic-circle,
       #s-fim .fim-card .ic-circle {
         width: 96px !important;
         height: 96px !important;
@@ -16110,6 +17771,7 @@
       #s-mod5-game #m5g-intro h3,
       #s-mod6-game #m6g-intro h3,
       #s-mod7-game #m7g-intro h3,
+    #s-mod8-game #m8g-intro h3,
       #s-fim .fim-card h3 {
         font-size: 29px !important;
         margin-bottom: 14px !important;
@@ -17732,7 +19394,7 @@
         const slide = document.querySelectorAll('.slide')[currentSlide];
         if (slide?.id === 's2b') {
           n.textContent = 'Toque em todos os cards para avançar';
-        } else if (slide?.id === 's2e' || slide?.id === 's-mod2-game' || slide?.id === 's-mod4-game' || slide?.id === 's-mod5-game' || slide?.id === 's-mod6-game') {
+        } else if (slide?.id === 's2e' || slide?.id === 's-mod2-game' || slide?.id === 's-mod4-game' || slide?.id === 's-mod5-game' || slide?.id === 's-mod6-game' || slide?.id === 's-mod7-game' || slide?.id === 's-mod8-game') {
           n.textContent = 'Responda o quiz para avançar';
         } else if (slide?.id === 's2g') {
           n.textContent = 'Conclua a associação para avançar';
@@ -17764,6 +19426,12 @@
       }
       if (slide.id === 's-mod6-game') { // Quiz — Módulo 6
         return mod6_done;
+      }
+      if (slide.id === 's-mod7-game') { // Quiz — Módulo 7
+        return mod7_done;
+      }
+      if (slide.id === 's-mod8-game') { // Quiz — Módulo 8
+        return mod8_done;
       }
       if (slide.id === 's3f') { // Quiz — Módulo 2
         return mod2_quiz_done;
@@ -18011,6 +19679,52 @@
           showSimModeToast(simulationMode);
         }
       });
+    })();
+
+    /* ══════════════════════════════════════════
+       MOBILE — toque 2x na logo liga/desliga simulação
+       ══════════════════════════════════════════ */
+    (function setupLogoDoubleTapSimulation() {
+      const logo = document.getElementById('logo');
+      if (!logo) return;
+
+      let lastTap = 0;
+      const TAP_GAP = 320;
+
+      function isMobileShortcut() {
+        return window.matchMedia('(max-width: 768px), (pointer: coarse)').matches;
+      }
+
+      function triggerSimToggle(e) {
+        if (!isMobileShortcut()) return;
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        toggleSimulationMode();
+        showSimModeToast(simulationMode);
+        if (typeof playClickSound === 'function') playClickSound();
+      }
+
+      logo.addEventListener('touchend', (e) => {
+        if (!isMobileShortcut()) return;
+        const now = Date.now();
+        if (now - lastTap < TAP_GAP) {
+          lastTap = 0;
+          triggerSimToggle(e);
+        } else {
+          lastTap = now;
+        }
+      }, { passive: false });
+
+      logo.addEventListener('dblclick', (e) => {
+        if (!isMobileShortcut()) return;
+        triggerSimToggle(e);
+      });
+
+      logo.setAttribute('role', 'button');
+      logo.setAttribute('aria-label', 'Toque duas vezes para alternar o modo simulação');
+      logo.title = 'Toque 2x: modo simulação';
     })();
 
     /* ══════════════════════════════════════════
@@ -22480,308 +24194,519 @@
 
 
     /* ════════════════════════════════════════
-       MISSÃO MÓDULO 7 — NR 06
+       QUIZ MÓDULO 7 — Filtro Certo
     ════════════════════════════════════════ */
+    let mod7_done = false;
     (function () {
       var m7gIdx = 0;
       var m7gScore = 0;
       var m7gBusy = false;
-      var m7gPicked = {};
-      var m7gNext = 0;
-      var m7gTimer = null;
+      var m7gWrongTopics = [];
 
-      var m7gRounds = [
+      var m7gDeck = [
         {
-          type: 'choice',
-          emoji: '📋',
-          label: 'Norma',
-          title: 'Para que serve a NR 06?',
-          inst: 'Toque na resposta certa.',
-          hint: 'A NR 06 é a norma de Equipamento de Proteção Individual.',
-          items: [
-            { t: 'Organizar só o horário de almoço da equipe.', ok: false, emoji: '🍽️' },
-            { t: 'Garantir o uso correto de Equipamentos de Proteção Individual para proteger o trabalhador.', ok: true, emoji: '🛡️' },
-            { t: 'Dispensar o uso de EPIs no ambiente de trabalho.', ok: false, emoji: '🚫' }
-          ],
-          fb: 'A NR 06 define as regras sobre Equipamentos de Proteção Individual: fornecimento, uso, conservação e responsabilidade da empresa e do trabalhador.'
+          sit: 'Para se proteger da inalação de contaminantes, o trabalhador deve usar um equipamento que cobre boca e nariz com filtros ou fornecimento de ar. Esse equipamento é chamado de:',
+          topic: 'EPR',
+          tipOk: 'Correto! É o Equipamento de Proteção Respiratória (EPR), também chamado de respirador ou máscara.',
+          tipNok: 'A resposta certa é EPR — Equipamento de Proteção Respiratória (respirador/máscara).',
+          opts: [
+            { chip: 'EPR', t: 'Equipamento de Proteção Respiratória (respirador/máscara)', ok: true },
+            { chip: 'EPI-V', t: 'Apenas óculos de proteção visual', ok: false },
+            { chip: 'CA', t: 'Somente o Certificado de Aprovação, sem máscara', ok: false }
+          ]
         },
         {
-          type: 'choice',
-          emoji: '✅',
-          label: 'Deveres',
-          title: 'Qual é o primeiro dever de cada turno?',
-          inst: 'Toque na resposta certa.',
-          hint: 'Antes de ligar, inspecione o equipamento.',
-          items: [
-            { t: 'Ligar a máquina e sair rápido, sem checklist.', ok: false, emoji: '💨' },
-            { t: 'Inspecionar o equipamento completo antes de usar.', ok: true, emoji: '🔍' },
-            { t: 'Deixar o colega inspecionar no seu lugar.', ok: false, emoji: '👥' }
-          ],
-          fb: 'Todo turno começa com inspeção. Se houver anomalia, comunique na hora. Nunca exceda a carga da placa e siga os procedimentos da empresa.'
+          sit: 'No setor há poeira e névoa. Qual respirador é indicado para filtrar essas partículas cobrindo nariz e boca?',
+          topic: 'Tipos de respiradores',
+          tipOk: 'Correto! A Peça Semifacial Filtrante (PFF) é indicada para poeiras e névoas.',
+          tipNok: 'Para poeiras e névoas, use a Peça Semifacial Filtrante (PFF).',
+          opts: [
+            { chip: 'PFF', t: 'Peça Semifacial Filtrante (PFF)', ok: true },
+            { chip: 'SCBA', t: 'Máscara autônoma com cilindro (sempre)', ok: false },
+            { chip: 'NENHUM', t: 'Nenhum EPI respiratório é necessário', ok: false }
+          ]
         },
         {
-          type: 'choice',
-          emoji: '⚡',
-          label: 'Riscos',
-          title: 'Qual risco existe na recarga da bateria?',
-          inst: 'Toque na resposta certa.',
-          hint: 'Máquina elétrica também tem risco de choque, calor e gases.',
-          items: [
-            { t: 'Nenhum: equipamento elétrico não oferece risco.', ok: false, emoji: '❄️' },
-            { t: 'Curto-circuito, aquecimento excessivo e gases tóxicos.', ok: true, emoji: '☠️' },
-            { t: 'Apenas o barulho da recarga.', ok: false, emoji: '🔊' }
-          ],
-          fb: 'Na recarga há risco de curto-circuito, calor e gases tóxicos. Também existem riscos mecânicos (tombamento, esmagamento, colisão) e atropelamento de pedestres.'
+          sit: 'Qual filtro PFF oferece a maior eficiência de retenção de partículas?',
+          topic: 'Filtros PFF',
+          tipOk: 'Correto! O PFF3 tem 99,9% de eficácia.',
+          tipNok: 'O PFF3 é o de maior eficiência: 99,9%.',
+          opts: [
+            { chip: 'PFF1', t: '80% de eficácia', ok: false },
+            { chip: 'PFF2', t: '94% de eficácia', ok: false },
+            { chip: 'PFF3', t: '99,9% de eficácia', ok: true }
+          ]
         },
         {
-          type: 'choice',
-          emoji: '🚨',
-          label: 'Dispositivos',
-          title: 'Pode operar com proteção danificada?',
-          inst: 'Toque na resposta certa.',
-          hint: 'Cinto, buzina, alarme de ré, luzes, teto e botão de emergência.',
-          items: [
-            { t: 'Sim, se for só um trecho curto.', ok: false, emoji: '⚠️' },
-            { t: 'Não. Cinto, buzina, alarme, luzes, proteção superior e botão de emergência devem estar funcionando.', ok: true, emoji: '🦺' },
-            { t: 'Só o cinto pode ficar solto.', ok: false, emoji: '🔓' }
-          ],
-          fb: 'Nunca opere com proteção danificada. Mantenha braços, pernas e cabeça dentro da cabine.'
+          sit: 'Qual atitude NÃO é um cuidado adequado com o respirador?',
+          topic: 'Cuidados com o respirador',
+          tipOk: 'Isso mesmo! Lavar filtros e cartuchos compromete a proteção — essa prática não é adequada.',
+          tipNok: 'Nunca lave filtros e cartuchos para “aumentar a durabilidade”. Isso não é cuidado adequado.',
+          opts: [
+            { chip: 'OK', t: 'Inspecionar se o respirador não está danificado', ok: false },
+            { chip: 'ERRADO', t: 'Lavar filtros e cartuchos para aumentar a durabilidade', ok: true },
+            { chip: 'OK', t: 'Fazer o ajuste correto para evitar contaminantes', ok: false }
+          ]
         },
         {
-          type: 'choice',
-          emoji: '🚫',
-          label: 'Condutas',
-          title: 'A máquina falhou. O que fazer?',
-          inst: 'Toque na resposta certa.',
-          hint: 'Gambiarra e sensor desligado são proibidos.',
-          items: [
-            { t: 'Improvisar o reparo com o que tiver à mão.', ok: false, emoji: '🔧' },
-            { t: 'Comunicar a falha e deixar só o técnico autorizado consertar.', ok: true, emoji: '📣' },
-            { t: 'Desligar o sensor de segurança para continuar o serviço.', ok: false, emoji: '🛑' }
-          ],
-          fb: 'É proibido burlar sensor ou fazer gambiarra. Só técnico treinado e autorizado mexe na máquina. Preencha o checklist, respeite a carga e adapte a velocidade.'
+          sit: 'O ambiente está com atmosfera crítica ou deficiente de oxigênio. Qual proteção é a adequada?',
+          topic: 'Adução de ar',
+          tipOk: 'Correto! Nesses casos, use máscara com fornecimento de ar (adução de ar).',
+          tipNok: 'Em atmosfera crítica ou sem oxigênio suficiente, use máscara com fornecimento de ar.',
+          opts: [
+            { chip: 'PFF1', t: 'Apenas PFF1 descartável', ok: false },
+            { chip: 'AR', t: 'Máscara com fornecimento de ar (adução)', ok: true },
+            { chip: 'PANO', t: 'Pano úmido no rosto', ok: false }
+          ]
+        },
+        {
+          sit: 'Antes de iniciar o trabalho, o colaborador lava o respirador reutilizável com água e detergente neutro e confere o ajuste no rosto. Essa prática está:',
+          topic: 'Cuidados com o respirador',
+          tipOk: 'Correto! Higienizar reutilizáveis com água e detergente neutro e ajustar bem é cuidado adequado.',
+          tipNok: 'Essa prática é adequada: lavar reutilizáveis com água e detergente neutro e ajustar corretamente.',
+          opts: [
+            { chip: 'SIM', t: 'Adequada — higiene e ajuste corretos', ok: true },
+            { chip: 'NÃO', t: 'Inadequada — nunca se deve limpar o respirador', ok: false },
+            { chip: 'NÃO', t: 'Inadequada — o ajuste no rosto é desnecessário', ok: false }
+          ]
         }
       ];
 
-      function m7gShuffle(arr) {
-        var a = arr.slice();
-        var i, j, t;
-        for (i = a.length - 1; i > 0; i--) {
-          j = Math.floor(Math.random() * (i + 1));
-          t = a[i]; a[i] = a[j]; a[j] = t;
-        }
-        return a;
-      }
-
       function m7gShow(id) {
-        var wrap = document.querySelector('#s-mod7-game .m7g-wrap');
-        if (wrap) wrap.classList.toggle('is-play', id === 'm7g-play');
         ['m7g-intro', 'm7g-play', 'm7g-result'].forEach(function (p) {
           var el = document.getElementById(p);
-          if (!el) return;
-          if (p === id) el.style.display = (p === 'm7g-play') ? 'flex' : 'block';
-          else el.style.display = 'none';
+          if (el) el.style.display = (p === id) ? 'block' : 'none';
         });
       }
 
-      function m7gClearTimer() {
-        if (m7gTimer) { clearTimeout(m7gTimer); m7gTimer = null; }
-      }
-
-      function m7gLockStage() {
-        var btns = document.querySelectorAll('#m7g-stage button');
-        for (var i = 0; i < btns.length; i++) btns[i].disabled = true;
-        var c = document.getElementById('m7g-confirm');
-        if (c) c.disabled = true;
-      }
-
-      function m7gFinishRound(ok) {
-        var r = m7gRounds[m7gIdx];
-        var fb = document.getElementById('m7g-feedback');
-        m7gBusy = true;
-        m7gLockStage();
-        if (typeof playGameFeedback === 'function') playGameFeedback(ok ? 'ok' : 'nok');
-        if (ok) m7gScore++;
-        fb.className = 'm7g-feedback ' + (ok ? 'ok' : 'err');
-        fb.textContent = (ok ? '✅ ' : '❌ ') + r.fb;
-        m7gClearTimer();
-        m7gTimer = setTimeout(function () {
-          m7gIdx++;
-          m7gRender();
-        }, ok ? 1800 : 2600);
-      }
-
       function m7gRender() {
-        if (m7gIdx >= m7gRounds.length) { m7gFinish(); return; }
-        var r = m7gRounds[m7gIdx];
+        if (m7gIdx >= m7gDeck.length) { m7gFinish(); return; }
+        var item = m7gDeck[m7gIdx];
         m7gBusy = false;
-        m7gPicked = {};
-        m7gNext = 0;
 
-        document.getElementById('m7g-label').textContent = 'Etapa ' + (m7gIdx + 1) + ' · ' + r.label;
-        document.getElementById('m7g-counter').textContent = (m7gIdx + 1) + ' / ' + m7gRounds.length;
-        document.getElementById('m7g-bar').style.width = (m7gIdx / m7gRounds.length * 100) + '%';
-        document.getElementById('m7g-emoji').textContent = r.emoji;
-        document.getElementById('m7g-round-title').textContent = r.title;
-        document.getElementById('m7g-round-instr').textContent = r.inst;
-        document.getElementById('m7g-hint').textContent = r.hint;
+        document.getElementById('m7g-counter').textContent = (m7gIdx + 1) + ' / ' + m7gDeck.length;
+        document.getElementById('m7g-stamp').textContent = item.topic;
+        document.getElementById('m7g-kicker').textContent = 'Situação ' + (m7gIdx + 1);
+        document.getElementById('m7g-case').textContent = item.sit;
+        document.getElementById('m7g-air').style.width = (m7gIdx / m7gDeck.length * 100) + '%';
+
+        var box = document.getElementById('m7g-options');
+        box.innerHTML = '';
+        item.opts.forEach(function (opt, i) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'm7g-opt';
+          btn.innerHTML = '<span class="m7g-chip">' + opt.chip + '</span><span>' + opt.t + '</span>';
+          btn.onclick = function () { m7gAnswer(i); };
+          box.appendChild(btn);
+        });
 
         var fb = document.getElementById('m7g-feedback');
         fb.className = 'm7g-feedback';
         fb.textContent = '';
-
-        var confirm = document.getElementById('m7g-confirm');
-        confirm.disabled = false;
-        confirm.style.display = (r.type === 'select') ? 'block' : 'none';
-
-        var stage = document.getElementById('m7g-stage');
-        var order = m7gShuffle(r.items.map(function (_, i) { return i; }));
-        var html = '';
-        var i, idx, it;
-
-        if (r.type === 'order') {
-          html = '<div class="m7g-order">';
-          for (i = 0; i < order.length; i++) {
-            idx = order[i];
-            it = r.items[idx];
-            html += '<button type="button" class="m7g-order-item" id="m7g-ord-' + idx + '" data-i="' + idx + '" onclick="m7gTapOrder(' + idx + ')">' +
-              '<span class="m7g-step-num" id="m7g-ord-n-' + idx + '">?</span>' +
-              '<span>' + it.t + '</span></button>';
-          }
-          html += '</div>';
-        } else {
-          html = '<div class="m7g-grid' + (r.type === 'choice' ? ' m7g-col' : '') + '">';
-          for (i = 0; i < order.length; i++) {
-            idx = order[i];
-            it = r.items[idx];
-            var fn = r.type === 'choice' ? 'm7gTapChoice(' + idx + ')' : 'm7gToggleSelect(' + idx + ')';
-            html += '<button type="button" class="m7g-tile" id="m7g-tile-' + idx + '" onclick="' + fn + '">' +
-              '<span class="m7g-tile-emoji">' + (it.emoji || '') + '</span>' +
-              '<span>' + it.t + '</span></button>';
-          }
-          html += '</div>';
-        }
-        stage.innerHTML = html;
       }
 
-      window.m7gTapChoice = function (i) {
+      window.m7gAnswer = function (i) {
         if (m7gBusy) return;
-        var r = m7gRounds[m7gIdx];
-        var ok = !!r.items[i].ok;
-        var j, tile;
-        for (j = 0; j < r.items.length; j++) {
-          tile = document.getElementById('m7g-tile-' + j);
-          if (!tile) continue;
-          if (r.items[j].ok) tile.classList.add('is-ok');
-          else if (j === i && !ok) tile.classList.add('is-bad');
-        }
-        m7gFinishRound(ok);
-      };
+        var item = m7gDeck[m7gIdx];
+        m7gBusy = true;
+        var ok = !!item.opts[i].ok;
+        var btns = document.querySelectorAll('#m7g-options .m7g-opt');
+        var fb = document.getElementById('m7g-feedback');
 
-      window.m7gToggleSelect = function (i) {
-        if (m7gBusy) return;
-        m7gPicked[i] = !m7gPicked[i];
-        var tile = document.getElementById('m7g-tile-' + i);
-        if (tile) tile.classList.toggle('is-on', !!m7gPicked[i]);
-      };
+        btns.forEach(function (b, idx) {
+          b.disabled = true;
+          if (item.opts[idx].ok) b.classList.add('is-ok');
+          else if (idx === i) b.classList.add('is-bad');
+          else b.classList.add('is-dim');
+        });
 
-      window.m7gConfirmSelect = function () {
-        if (m7gBusy) return;
-        var r = m7gRounds[m7gIdx];
-        var ok = true;
-        var any = false;
-        var i, tile, picked;
-        for (i = 0; i < r.items.length; i++) {
-          picked = !!m7gPicked[i];
-          if (picked) any = true;
-          if (picked !== !!r.items[i].ok) ok = false;
-        }
-        if (!any) {
-          var hint = document.getElementById('m7g-hint');
-          if (hint) {
-            hint.style.animation = 'none';
-            void hint.offsetHeight;
-            hint.style.animation = 'm7gShake 0.4s ease';
-          }
-          return;
-        }
-        for (i = 0; i < r.items.length; i++) {
-          tile = document.getElementById('m7g-tile-' + i);
-          if (!tile) continue;
-          tile.classList.remove('is-on');
-          if (r.items[i].ok) tile.classList.add('is-ok');
-          else if (m7gPicked[i]) tile.classList.add('is-bad');
-        }
-        m7gFinishRound(ok);
-      };
-
-      window.m7gTapOrder = function (i) {
-        if (m7gBusy) return;
-        var r = m7gRounds[m7gIdx];
-        var btn = document.getElementById('m7g-ord-' + i);
-        var num = document.getElementById('m7g-ord-n-' + i);
-        if (!btn || btn.classList.contains('is-locked')) return;
-
-        if (i === m7gNext) {
-          btn.classList.add('is-locked');
-          if (num) num.textContent = String(m7gNext + 1);
-          m7gNext++;
-          if (m7gNext >= r.items.length) m7gFinishRound(true);
-          return;
+        if (ok) {
+          m7gScore++;
+          fb.className = 'm7g-feedback ok';
+          fb.textContent = '✓ ' + item.tipOk;
+          if (typeof playGameFeedback === 'function') playGameFeedback('ok');
+        } else {
+          if (item.topic && m7gWrongTopics.indexOf(item.topic) === -1) m7gWrongTopics.push(item.topic);
+          fb.className = 'm7g-feedback nok';
+          fb.textContent = '✗ ' + item.tipNok;
+          if (typeof playGameFeedback === 'function') playGameFeedback('nok');
         }
 
-        btn.classList.add('is-bad');
-        var k, b, n;
-        for (k = 0; k < r.items.length; k++) {
-          b = document.getElementById('m7g-ord-' + k);
-          n = document.getElementById('m7g-ord-n-' + k);
-          if (!b) continue;
-          if (k >= m7gNext) {
-            b.classList.add(k === i ? 'is-bad' : 'is-locked');
-            if (n) n.textContent = String(k + 1);
-          }
-        }
-        m7gFinishRound(false);
+        setTimeout(function () {
+          m7gIdx++;
+          m7gRender();
+        }, 2600);
       };
 
       function m7gFinish() {
-        document.getElementById('m7g-bar').style.width = '100%';
+        var total = m7gDeck.length;
+        var minToPass = Math.floor(total / 2) + 1;
+        var passed = m7gScore >= minToPass;
+        mod7_done = passed;
+        document.getElementById('m7g-air').style.width = '100%';
         m7gShow('m7g-result');
-        var total = m7gRounds.length;
-        document.getElementById('m7g-score-num').textContent = m7gScore;
-        var label = document.querySelector('#m7g-result .m7g-score-label');
-        if (label) label.textContent = '/ ' + total;
 
-        var pct = Math.round(m7gScore / total * 100);
-        document.getElementById('m7g-score-ring').style.background =
-          'conic-gradient(#780116 ' + pct + '%, rgba(255,255,255,0.08) ' + pct + '%)';
-
-        var badge = document.getElementById('m7g-badge');
-        if (badge) badge.style.display = (m7gScore >= 3) ? 'inline-block' : 'none';
-
+        var icon = document.getElementById('m7g-result-icon');
+        var title = document.getElementById('m7g-result-title');
+        var status = document.getElementById('m7g-result-status');
         var msg = document.getElementById('m7g-result-msg');
-        if (m7gScore === total) {
-          msg.textContent = 'Perfeito! Você acertou as 5 perguntas da NR 06.';
-        } else if (m7gScore >= 3) {
-          msg.textContent = 'Módulo validado com ' + m7gScore + ' de ' + total + '. Revise o ponto que faltou e opere com responsabilidade.';
-        } else {
-          msg.textContent = 'Você acertou ' + m7gScore + ' de ' + total + '. Reveja os conteúdos da NR 06 e tente de novo.';
+        if (icon) icon.textContent = passed ? '🏅' : '📚';
+        if (title) title.textContent = passed ? 'Desafio Concluído!' : 'Desafio não concluído';
+        if (status) {
+          status.style.display = passed ? 'inline-block' : 'none';
+          status.textContent = 'Aprovado — ' + m7gScore + ' de ' + total;
         }
+        if (msg) {
+          msg.textContent = passed
+            ? (m7gScore === total
+              ? 'Excelente! Você escolheu o filtro certo em todas as situações.'
+              : 'Você acertou ' + m7gScore + ' de ' + total + '. Era necessário pelo menos ' + minToPass + '. Parabéns!')
+            : 'Você acertou ' + m7gScore + ' de ' + total + '. É necessário acertar pelo menos ' + minToPass + '. Revise a proteção respiratória e tente novamente.';
+        }
+
+        var review = document.getElementById('m7g-review');
+        var list = document.getElementById('m7g-review-list');
+        if (review && list) {
+          list.innerHTML = '';
+          if (!passed && m7gWrongTopics.length) {
+            m7gWrongTopics.forEach(function (t) {
+              var li = document.createElement('li');
+              li.textContent = t;
+              list.appendChild(li);
+            });
+            review.style.display = 'block';
+          } else {
+            review.style.display = 'none';
+          }
+        }
+        if (typeof updateNextButton === 'function') updateNextButton();
       }
 
       window.startM7Game = function () {
-        m7gClearTimer();
-        m7gIdx = 0; m7gScore = 0; m7gBusy = false;
+        m7gIdx = 0; m7gScore = 0; m7gBusy = false; m7gWrongTopics = [];
+        mod7_done = false;
         m7gShow('m7g-play');
         m7gRender();
+        if (typeof updateNextButton === 'function') updateNextButton();
       };
 
       window.resetM7Game = function () {
-        m7gClearTimer();
+        mod7_done = false;
         m7gShow('m7g-intro');
+        if (typeof updateNextButton === 'function') updateNextButton();
       };
     })();
 
+
+
+    /* ════════════════════════════════════════
+       CARROSSEL — Modelos de Luvas (Módulo 8)
+    ════════════════════════════════════════ */
+    (function () {
+      var m8lIdx = 0;
+      var m8lTotal = 5;
+
+      function m8lCards() {
+        return document.querySelectorAll('#s-mod8-luvas-tipos .m8-static-card');
+      }
+
+      function m8lUpdateUI() {
+        var cards = m8lCards();
+        m8lTotal = cards.length || 5;
+        cards.forEach(function (c, i) {
+          c.classList.toggle('m8l-card-active', i === m8lIdx);
+        });
+        var counter = document.getElementById('m8l-counter');
+        if (counter) counter.textContent = (m8lIdx + 1) + ' / ' + m8lTotal;
+        var prev = document.getElementById('m8l-prev');
+        var next = document.getElementById('m8l-next');
+        if (prev) prev.disabled = (m8lIdx === 0);
+        if (next) next.disabled = (m8lIdx === m8lTotal - 1);
+
+        var dots = document.getElementById('m8l-dots');
+        if (dots) {
+          if (!dots.childElementCount) {
+            for (var d = 0; d < m8lTotal; d++) {
+              (function (idx) {
+                var b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'm8l-dot';
+                b.setAttribute('aria-label', 'Modelo ' + (idx + 1));
+                b.onclick = function () {
+                  m8lIdx = idx;
+                  if (typeof playClickSound === 'function') playClickSound();
+                  m8lUpdateUI();
+                };
+                dots.appendChild(b);
+              })(d);
+            }
+          }
+          Array.prototype.forEach.call(dots.children, function (dot, i) {
+            dot.classList.toggle('is-on', i === m8lIdx);
+          });
+        }
+        m8lUpdateHint();
+      }
+
+      window.m8lCarouselNav = function (dir) {
+        var newIdx = m8lIdx + dir;
+        if (newIdx < 0 || newIdx >= m8lTotal) return;
+        m8lIdx = newIdx;
+        if (typeof playClickSound === 'function') playClickSound();
+        m8lUpdateUI();
+      };
+
+      function m8lUpdateHint() {
+        var hint = document.querySelector('#s-mod8-luvas-tipos .m8l-carousel-hint');
+        if (!hint) return;
+        if (m8lIdx >= m8lTotal - 1) {
+          hint.textContent = 'Todos os modelos visualizados';
+          hint.style.animation = 'none';
+          hint.style.opacity = '0.85';
+        } else {
+          hint.textContent = 'Clique nas setas para avançar';
+          hint.style.animation = '';
+          hint.style.opacity = '';
+        }
+      }
+
+      var m8lSX = 0;
+      function m8lInitSwipe() {
+        var vp = document.getElementById('m8l-viewport');
+        if (!vp) return;
+        vp.addEventListener('touchstart', function (e) {
+          m8lSX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        vp.addEventListener('touchend', function (e) {
+          var diff = m8lSX - e.changedTouches[0].screenX;
+          if (Math.abs(diff) > 40) window.m8lCarouselNav(diff > 0 ? 1 : -1);
+        }, { passive: true });
+      }
+
+      function m8lInit() {
+        m8lIdx = 0;
+        m8lUpdateUI();
+        m8lInitSwipe();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', m8lInit);
+      } else {
+        m8lInit();
+      }
+    })();
+
+    /* ════════════════════════════════════════
+       QUIZ MÓDULO 8 — Luva Certa
+    ════════════════════════════════════════ */
+    let mod8_done = false;
+    (function () {
+      var m8gIdx = 0;
+      var m8gScore = 0;
+      var m8gBusy = false;
+      var m8gWrongTopics = [];
+
+      var m8gDeck = [
+        {
+          sit: 'No setor há chapas metálicas e risco de corte. Qual luva escolher?',
+          topic: 'Luva anticorte',
+          tipOk: 'Correto! A luva anticorte é indicada para proteger contra cortes.',
+          tipNok: 'Para risco de corte, a luva anticorte é a indicação.',
+          opts: [
+            { ico: '✂️', name: 'Anticorte', desc: 'Protege contra cortes', ok: true },
+            { ico: '🧪', name: 'Nitrílica', desc: 'Óleos e solventes', ok: false },
+            { ico: '🧤', name: 'Látex natural', desc: 'Ácidos e álcool', ok: false }
+          ]
+        },
+        {
+          sit: 'O trabalho envolve óleos, solventes, gordura animal e graxa. Qual luva é a certa?',
+          topic: 'Luva nitrílica',
+          tipOk: 'Correto! A luva de látex nitrílica protege bem contra óleos, solventes, gordura e graxa.',
+          tipNok: 'Para óleos, solventes, gordura e graxa, use luva de látex nitrílica.',
+          opts: [
+            { ico: '✂️', name: 'Anticorte', desc: 'Protege contra cortes', ok: false },
+            { ico: '🧪', name: 'Nitrílica', desc: 'Óleos e solventes', ok: true },
+            { ico: '🔥', name: 'Vaqueta/raspa', desc: 'Abrasão e solda', ok: false }
+          ]
+        },
+        {
+          sit: 'Há ácidos, cáusticos, bases e álcoois no processo. Qual modelo escolher?',
+          topic: 'Luva de PVC',
+          tipOk: 'Correto! A luva de PVC é excelente contra ácidos, cáusticos, bases, álcoois e abrasões.',
+          tipNok: 'Para ácidos, cáusticos, bases e álcoois, a luva de PVC é a indicada.',
+          opts: [
+            { ico: '🧪', name: 'Nitrílica', desc: 'Óleos e solventes', ok: false },
+            { ico: '💧', name: 'PVC', desc: 'Ácidos e cáusticos', ok: true },
+            { ico: '✂️', name: 'Anticorte', desc: 'Protege contra cortes', ok: false }
+          ]
+        },
+        {
+          sit: 'A atividade envolve abrasão e solda. Qual luva oferece melhor resistência?',
+          topic: 'Vaqueta e raspa',
+          tipOk: 'Correto! Luvas de vaqueta e raspa de couro são boas para abrasão e solda.',
+          tipNok: 'Para abrasão e solda, use luva de vaqueta ou raspa de couro.',
+          opts: [
+            { ico: '🧤', name: 'Látex natural', desc: 'Ácidos e álcool', ok: false },
+            { ico: '💧', name: 'PVC', desc: 'Ácidos e cáusticos', ok: false },
+            { ico: '🔥', name: 'Vaqueta/raspa', desc: 'Abrasão e solda', ok: true }
+          ]
+        },
+        {
+          sit: 'Cortes, abrasões, perfurações e choques pertencem a qual grupo de risco?',
+          topic: 'Grupos de risco',
+          tipOk: 'Correto! Esses são riscos físicos ou mecânicos.',
+          tipNok: 'Riscos físicos/mecânicos: cortes, abrasões, perfurações e choques.',
+          opts: [
+            { ico: '⚙️', name: 'Físicos', desc: 'Cortes, abrasões, choques', ok: true },
+            { ico: '🦠', name: 'Químicos', desc: 'Bactérias, vírus, fungos', ok: false },
+            { ico: '❌', name: 'Nenhum', desc: 'Não se aplica às luvas', ok: false }
+          ]
+        },
+        {
+          sit: 'Qual atitude NÃO previne acidentes nas mãos?',
+          topic: 'Prevenção',
+          tipOk: 'Isso mesmo! Ignorar normas ou usar luva inadequada não previne — aumenta o risco.',
+          tipNok: 'Prevenir é usar o EPI certo, seguir normas e trabalhar com atenção — nunca ignorar as regras.',
+          opts: [
+            { ico: '✅', name: 'EPI correto', desc: 'Usar as luvas indicadas', ok: false },
+            { ico: '📋', name: 'Seguir normas', desc: 'Procedimentos da empresa', ok: false },
+            { ico: '⚠️', name: 'Ignorar normas', desc: 'Só porque o serviço é rápido', ok: true }
+          ]
+        }
+      ];
+
+      function m8gShow(id) {
+        ['m8g-intro', 'm8g-play', 'm8g-result'].forEach(function (p) {
+          var el = document.getElementById(p);
+          if (el) el.style.display = (p === id) ? 'block' : 'none';
+        });
+      }
+
+      function m8gRender() {
+        if (m8gIdx >= m8gDeck.length) { m8gFinish(); return; }
+        var item = m8gDeck[m8gIdx];
+        m8gBusy = false;
+
+        document.getElementById('m8g-counter').textContent = (m8gIdx + 1) + ' / ' + m8gDeck.length;
+        document.getElementById('m8g-stamp').textContent = item.topic;
+        document.getElementById('m8g-kicker').textContent = 'Situação ' + (m8gIdx + 1);
+        document.getElementById('m8g-case').textContent = item.sit;
+        document.getElementById('m8g-shield').style.width = (m8gIdx / m8gDeck.length * 100) + '%';
+
+        var box = document.getElementById('m8g-options');
+        box.innerHTML = '';
+        item.opts.forEach(function (opt, i) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'm8g-opt';
+          btn.innerHTML =
+            '<span class="m8g-ico" aria-hidden="true">' + opt.ico + '</span>' +
+            '<span class="m8g-opt-text">' +
+              '<span class="m8g-opt-name">' + opt.name + '</span>' +
+              '<span class="m8g-opt-desc">' + opt.desc + '</span>' +
+            '</span>';
+          btn.onclick = function () { m8gAnswer(i); };
+          box.appendChild(btn);
+        });
+
+        var fb = document.getElementById('m8g-feedback');
+        fb.className = 'm8g-feedback';
+        fb.textContent = '';
+      }
+
+      window.m8gAnswer = function (i) {
+        if (m8gBusy) return;
+        var item = m8gDeck[m8gIdx];
+        m8gBusy = true;
+        var ok = !!item.opts[i].ok;
+        var btns = document.querySelectorAll('#m8g-options .m8g-opt');
+        var fb = document.getElementById('m8g-feedback');
+
+        btns.forEach(function (b, idx) {
+          b.disabled = true;
+          if (item.opts[idx].ok) b.classList.add('is-ok');
+          else if (idx === i) b.classList.add('is-bad');
+          else b.classList.add('is-dim');
+        });
+
+        if (ok) {
+          m8gScore++;
+          fb.className = 'm8g-feedback ok';
+          fb.textContent = '✓ ' + item.tipOk;
+          if (typeof playGameFeedback === 'function') playGameFeedback('ok');
+        } else {
+          if (item.topic && m8gWrongTopics.indexOf(item.topic) === -1) m8gWrongTopics.push(item.topic);
+          fb.className = 'm8g-feedback nok';
+          fb.textContent = '✗ ' + item.tipNok;
+          if (typeof playGameFeedback === 'function') playGameFeedback('nok');
+        }
+
+        setTimeout(function () {
+          m8gIdx++;
+          m8gRender();
+        }, 2600);
+      };
+
+      function m8gFinish() {
+        var total = m8gDeck.length;
+        var minToPass = Math.floor(total / 2) + 1;
+        var passed = m8gScore >= minToPass;
+        mod8_done = passed;
+        var shield = document.getElementById('m8g-shield');
+        if (shield) shield.style.width = '100%';
+        m8gShow('m8g-result');
+
+        var icon = document.getElementById('m8g-result-icon');
+        var title = document.getElementById('m8g-result-title');
+        var status = document.getElementById('m8g-result-status');
+        var msg = document.getElementById('m8g-result-msg');
+        if (icon) icon.textContent = passed ? '🏅' : '📚';
+        if (title) title.textContent = passed ? 'Desafio Concluído!' : 'Desafio não concluído';
+        if (status) {
+          status.style.display = passed ? 'inline-block' : 'none';
+          status.textContent = 'Aprovado — ' + m8gScore + ' de ' + total;
+        }
+        if (msg) {
+          msg.textContent = passed
+            ? (m8gScore === total
+              ? 'Excelente! Você escolheu a luva certa em todas as situações.'
+              : 'Você acertou ' + m8gScore + ' de ' + total + '. Era necessário pelo menos ' + minToPass + '. Parabéns!')
+            : 'Você acertou ' + m8gScore + ' de ' + total + '. É necessário acertar pelo menos ' + minToPass + '. Revise a proteção das mãos e tente novamente.';
+        }
+
+        var review = document.getElementById('m8g-review');
+        var list = document.getElementById('m8g-review-list');
+        if (review && list) {
+          list.innerHTML = '';
+          if (!passed && m8gWrongTopics.length) {
+            m8gWrongTopics.forEach(function (t) {
+              var li = document.createElement('li');
+              li.textContent = t;
+              list.appendChild(li);
+            });
+            review.style.display = 'block';
+          } else {
+            review.style.display = 'none';
+          }
+        }
+        if (typeof updateNextButton === 'function') updateNextButton();
+      }
+
+      window.startM8Game = function () {
+        m8gIdx = 0; m8gScore = 0; m8gBusy = false; m8gWrongTopics = [];
+        mod8_done = false;
+        m8gShow('m8g-play');
+        m8gRender();
+        if (typeof updateNextButton === 'function') updateNextButton();
+      };
+
+      window.resetM8Game = function () {
+        mod8_done = false;
+        m8gShow('m8g-intro');
+        if (typeof updateNextButton === 'function') updateNextButton();
+      };
+    })();
 
 
   </script>

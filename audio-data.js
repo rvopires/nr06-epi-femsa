@@ -93,28 +93,36 @@ const NARRATION_OVERRIDES = {
     'Início do Módulo 7. Proteção Respiratória.',
   's-mod7-video':
     'Vídeo. Proteção Respiratória. Assista ao vídeo e avance quando concluir.',
+  's-mod7-video-visual':
+    'Vídeo. Proteção Visual no Trabalho. Assista ao vídeo e avance quando concluir.',
   's-mod7-epr':
     'Como se proteger? Uma das formas de se proteger contra a inalação de contaminantes atmosféricos é através do uso de Equipamento de Proteção Respiratória, o EPR. Esses equipamentos, chamados respiradores ou máscaras, cobrem a boca e o nariz e protegem a respiração por meio de filtros ou fornecimento de ar.',
   's-mod7-video-tipos':
-    'Vídeo. Tipos de Respiradores. Proteção Respiratória. Assista ao vídeo e avance quando concluir.',
+    'Tipos de respiradores. Os respiradores se dividem em purificadores de ar — sem manutenção, baixa manutenção, com manutenção, peça facial inteira e ar forçado PAPR — e de adução de ar — ar mandado e máscara autônoma.',
   's-mod7-tipos':
     'Tipos de respiradores. Peça semifacial filtrante, PFF: máscara descartável que cobre nariz e boca, filtrando partículas presentes no ar, indicada para exposições a poeiras e névoas. Semifacial com filtro: respirador reutilizável, com corpo de borracha ou silicone e filtros ou cartuchos substituíveis, indicado para vapores orgânicos, gases e partículas. Máscara com fornecimento de ar: fornece ar respirável de uma fonte externa, usada em ambientes com atmosferas mais críticas ou deficientes de oxigênio.',
+  's-mod7-colocar-reutilizavel':
+    'Respiradores reutilizáveis de silicone ou elastômero sintético. Ajuste os tirantes, confira a vedação com pressão positiva e negativa e, se houver vazamento, reajuste a posição e a tensão dos elásticos.',
+  's-mod7-colocar-descartavel':
+    'Respiradores descartáveis. Apoie no queixo, cubra nariz e boca, ajuste elásticos e grampo nasal. Faça o teste de vedação: inspire nos valvulados ou expire nos não valvulados, e reajuste se houver vazamento.',
   's-mod7-pff':
     'Eficiência dos filtros PFF. PFF1: 80% de eficácia. PFF2: 94% de eficácia. PFF3: 99,9% de eficácia.',
-  's-mod7-quiz':
-    'Quiz. Qual alternativa não corresponde a um cuidado adequado com o respirador? Inspecionar se o respirador não está danificado. Lavar filtros e cartuchos para aumentar a durabilidade. Fazer o ajuste correto para evitar a entrada de contaminantes. Lavar respiradores reutilizáveis com água e detergente neutro.',
+  's-mod7-video-pff':
+    'Vídeo. Barba e Respirador. Proteção Respiratória. A barba pode comprometer a vedação do respirador. Assista ao vídeo e avance quando concluir.',
   's-mod8':
     'Início do Módulo 8. Proteção das Mãos.',
+  's-mod8-video':
+    'Vídeo. Proteção das Mãos. Assista ao vídeo e avance quando concluir.',
   's-mod8-riscos':
     'Conhecendo os riscos. Desatenção. Uso de adornos. Falta de proteção em máquinas e equipamentos. Uso de objetos cortantes, como estiletes e facas. Uso de equipamentos inadequados. Uso inadequado de produtos químicos. Importante: conhecendo os riscos existentes no seu local de trabalho, você conseguirá prevenir mais facilmente os acidentes.',
   's-mod8-prevenir':
     'Formas de prevenir. Identificar e conhecer os riscos do setor. Participar de treinamentos. Utilizar todos os EPIs recomendados. Trabalhar de maneira segura. Comunicar todas as condições de risco. Respeitar seus limites. Seguir as normas, procedimentos e regras da empresa. Atenção: trabalhar preventivamente é a melhor forma de evitar acidentes graves, portanto, seja preventivo.',
-  's-mod8-quiz':
-    'Quiz. Qual alternativa não é um tipo comum de lesão nas mãos? Corte. Crescimento das unhas. Perfuração. Queimaduras.',
   's-mod8-luvas-riscos':
     'Medidas de controle. Grupos de risco. Existem diversos modelos diferentes de luvas de segurança, e cada um deles oferece proteção para determinados grupos de risco. Riscos físicos ou mecânicos: cortes, abrasões, perfurações, choques. Riscos químicos ou biológicos: bactérias, fungos, parasitas, vírus.',
   's-mod8-luvas-tipos':
     'Principais modelos de luvas. Luva anticorte: protege contra cortes nas mãos. Luva de látex natural: flexível e resistente, protege contra ácidos, álcool e produtos químicos. Luva de látex nitrílica: excelente proteção contra óleos, solventes, gordura animal e graxa. Luva de PVC: flexível, excelente proteção contra ácidos, cáusticos, bases, álcoois e abrasões. Luva de vaqueta e raspa de couro: boas opções para o risco de abrasão e até mesmo solda, pois o couro é muito resistente.',
+  's-mod8-game':
+    'Quiz NR-06 — Módulo 8. Atividade Luva Certa. Proteção das mãos. Leia a situação e toque na luva ou atitude correta. O feedback é automático. São seis desafios. Para avançar, acerte pelo menos quatro de seis.',
   's-fim':
     'Parabéns. Você concluiu o treinamento NR 06 — Equipamento de Proteção Individual. Por mérito, dedicação e compromisso com a segurança, você percorreu os oito módulos e demonstrou responsabilidade com a sua vida e com a vida dos seus colegas. A segurança é um direito de todos e um dever de cada um. Continue fazendo a sua parte.',
 };
@@ -398,8 +406,35 @@ function buildM6gNarration(deck) {
   return parts.join(' ');
 }
 
+function parseM8gDeck(html) {
+  const match = html.match(/var\s+m8gDeck\s*=\s*(\[[\s\S]*?\n\s*\]);/);
+  if (!match) return [];
+  try {
+    return Function(`"use strict"; return (${match[1]});`)();
+  } catch {
+    return [];
+  }
+}
+
+function buildM8gNarration(deck) {
+  if (!deck.length) {
+    return 'Quiz NR-06 — Módulo 8. Atividade Luva Certa. Proteção das mãos. Leia a situação e toque na luva ou atitude correta.';
+  }
+  const parts = [
+    'Quiz NR-06 — Módulo 8. Atividade Luva Certa. Proteção das mãos. Escolha a luva ou a atitude correta em cada situação.',
+  ];
+  deck.forEach((item, index) => {
+    parts.push(`Situação ${index + 1}: ${cleanText(item.sit)}`);
+    (item.opts || []).forEach((opt) => {
+      const label = cleanText([opt.name, opt.desc].filter(Boolean).join('. '));
+      parts.push(`${opt.ok ? 'Resposta correta' : 'Opção incorreta'}: ${label}`);
+    });
+  });
+  return parts.join(' ');
+}
+
 function parseM7gDeck(html) {
-  const match = html.match(/var\s+m7gRounds\s*=\s*(\[[\s\S]*?\n\s*\]);/);
+  const match = html.match(/var\s+m7gDeck\s*=\s*(\[[\s\S]*?\n\s*\]);/);
   if (!match) return [];
 
   try {
@@ -411,31 +446,18 @@ function parseM7gDeck(html) {
 
 function buildM7gNarration(deck) {
   if (!deck.length) {
-    return 'Missão NR 06, Módulo 7. Cinco perguntas simples sobre a norma, os deveres do trabalhador, os riscos, os dispositivos e as condutas.';
+    return 'Quiz NR-06 — Módulo 7. Filtro Certo. Escolha a proteção ou o cuidado adequado em cada situação de proteção respiratória.';
   }
 
   const parts = [
-    'Missão NR 06, Módulo 7. Cinco perguntas simples sobre a norma, os deveres do trabalhador, os riscos, os dispositivos e as condutas.',
+    'Quiz NR-06 — Módulo 7. Filtro Certo. Escolha a proteção ou o cuidado adequado em cada situação de proteção respiratória.',
   ];
 
   deck.forEach((item, index) => {
-    parts.push(`Etapa ${index + 1}: ${cleanText(item.title)}. ${cleanText(item.inst)}`);
-    if (item.type === 'order') {
-      parts.push('Ordem correta:');
-      item.items.forEach((opt, optIndex) => {
-        parts.push(`Passo ${optIndex + 1}: ${cleanText(opt.t)}`);
-      });
-    } else if (item.type === 'select') {
-      const yes = item.items.filter((opt) => opt.ok).map((opt) => cleanText(opt.t));
-      const no = item.items.filter((opt) => !opt.ok).map((opt) => cleanText(opt.t));
-      parts.push(`Marque: ${yes.join('; ')}.`);
-      if (no.length) parts.push(`Não marque: ${no.join('; ')}.`);
-    } else {
-      item.items.forEach((opt) => {
-        parts.push(`${opt.ok ? 'Regra correta' : 'Opção incorreta'}: ${cleanText(opt.t)}`);
-      });
-    }
-    parts.push(cleanText(item.fb));
+    parts.push(`Situação ${index + 1}: ${cleanText(item.sit)}`);
+    (item.opts || []).forEach((opt) => {
+      parts.push(`${opt.ok ? 'Resposta correta' : 'Opção incorreta'}: ${cleanText(opt.t)}`);
+    });
   });
 
   return parts.join(' ');
@@ -539,6 +561,8 @@ function buildManifest(htmlPath = HTML_PATH) {
       text = buildM5gNarration(parseM5gDeck(html));
     } else if ((text === undefined || text === null) && id === 's-mod6-game') {
       text = buildM6gNarration(parseM6gDeck(html));
+    } else if ((text === undefined || text === null) && id === 's-mod8-game') {
+      text = buildM8gNarration(parseM8gDeck(html));
     } else if ((text === undefined || text === null) && id === 's-mod7-game') {
       text = buildM7gNarration(parseM7gDeck(html));
     } else if (text === undefined || text === null) {
