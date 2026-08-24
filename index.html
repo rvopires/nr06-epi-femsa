@@ -501,104 +501,123 @@
         line-height: 1.4 !important;
       }
 
-      /* Slide 1 - Capa */
+      /* Slide 1 - Capa (mobile portrait) */
       #s1 {
-        background-image:
-          radial-gradient(ellipse at 30% 60%, rgba(120, 1, 22, 0.18), transparent 60%);
-        background-position: center;
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-      }
-
-      .s1-inner {
-        padding: 132px 20px 48px !important;
-        justify-content: flex-start !important;
-        align-items: stretch !important;
+        display: flex !important;
         flex-direction: column !important;
-        background: linear-gradient(to bottom, rgba(247, 181, 56, 0.95) 0%, rgba(247, 181, 56, 0.8) 40%, rgba(247, 181, 56, 0.3) 70%, transparent 100%) !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+        background-color: #f7b538 !important;
+        background-image:
+          linear-gradient(180deg, rgba(247, 181, 56, 0.55) 0%, rgba(247, 181, 56, 0.18) 42%, rgba(247, 181, 56, 0.08) 100%),
+          url('img/BACKGROUND.png') !important;
+        background-position: center, center !important;
+        background-repeat: no-repeat, no-repeat !important;
+        background-size: auto, cover !important;
       }
 
-      .s1-text-col {
-        width: 100% !important;
-        max-width: 100% !important;
-        align-self: stretch !important;
-      }
-
-      .s1-img-col {
+      #s1 .wave {
         display: none !important;
       }
 
-      .s1-tag {
-        font-size: 10px;
-        margin-bottom: 8px;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+      #inicial3d.s1-maleta-photo {
+        display: none !important;
       }
 
-      .s1-inner h1 {
-        font-size: 34px !important;
-        line-height: 1.1;
-        margin-bottom: 8px;
-        text-shadow: 0 4px 15px rgba(0, 0, 0, 1);
+      #s1 .s1-inner {
+        padding: 56px 16px max(96px, calc(72px + env(safe-area-inset-bottom))) !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+        background: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 1 1 auto;
+        min-height: 0;
+        margin: 0 auto !important;
       }
 
-      .s1-inner p {
-        font-size: 15px !important;
-        margin-bottom: 20px;
-        max-width: 100%;
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 1);
-        font-weight: 600;
-        line-height: 1.4 !important;
+      #s1 .s1-text-col {
+        width: 100% !important;
+        max-width: min(420px, 94%) !important;
+        align-self: center !important;
+        margin: 0 auto !important;
+        padding: 16px 14px 18px !important;
+        border-radius: 18px !important;
+        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28) !important;
       }
 
-      .s1-inner p.s1-nr12 {
-        font-size: 14px !important;
-        margin-bottom: 10px;
-        font-weight: 800;
-        color: var(--red);
-        text-shadow: 0 2px 8px rgba(0, 0, 0, 1);
+      #s1 .s1-img-col {
+        display: none !important;
       }
 
-      .s1-badges {
-        gap: 8px;
-        margin-bottom: 22px;
-        width: 100%;
-        align-items: stretch;
+      #s1 .s1-tag {
+        font-size: 9px !important;
+        margin-bottom: 8px !important;
+        padding: 5px 12px !important;
+        text-shadow: none !important;
       }
 
-      .s1-badge {
-        flex: 0 1 47%;
-        min-width: 0;
-        padding: 8px 10px;
-        gap: 6px;
-        border-radius: 10px;
-        background: rgba(247, 181, 56, 0.45);
-        box-sizing: border-box;
+      #s1 .s1-inner h1 {
+        font-size: clamp(22px, 6.4vw, 28px) !important;
+        line-height: 1.15 !important;
+        margin-bottom: 8px !important;
+        text-shadow: none !important;
       }
 
-      .s1-badge svg {
-        width: 15px;
-        height: 15px;
+      #s1 .s1-inner p {
+        font-size: 13px !important;
+        margin-bottom: 14px !important;
+        max-width: 100% !important;
+        text-shadow: none !important;
+        font-weight: 600 !important;
+        line-height: 1.45 !important;
+        color: rgba(120, 1, 22, 0.82) !important;
       }
 
-      .s1-badge strong {
-        font-size: 11px;
-        white-space: nowrap;
+      #s1 .s1-badges {
+        gap: 8px !important;
+        margin-bottom: 14px !important;
+        width: 100% !important;
+        align-items: stretch !important;
       }
 
-      .s1-badge span {
-        font-size: 7.5px;
-        white-space: normal;
-        display: block;
+      #s1 .s1-badge {
+        flex: 1 1 calc(50% - 4px) !important;
+        min-width: 0 !important;
+        padding: 8px 10px !important;
+        gap: 6px !important;
+        border-radius: 10px !important;
+        background: rgba(120, 1, 22, 0.08) !important;
+        box-sizing: border-box !important;
       }
 
-      .btn-start {
-        padding: 15px 36px;
-        font-size: 16px;
-        box-shadow: 0 10px 25px rgba(120, 1, 22, 0.4);
+      #s1 .s1-badge svg {
+        width: 15px !important;
+        height: 15px !important;
+      }
+
+      #s1 .s1-badge strong {
+        font-size: 11px !important;
+        white-space: nowrap !important;
+      }
+
+      #s1 .s1-badge span {
+        font-size: 9px !important;
+        white-space: normal !important;
+        display: block !important;
       }
 
       #s1 .btn-start {
-        box-shadow: 0 10px 25px rgba(120, 1, 22, 0.4);
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 14px 18px !important;
+        font-size: 14px !important;
+        box-shadow: 0 10px 22px rgba(120, 1, 22, 0.35) !important;
       }
 
       /* Video */
@@ -646,7 +665,8 @@
 
       #s2b,
       #s2b2,
-      #s2b3 {
+      #s2b3,
+      #s-mod2-acidente {
         height: 100%;
         min-height: 0;
         display: flex;
@@ -654,20 +674,372 @@
       }
 
       #s2b .content-area,
-      #s2b2 .content-area,
+      #s2b2 .content-area {
+        flex: 1 1 0;
+        min-height: 0;
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: none !important;
+        gap: 12px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        padding: 8px 14px max(78px, calc(64px + env(safe-area-inset-bottom))) !important;
+        max-width: 100% !important;
+        margin: 0 auto;
+        width: 100%;
+      }
+
       #s2b3 .content-area {
         flex: 1 1 0;
         min-height: 0;
-        display: grid !important;
-        grid-template-columns: 1.2fr 1fr !important;
-        gap: 40px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: none !important;
+        gap: 10px !important;
         align-items: center !important;
+        justify-content: center !important;
         overflow-y: auto !important;
         overflow-x: hidden !important;
-        padding: 14px 14px 70px !important;
-        max-width: 1050px;
+        padding: 6px 14px max(78px, calc(64px + env(safe-area-inset-bottom))) !important;
+        max-width: 100% !important;
         margin: 0 auto;
         width: 100%;
+      }
+
+      /* Página 7 — Certificado de Aprovação (CA) */
+      #s2b3 .slide-title {
+        font-size: clamp(18px, 5vw, 22px) !important;
+        line-height: 1.2 !important;
+      }
+
+      #s2b3 .epi-img-ph {
+        order: 1;
+        width: min(220px, 58vw) !important;
+        max-width: min(220px, 58vw) !important;
+        max-height: none !important;
+        margin: 0 auto !important;
+        padding: 5px;
+        border-radius: 20px;
+        background: linear-gradient(145deg, #f7b538, #ff4d6d 55%, #780116);
+        box-shadow:
+          0 0 0 2px rgba(247, 181, 56, 0.55),
+          0 0 28px rgba(247, 181, 56, 0.35),
+          0 14px 32px rgba(0, 0, 0, 0.4);
+        border: none !important;
+        overflow: hidden;
+        flex-shrink: 0;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #s2b3 .epi-img-ph img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        border-radius: 14px;
+        display: block;
+        object-fit: contain;
+      }
+
+      #s2b3 .epi-card {
+        order: 2;
+        width: 100%;
+        max-width: 520px;
+        padding: 14px 14px 16px !important;
+        border-radius: 16px !important;
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.3) !important;
+      }
+
+      #s2b3 .epi-card p {
+        font-size: clamp(14px, 3.8vw, 16px) !important;
+        line-height: 1.5 !important;
+        margin: 0 0 10px !important;
+      }
+
+      #s2b3 .epi-card h4 {
+        font-size: clamp(13px, 3.6vw, 15px) !important;
+        margin: 4px 0 8px !important;
+        line-height: 1.3 !important;
+      }
+
+      #s2b3 .epi-list {
+        gap: 6px !important;
+      }
+
+      #s2b3 .epi-list li {
+        font-size: clamp(13px, 3.5vw, 15px) !important;
+        line-height: 1.4 !important;
+        padding-left: 22px !important;
+      }
+
+      #s2b3 .epi-list li::before {
+        top: 7px !important;
+        width: 7px !important;
+        height: 7px !important;
+      }
+
+      @media (max-height: 720px) {
+        #s2b3 .epi-img-ph {
+          width: min(160px, 42vw) !important;
+          max-width: min(160px, 42vw) !important;
+        }
+        #s2b3 .epi-card {
+          padding: 12px 12px 14px !important;
+        }
+        #s2b3 .epi-card p {
+          font-size: 13.5px !important;
+          line-height: 1.4 !important;
+          margin-bottom: 8px !important;
+        }
+        #s2b3 .epi-list li {
+          font-size: 12.5px !important;
+        }
+      }
+
+      @media (max-height: 640px) {
+        #s2b3 .epi-img-ph {
+          width: min(130px, 34vw) !important;
+          max-width: min(130px, 34vw) !important;
+        }
+      }
+
+      /* Página 12 — O que é um Acidente de Trabalho? */
+      #s-mod2-acidente .content-area {
+        flex: 1 1 0;
+        min-height: 0;
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: none !important;
+        gap: 10px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        padding: 6px 14px max(78px, calc(64px + env(safe-area-inset-bottom))) !important;
+        max-width: 100% !important;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      #s-mod2-acidente .slide-title {
+        font-size: clamp(18px, 5vw, 22px) !important;
+        line-height: 1.2 !important;
+      }
+
+      #s-mod2-acidente .epi-img-ph {
+        order: 1;
+        width: min(300px, 78vw) !important;
+        max-width: min(300px, 78vw) !important;
+        max-height: none !important;
+        margin: 0 auto !important;
+        padding: 5px;
+        border-radius: 20px;
+        background: linear-gradient(145deg, #f7b538, #ff4d6d 55%, #780116);
+        box-shadow:
+          0 0 0 2px rgba(247, 181, 56, 0.55),
+          0 0 28px rgba(247, 181, 56, 0.35),
+          0 14px 32px rgba(0, 0, 0, 0.4);
+        border: none !important;
+        overflow: hidden;
+        flex-shrink: 0;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #s-mod2-acidente .epi-img-ph img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        border-radius: 14px;
+        display: block;
+        object-fit: contain;
+      }
+
+      #s-mod2-acidente .epi-img-ph .img-zoom-wrap {
+        width: 100%;
+        display: block;
+        position: relative;
+        line-height: 0;
+        border-radius: 14px;
+        overflow: hidden;
+      }
+
+      #s-mod2-acidente .epi-img-ph .zoom-btn {
+        bottom: 8px;
+        right: 8px;
+        width: 36px;
+        height: 36px;
+        padding: 7px;
+        opacity: 1;
+      }
+
+      #s-mod2-acidente .epi-card {
+        order: 2;
+        width: 100%;
+        max-width: 520px;
+        padding: 14px 14px 16px !important;
+        border-radius: 16px !important;
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.3) !important;
+      }
+
+      #s-mod2-acidente .epi-card .epi-badge-tag {
+        font-size: 10px !important;
+        margin-bottom: 8px !important;
+      }
+
+      #s-mod2-acidente .epi-card p {
+        font-size: clamp(14px, 3.8vw, 16px) !important;
+        line-height: 1.5 !important;
+        margin: 0 !important;
+      }
+
+      @media (max-height: 720px) {
+        #s-mod2-acidente .epi-img-ph {
+          width: min(240px, 68vw) !important;
+          max-width: min(240px, 68vw) !important;
+        }
+        #s-mod2-acidente .epi-card {
+          padding: 12px 12px 14px !important;
+        }
+        #s-mod2-acidente .epi-card p {
+          font-size: 13.5px !important;
+          line-height: 1.4 !important;
+        }
+      }
+
+      @media (max-height: 640px) {
+        #s-mod2-acidente .epi-img-ph {
+          width: min(200px, 62vw) !important;
+          max-width: min(200px, 62vw) !important;
+        }
+      }
+
+      /* Página 5 — O que são EPIs? */
+      #s2b .epi-card {
+        order: 2;
+        width: 100%;
+        max-width: 520px;
+        padding: 16px 16px !important;
+        border-radius: 16px !important;
+      }
+
+      #s2b .epi-card .epi-badge-tag {
+        font-size: 10px !important;
+        margin-bottom: 8px !important;
+      }
+
+      #s2b .epi-card p {
+        font-size: clamp(15px, 4.2vw, 17px) !important;
+        line-height: 1.55 !important;
+        margin: 0 !important;
+      }
+
+      #s2b .video-wrap {
+        order: 1;
+        width: min(240px, 62vw) !important;
+        max-width: min(240px, 62vw) !important;
+        margin: 0 auto !important;
+        padding: 5px;
+        border-radius: 22px;
+        background: linear-gradient(145deg, #f7b538, #ff4d6d 55%, #780116);
+        box-shadow:
+          0 0 0 2px rgba(247, 181, 56, 0.55),
+          0 0 28px rgba(247, 181, 56, 0.35),
+          0 16px 36px rgba(0, 0, 0, 0.4);
+        flex-shrink: 0;
+        position: relative;
+      }
+
+      @media (max-height: 720px) {
+        #s2b .video-wrap {
+          width: min(180px, 48vw) !important;
+          max-width: min(180px, 48vw) !important;
+        }
+        #s2b .epi-card p {
+          font-size: 14.5px !important;
+          line-height: 1.45 !important;
+        }
+      }
+
+      @media (max-height: 640px) {
+        #s2b .video-wrap {
+          width: min(148px, 40vw) !important;
+          max-width: min(148px, 40vw) !important;
+        }
+      }
+
+      #s2b .video-box,
+      #s2b .video-box.video-box-916 {
+        width: 100% !important;
+        aspect-ratio: 9 / 16 !important;
+        border-radius: 16px !important;
+        border: 2px solid rgba(255, 255, 255, 0.35) !important;
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+        overflow: hidden;
+        background: #000 !important;
+      }
+
+      #s2b2 .epi-card {
+        order: 2;
+        width: 100%;
+        max-width: 520px;
+        padding: 16px 16px !important;
+        border-radius: 16px !important;
+      }
+
+      #s2b2 .epi-card p {
+        font-size: clamp(15px, 4.2vw, 17px) !important;
+        line-height: 1.55 !important;
+        margin: 0 !important;
+      }
+
+      #s2b2 .video-wrap {
+        order: 1;
+        width: min(240px, 62vw) !important;
+        max-width: min(240px, 62vw) !important;
+        margin: 0 auto !important;
+        padding: 5px;
+        border-radius: 22px;
+        background: linear-gradient(145deg, #f7b538, #ff4d6d 55%, #780116);
+        box-shadow:
+          0 0 0 2px rgba(247, 181, 56, 0.55),
+          0 0 28px rgba(247, 181, 56, 0.35),
+          0 16px 36px rgba(0, 0, 0, 0.4);
+        flex-shrink: 0;
+        position: relative;
+      }
+
+      @media (max-height: 720px) {
+        #s2b2 .video-wrap {
+          width: min(180px, 48vw) !important;
+          max-width: min(180px, 48vw) !important;
+        }
+        #s2b2 .epi-card p {
+          font-size: 14.5px !important;
+          line-height: 1.45 !important;
+        }
+      }
+
+      @media (max-height: 640px) {
+        #s2b2 .video-wrap {
+          width: min(148px, 40vw) !important;
+          max-width: min(148px, 40vw) !important;
+        }
+      }
+
+      #s2b2 .video-box,
+      #s2b2 .video-box.video-box-916 {
+        width: 100% !important;
+        aspect-ratio: 9 / 16 !important;
+        border-radius: 16px !important;
+        border: 2px solid rgba(255, 255, 255, 0.35) !important;
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+        overflow: hidden;
+        background: #000 !important;
       }
 
       #s2b .pemt-intro-wrap {
@@ -1315,6 +1687,58 @@
         margin-bottom: 15px;
       }
 
+      #s1 {
+        background-image:
+          linear-gradient(90deg, rgba(247, 181, 56, 0.7) 0%, rgba(247, 181, 56, 0.25) 45%, transparent 70%),
+          url('img/BACKGROUND.png') !important;
+        background-size: auto, cover !important;
+        background-position: center, center right !important;
+        overflow-y: auto !important;
+      }
+
+      #inicial3d.s1-maleta-photo {
+        display: none !important;
+      }
+
+      #s1 .s1-inner {
+        padding: 12px 16px 64px !important;
+        max-width: min(420px, 92%) !important;
+        margin: 0 auto !important;
+        background: none !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+      }
+
+      #s1 .s1-text-col {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        align-self: center !important;
+        padding: 12px 14px !important;
+      }
+
+      #s1 .s1-inner h1 {
+        font-size: 20px !important;
+        text-shadow: none !important;
+      }
+
+      #s1 .s1-inner p {
+        font-size: 12px !important;
+        margin-bottom: 10px !important;
+        text-shadow: none !important;
+        line-height: 1.35 !important;
+      }
+
+      #s1 .s1-badges {
+        margin-bottom: 10px !important;
+      }
+
+      #s1 .btn-start {
+        padding: 10px 18px !important;
+        font-size: 12px !important;
+      }
+
       .btn-start {
         padding: 10px 24px;
         font-size: 13px;
@@ -1605,6 +2029,43 @@
       max-width: 100%;
       max-height: min(58vh, 520px);
       object-fit: contain;
+    }
+
+    #s-mod2-acidente .epi-card {
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.3);
+    }
+
+    #s-mod2-acidente .epi-img-ph {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      width: 100%;
+      max-height: min(58vh, 520px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #s-mod2-acidente .epi-img-ph img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: min(58vh, 520px);
+      object-fit: contain;
+    }
+
+    #s-mod2-acidente .epi-img-ph .img-zoom-wrap {
+      position: relative;
+      display: inline-block;
+      max-width: 100%;
+      line-height: 0;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    #s-mod2-acidente .epi-img-ph .zoom-btn {
+      bottom: 12px;
+      right: 12px;
     }
 
 
@@ -2052,8 +2513,34 @@
 
     #s-mod2-tipos .m2t-carousel-nav,
     #s-mod2-doenca .m2d-carousel-nav,
-    #s-mod3-causas .m3c-carousel-nav {
+    #s-mod3-causas .m3c-carousel-nav,
+    #s-mod5-perda .m5p-carousel-nav,
+    #s-mod5-protetores .m5pr-carousel-nav {
       display: none;
+    }
+
+    .epi-flip-carousel-hint {
+      display: none;
+    }
+
+    @keyframes flipArrowPulse {
+      0%, 100% {
+        transform: translateX(0) scale(1);
+        box-shadow:
+          0 0 0 3px rgba(247, 181, 56, 0.55),
+          0 8px 22px rgba(201, 24, 74, 0.55);
+      }
+      50% {
+        transform: translateX(4px) scale(1.06);
+        box-shadow:
+          0 0 0 5px rgba(247, 181, 56, 0.75),
+          0 10px 28px rgba(201, 24, 74, 0.65);
+      }
+    }
+
+    @keyframes flipHintPulse {
+      0%, 100% { opacity: 0.85; }
+      50% { opacity: 1; }
     }
 
     /* Páginas 14 e 17: cards sempre abertos (texto + imagem) */
@@ -2084,7 +2571,9 @@
     @media screen and (max-width: 768px) and (orientation: portrait) {
       #s-mod2-tipos .content-area,
       #s-mod2-doenca .content-area,
-      #s-mod3-causas .content-area {
+      #s-mod3-causas .content-area,
+      #s-mod5-perda .content-area,
+      #s-mod5-protetores .content-area {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -2100,7 +2589,6 @@
         justify-content: center !important;
       }
 
-      #s-mod2-tipos .epi-info-grid,
       #s-mod2-doenca .epi-info-grid,
       #s-mod3-causas .epi-info-grid {
         display: block;
@@ -2111,32 +2599,96 @@
         min-height: 180px;
       }
 
+      #s-mod2-tipos .epi-flip-grid,
       #s-mod2-doenca .epi-flip-grid,
-      #s-mod3-causas .epi-flip-grid {
+      #s-mod3-causas .epi-flip-grid,
+      #s-mod5-protetores .epi-flip-grid {
         display: block;
         width: 100%;
-        max-width: 360px;
+        max-width: 380px;
         margin: 0 auto;
         position: relative;
         perspective: 1400px;
       }
 
-      #s-mod2-doenca .epi-flip-card,
-      #s-mod3-causas .epi-flip-card {
-        display: none;
+      #s-mod5-perda .m5p-grid {
+        display: block;
         width: 100%;
-        height: clamp(240px, 42vh, 300px);
+        max-width: 380px;
+        margin: 0 auto;
+        position: relative;
+        perspective: 1400px;
       }
 
+      #s-mod2-tipos .epi-flip-card,
+      #s-mod2-doenca .epi-flip-card,
+      #s-mod3-causas .epi-flip-card,
+      #s-mod5-protetores .epi-flip-card {
+        display: none;
+        width: 100%;
+        height: clamp(300px, 52vh, 380px) !important;
+      }
+
+      #s-mod5-perda .m5p-card {
+        display: none;
+        width: 100%;
+        height: clamp(300px, 52vh, 380px) !important;
+      }
+
+      #s-mod2-tipos .epi-flip-card.m2t-card-active,
       #s-mod2-doenca .epi-flip-card.m2d-card-active,
-      #s-mod3-causas .epi-flip-card.m3c-card-active {
+      #s-mod3-causas .epi-flip-card.m3c-card-active,
+      #s-mod5-protetores .epi-flip-card.m5pr-card-active,
+      #s-mod5-perda .m5p-card.m5p-card-active {
         display: block;
         animation: fadeIn 0.35s ease;
       }
 
+      #s-mod2-tipos .epi-flip-hint,
       #s-mod2-doenca .epi-flip-hint,
-      #s-mod3-causas .epi-flip-hint {
+      #s-mod3-causas .epi-flip-hint,
+      #s-mod5-protetores .epi-flip-hint,
+      #s-mod5-perda .m5p-hint {
         font-size: 12px;
+        margin: 0;
+      }
+
+      #s-mod2-tipos .epi-flip-back p,
+      #s-mod2-doenca .epi-flip-back p,
+      #s-mod3-causas .epi-flip-back p,
+      #s-mod5-protetores .epi-flip-back p {
+        font-size: clamp(15px, 4.2vw, 17px) !important;
+        line-height: 1.55 !important;
+      }
+
+      #s-mod2-tipos .epi-flip-back h4,
+      #s-mod2-doenca .epi-flip-back h4,
+      #s-mod3-causas .epi-flip-back h4,
+      #s-mod5-protetores .epi-flip-back h4 {
+        font-size: clamp(16px, 4.5vw, 18px) !important;
+        margin-bottom: 10px !important;
+      }
+
+      #s-mod5-perda .m5p-back p {
+        font-size: clamp(15px, 4.2vw, 17px) !important;
+        line-height: 1.55 !important;
+      }
+
+      #s-mod5-perda .m5p-back h4 {
+        font-size: clamp(16px, 4.5vw, 18px) !important;
+        margin-bottom: 10px !important;
+      }
+
+      .epi-flip-carousel-hint {
+        display: block;
+        margin: 0;
+        font-family: var(--font-b);
+        font-size: 13px;
+        font-weight: 700;
+        color: #780116;
+        text-align: center;
+        letter-spacing: 0.02em;
+        animation: flipHintPulse 2s ease-in-out infinite;
       }
 
       #s-mod2-tipos .epi-info-card,
@@ -2187,57 +2739,106 @@
 
       #s-mod2-tipos .m2t-carousel-nav,
       #s-mod2-doenca .m2d-carousel-nav,
-      #s-mod3-causas .m3c-carousel-nav {
+      #s-mod3-causas .m3c-carousel-nav,
+      #s-mod5-perda .m5p-carousel-nav,
+      #s-mod5-protetores .m5pr-carousel-nav {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 16px;
-        margin-top: 4px;
+        gap: 20px;
+        margin-top: 6px;
         flex-shrink: 0;
       }
 
       #s-mod2-tipos .m2t-carousel-btn,
       #s-mod2-doenca .m2d-carousel-btn,
-      #s-mod3-causas .m3c-carousel-btn {
-        background: #ff4d6d;
+      #s-mod3-causas .m3c-carousel-btn,
+      #s-mod5-perda .m5p-carousel-btn,
+      #s-mod5-protetores .m5pr-carousel-btn {
+        background: linear-gradient(145deg, #ff6b85 0%, #ff4d6d 45%, #c9184a 100%);
         color: #fff;
-        border: none;
+        border: 3px solid #fff;
         border-radius: 50%;
-        width: 44px;
-        height: 44px;
-        min-width: 44px;
-        min-height: 44px;
+        width: 54px;
+        height: 54px;
+        min-width: 54px;
+        min-height: 54px;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 6px 18px rgba(201, 24, 74, 0.4);
+        box-shadow:
+          0 0 0 3px rgba(247, 181, 56, 0.55),
+          0 8px 22px rgba(201, 24, 74, 0.55);
+        transition: filter .15s ease, transform .15s ease, box-shadow .15s ease;
         touch-action: manipulation;
         -webkit-tap-highlight-color: transparent;
+        position: relative;
+        z-index: 2;
+      }
+
+      #s-mod2-tipos .m2t-carousel-btn[id$="-next"]:not(:disabled),
+      #s-mod2-doenca .m2d-carousel-btn[id$="-next"]:not(:disabled),
+      #s-mod3-causas .m3c-carousel-btn[id$="-next"]:not(:disabled),
+      #s-mod5-perda .m5p-carousel-btn[id$="-next"]:not(:disabled),
+      #s-mod5-protetores .m5pr-carousel-btn[id$="-next"]:not(:disabled) {
+        animation: flipArrowPulse 1.4s ease-in-out infinite;
+      }
+
+      #s-mod2-tipos .m2t-carousel-btn:hover:not(:disabled),
+      #s-mod2-doenca .m2d-carousel-btn:hover:not(:disabled),
+      #s-mod3-causas .m3c-carousel-btn:hover:not(:disabled),
+      #s-mod5-perda .m5p-carousel-btn:hover:not(:disabled),
+      #s-mod5-protetores .m5pr-carousel-btn:hover:not(:disabled) {
+        filter: brightness(1.08);
+        transform: scale(1.08);
+        animation: none;
+        box-shadow:
+          0 0 0 4px rgba(247, 181, 56, 0.75),
+          0 10px 28px rgba(201, 24, 74, 0.6);
+      }
+
+      #s-mod2-tipos .m2t-carousel-btn:active:not(:disabled),
+      #s-mod2-doenca .m2d-carousel-btn:active:not(:disabled),
+      #s-mod3-causas .m3c-carousel-btn:active:not(:disabled),
+      #s-mod5-perda .m5p-carousel-btn:active:not(:disabled),
+      #s-mod5-protetores .m5pr-carousel-btn:active:not(:disabled) {
+        transform: scale(0.96);
       }
 
       #s-mod2-tipos .m2t-carousel-btn:disabled,
       #s-mod2-doenca .m2d-carousel-btn:disabled,
-      #s-mod3-causas .m3c-carousel-btn:disabled {
-        opacity: 0.3;
+      #s-mod3-causas .m3c-carousel-btn:disabled,
+      #s-mod5-perda .m5p-carousel-btn:disabled,
+      #s-mod5-protetores .m5pr-carousel-btn:disabled {
+        opacity: 0.28;
         cursor: default;
+        animation: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border-color: rgba(255, 255, 255, 0.5);
       }
 
       #s-mod2-tipos .m2t-carousel-btn svg,
       #s-mod2-doenca .m2d-carousel-btn svg,
-      #s-mod3-causas .m3c-carousel-btn svg {
+      #s-mod3-causas .m3c-carousel-btn svg,
+      #s-mod5-perda .m5p-carousel-btn svg,
+      #s-mod5-protetores .m5pr-carousel-btn svg {
+        width: 22px;
+        height: 22px;
         pointer-events: none;
       }
 
       #s-mod2-tipos .m2t-carousel-counter,
       #s-mod2-doenca .m2d-carousel-counter,
-      #s-mod3-causas .m3c-carousel-counter {
+      #s-mod3-causas .m3c-carousel-counter,
+      #s-mod5-perda .m5p-carousel-counter,
+      #s-mod5-protetores .m5pr-carousel-counter {
         font-family: var(--font-h);
-        font-weight: 700;
-        font-size: 14px;
+        font-weight: 800;
+        font-size: 15px;
         color: #780116;
-        letter-spacing: 0.06em;
-        min-width: 48px;
+        letter-spacing: 0.04em;
+        min-width: 56px;
         text-align: center;
       }
 
@@ -2902,8 +3503,12 @@
         grid-template-columns: 1fr;
       }
 
+      #s2g .epi-match-zones {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+
       #s2g .epi-match-btn[data-cat="EPI"] {
-        width: 100%;
+        width: auto;
       }
 
       #s-mod3-game .epi-match-zones {
@@ -9608,7 +10213,20 @@
       }
     }
 
-    /* ── Desafio ATEX — Módulo 1 (s2e) ── */
+    /* ── Quiz — Módulo 1 (s2e) ── */
+    #s2e #mod1-game-intro,
+    #s2e #mod1-game-play,
+    #s2e #mod1-game-result {
+      display: none !important;
+    }
+
+    #s2e #mod1-game-play.is-active,
+    #s2e #mod1-game-result.is-active {
+      display: block !important;
+    }
+
+    /* ── Quiz — Módulo 3 (s-mod3-game): estilos no bloco inline da seção ── */
+
     #s2e .content-area {
       padding-top: 12px !important;
       padding-bottom: 110px !important;
@@ -9619,6 +10237,7 @@
       flex: 1 1 auto;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
+      container-type: size;
     }
 
     #s2e .content-area.mod1-state-play {
@@ -9630,15 +10249,11 @@
       padding-bottom: 110px !important;
     }
 
-    #s2e .content-area.mod1-scroll-mode {
-      justify-content: flex-start !important;
-    }
-
     #s2e .top-bar {
       flex-shrink: 0;
     }
 
-    #s2e .mod1-game-wrap {
+    #s2e .m1g-wrap {
       flex-shrink: 0;
       width: 100%;
       max-width: 640px;
@@ -9654,210 +10269,24 @@
       #s2e .content-area.mod1-state-play {
         padding-bottom: 110px !important;
       }
-    }
 
-    #s2e .mod1-game-card {
-      background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 24px;
-      padding: clamp(28px, 5vw, 40px) clamp(20px, 4vw, 32px);
-      min-height: 140px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
-      margin-bottom: 22px;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-
-    #s2e .mod1-game-card.mod1-game-ok {
-      border-color: rgba(39, 174, 96, 0.5);
-      transform: scale(1.02);
-    }
-
-    #s2e .mod1-game-text {
-      font-family: var(--font-h);
-      font-size: clamp(17px, 3.5vw, 22px);
-      font-weight: 800;
-      color: var(--cream);
-      line-height: 1.45;
-    }
-
-    #s2e .mod1-game-zones {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-
-    #s2e .mod1-game-zones.atmos-zones {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    #s2e .mod1-game-zones {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 24px;
-      width: 100%;
-      max-width: 100%;
-    }
-
-    #s2e .mod1-game-btn {
-      display: flex;
-      align-items: center;
-      text-align: left;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      border-radius: 12px;
-      padding: 16px 20px;
-      color: #ffffff;
-      font-family: var(--font-p);
-      font-size: 15px;
-      font-weight: 500;
-      letter-spacing: 0;
-      text-transform: none;
-      transition: all 0.25s ease;
-      cursor: pointer;
-      width: 100%;
-      box-shadow: none;
-    }
-
-    #s2e .mod1-game-btn:hover:not(:disabled) {
-      background: rgba(120, 1, 22, 0.08);
-      border-color: rgba(120, 1, 22, 0.4);
-      transform: translateX(4px);
-    }
-
-    #s2e .mod1-game-btn .opt-letter {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 30px;
-      height: 30px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      font-family: var(--font-h);
-      font-weight: 850;
-      font-size: 14px;
-      margin-right: 15px;
-      color: #780116;
-      flex-shrink: 0;
-    }
-
-    #s2e .mod1-game-btn:hover .opt-letter {
-      background: #780116;
-      color: #ffffff;
-    }
-
-    #s2e .mod1-game-btn.correct-option {
-      background: rgba(40, 167, 69, 0.15) !important;
-      border-color: rgba(40, 167, 69, 0.5) !important;
-      color: #ffffff !important;
-    }
-
-    #s2e .mod1-game-btn.correct-option .opt-letter {
-      background: #28a745 !important;
-      color: #ffffff !important;
-    }
-
-    #s2e .mod1-game-btn.incorrect-option {
-      background: rgba(220, 53, 69, 0.15) !important;
-      border-color: rgba(220, 53, 69, 0.5) !important;
-      color: rgba(255, 255, 255, 0.6) !important;
-    }
-
-    #s2e .mod1-game-btn.incorrect-option .opt-letter {
-      background: #dc3545 !important;
-      color: #ffffff !important;
-    }
-
-    #s2e .mod1-game-btn:active:not(:disabled) {
-      transform: scale(0.98);
-    }
-
-    #s2e .mod1-game-btn:disabled {
-      opacity: 0.65;
-      cursor: not-allowed;
-    }
-
-    #s2e .mod1-game-feedback {
-      margin-top: 15px;
-      padding: 14px 20px;
-      border-radius: 12px;
-      font-family: var(--font-p);
-      font-size: 14.5px;
-      line-height: 1.55;
-      text-align: center;
-      display: none;
-    }
-
-    #s2e .mod1-game-feedback.ok {
-      background: rgba(40, 167, 69, 0.12);
-      border: 1px solid rgba(40, 167, 69, 0.3);
-      color: #2bba49;
-    }
-
-    #s2e .mod1-game-feedback.err {
-      background: rgba(220, 53, 69, 0.12);
-      border: 1px solid rgba(220, 53, 69, 0.3);
-      color: #dc3545;
-    }
-
-
-    #s2e .mod1-game-hint {
-      text-align: center;
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.45);
-      margin-top: 14px;
-      letter-spacing: 0.03em;
-    }
-
-    #s2e .mod1-game-feedback {
-      min-height: 36px;
-      text-align: center;
-      font-family: var(--font-h);
-      font-weight: 800;
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-top: 12px;
-    }
-
-    #s2e .mod1-phase-badge {
-      display: inline-block;
-      padding: 5px 12px;
-      border-radius: 99px;
-      font-family: var(--font-h);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      background: rgba(120, 1, 22, 0.25);
-      border: 1px solid rgba(120, 1, 22, 0.45);
-      color: var(--gold-lt);
-      margin-bottom: 6px;
-    }
-
-    @media (max-width: 520px) {
-      #s2e .mod1-game-zones {
-        grid-template-columns: 1fr;
-        gap: 8px;
+      #s2e .slide-subtitle {
+        display: none !important;
       }
 
-      #s2e .mod1-game-btn {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 12px;
-        padding: 12px 16px;
-        font-size: 11px;
-        text-align: left;
+      #s2e .m1g-wrap {
+        width: 100% !important;
+        max-width: 640px !important;
       }
 
-      #s2e .mod1-game-btn span {
-        font-size: 20px;
-        margin-bottom: 0;
+      #s2e .content-area.mod1-state-play #mod1-game-play.is-active {
+        margin-block: auto;
+      }
+
+      #s2e .content-area.mod1-state-play,
+      #s2e .content-area.mod1-state-result {
+        justify-content: safe center !important;
+        align-items: center !important;
       }
     }
 
@@ -9872,69 +10301,9 @@
         padding-bottom: 90px !important;
       }
 
-      #s2e .mod1-game-wrap {
+      #s2e .m1g-wrap {
         max-width: 980px;
         width: 100%;
-      }
-
-      #s2e #mod1-game-intro {
-        padding: 52px 64px 56px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(120, 1, 22, 0.28);
-        border-radius: 32px;
-        box-shadow: 0 28px 64px rgba(0, 0, 0, 0.4);
-      }
-
-      #s2e #mod1-game-intro .ic-circle {
-        width: 132px !important;
-        height: 132px !important;
-        font-size: 64px !important;
-        margin-bottom: 32px !important;
-      }
-
-      #s2e #mod1-game-intro h3 {
-        font-size: 40px !important;
-        margin-bottom: 20px !important;
-        line-height: 1.2;
-      }
-
-      #s2e #mod1-game-intro p {
-        font-size: 20px !important;
-        line-height: 1.7 !important;
-        max-width: 760px;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        margin-bottom: 40px !important;
-        color: rgba(255, 255, 255, 0.82) !important;
-      }
-
-      #s2e #mod1-game-intro .btn-start {
-        padding: 20px 56px !important;
-        font-size: 18px !important;
-        letter-spacing: 0.08em;
-      }
-
-      #s2e #mod1-game-play .game-header {
-        margin-bottom: 20px !important;
-      }
-
-      #s2e .mod1-game-label {
-        font-size: 14px !important;
-      }
-
-      #s2e .mod1-game-counter,
-      #s2e #mod1-game-counter {
-        font-size: 20px !important;
-      }
-
-      #s2e .mod1-phase-badge {
-        font-size: 13px;
-        padding: 7px 16px;
-        margin-bottom: 10px;
-      }
-
-      #s2e #mod1-game-play .game-progress {
-        height: 12px !important;
       }
 
       #s2e #mod1-game-play {
@@ -9944,81 +10313,6 @@
         width: 100% !important;
       }
 
-      #s2e .mod1-game-card {
-        min-height: auto !important;
-        padding: 20px 32px !important;
-        border-radius: 20px !important;
-        margin-bottom: 16px !important;
-        width: 100% !important;
-        max-width: none !important;
-      }
-
-      #s2e .mod1-game-text {
-        font-size: 20px !important;
-        line-height: 1.4 !important;
-        max-width: 100% !important;
-        margin: 0 auto;
-      }
-
-      #s2e .mod1-game-zones {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 10px !important;
-        width: 100% !important;
-        max-width: none !important;
-        margin: 16px 0 0 !important;
-      }
-
-      #s2e .mod1-game-btn {
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        gap: 16px !important;
-        padding: 12px 24px !important;
-        border-radius: 16px !important;
-        min-height: 52px !important;
-        font-size: 14.5px !important;
-        text-align: left !important;
-        width: 100% !important;
-      }
-
-      #s2e .mod1-game-btn span {
-        font-size: 14.5px !important;
-        margin-bottom: 0 !important;
-      }
-
-      #s2e .mod1-game-btn .opt-letter {
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 30px !important;
-        height: 30px !important;
-        border-radius: 50% !important;
-        font-family: var(--font-h) !important;
-        font-weight: 850 !important;
-        font-size: 13.5px !important;
-        margin-right: 0 !important;
-        flex-shrink: 0 !important;
-        color: #780116 !important;
-      }
-
-      #s2e .mod1-game-btn span.opt-letter {
-        font-size: 13.5px !important;
-      }
-      #s2e .mod1-game-hint {
-        font-size: 14px !important;
-        margin-top: 14px !important;
-      }
-
-      #s2e .mod1-game-feedback {
-        font-size: 15px !important;
-        min-height: 40px !important;
-        margin-top: 12px !important;
-        width: 100% !important;
-        max-width: none !important;
-        box-sizing: border-box !important;
-      }
       #s2e #mod1-game-result {
         padding: 20px 20px 22px !important;
         max-width: min(520px, 92%);
@@ -10050,7 +10344,7 @@
     }
 
     @media (min-width: 769px) and (max-height: 860px) {
-      #s2e .mod1-game-wrap {
+      #s2e .m1g-wrap {
         max-width: 760px !important;
       }
 
@@ -10083,8 +10377,7 @@
       }
     }
 
-    /* Card intro — Desafio Módulo 1, 2, 3, 4, 5 e 6 (mobile + tablet) */
-    #s2e #mod1-game-intro,
+    /* Card intro — Desafio Módulo 2, 3, 5 e 6 (mobile + tablet) */
     #s3f #mod2-quiz-intro,
     #s3g #mod3-game-intro,
     #s4f #mod4-quiz-intro,
@@ -11696,6 +11989,8 @@
           #s6 {
             align-items: stretch !important;
             overflow: hidden;
+            display: flex !important;
+            flex-direction: column !important;
             background-image:
               radial-gradient(ellipse 90% 70% at 50% 0%, rgba(247, 181, 56, 0.35) 0%, transparent 62%),
               repeating-linear-gradient(to bottom,
@@ -11823,35 +12118,70 @@
           }
 
           @media screen and (max-width: 768px) and (orientation: portrait) {
-            #s6 .slide-title { font-size: 22px !important; margin-top: 4px !important; }
-            #s6 .content-area { padding: 6px 14px 76px !important; }
+            #s6 {
+              overflow: hidden !important;
+            }
+            #s6 .wave {
+              display: none !important;
+            }
+            #s6 .top-bar {
+              padding-top: 8px !important;
+              padding-bottom: 0 !important;
+              flex-shrink: 0;
+            }
+            #s6 .slide-title {
+              font-size: clamp(18px, 5.2vw, 22px) !important;
+              margin-top: 2px !important;
+              line-height: 1.2 !important;
+            }
+            #s6 .section-tag {
+              font-size: 8px !important;
+              padding: 3px 8px !important;
+            }
+            #s6 .content-area {
+              padding: 4px 10px max(70px, calc(58px + env(safe-area-inset-bottom))) !important;
+              overflow: hidden !important;
+              justify-content: center !important;
+              align-items: stretch !important;
+              min-height: 0 !important;
+            }
             #s6 .sum-grid {
-              flex-direction: column !important;
-              flex-wrap: nowrap;
-              gap: 7px !important;
-              height: 100%;
+              display: grid !important;
+              grid-template-columns: 1fr 1fr !important;
+              grid-template-rows: repeat(4, minmax(0, 1fr)) !important;
+              flex-direction: unset !important;
+              flex-wrap: unset !important;
+              gap: 6px !important;
+              height: 100% !important;
+              max-height: 100% !important;
               max-width: 100% !important;
+              width: 100% !important;
+              align-content: stretch !important;
             }
             #s6 .sum-item {
-              flex: 1 1 0;
+              flex: unset !important;
+              flex-basis: unset !important;
               width: 100% !important;
-              max-width: none;
-              min-height: 0;
-              padding: 8px 12px !important;
+              max-width: none !important;
+              min-height: 0 !important;
+              height: 100% !important;
+              padding: 8px 8px !important;
               gap: 4px !important;
               border-radius: 12px !important;
+              justify-content: center !important;
             }
             #s6 .sum-num-big {
-              font-size: 9px !important;
-              padding: 3px 9px !important;
+              font-size: 8px !important;
+              padding: 3px 8px !important;
+              letter-spacing: 0.06em !important;
             }
             #s6 .sum-text {
-              font-size: 12px !important;
-              line-height: 1.22 !important;
+              font-size: clamp(10px, 2.8vw, 12px) !important;
+              line-height: 1.2 !important;
             }
           }
 
-          @media (max-height: 780px) {
+          @media (max-height: 780px) and (min-width: 769px) {
             #s6 .sum-item { min-height: 168px; padding: 20px 18px !important; gap: 10px !important; }
             #s6 .sum-text { font-size: 15.5px !important; }
           }
@@ -12009,28 +12339,202 @@
       </section>
 
 
-      <!-- ── S2e: Quiz CA ── -->
+      <!-- ── S2e: Quiz — Módulo 1 ── -->
       <section class="slide" id="s2e">
+        <style>
+          /* ── Card shell igual aos Módulos 4 e 5 ── */
+          #s2e .content-area {
+            padding-top: 12px !important;
+            padding-bottom: 110px !important;
+            justify-content: center;
+            justify-content: safe center;
+            align-items: center;
+            min-height: 0;
+            flex: 1 1 auto;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            container-type: size;
+          }
+          #s2e .m1g-wrap {
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto;
+          }
+          #s2e #mod1-game-intro {
+            display: none !important;
+          }
+          #s2e #mod1-game-play.is-active,
+          #s2e #mod1-game-result.is-active {
+            display: block !important;
+          }
+          #s2e #mod1-game-result {
+            padding: 32px 24px 36px;
+            background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 28px;
+            box-shadow: 0 28px 64px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            box-sizing: border-box;
+          }
+          #s2e #mod1-game-result h3 { color: #f7b538 !important; }
+          #s2e #mod1-game-result-msg {
+            color: #fff8e7 !important;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.6;
+          }
+          #s2e #mod1-game-result .r-status {
+            color: #fff;
+            background: rgba(247, 181, 56, 0.22);
+            border: 1px solid #f7b538;
+            border-radius: 99px;
+          }
+          #s2e #mod1-game-result .btn-retry {
+            background: #f7b538 !important;
+            color: #780116 !important;
+            border: none !important;
+            font-weight: 800 !important;
+            font-size: 15px !important;
+            letter-spacing: 0.06em;
+            box-shadow: 0 8px 22px rgba(247, 181, 56, 0.4);
+          }
+          #s2e #mod1-game-result .btn-retry:hover {
+            background: #ffc857 !important;
+            color: #780116 !important;
+          }
+          #s2e #mod1-game-intro .ic-circle {
+            width: clamp(64px,20cqh,120px) !important;
+            height: clamp(64px,20cqh,120px) !important;
+            font-size: clamp(32px,10cqh,60px) !important;
+            margin: 0 auto clamp(20px,7cqh,44px) !important;
+          }
+          #s2e #mod1-game-intro h3 {
+            font-family: var(--font-h);
+            font-size: clamp(20px, 6.5cqh, 36px);
+            color: var(--white);
+            margin-bottom: clamp(10px, 3.5cqh, 22px);
+            font-weight: 700;
+            line-height: 1.25;
+          }
+          #s2e #mod1-game-intro p {
+            color: rgba(255, 255, 255, 0.72);
+            font-size: clamp(13.5px, 3cqh, 17px);
+            line-height: 1.65;
+            margin-bottom: clamp(16px, 8cqh, 52px);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          #s2e #mod1-game-intro .btn-start {
+            padding: clamp(12px, 3cqh, 18px) clamp(28px, 5cqw, 44px);
+            font-size: clamp(13px, 2.2cqh, 15px);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+          }
+          #s2e .epi-quiz-q {
+            color: #780116;
+            text-align: center;
+            margin: 0 0 16px;
+          }
+          #s2e .q-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+          }
+          #s2e .m1g-top-row {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 10px; flex-wrap: wrap; gap: 8px;
+          }
+          #s2e .m1g-counter {
+            font-family: var(--font-h); font-size: 13px; font-weight: 700;
+            color: #780116; letter-spacing: .04em;
+          }
+          #s2e .m1g-review {
+            display: none;
+            text-align: left;
+            margin: 8px auto 22px;
+            max-width: 520px;
+            padding: 18px 22px 16px;
+            border: 1.5px solid #f7b538;
+            border-radius: 16px;
+            background: rgba(247, 181, 56, 0.08);
+          }
+          #s2e .m1g-review-title {
+            font-family: var(--font-h);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            color: #f7b538;
+            margin-bottom: 10px;
+          }
+          #s2e #m1g-review-list {
+            margin: 0;
+            padding-left: 22px;
+            color: #fff8e7;
+            font-size: 15px;
+            line-height: 1.7;
+            font-weight: 600;
+          }
+          #s2e #m1g-review-list li { margin-bottom: 4px; }
+          @media screen and (max-width: 768px) {
+            #s2e .slide-subtitle { display: none !important; }
+            #s2e .m1g-wrap {
+              width: 100% !important;
+              max-width: 640px !important;
+            }
+            #s2e #mod1-game-intro {
+              display: none !important;
+            }
+            #s2e #mod1-game-result {
+              width: 100% !important;
+              max-width: 640px !important;
+              margin: 0 auto !important;
+              padding: 32px 24px 36px !important;
+              border-radius: 24px !important;
+              box-sizing: border-box !important;
+            }
+          }
+        </style>
         <div class="top-bar">
-          <div><span class="section-tag">🎯 Quiz</span>
-            <div class="slide-title" style="margin-top:6px">Teste seu <span>Conhecimento</span></div>
-            <div class="slide-subtitle">Introdução, Objetivo, CA e Hierarquia de Controle de Riscos</div>
-          </div>
+          <span class="section-tag">🎮 DESAFIO</span>
+          <div class="slide-title" style="margin-top:6px">Quiz — <span>Módulo 1</span></div>
+          <div class="slide-subtitle">Introdução, Objetivo, CA e Hierarquia de Controle de Riscos</div>
         </div>
         <div class="content-area">
-          <div class="epi-quiz-wrap">
-            <p class="epi-quiz-q">O que é CA (Certificado de Aprovação)?</p>
-            <div class="q-options" id="epiq-ca-options">
-              <div class="q-opt" data-correct="false" onclick="epiQuizSelect(this)"><div class="opt-l">A</div><span>Documento interno da empresa que comprova a entrega do EPI ao colaborador.</span></div>
-              <div class="q-opt" data-correct="true" onclick="epiQuizSelect(this)"><div class="opt-l">B</div><span>Documento emitido pelo Ministério do Trabalho e Emprego que identifica se o EPI está em conformidade com as exigências da legislação vigente.</span></div>
-              <div class="q-opt" data-correct="false" onclick="epiQuizSelect(this)"><div class="opt-l">C</div><span>Registro emitido pelo fabricante que indica apenas a validade comercial do produto.</span></div>
+
+          <!-- INTRO (oculto: o quiz abre direto nas perguntas) -->
+          <div id="mod1-game-intro" class="m1g-wrap" style="text-align:center;"></div>
+
+          <!-- PLAY -->
+          <div id="mod1-game-play" class="m1g-wrap">
+            <div class="m1g-top-row">
+              <span class="m1g-counter" id="m1g-counter">1 / 3</span>
             </div>
-            <div class="q-feedback" id="epiq-ca-feedback"></div>
+            <p class="epi-quiz-q" id="m1g-q"></p>
+            <div class="q-options" id="m1g-options"></div>
+            <div class="q-feedback" id="m1g-feedback"></div>
             <div class="epi-quiz-actions">
-              <button type="button" class="btn-start epi-quiz-check" id="epiq-ca-check" onclick="epiQuizCheck('epiq-ca')">Verificar resposta</button>
+              <button type="button" class="btn-start epi-quiz-check" id="m1g-check" onclick="m1gCheck()">Verificar resposta</button>
             </div>
           </div>
-          <div class="req-item" id="epiq-ca-req" style="display:none"></div>
+
+          <!-- RESULT -->
+          <div id="mod1-game-result" class="m1g-wrap" style="animation: slideUp 0.6s ease;">
+            <div id="m1g-result-icon" class="r-icon" style="font-size: 56px; margin-bottom: 12px;">🏅</div>
+            <h3 id="m1g-result-title" style="font-family:var(--font-h); font-size: clamp(24px, 5vw, 30px); color:#f7b538; margin-bottom:8px; font-weight:900;">
+              Desafio Concluído!</h3>
+            <div id="m1g-result-status" class="r-status ap" style="display:inline-block; padding: 6px 18px; font-size: 13px; margin-bottom:12px; font-weight:700;">
+              Módulo 1
+            </div>
+            <p id="mod1-game-result-msg" style="color:#fff8e7; font-size:16px; line-height:1.6; margin-bottom:16px;"></p>
+            <div id="m1g-review" class="m1g-review">
+              <div class="m1g-review-title">REVISE ESTES TEMAS:</div>
+              <ul id="m1g-review-list"></ul>
+            </div>
+            <button class="btn-retry" style="background:#f7b538; color:#780116; font-weight:800; border-radius:99px; padding:12px 32px;" onclick="resetMod1Game()">JOGAR NOVAMENTE</button>
+          </div>
+
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
@@ -12065,59 +12569,231 @@
       <!-- ── S2g: Jogo — Hierarquia de Controle de Riscos ── -->
       <section class="slide" id="s2g">
         <style>
+          #s2g .content-area {
+            padding-top: 12px !important;
+            padding-bottom: 110px !important;
+            justify-content: center;
+            justify-content: safe center;
+            align-items: center;
+            min-height: 0;
+            flex: 1 1 auto;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            container-type: size;
+          }
+          #s2g .epi-match-wrap {
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto;
+          }
+          #s2g #epi-hier-intro,
+          #s2g #epi-hier-play,
+          #s2g #epi-hier-result {
+            display: none !important;
+          }
+          #s2g #epi-hier-play.is-active,
+          #s2g #epi-hier-result.is-active {
+            display: block !important;
+          }
+          #s2g #epi-hier-intro.is-active {
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          }
           #s2g #epi-hier-intro {
             padding: 32px 24px 36px;
             background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
             border: 1px solid rgba(120, 1, 22, 0.28);
-            border-radius: 24px;
+            border-radius: clamp(16px, 3cqw, 24px);
             box-shadow: 0 28px 64px rgba(0, 0, 0, 0.4);
-            max-width: 640px;
+            box-sizing: border-box;
           }
           #s2g #epi-hier-intro .ic-circle {
             background: linear-gradient(135deg, #ff4d6d, #c9184a);
             box-shadow: 0 0 16px rgba(255, 77, 109, 0.45);
+            width: clamp(64px, 20cqh, 96px);
+            height: clamp(64px, 20cqh, 96px);
+            font-size: clamp(32px, 10cqh, 48px);
+            margin: 0 auto clamp(16px, 5cqh, 24px);
+          }
+          #s2g #epi-hier-intro h3 {
+            font-family: var(--font-h);
+            font-size: clamp(20px, 6cqh, 26px);
+            color: var(--white);
+            margin-bottom: clamp(8px, 3cqh, 12px);
+            font-weight: 700;
+            line-height: 1.25;
+          }
+          #s2g #epi-hier-intro p {
+            color: rgba(255, 255, 255, 0.72);
+            font-size: clamp(13.5px, 3cqh, 16px);
+            line-height: 1.55;
+            margin-bottom: clamp(16px, 6cqh, 28px);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
           }
           #s2g #epi-hier-intro .btn-start {
             background: linear-gradient(135deg, #ff4d6d, #c9184a);
             color: #fff;
             box-shadow: 0 10px 30px rgba(201, 24, 74, 0.45);
+            padding: clamp(12px, 3cqh, 16px) clamp(28px, 5cqw, 40px);
+            font-size: clamp(13px, 2.2cqh, 15px);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
           }
           #s2g #epi-hier-intro .btn-start:hover {
             background: linear-gradient(135deg, #ff6b85, #e11d48);
           }
+          #s2g .epi-match-counter {
+            font-family: var(--font-h);
+            font-size: 13px;
+            font-weight: 700;
+            color: #780116;
+            letter-spacing: 0.04em;
+            margin-bottom: 10px;
+          }
+          #s2g .epi-match-card {
+            padding: clamp(18px, 4vw, 26px);
+            margin-bottom: 14px;
+            border-radius: 16px;
+          }
+          #s2g .epi-match-text {
+            font-size: clamp(14px, 3.8vw, 18px);
+            line-height: 1.45;
+          }
+          #s2g .epi-match-zones {
+            gap: 10px;
+          }
+          #s2g .epi-match-btn {
+            font-size: clamp(12px, 3.2vw, 14px);
+            padding: 12px 10px;
+            line-height: 1.25;
+          }
+          #s2g .epi-match-hint {
+            font-size: 11px;
+            margin-top: 10px;
+          }
           #s2g #epi-hier-result {
-            padding: 24px 20px;
+            padding: 32px 24px 36px;
             background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
             border-radius: 28px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             animation: slideUp 0.6s ease;
-            max-width: 640px;
+            box-sizing: border-box;
+          }
+          #s2g #epi-hier-result h3 {
+            color: #f7b538 !important;
+          }
+          #s2g #epi-hier-result p {
+            color: #fff8e7 !important;
+            font-size: clamp(14px, 3.5vw, 15px);
+            line-height: 1.55;
+          }
+          #s2g #epi-hier-result .btn-retry {
+            background: #f7b538 !important;
+            color: #780116 !important;
+            border: none !important;
+            font-weight: 800 !important;
+          }
+          #s2g .epi-match-wrap.is-active {
+            margin-block: auto;
+          }
+          #s2g .content-area.s2g-state-play,
+          #s2g .content-area.s2g-state-result {
+            justify-content: safe center !important;
+            align-items: center !important;
+          }
+          @media screen and (max-width: 768px) {
+            #s2g .slide-subtitle {
+              display: none !important;
+            }
+            #s2g .content-area {
+              padding-top: 8px !important;
+              padding-bottom: 96px !important;
+              justify-content: safe center !important;
+              align-items: center !important;
+            }
+            #s2g .epi-match-wrap {
+              width: 100% !important;
+              max-width: 640px !important;
+            }
+            #s2g #epi-hier-play .epi-match-card {
+              padding: 16px 14px;
+              margin-bottom: 10px;
+            }
+            #s2g #epi-hier-play .epi-match-text {
+              font-size: 14px;
+              line-height: 1.4;
+            }
+            #s2g #epi-hier-play .epi-match-zones {
+              grid-template-columns: repeat(2, 1fr) !important;
+              gap: 8px;
+            }
+            #s2g #epi-hier-play .epi-match-btn {
+              padding: 10px 8px;
+              font-size: 11px;
+              min-height: 44px;
+            }
+            #s2g #epi-hier-play .epi-match-counter {
+              margin-bottom: 8px;
+            }
+            #s2g #epi-hier-play .epi-match-hint {
+              margin-top: 8px;
+            }
+            #s2g #epi-hier-intro.is-active {
+              width: 100% !important;
+              max-width: 640px !important;
+              margin: 0 auto !important;
+              min-height: min(380px, calc(100dvh - 240px)) !important;
+              padding: 28px 20px 32px !important;
+              flex-direction: column !important;
+              align-items: center !important;
+              justify-content: center !important;
+              text-align: center !important;
+              border-radius: 24px !important;
+            }
+            #s2g .epi-match-zones {
+              grid-template-columns: repeat(2, 1fr) !important;
+            }
+            #s2g .epi-match-btn {
+              width: auto;
+            }
+            #s2g #epi-hier-result {
+              width: 100% !important;
+              max-width: 640px !important;
+              margin: 0 auto !important;
+              padding: 28px 20px 32px !important;
+              border-radius: 24px !important;
+            }
           }
         </style>
         <div class="top-bar">
-          <div><span class="section-tag">🧩 Associe</span>
-            <div class="slide-title" style="margin-top:6px">Hierarquia de <span>Controle de Riscos</span></div>
-          </div>
+          <span class="section-tag">🎮 DESAFIO</span>
+          <div class="slide-title" style="margin-top:6px">Quiz — <span>Módulo 1</span></div>
+          <div class="slide-subtitle">Introdução, Objetivo, CA e Hierarquia de Controle de Riscos</div>
         </div>
         <div class="content-area">
-          <div id="epi-hier-intro" class="epi-match-wrap" style="text-align:center; animation: fadeIn 0.8s ease;">
-            <div class="ic-circle" style="margin: 0 auto 24px; width: 96px; height: 96px; font-size: 48px;">🧩</div>
-            <h3 style="font-family:var(--font-h); font-size:26px; color:var(--white); margin-bottom:12px;">Quiz NR-06 — Módulo 1</h3>
-            <p style="color:rgba(255,255,255,0.72); font-size:16px; line-height:1.65; margin-bottom:28px; max-width:600px; margin-left:auto; margin-right:auto;">A hierarquia de controle de riscos organiza as medidas de proteção da mais eficaz (elimina o risco na origem) até a menos eficaz (protege apenas o indivíduo): <strong>Eliminação, Redução/Substituição, Controles de Engenharia, Controles Administrativos e EPI</strong>. Leia cada frase e escolha a categoria correspondente.</p>
-            <button class="btn-start" style="padding: 16px 40px; font-size: 15px; text-transform: uppercase;" onclick="epiMatchStart('epi-hier')">INICIAR</button>
+          <div id="epi-hier-intro" class="epi-match-wrap is-active" style="text-align:center; animation: fadeIn 0.8s ease;">
+            <div class="ic-circle">🧩</div>
+            <h3>Quiz NR-06 — Módulo 1</h3>
+            <p>Leia cada frase e escolha a categoria correta: <strong>Eliminação, Redução/Substituição, Engenharia, Administrativos ou EPI</strong> — da medida mais eficaz até a última barreira.</p>
+            <button class="btn-start" onclick="epiMatchStart('epi-hier')">INICIAR</button>
           </div>
-          <div id="epi-hier-play" class="epi-match-wrap" style="display:none;">
+          <div id="epi-hier-play" class="epi-match-wrap">
             <div class="epi-match-counter" id="epi-hier-counter">1 / 5</div>
             <div id="epi-hier-card" class="epi-match-card"><p id="epi-hier-text" class="epi-match-text">...</p></div>
             <div id="epi-hier-zones" class="epi-match-zones"></div>
-            <p class="epi-match-hint">Escolha a categoria correspondente para avançar</p>
+            <p class="epi-match-hint">Toque na categoria correspondente</p>
             <div id="epi-hier-feedback" class="epi-match-feedback"></div>
           </div>
-          <div id="epi-hier-result" class="epi-match-wrap epi-match-result" style="display:none; text-align:center;">
+          <div id="epi-hier-result" class="epi-match-wrap epi-match-result" style="text-align:center;">
             <div class="r-icon" style="font-size: 56px; margin-bottom: 12px;">🏅</div>
             <h3 style="font-family:var(--font-h); font-size: clamp(24px, 5vw, 30px); color:#f7b538; margin-bottom:8px; font-weight:900;">Associação Concluída!</h3>
             <div class="r-status ap" style="display:inline-block; padding: 6px 18px; font-size: 13px; margin-bottom:12px; font-weight:700;">Módulo 1 — Hierarquia Validada</div>
-            <p style="color:rgba(255,255,255,0.88); font-size:15px; line-height:1.55; margin-bottom:20px;">Você organizou corretamente a hierarquia: Eliminação, Redução/Substituição, Controles de Engenharia, Controles Administrativos e EPI — da medida mais eficaz até a última barreira de proteção.</p>
+            <p style="margin-bottom:20px;">Parabéns! Você associou corretamente as 5 categorias da hierarquia de controle de riscos.</p>
             <button class="btn-retry" style="background: #f7b538; color: #780116; font-weight: 800; border-radius: 99px; padding: 12px 32px;" onclick="epiMatchStart('epi-hier')">JOGAR NOVAMENTE</button>
           </div>
           <div class="req-item" id="epi-hier-req" style="display:none"></div>
@@ -12155,7 +12831,14 @@
             <span class="epi-badge-tag">CONCEITO</span>
             <p>Acidente de trabalho é aquele que ocorre a serviço da empresa ou em razão do trabalho, podendo causar lesões, doenças ou reduzir a capacidade de trabalho, de forma temporária ou permanente.</p>
           </div>
-          <div class="epi-img-ph"><img src="img/pag.12.png" alt="Acidente de trabalho"></div>
+          <div class="epi-img-ph">
+            <div class="img-zoom-wrap" onclick="openImgModal('img/pag.12.png')" role="button" tabindex="0" aria-label="Ampliar imagem de acidente de trabalho" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openImgModal('img/pag.12.png')}">
+              <img src="img/pag.12.png" alt="Acidente de trabalho">
+              <button type="button" class="zoom-btn" aria-label="Ampliar imagem" onclick="event.stopPropagation(); openImgModal('img/pag.12.png')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </button>
+            </div>
+          </div>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
@@ -12172,8 +12855,8 @@
         </div>
         <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;overflow-y:auto;">
           <p class="epi-flip-hint">Toque no card para virar e ver a explicação</p>
-          <div class="epi-flip-grid">
-            <button type="button" class="epi-flip-card epi-flip-card--orange" onclick="epiFlipCard(this)" aria-pressed="false">
+          <div class="epi-flip-grid" id="m2t-card-viewport">
+            <button type="button" class="epi-flip-card epi-flip-card--orange m2t-card-active" onclick="epiFlipCard(this)" aria-pressed="false">
               <div class="epi-flip-inner">
                 <div class="epi-flip-face epi-flip-front">
                   <img src="img/acidente-tipico.png" alt="Acidentes Típicos">
@@ -12237,6 +12920,16 @@
               </div>
             </button>
           </div>
+          <div class="m2t-carousel-nav" aria-label="Navegação dos cards">
+            <button type="button" class="m2t-carousel-btn" id="m2t-prev" onclick="m2tCarouselNav(-1)" aria-label="Anterior">
+              <svg viewBox="0 0 20 20" fill="currentColor"><polygon points="15,3 3,10 15,17"/></svg>
+            </button>
+            <span class="m2t-carousel-counter" id="m2t-counter">1 / 3</span>
+            <button type="button" class="m2t-carousel-btn" id="m2t-next" onclick="m2tCarouselNav(1)" aria-label="Próximo">
+              <svg viewBox="0 0 20 20" fill="currentColor"><polygon points="5,3 17,10 5,17"/></svg>
+            </button>
+          </div>
+          <p class="epi-flip-carousel-hint">Deslize ou use as setas · Toque no card para virar</p>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
@@ -12324,13 +13017,14 @@
           </div>
           <div class="m2d-carousel-nav" aria-label="Navegação dos cards">
             <button type="button" class="m2d-carousel-btn" id="m2d-prev" onclick="m2dCarouselNav(-1)" aria-label="Anterior">
-              <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><polygon points="15,3 3,10 15,17"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><polygon points="15,3 3,10 15,17"/></svg>
             </button>
             <span class="m2d-carousel-counter" id="m2d-counter">1 / 3</span>
             <button type="button" class="m2d-carousel-btn" id="m2d-next" onclick="m2dCarouselNav(1)" aria-label="Próximo">
-              <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><polygon points="5,3 17,10 5,17"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><polygon points="5,3 17,10 5,17"/></svg>
             </button>
           </div>
+          <p class="epi-flip-carousel-hint">Deslize ou use as setas · Toque no card para virar</p>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
@@ -12505,6 +13199,12 @@
             font-weight: 800;
             color: #f7b538;
             line-height: 1.45;
+          }
+          @media (max-width: 768px) {
+            #s-mod2-game .mod2tf-text {
+              font-size: clamp(21px, 5.4vw, 25px);
+              line-height: 1.52;
+            }
           }
           #s-mod2-game .mod2tf-zones {
             display: grid;
@@ -12782,13 +13482,14 @@
           </div>
           <div class="m3c-carousel-nav" aria-label="Navegação dos cards">
             <button type="button" class="m3c-carousel-btn" id="m3c-prev" onclick="m3cCarouselNav(-1)" aria-label="Anterior">
-              <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><polygon points="15,3 3,10 15,17"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><polygon points="15,3 3,10 15,17"/></svg>
             </button>
             <span class="m3c-carousel-counter" id="m3c-counter">1 / 3</span>
             <button type="button" class="m3c-carousel-btn" id="m3c-next" onclick="m3cCarouselNav(1)" aria-label="Próximo">
-              <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><polygon points="5,3 17,10 5,17"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><polygon points="5,3 17,10 5,17"/></svg>
             </button>
           </div>
+          <p class="epi-flip-carousel-hint">Deslize ou use as setas · Toque no card para virar</p>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
@@ -12798,39 +13499,131 @@
       <!-- ── S-MOD3-GAME: Quiz — Módulo 3 ── -->
       <section class="slide" id="s-mod3-game">
         <style>
+          #s-mod3-game .content-area {
+            padding-top: 12px !important;
+            padding-bottom: 110px !important;
+            justify-content: center;
+            justify-content: safe center;
+            align-items: center;
+            min-height: 0;
+            flex: 1 1 auto;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            container-type: size;
+          }
+          #s-mod3-game .epi-match-wrap {
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto;
+          }
+          #s-mod3-game #epi-inp-intro,
+          #s-mod3-game #epi-inp-play,
+          #s-mod3-game #epi-inp-result {
+            display: none !important;
+          }
+          #s-mod3-game #epi-inp-play.is-active,
+          #s-mod3-game #epi-inp-result.is-active {
+            display: block !important;
+          }
+          #s-mod3-game #epi-inp-intro.is-active {
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          }
           #s-mod3-game #epi-inp-intro {
             padding: 32px 24px 36px;
             background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
             border: 1px solid rgba(120, 1, 22, 0.28);
-            border-radius: 24px;
+            border-radius: clamp(16px, 3cqw, 24px);
             box-shadow: 0 28px 64px rgba(0, 0, 0, 0.4);
-            max-width: 640px;
+            box-sizing: border-box;
           }
           #s-mod3-game #epi-inp-intro .ic-circle {
             background: linear-gradient(135deg, #ff4d6d, #c9184a);
             box-shadow: 0 0 16px rgba(255, 77, 109, 0.45);
+            width: clamp(64px, 20cqh, 96px);
+            height: clamp(64px, 20cqh, 96px);
+            font-size: clamp(32px, 10cqh, 48px);
+            margin: 0 auto clamp(16px, 5cqh, 24px);
+          }
+          #s-mod3-game #epi-inp-intro h3 {
+            font-family: var(--font-h);
+            font-size: clamp(20px, 6cqh, 26px);
+            color: var(--white);
+            margin-bottom: clamp(8px, 3cqh, 12px);
+            font-weight: 700;
+            line-height: 1.25;
+          }
+          #s-mod3-game #epi-inp-intro p {
+            color: rgba(255, 255, 255, 0.72);
+            font-size: clamp(13.5px, 3cqh, 16px);
+            line-height: 1.55;
+            margin-bottom: clamp(16px, 6cqh, 28px);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
           }
           #s-mod3-game #epi-inp-intro .btn-start {
             background: linear-gradient(135deg, #ff4d6d, #c9184a);
             color: #fff;
             box-shadow: 0 10px 30px rgba(201, 24, 74, 0.45);
+            padding: clamp(12px, 3cqh, 16px) clamp(28px, 5cqw, 40px);
+            font-size: clamp(13px, 2.2cqh, 15px);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
           }
           #s-mod3-game #epi-inp-intro .btn-start:hover {
             background: linear-gradient(135deg, #ff6b85, #e11d48);
           }
+          #s-mod3-game .epi-match-counter {
+            font-family: var(--font-h);
+            font-size: 13px;
+            font-weight: 700;
+            color: #780116;
+            letter-spacing: 0.04em;
+            margin-bottom: 10px;
+          }
+          #s-mod3-game .epi-match-card {
+            padding: clamp(18px, 4vw, 26px);
+            margin-bottom: 14px;
+            border-radius: 16px;
+          }
+          #s-mod3-game .epi-match-text {
+            font-size: clamp(15px, 4vw, 18px);
+            line-height: 1.5;
+          }
+          #s-mod3-game .epi-match-zones {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+          }
+          #s-mod3-game .epi-match-btn {
+            font-size: clamp(13px, 3.4vw, 15px);
+            padding: 14px 12px;
+            line-height: 1.3;
+            min-height: 48px;
+          }
+          #s-mod3-game .epi-match-hint {
+            font-size: 12px;
+            margin-top: 10px;
+          }
           #s-mod3-game #epi-inp-result {
-            padding: 24px 20px;
+            padding: 32px 24px 36px;
             background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%);
             border-radius: 28px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             animation: slideUp 0.6s ease;
-            max-width: 640px;
+            box-sizing: border-box;
           }
           #s-mod3-game #epi-inp-result h3 {
             color: #f7b538 !important;
           }
           #s-mod3-game #epi-inp-result p {
             color: #fff8e7 !important;
+            font-size: clamp(14px, 3.5vw, 15px);
+            line-height: 1.55;
           }
           #s-mod3-game #epi-inp-result .btn-retry {
             background: #f7b538 !important;
@@ -12838,27 +13631,94 @@
             border: none !important;
             font-weight: 800 !important;
           }
+          #s-mod3-game .epi-match-wrap.is-active {
+            margin-block: auto;
+          }
+          #s-mod3-game .content-area.mod3-state-play,
+          #s-mod3-game .content-area.mod3-state-result {
+            justify-content: safe center !important;
+            align-items: center !important;
+          }
+          @media screen and (max-width: 768px) {
+            #s-mod3-game .slide-subtitle {
+              display: none !important;
+            }
+            #s-mod3-game .content-area {
+              padding-top: 8px !important;
+              padding-bottom: 96px !important;
+              justify-content: safe center !important;
+              align-items: center !important;
+            }
+            #s-mod3-game .epi-match-wrap {
+              width: 100% !important;
+              max-width: 640px !important;
+            }
+            #s-mod3-game #epi-inp-play .epi-match-card {
+              padding: 16px 14px;
+              margin-bottom: 10px;
+            }
+            #s-mod3-game #epi-inp-play .epi-match-text {
+              font-size: clamp(15px, 4.2vw, 17px);
+              line-height: 1.45;
+            }
+            #s-mod3-game #epi-inp-play .epi-match-zones {
+              grid-template-columns: 1fr !important;
+              gap: 8px;
+            }
+            #s-mod3-game #epi-inp-play .epi-match-btn {
+              padding: 12px 10px;
+              font-size: clamp(14px, 3.8vw, 16px);
+              min-height: 46px;
+            }
+            #s-mod3-game #epi-inp-play .epi-match-counter {
+              margin-bottom: 8px;
+            }
+            #s-mod3-game #epi-inp-play .epi-match-hint {
+              font-size: 13px;
+              margin-top: 8px;
+            }
+            #s-mod3-game #epi-inp-intro.is-active {
+              width: 100% !important;
+              max-width: 640px !important;
+              margin: 0 auto !important;
+              min-height: min(380px, calc(100dvh - 240px)) !important;
+              padding: 28px 20px 32px !important;
+              flex-direction: column !important;
+              align-items: center !important;
+              justify-content: center !important;
+              text-align: center !important;
+              border-radius: 24px !important;
+            }
+            #s-mod3-game #epi-inp-result {
+              width: 100% !important;
+              max-width: 640px !important;
+              margin: 0 auto !important;
+              padding: 28px 20px 32px !important;
+              border-radius: 24px !important;
+            }
+          }
         </style>
         <div class="top-bar">
           <div><span class="section-tag">🧩 Associe</span>
             <div class="slide-title" style="margin-top:6px">Quiz — <span>Módulo 3</span></div>
+            <div class="slide-subtitle">Imperícia, Negligência e Imprudência</div>
           </div>
         </div>
         <div class="content-area">
-          <div id="epi-inp-intro" class="epi-match-wrap" style="text-align:center; animation: fadeIn 0.8s ease;">
-            <div class="ic-circle" style="margin: 0 auto 24px; width: 96px; height: 96px; font-size: 48px;">🧩</div>
-            <h3 style="font-family:var(--font-h); font-size:26px; color:var(--white); margin-bottom:12px;">Quiz NR-06 — Módulo 3</h3>
-            <p style="color:rgba(255,255,255,0.72); font-size:16px; line-height:1.65; margin-bottom:28px; max-width:600px; margin-left:auto; margin-right:auto;">Leia cada frase e escolha se ela descreve <strong>Imperícia</strong>, <strong>Negligência</strong> ou <strong>Imprudência</strong>.</p>
-            <button class="btn-start" style="padding: 16px 40px; font-size: 15px; text-transform: uppercase;" onclick="epiMatchStart('epi-inp')">INICIAR</button>
+          <div id="epi-inp-intro" class="epi-match-wrap is-active" style="text-align:center; animation: fadeIn 0.8s ease;">
+            <div class="ic-circle">🧩</div>
+            <h3>Quiz NR-06 — Módulo 3</h3>
+            <p>Leia cada frase e escolha a categoria correta: <strong>Imperícia, Negligência ou Imprudência</strong>.</p>
+            <button class="btn-start" onclick="epiMatchStart('epi-inp')">INICIAR</button>
           </div>
-          <div id="epi-inp-play" class="epi-match-wrap" style="display:none;">
+          <div id="epi-inp-play" class="epi-match-wrap">
             <div class="epi-match-counter" id="epi-inp-counter">1 / 3</div>
             <div id="epi-inp-card" class="epi-match-card"><p id="epi-inp-text" class="epi-match-text">...</p></div>
             <div id="epi-inp-zones" class="epi-match-zones"></div>
             <p class="epi-match-hint">Escolha a categoria correspondente para avançar</p>
             <div id="epi-inp-feedback" class="epi-match-feedback"></div>
           </div>
-          <div id="epi-inp-result" class="epi-match-wrap epi-match-result" style="display:none; text-align:center;">
+          <div id="epi-inp-result" class="epi-match-wrap epi-match-result" style="text-align:center;">
             <div class="r-icon" style="font-size: 56px; margin-bottom: 12px;">🏅</div>
             <h3 style="font-family:var(--font-h); font-size: clamp(24px, 5vw, 30px); color:#f7b538; margin-bottom:8px; font-weight:900;">Associação Concluída!</h3>
             <div class="r-status ap" style="display:inline-block; padding: 6px 18px; font-size: 13px; margin-bottom:12px; font-weight:700;">Módulo 3 — Conceitos Validados</div>
@@ -14304,8 +15164,8 @@
         </div>
         <div class="content-area">
           <p class="m5p-hint">Toque no card para virar e ver a explicação</p>
-          <div class="m5p-grid">
-            <button type="button" class="m5p-card m5p-card--trauma" onclick="m5pFlipCard(this)" aria-pressed="false">
+          <div class="m5p-grid" id="m5p-card-viewport">
+            <button type="button" class="m5p-card m5p-card--trauma m5p-card-active" onclick="m5pFlipCard(this)" aria-pressed="false">
               <div class="m5p-inner">
                 <div class="m5p-face m5p-front">
                   <img src="img/TRAUMAACUSTICO.png" alt="Trauma Acústico">
@@ -14371,6 +15231,16 @@
               </div>
             </button>
           </div>
+          <div class="m5p-carousel-nav" aria-label="Navegação dos cards">
+            <button type="button" class="m5p-carousel-btn" id="m5p-prev" onclick="m5pCarouselNav(-1)" aria-label="Anterior">
+              <svg viewBox="0 0 20 20" fill="currentColor"><polygon points="15,3 3,10 15,17"/></svg>
+            </button>
+            <span class="m5p-carousel-counter" id="m5p-counter">1 / 3</span>
+            <button type="button" class="m5p-carousel-btn" id="m5p-next" onclick="m5pCarouselNav(1)" aria-label="Próximo">
+              <svg viewBox="0 0 20 20" fill="currentColor"><polygon points="5,3 17,10 5,17"/></svg>
+            </button>
+          </div>
+          <p class="epi-flip-carousel-hint">Deslize ou use as setas · Toque no card para virar</p>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
@@ -14413,8 +15283,8 @@
         </div>
         <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;overflow-y:auto;">
           <p class="epi-flip-hint">Toque no card para virar e ver a explicação</p>
-          <div class="epi-flip-grid">
-            <button type="button" class="epi-flip-card epi-flip-card--orange epi-flip-card--fit" onclick="epiFlipCard(this)" aria-pressed="false">
+          <div class="epi-flip-grid" id="m5pr-card-viewport">
+            <button type="button" class="epi-flip-card epi-flip-card--orange epi-flip-card--fit m5pr-card-active" onclick="epiFlipCard(this)" aria-pressed="false">
               <div class="epi-flip-inner">
                 <div class="epi-flip-face epi-flip-front">
                   <img src="img/moldavel.png" alt="Espuma Moldável">
@@ -14478,6 +15348,16 @@
               </div>
             </button>
           </div>
+          <div class="m5pr-carousel-nav" aria-label="Navegação dos cards">
+            <button type="button" class="m5pr-carousel-btn" id="m5pr-prev" onclick="m5prCarouselNav(-1)" aria-label="Anterior">
+              <svg viewBox="0 0 20 20" fill="currentColor"><polygon points="15,3 3,10 15,17"/></svg>
+            </button>
+            <span class="m5pr-carousel-counter" id="m5pr-counter">1 / 3</span>
+            <button type="button" class="m5pr-carousel-btn" id="m5pr-next" onclick="m5prCarouselNav(1)" aria-label="Próximo">
+              <svg viewBox="0 0 20 20" fill="currentColor"><polygon points="5,3 17,10 5,17"/></svg>
+            </button>
+          </div>
+          <p class="epi-flip-carousel-hint">Deslize ou use as setas · Toque no card para virar</p>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
@@ -17624,7 +18504,7 @@
       max-width: 940px !important;
     }
     @media (min-width: 768px) {
-      #s2e .mod1-game-wrap,
+      #s2e .m1g-wrap,
       #s-mod2-game .mod2tf-wrap,
       #s2g #epi-hier-intro,
       #s2g #epi-hier-result,
@@ -17640,6 +18520,7 @@
       #s-mod2-game #mod2tf-intro,
       #s2g #epi-hier-intro,
       #s-mod3-game #epi-inp-intro,
+      #s2e #mod1-game-intro,
       #s-mod4-game #m4g-intro,
       #s-mod5-game #m5g-intro,
       #s-mod6-game #m6g-intro,
@@ -17664,6 +18545,7 @@
       #s-mod2-game #mod2tf-intro .ic-circle,
       #s2g #epi-hier-intro .ic-circle,
       #s-mod3-game #epi-inp-intro .ic-circle,
+      #s2e #mod1-game-intro .ic-circle,
       #s-mod4-game #m4g-intro .ic-circle,
       #s-mod5-game #m5g-intro .ic-circle,
       #s-mod6-game #m6g-intro .ic-circle,
@@ -17678,6 +18560,7 @@
       #s-mod2-game #mod2tf-intro h3,
       #s2g #epi-hier-intro h3,
       #s-mod3-game #epi-inp-intro h3,
+      #s2e #mod1-game-intro h3,
       #s-mod4-game #m4g-intro h3,
       #s-mod5-game #m5g-intro h3,
       #s-mod6-game #m6g-intro h3,
@@ -17691,6 +18574,7 @@
       #s-mod2-game #mod2tf-intro p,
       #s2g #epi-hier-intro p,
       #s-mod3-game #epi-inp-intro p,
+      #s2e #mod1-game-intro p,
       #s-mod4-game #m4g-intro p,
       #s-mod5-game #m5g-intro p,
       #s-mod6-game #m6g-intro p,
@@ -17703,6 +18587,7 @@
       #s-mod2-game #mod2tf-intro .btn-start,
       #s2g #epi-hier-intro .btn-start,
       #s-mod3-game #epi-inp-intro .btn-start,
+      #s2e #mod1-game-intro .btn-start,
       #s-mod4-game #m4g-intro .btn-start,
       #s-mod5-game #m5g-intro .btn-start,
       #s-mod6-game #m6g-intro .btn-start,
@@ -17713,7 +18598,7 @@
     }
 
     @media (min-width: 769px) and (max-height: 860px) {
-      #s2e .mod1-game-wrap,
+      #s2e .m1g-wrap,
       #s-mod2-game .mod2tf-wrap,
       #s2g #epi-hier-intro,
       #s2g #epi-hier-result,
@@ -17729,6 +18614,7 @@
       #s-mod2-game #mod2tf-intro,
       #s2g #epi-hier-intro,
       #s-mod3-game #epi-inp-intro,
+      #s2e #mod1-game-intro,
       #s-mod4-game #m4g-intro,
       #s-mod5-game #m5g-intro,
       #s-mod6-game #m6g-intro,
@@ -17753,6 +18639,7 @@
       #s-mod2-game #mod2tf-intro .ic-circle,
       #s2g #epi-hier-intro .ic-circle,
       #s-mod3-game #epi-inp-intro .ic-circle,
+      #s2e #mod1-game-intro .ic-circle,
       #s-mod4-game #m4g-intro .ic-circle,
       #s-mod5-game #m5g-intro .ic-circle,
       #s-mod6-game #m6g-intro .ic-circle,
@@ -17767,6 +18654,7 @@
       #s-mod2-game #mod2tf-intro h3,
       #s2g #epi-hier-intro h3,
       #s-mod3-game #epi-inp-intro h3,
+      #s2e #mod1-game-intro h3,
       #s-mod4-game #m4g-intro h3,
       #s-mod5-game #m5g-intro h3,
       #s-mod6-game #m6g-intro h3,
@@ -17779,6 +18667,7 @@
       #s-mod2-game #mod2tf-intro p,
       #s2g #epi-hier-intro p,
       #s-mod3-game #epi-inp-intro p,
+      #s2e #mod1-game-intro p,
       #s-mod4-game #m4g-intro p,
       #s-mod5-game #m5g-intro p,
       #s-mod6-game #m6g-intro p,
@@ -17791,6 +18680,7 @@
       #s-mod2-game #mod2tf-intro .btn-start,
       #s2g #epi-hier-intro .btn-start,
       #s-mod3-game #epi-inp-intro .btn-start,
+      #s2e #mod1-game-intro .btn-start,
       #s-mod4-game #m4g-intro .btn-start,
       #s-mod5-game #m5g-intro .btn-start,
       #s-mod6-game #m6g-intro .btn-start,
@@ -17802,10 +18692,29 @@
 
     /* Card inicial do desafio — mesmo tamanho/formato do Módulo 1 em qualquer mobile */
     @media screen and (max-width: 768px) {
+      #s2e .slide-subtitle {
+        display: none !important;
+      }
+      #s2e .m1g-wrap,
+      #s-mod4-game .m4g-wrap,
+      #s-mod5-game .m5g-wrap,
+      #s-mod6-game .m6g-wrap,
+      #s-mod7-game .m7g-wrap {
+        width: 100% !important;
+        max-width: 640px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
       #s2e #mod1-game-intro,
+      #s2e #mod1-game-play,
+      #s2e #mod1-game-result {
+        display: none !important;
+      }
+      #s2e #mod1-game-play.is-active,
+      #s2e #mod1-game-result.is-active {
+        display: block !important;
+      }
       #s-mod2-game #mod2tf-intro,
-      #s2g #epi-hier-intro,
-      #s-mod3-game #epi-inp-intro,
       #s-mod4-game #m4g-intro,
       #s-mod5-game #m5g-intro,
       #s-mod6-game #m6g-intro,
@@ -17826,10 +18735,57 @@
         border-radius: 24px !important;
         box-shadow: 0 28px 64px rgba(0, 0, 0, 0.4) !important;
       }
+      #s2g #epi-hier-intro.is-active {
+        width: 100% !important;
+        max-width: 640px !important;
+        margin: 0 auto !important;
+        min-height: min(420px, calc(100dvh - 240px));
+        padding: 32px 24px 36px !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%) !important;
+        border: 1px solid rgba(120, 1, 22, 0.28) !important;
+        border-radius: 24px !important;
+        box-shadow: 0 28px 64px rgba(0, 0, 0, 0.4) !important;
+      }
+      #s-mod3-game #epi-inp-intro.is-active {
+        width: 100% !important;
+        max-width: 640px !important;
+        margin: 0 auto !important;
+        min-height: min(420px, calc(100dvh - 240px));
+        padding: 32px 24px 36px !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: linear-gradient(160deg, #780116 0%, #5A0111 40%, #4a010e 75%, #3d010b 100%) !important;
+        border: 1px solid rgba(120, 1, 22, 0.28) !important;
+        border-radius: 24px !important;
+        box-shadow: 0 28px 64px rgba(0, 0, 0, 0.4) !important;
+      }
+      #s2e #mod1-game-result,
+      #s-mod4-game #m4g-result,
+      #s-mod5-game #m5g-result,
+      #s-mod6-game #m6g-result,
+      #s-mod7-game #m7g-result {
+        width: 100% !important;
+        max-width: 640px !important;
+        margin: 0 auto !important;
+        padding: 32px 24px 36px !important;
+        border-radius: 24px !important;
+        box-sizing: border-box !important;
+      }
       #s2e #mod1-game-intro .ic-circle,
       #s-mod2-game #mod2tf-intro .ic-circle,
       #s2g #epi-hier-intro .ic-circle,
       #s-mod3-game #epi-inp-intro .ic-circle,
+      #s2e #mod1-game-intro .ic-circle,
       #s-mod4-game #m4g-intro .ic-circle,
       #s-mod5-game #m5g-intro .ic-circle,
       #s-mod6-game #m6g-intro .ic-circle,
@@ -17846,6 +18802,7 @@
       #s-mod2-game #mod2tf-intro h3,
       #s2g #epi-hier-intro h3,
       #s-mod3-game #epi-inp-intro h3,
+      #s2e #mod1-game-intro h3,
       #s-mod4-game #m4g-intro h3,
       #s-mod5-game #m5g-intro h3,
       #s-mod6-game #m6g-intro h3,
@@ -17863,6 +18820,7 @@
       #s-mod2-game #mod2tf-intro p,
       #s2g #epi-hier-intro p,
       #s-mod3-game #epi-inp-intro p,
+      #s2e #mod1-game-intro p,
       #s-mod4-game #m4g-intro p,
       #s-mod5-game #m5g-intro p,
       #s-mod6-game #m6g-intro p,
@@ -17880,6 +18838,7 @@
       #s-mod2-game #mod2tf-intro .btn-start,
       #s2g #epi-hier-intro .btn-start,
       #s-mod3-game #epi-inp-intro .btn-start,
+      #s2e #mod1-game-intro .btn-start,
       #s-mod4-game #m4g-intro .btn-start,
       #s-mod5-game #m5g-intro .btn-start,
       #s-mod6-game #m6g-intro .btn-start,
@@ -19412,6 +20371,9 @@
       const slide = document.querySelectorAll('.slide')[idx];
       if (!slide) return true;
 
+      if (slide.id === 's2e') { // Quiz — Módulo 1
+        return mod1_game_done;
+      }
       if (slide.id === 's-mod2-game') { // Desafio — Módulo 2
         return mod2tf_game_done;
       }
@@ -19639,7 +20601,13 @@
           showMod6Panel('intro');
         }
       }
-      if (newSlide.id === 's2e') requestAnimationFrame(syncMod1GameVerticalLayout);
+      if (newSlide.id === 's2e') {
+        ensureMod1GameReady();
+        requestAnimationFrame(syncMod1GameVerticalLayout);
+      }
+      if (newSlide.id === 's-mod3-game') {
+        ensureMod3GameReady();
+      }
       if (newSlide.id === 's3a' || newSlide.id === 's3b' || newSlide.id === 's3d') {
         requestAnimationFrame(() => requestAnimationFrame(syncS3SlidesLayout));
       }
@@ -19766,190 +20734,223 @@
     }
 
     /* ══════════════════════════════════════════
-       DESAFIO ATEX — Módulo 1 (Tetraedro & Atmosferas)
+       QUIZ — Módulo 1 (CA / Objetivo / EPI)
        ══════════════════════════════════════════ */
     let mod1_game_done = false;
-    let mod1GameIdx = 0;
-    let mod1GameMistakes = 0;
-    let mod1GameBusy = false;
+    let mod3_game_done = false;
+    let m1gIdx = 0;
+    let m1gScore = 0;
+    let m1gSel = null;
+    let m1gBusy = false;
+    let m1gWrongTopics = [];
 
-    const mod1GameDeck = [
+    const m1gDeck = [
       {
-        text: 'De acordo com a NR 06, o que deve ser indicado de forma visível em todo equipamento de transporte de materiais?',
-        options: [
-          { key: 'A', text: 'A data do próximo exame médico obrigatório do operador.' },
-          { key: 'B', text: 'A carga máxima de trabalho permitida (limite que nunca deve ser ultrapassado).' },
-          { key: 'C', text: 'O nome completo do fabricante e a cor da máquina.' }
+        q: 'O que é CA (Certificado de Aprovação)?',
+        opts: [
+          'Documento interno da empresa que comprova a entrega do EPI ao colaborador.',
+          'Documento emitido pelo Ministério do Trabalho e Emprego que identifica se o EPI está em conformidade com as exigências da legislação vigente.',
+          'Registro emitido pelo fabricante que indica apenas a validade comercial do produto.'
         ],
-        correct: 'B',
-        tip: 'Muito bem! Por lei, é obrigatório indicar a carga máxima de trabalho em local visível, e este limite nunca deve ser ultrapassado.'
+        ans: 1,
+        topic: 'Certificado de Aprovação (CA)',
+        tipOk: 'Correto! O CA é emitido pelo MTE e comprova que o EPI atende às exigências legais.',
+        tipNok: 'O CA é o documento do Ministério do Trabalho e Emprego que comprova a conformidade do EPI.'
       },
       {
-        text: 'Qual é o prazo de validade da autorização e quem é o responsável por acompanhar esse vencimento?',
-        options: [
-          { key: 'A', text: 'A validade é vitalícia e não necessita de exames ou acompanhamento.' },
-          { key: 'B', text: 'A validade é de 1 ano, sendo o próprio operador o responsável por monitorar a data e avisar a chefia.' },
-          { key: 'C', text: 'A validade é de 3 anos, cabendo exclusivamente ao RH da empresa monitorar.' }
+        q: 'Qual é o principal objetivo deste treinamento sobre Equipamento de Proteção Individual?',
+        opts: [
+          'Aumentar a velocidade de produção na planta.',
+          'Capacitar o trabalhador para usar o EPI com segurança, cumprindo a NR 06 e evitando acidentes.',
+          'Reduzir o número de colaboradores na operação.'
         ],
-        correct: 'B',
-        tip: 'Excepcional! O cartão é válido por exatamente 1 ano. O operador deve ser proativo e avisar a chefia quando estiver perto do vencimento.'
+        ans: 1,
+        topic: 'Objetivo do treinamento',
+        tipOk: 'Correto! O foco é capacitar para o uso seguro do EPI, cumprindo a NR 06.',
+        tipNok: 'O objetivo é capacitar o trabalhador a usar o EPI corretamente, cumprindo a NR 06 e prevenindo acidentes.'
       },
       {
-        text: 'Qual é o principal objetivo deste treinamento de segurança sobre Equipamento de Proteção Individual?',
-        options: [
-          { key: 'A', text: 'Aumentar a velocidade de carregamento dos caminhões na planta.' },
-          { key: 'B', text: 'Capacitar o trabalhador para usar o EPI com segurança, cumprindo a NR 06 e evitando acidentes.' },
-          { key: 'C', text: 'Reduzir o número de operadores necessários na operação.' }
+        q: 'Sobre o uso de EPI com CA no Brasil, qual afirmação está correta?',
+        opts: [
+          'Qualquer EPI pode ser usado, mesmo sem CA, se o fabricante garantir a qualidade.',
+          'Somente EPIs com CA válido podem ser comercializados e utilizados como equipamentos de proteção individual.',
+          'O CA é opcional quando a empresa já possui procedimentos internos de segurança.'
         ],
-        correct: 'B',
-        tip: 'Exatamente! O objetivo central é capacitar para o uso correto dos EPIs, cumprindo a NR 06 e preservando vidas.'
+        ans: 1,
+        topic: 'CA válido e uso de EPI',
+        tipOk: 'Correto! Só EPIs com CA válido podem ser comercializados e usados como proteção individual.',
+        tipNok: 'No Brasil, somente EPIs com CA válido podem ser comercializados e utilizados como EPI.'
       }
     ];
 
-    function renderMod1GameZones() {
-      const container = document.getElementById('mod1-game-zones');
-      if (!container) return;
-      container.innerHTML = '';
-      
-      const item = mod1GameDeck[mod1GameIdx];
-      item.options.forEach((opt) => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'mod1-game-btn';
-        btn.innerHTML = '<span class="opt-letter">' + opt.key + '</span>' + opt.text;
-        btn.addEventListener('click', () => handleMod1GameChoice(opt.key));
-        container.appendChild(btn);
+    function m1gShow(id) {
+      if (id === 'mod1-game-intro') id = 'mod1-game-play';
+      ['mod1-game-intro', 'mod1-game-play', 'mod1-game-result'].forEach(function (p) {
+        var el = document.getElementById(p);
+        if (!el) return;
+        el.classList.toggle('is-active', p === id);
       });
     }
 
-    function renderMod1GameCard() {
-      const total = mod1GameDeck.length;
-      const card = document.getElementById('mod1-game-card');
-      const fb = document.getElementById('mod1-game-feedback');
+    function m1gLetters() { return ['A', 'B', 'C']; }
 
-      if (mod1GameIdx >= total) {
-        finishMod1Game();
-        return;
-      }
+    function m1gRender() {
+      if (m1gIdx >= m1gDeck.length) { finishMod1Game(); return; }
+      var item = m1gDeck[m1gIdx];
+      m1gSel = null;
+      m1gBusy = false;
 
-      const item = mod1GameDeck[mod1GameIdx];
-      document.getElementById('mod1-game-text').textContent = item.text;
-      document.getElementById('mod1-game-counter').textContent = (mod1GameIdx + 1) + ' / ' + total;
-      document.getElementById('mod1-game-bar').style.width = (mod1GameIdx / total * 100) + '%';
-      
-      renderMod1GameZones();
-      if (fb) { fb.textContent = ''; fb.style.display = 'none'; }
-      if (card) {
-        card.classList.remove('mod1-game-ok');
-        card.style.animation = 'fadeIn 0.35s ease';
-      }
-      mod1GameBusy = false;
+      document.getElementById('m1g-counter').textContent = (m1gIdx + 1) + ' / ' + m1gDeck.length;
+      document.getElementById('m1g-q').textContent = item.q;
+
+      var box = document.getElementById('m1g-options');
+      box.innerHTML = '';
+      box.dataset.answered = '0';
+      box.dataset.locked = '0';
+      item.opts.forEach(function (opt, i) {
+        var el = document.createElement('div');
+        el.className = 'q-opt';
+        el.innerHTML = '<div class="opt-l">' + m1gLetters()[i] + '</div><span>' + opt + '</span>';
+        el.onclick = function () { m1gSelect(el, i); };
+        box.appendChild(el);
+      });
+
+      var fb = document.getElementById('m1g-feedback');
+      fb.className = 'q-feedback';
+      fb.textContent = '';
+
+      var btn = document.getElementById('m1g-check');
+      btn.hidden = false;
+      btn.disabled = false;
       requestAnimationFrame(syncMod1GameVerticalLayout);
     }
 
-    function handleMod1GameChoice(key) {
-      if (mod1GameBusy || mod1GameIdx >= mod1GameDeck.length) return;
-      mod1GameBusy = true;
-
-      const item = mod1GameDeck[mod1GameIdx];
-      const fb = document.getElementById('mod1-game-feedback');
-      const buttons = document.querySelectorAll('#mod1-game-play .mod1-game-btn');
-      
-      // Find clicked button
-      let clickedBtn = null;
-      buttons.forEach(btn => {
-        const badge = btn.querySelector('.opt-letter');
-        if (badge && badge.textContent === key) {
-          clickedBtn = btn;
-        }
-      });
-
-      buttons.forEach(b => b.disabled = true);
-
-      if (key === item.correct) {
-        playGameFeedback('ok');
-        if (clickedBtn) {
-          clickedBtn.classList.add('correct-option');
-        }
-        if (fb) {
-          fb.style.display = 'block';
-          fb.className = 'mod1-game-feedback ok';
-          fb.textContent = '✓ ' + (item.tip || 'Correto!');
-        }
-        mod1GameIdx++;
-        setTimeout(() => {
-          buttons.forEach(b => b.disabled = false);
-          renderMod1GameCard();
-        }, 3000); // 3 seconds for reading the tip
-      } else {
-        playGameFeedback('nok');
-        mod1GameMistakes++;
-        if (clickedBtn) {
-          clickedBtn.classList.add('incorrect-option');
-        }
-        if (fb) {
-          fb.style.display = 'block';
-          fb.className = 'mod1-game-feedback err';
-          fb.textContent = '✗ Resposta incorreta. Tente novamente!';
-        }
-        const card = document.getElementById('mod1-game-card');
-        if (card) {
-          card.style.animation = 'none';
-          card.offsetHeight;
-          card.style.animation = 'shake 0.4s ease';
-        }
-        setTimeout(() => {
-          buttons.forEach(b => {
-            if (!b.classList.contains('incorrect-option')) {
-              b.disabled = false;
-            }
-          });
-          mod1GameBusy = false;
-        }, 800);
-      }
+    function m1gSelect(el, i) {
+      var box = document.getElementById('m1g-options');
+      if (m1gBusy || box.dataset.answered === '1' || box.dataset.locked === '1') return;
+      box.querySelectorAll('.q-opt').forEach(function (o) { o.classList.remove('selected'); });
+      el.classList.add('selected');
+      m1gSel = i;
+      var fb = document.getElementById('m1g-feedback');
+      fb.className = 'q-feedback';
+      fb.textContent = '';
+      if (typeof playClickSound === 'function') playClickSound();
     }
 
-    function finishMod1Game() {
-      mod1_game_done = true;
-      document.getElementById('mod1-game-bar').style.width = '100%';
-      document.getElementById('mod1-game-play').style.display = 'none';
-      document.getElementById('mod1-game-result').style.display = 'block';
-      setMod1GameLayout('result');
-      const msg = document.getElementById('mod1-game-result-msg');
-      if (msg) {
-        msg.textContent = mod1GameMistakes === 0
-          ? 'Excelente! Você acertou todas as perguntas e demonstrou total domínio sobre a NR-06.'
-          : 'Quiz concluído! Você concluiu com ' + mod1GameMistakes + ' erro(s). Revise os pontos de carga máxima, porte do cartão e validade de exames.';
+    window.m1gCheck = function () {
+      if (m1gBusy) return;
+      var item = m1gDeck[m1gIdx];
+      var box = document.getElementById('m1g-options');
+      var fb = document.getElementById('m1g-feedback');
+      var btn = document.getElementById('m1g-check');
+      var opts = box.querySelectorAll('.q-opt');
+
+      if (m1gSel === null) {
+        fb.textContent = 'Selecione uma alternativa.';
+        fb.className = 'q-feedback nok';
+        return;
       }
-      updateNextButton();
+
+      m1gBusy = true;
+      box.dataset.answered = '1';
+      opts.forEach(function (o) {
+        o.classList.add('answered');
+        o.classList.remove('selected');
+      });
+      opts[item.ans].classList.add('correct');
+      if (m1gSel === item.ans) {
+        m1gScore++;
+        fb.textContent = '✓ ' + item.tipOk;
+        fb.className = 'q-feedback ok';
+        if (typeof playGameFeedback === 'function') playGameFeedback('ok');
+      } else {
+        opts[m1gSel].classList.add('wrong');
+        if (item.topic && m1gWrongTopics.indexOf(item.topic) < 0) m1gWrongTopics.push(item.topic);
+        fb.textContent = '✗ ' + item.tipNok;
+        fb.className = 'q-feedback nok';
+        if (typeof playGameFeedback === 'function') playGameFeedback('nok');
+      }
+      if (btn) btn.hidden = true;
+
+      setTimeout(function () {
+        m1gIdx++;
+        m1gRender();
+      }, 2800);
+    };
+
+    function finishMod1Game() {
+      var total = m1gDeck.length;
+      var minToPass = Math.floor(total / 2) + 1;
+      var passed = m1gScore >= minToPass;
+      mod1_game_done = passed;
+      m1gShow('mod1-game-result');
+      setMod1GameLayout('result');
+
+      var icon = document.getElementById('m1g-result-icon');
+      var title = document.getElementById('m1g-result-title');
+      var status = document.getElementById('m1g-result-status');
+      var msg = document.getElementById('mod1-game-result-msg');
+      if (icon) icon.textContent = passed ? '🏅' : '📚';
+      if (title) title.textContent = passed ? 'Desafio Concluído!' : 'Desafio não concluído';
+      if (status) {
+        status.style.display = passed ? 'inline-block' : 'none';
+        status.textContent = 'Aprovado — ' + m1gScore + ' de ' + total;
+        status.className = 'r-status ap';
+      }
+      if (msg) {
+        msg.textContent = passed
+          ? (m1gScore === total
+            ? 'Excelente! Você acertou todas as ' + total + ' questões.'
+            : 'Você acertou ' + m1gScore + ' de ' + total + ' questões. Era necessário acertar pelo menos ' + minToPass + '. Parabéns!')
+          : 'Você acertou ' + m1gScore + ' de ' + total + ' questões. É necessário acertar pelo menos ' + minToPass + ' questões. Estude e tente novamente.';
+      }
+      var review = document.getElementById('m1g-review');
+      var list = document.getElementById('m1g-review-list');
+      if (review && list) {
+        list.innerHTML = '';
+        if (!passed && m1gWrongTopics.length) {
+          m1gWrongTopics.forEach(function (t) {
+            var li = document.createElement('li');
+            li.textContent = t;
+            list.appendChild(li);
+          });
+          review.style.display = 'block';
+        } else {
+          review.style.display = 'none';
+        }
+      }
+      if (typeof updateNextButton === 'function') updateNextButton();
     }
 
     function resetMod1Game() {
-      mod1_game_done = false;
-      mod1GameIdx = 0;
-      mod1GameMistakes = 0;
-      mod1GameBusy = false;
-      document.getElementById('mod1-game-intro').style.display = 'block';
-      document.getElementById('mod1-game-play').style.display = 'none';
-      document.getElementById('mod1-game-result').style.display = 'none';
-      setMod1GameLayout('intro');
-      updateNextButton();
+      startMod1Game(true);
+    }
+
+    function ensureMod1GameReady() {
+      var result = document.getElementById('mod1-game-result');
+      var play = document.getElementById('mod1-game-play');
+      var q = document.getElementById('m1g-q');
+      if (result && result.classList.contains('is-active')) return;
+      if (play && play.classList.contains('is-active') && q && q.textContent.trim()) return;
+      startMod1Game(true);
     }
 
     const epiMatchState = {
       'epi-hier': {
         categories: ['Eliminação', 'Redução/Substituição', 'Controles de Engenharia', 'Controles Administrativos', 'EPI'],
+        shortCategories: ['Eliminação', 'Redução/Subst.', 'Engenharia', 'Administrativos', 'EPI'],
         deck: [
-          { text: 'Eliminar qualquer probabilidade da ocorrência do acidente, doença ou lesão é a melhor ação a ser feita.', correct: 'Eliminação' },
-          { text: 'Busca reduzir o risco; isso se dá, por exemplo, pela substituição de uma máquina por outra mais segura.', correct: 'Redução/Substituição' },
-          { text: 'Fazer adequações permanentes no ambiente de trabalho, garantindo que máquinas, processos e produtos ofereçam maior segurança ao trabalhador.', correct: 'Controles de Engenharia' },
-          { text: 'Envolve a capacitação contínua dos colaboradores e a atualização de procedimentos, considerando mudanças nos ambientes e nas condições de trabalho.', correct: 'Controles Administrativos' },
-          { text: 'Medida de uso individual que protege diretamente o trabalhador, sendo a última barreira de proteção.', correct: 'EPI' }
+          { text: 'Eliminar o risco na origem é a medida mais eficaz.', correct: 'Eliminação' },
+          { text: 'Substituir uma máquina por outra mais segura reduz o risco.', correct: 'Redução/Substituição' },
+          { text: 'Adequar máquinas e processos para oferecer maior segurança.', correct: 'Controles de Engenharia' },
+          { text: 'Capacitar colaboradores e atualizar procedimentos de trabalho.', correct: 'Controles Administrativos' },
+          { text: 'Proteger o trabalhador individualmente, como última barreira.', correct: 'EPI' }
         ],
         idx: 0, mistakes: 0, busy: false
       },
       'epi-inp': {
         categories: ['Imperícia', 'Negligência', 'Imprudência'],
+        shortCategories: ['Imperícia', 'Negligência', 'Imprudência'],
         deck: [
           { text: 'Falta de habilidade técnica específica e de conhecimento básico necessário para o exercício de determinada atividade profissional.', correct: 'Imperícia' },
           { text: 'Caracteriza-se pela omissão de cuidados e de precauções exigidas, resultando na exposição a riscos ou na ocorrência de danos.', correct: 'Negligência' },
@@ -19959,31 +20960,94 @@
       }
     };
 
+    function syncEpiMatchLayouts() {
+      ['epi-hier', 'epi-inp'].forEach(function (gameId) {
+        var play = document.getElementById(gameId + '-play');
+        if (play && play.classList.contains('is-active')) epiMatchRender(gameId);
+      });
+    }
+
+    function setS2gLayout(state) {
+      const area = document.querySelector('#s2g .content-area');
+      if (!area) return;
+      area.classList.remove('s2g-state-intro', 's2g-state-play', 's2g-state-result');
+      if (state) area.classList.add('s2g-state-' + state);
+    }
+
+    function setMod3GameLayout(state) {
+      const area = document.querySelector('#s-mod3-game .content-area');
+      if (!area) return;
+      area.classList.remove('mod3-state-intro', 'mod3-state-play', 'mod3-state-result');
+      if (state) area.classList.add('mod3-state-' + state);
+    }
+
+    function epiMatchSetPanel(gameId, panel) {
+      ['intro', 'play', 'result'].forEach(function (name) {
+        const el = document.getElementById(gameId + '-' + name);
+        if (!el) return;
+        el.classList.toggle('is-active', name === panel);
+        el.style.removeProperty('display');
+      });
+      if (gameId === 'epi-hier') setS2gLayout(panel);
+      if (gameId === 'epi-inp') setMod3GameLayout(panel);
+    }
+
+    function epiMatchButtonLabel(gameId, cat) {
+      const st = epiMatchState[gameId];
+      if (!st.shortCategories || window.innerWidth > 768) return cat;
+      const idx = st.categories.indexOf(cat);
+      return idx >= 0 ? st.shortCategories[idx] : cat;
+    }
+
     function epiMatchStart(gameId) {
       const st = epiMatchState[gameId];
       st.idx = 0; st.mistakes = 0; st.busy = false;
-      document.getElementById(gameId + '-intro').style.display = 'none';
-      document.getElementById(gameId + '-play').style.display = 'block';
-      document.getElementById(gameId + '-result').style.display = 'none';
+      epiMatchSetPanel(gameId, 'play');
       epiMatchRender(gameId);
       if (typeof playClickSound === 'function') playClickSound();
     }
 
+    function ensureMod3GameReady() {
+      var result = document.getElementById('epi-inp-result');
+      var play = document.getElementById('epi-inp-play');
+      var intro = document.getElementById('epi-inp-intro');
+      if (result && result.classList.contains('is-active')) return;
+      if (play && play.classList.contains('is-active')) {
+        var text = document.getElementById('epi-inp-text');
+        var zones = document.getElementById('epi-inp-zones');
+        if (text && zones && (!text.textContent.trim() || text.textContent.trim() === '...' || !zones.children.length)) {
+          epiMatchRender('epi-inp');
+        }
+        return;
+      }
+      if (intro && !intro.classList.contains('is-active')) {
+        epiMatchSetPanel('epi-inp', 'intro');
+      }
+    }
+
+    function resetMod3EpiMatchQuiz() {
+      epiMatchStart('epi-inp');
+    }
+
     function epiMatchRender(gameId) {
       const st = epiMatchState[gameId];
+      if (!st || !st.deck || !st.deck.length) return;
       const total = st.deck.length;
       if (st.idx >= total) { epiMatchFinish(gameId); return; }
       const item = st.deck[st.idx];
-      document.getElementById(gameId + '-text').textContent = item.text;
-      document.getElementById(gameId + '-counter').textContent = (st.idx + 1) + ' / ' + total;
+      const textEl = document.getElementById(gameId + '-text');
+      const counterEl = document.getElementById(gameId + '-counter');
       const zones = document.getElementById(gameId + '-zones');
+      if (!textEl || !counterEl || !zones) return;
+      textEl.textContent = item.text;
+      counterEl.textContent = (st.idx + 1) + ' / ' + total;
       zones.innerHTML = '';
       st.categories.forEach(cat => {
         const b = document.createElement('button');
         b.type = 'button';
         b.className = 'epi-match-btn';
         b.dataset.cat = cat;
-        b.textContent = cat;
+        b.textContent = epiMatchButtonLabel(gameId, cat);
         b.onclick = () => epiMatchChoice(gameId, cat);
         zones.appendChild(b);
       });
@@ -20001,7 +21065,7 @@
       buttons.forEach(b => b.disabled = true);
       const fb = document.getElementById(gameId + '-feedback');
       let clicked = null;
-      buttons.forEach(b => { if (b.textContent === cat) clicked = b; });
+      buttons.forEach(b => { if (b.dataset.cat === cat) clicked = b; });
 
       if (cat === item.correct) {
         if (clicked) clicked.classList.add('correct-option');
@@ -20022,8 +21086,7 @@
     }
 
     function epiMatchFinish(gameId) {
-      document.getElementById(gameId + '-play').style.display = 'none';
-      document.getElementById(gameId + '-result').style.display = 'block';
+      epiMatchSetPanel(gameId, 'result');
       const req = document.getElementById(gameId + '-req');
       if (req) req.classList.add('req-done');
       if (gameId === 'epi-inp') mod3_game_done = true;
@@ -20071,7 +21134,7 @@
       }
 
       function m2tCards() {
-        return document.querySelectorAll('#s-mod2-tipos .epi-info-card');
+        return document.querySelectorAll('#s-mod2-tipos .epi-flip-card');
       }
 
       function m2tUpdateUI() {
@@ -20079,6 +21142,10 @@
         m2tTotal = cards.length || 3;
         cards.forEach(function (c, i) {
           c.classList.toggle('m2t-card-active', i === m2tIdx);
+          if (i !== m2tIdx) {
+            c.classList.remove('is-flipped');
+            c.setAttribute('aria-pressed', 'false');
+          }
         });
         var counter = document.getElementById('m2t-counter');
         if (counter) counter.textContent = (m2tIdx + 1) + ' / ' + m2tTotal;
@@ -20294,6 +21361,166 @@
       });
     })();
 
+    /* ── MÓDULO 5 PERDA — Mobile Carousel ── */
+    (function () {
+      var m5pIdx = 0;
+      var m5pTotal = 3;
+
+      function isMobilePortraitM5p() {
+        return window.matchMedia(
+          'screen and (max-width: 768px) and (orientation: portrait)'
+        ).matches;
+      }
+
+      function m5pCards() {
+        return document.querySelectorAll('#s-mod5-perda .m5p-card');
+      }
+
+      function m5pUpdateUI() {
+        var cards = m5pCards();
+        m5pTotal = cards.length || 3;
+        cards.forEach(function (c, i) {
+          c.classList.toggle('m5p-card-active', i === m5pIdx);
+          if (i !== m5pIdx) {
+            c.classList.remove('is-flipped');
+            c.setAttribute('aria-pressed', 'false');
+          }
+        });
+        var counter = document.getElementById('m5p-counter');
+        if (counter) counter.textContent = (m5pIdx + 1) + ' / ' + m5pTotal;
+        var prev = document.getElementById('m5p-prev');
+        var next = document.getElementById('m5p-next');
+        if (prev) prev.disabled = (m5pIdx === 0);
+        if (next) next.disabled = (m5pIdx === m5pTotal - 1);
+      }
+
+      window.m5pCarouselNav = function (dir) {
+        if (!isMobilePortraitM5p()) return;
+        var newIdx = m5pIdx + dir;
+        if (newIdx < 0 || newIdx >= m5pTotal) return;
+        m5pIdx = newIdx;
+        if (typeof playClickSound === 'function') playClickSound();
+        m5pUpdateUI();
+      };
+
+      var m5pSX = 0;
+      function m5pInitSwipe() {
+        var vp = document.getElementById('m5p-card-viewport');
+        if (!vp) return;
+        vp.addEventListener('touchstart', function (e) {
+          m5pSX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        vp.addEventListener('touchend', function (e) {
+          if (!isMobilePortraitM5p()) return;
+          var diff = m5pSX - e.changedTouches[0].screenX;
+          if (Math.abs(diff) > 40) window.m5pCarouselNav(diff > 0 ? 1 : -1);
+        }, { passive: true });
+      }
+
+      function m5pInit() {
+        m5pIdx = 0;
+        m5pUpdateUI();
+        m5pInitSwipe();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', m5pInit);
+      } else {
+        m5pInit();
+      }
+
+      window.addEventListener('resize', function () {
+        if (!isMobilePortraitM5p()) m5pIdx = 0;
+        m5pUpdateUI();
+      });
+      window.addEventListener('orientationchange', function () {
+        setTimeout(function () {
+          if (!isMobilePortraitM5p()) m5pIdx = 0;
+          m5pUpdateUI();
+        }, 120);
+      });
+    })();
+
+    /* ── MÓDULO 5 PROTETORES — Mobile Carousel ── */
+    (function () {
+      var m5prIdx = 0;
+      var m5prTotal = 3;
+
+      function isMobilePortraitM5pr() {
+        return window.matchMedia(
+          'screen and (max-width: 768px) and (orientation: portrait)'
+        ).matches;
+      }
+
+      function m5prCards() {
+        return document.querySelectorAll('#s-mod5-protetores .epi-flip-card');
+      }
+
+      function m5prUpdateUI() {
+        var cards = m5prCards();
+        m5prTotal = cards.length || 3;
+        cards.forEach(function (c, i) {
+          c.classList.toggle('m5pr-card-active', i === m5prIdx);
+          if (i !== m5prIdx) {
+            c.classList.remove('is-flipped');
+            c.setAttribute('aria-pressed', 'false');
+          }
+        });
+        var counter = document.getElementById('m5pr-counter');
+        if (counter) counter.textContent = (m5prIdx + 1) + ' / ' + m5prTotal;
+        var prev = document.getElementById('m5pr-prev');
+        var next = document.getElementById('m5pr-next');
+        if (prev) prev.disabled = (m5prIdx === 0);
+        if (next) next.disabled = (m5prIdx === m5prTotal - 1);
+      }
+
+      window.m5prCarouselNav = function (dir) {
+        if (!isMobilePortraitM5pr()) return;
+        var newIdx = m5prIdx + dir;
+        if (newIdx < 0 || newIdx >= m5prTotal) return;
+        m5prIdx = newIdx;
+        if (typeof playClickSound === 'function') playClickSound();
+        m5prUpdateUI();
+      };
+
+      var m5prSX = 0;
+      function m5prInitSwipe() {
+        var vp = document.getElementById('m5pr-card-viewport');
+        if (!vp) return;
+        vp.addEventListener('touchstart', function (e) {
+          m5prSX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        vp.addEventListener('touchend', function (e) {
+          if (!isMobilePortraitM5pr()) return;
+          var diff = m5prSX - e.changedTouches[0].screenX;
+          if (Math.abs(diff) > 40) window.m5prCarouselNav(diff > 0 ? 1 : -1);
+        }, { passive: true });
+      }
+
+      function m5prInit() {
+        m5prIdx = 0;
+        m5prUpdateUI();
+        m5prInitSwipe();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', m5prInit);
+      } else {
+        m5prInit();
+      }
+
+      window.addEventListener('resize', function () {
+        if (!isMobilePortraitM5pr()) m5prIdx = 0;
+        m5prUpdateUI();
+      });
+      window.addEventListener('orientationchange', function () {
+        setTimeout(function () {
+          if (!isMobilePortraitM5pr()) m5prIdx = 0;
+          m5prUpdateUI();
+        }, 120);
+      });
+    })();
+
     /* ── MÓDULO 6 ARMAZENAMENTO — Mobile Carousel ── */
     (function () {
       var m6aIdx = 0;
@@ -20463,40 +21690,33 @@
       }
     }
 
-    function startMod1Game() {
-      mod1GameIdx = 0;
-      mod1GameMistakes = 0;
-      mod1GameBusy = false;
+    function startMod1Game(silent) {
+      m1gIdx = 0;
+      m1gScore = 0;
+      m1gSel = null;
+      m1gBusy = false;
+      m1gWrongTopics = [];
       mod1_game_done = false;
-      document.getElementById('mod1-game-intro').style.display = 'none';
-      document.getElementById('mod1-game-play').style.display = 'block';
-      document.getElementById('mod1-game-result').style.display = 'none';
+      m1gShow('mod1-game-play');
       setMod1GameLayout('play');
-      renderMod1GameCard();
+      m1gRender();
       updateNextButton();
+      if (!silent && typeof playClickSound === 'function') playClickSound();
     }
 
     function setMod1GameLayout(state) {
       const area = document.querySelector('#s2e .content-area');
       if (!area) return;
-      area.classList.remove('mod1-state-intro', 'mod1-state-play', 'mod1-state-result', 'mod1-scroll-mode');
+      area.classList.remove('mod1-state-intro', 'mod1-state-play', 'mod1-state-result');
       area.classList.add('mod1-state-' + state);
       if (state === 'play') area.scrollTop = 0;
-      requestAnimationFrame(syncMod1GameVerticalLayout);
     }
 
     function syncMod1GameVerticalLayout() {
       const area = document.querySelector('#s2e .content-area');
       const play = document.getElementById('mod1-game-play');
-      if (!area || !play || play.style.display === 'none') {
-        if (area) area.classList.remove('mod1-scroll-mode');
-        return;
-      }
-      area.classList.remove('mod1-scroll-mode');
-      if (play.scrollHeight + 8 > area.clientHeight) {
-        area.classList.add('mod1-scroll-mode');
-        area.scrollTop = 0;
-      }
+      if (!area || !play || !play.classList.contains('is-active')) return;
+      area.scrollTop = 0;
     }
 
     /* ══════════════════════════════════════════
@@ -21410,7 +22630,6 @@
     /* ══════════════════════════════════════════
        JOGO MÓDULO 3 — Classifique o Conceito
        ══════════════════════════════════════════ */
-    let mod3_game_done = false;
     let mod3GameIdx = 0;
     let mod3GameBusy = false;
     let mod3GameMistakes = 0;
@@ -21535,7 +22754,7 @@
       updateNextButton();
     }
 
-    function resetMod3Game() {
+    function resetMod3RiskGame() {
       mod3_game_done = false;
       mod3GameIdx = 0;
       mod3GameMistakes = 0;
@@ -22143,6 +23362,7 @@
       updateRulesCarousel();
       window.addEventListener('resize', () => {
         syncMod1GameVerticalLayout();
+        syncEpiMatchLayouts();
         syncS3SlidesLayout();
         updateS3aGroupsCarousel();
         updateS3dZonesCarousel();
@@ -22152,6 +23372,9 @@
         updateRulesCarousel();
       });
       requestAnimationFrame(() => {
+        const activeSlide = document.querySelectorAll('.slide')[currentSlide];
+        if (activeSlide && activeSlide.id === 's2e') ensureMod1GameReady();
+        if (activeSlide && activeSlide.id === 's-mod3-game') ensureMod3GameReady();
         syncMod1GameVerticalLayout();
         syncS3SlidesLayout();
       });

@@ -32,7 +32,7 @@ const NARRATION_OVERRIDES = {
   s2b3:
     'Legislação. Certificado de Aprovação, CA. Introdução, Objetivo, CA e Hierarquia de Controle de Riscos. É um documento emitido pelo Ministério do Trabalho e Emprego, MTE, que comprova que um Equipamento de Proteção Individual foi testado e aprovado para proteger o trabalhador contra riscos específicos. Somente EPIs com CA válido podem ser comercializados e utilizados no Brasil. O CA garante que o equipamento atende aos requisitos técnicos de segurança, foi submetido a ensaios e avaliações de conformidade, e é adequado para a proteção indicada pelo fabricante.',
   s2e:
-    'Quiz. Teste seu conhecimento. O que é CA, Certificado de Aprovação? Documento interno da empresa que comprova a entrega do EPI ao colaborador. Documento emitido pelo Ministério do Trabalho e Emprego que identifica se o EPI está em conformidade com as exigências da legislação vigente. Registro emitido pelo fabricante que indica apenas a validade comercial do produto.',
+    'Quiz. Módulo 1. Responda 3 perguntas sobre Certificado de Aprovação, objetivo do treinamento e uso de EPI. Escolha a alternativa e toque em Verificar resposta. Para avançar, é preciso acertar pelo menos 2 de 3.',
   s2f:
     'Vídeo. Hierarquia de Controle de Riscos. Assista ao vídeo e avance quando concluir.',
   s2g:
