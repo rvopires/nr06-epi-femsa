@@ -12314,45 +12314,66 @@
               padding: 3px 8px !important;
             }
             #s6 .content-area {
-              padding: 4px 10px max(70px, calc(58px + env(safe-area-inset-bottom))) !important;
-              overflow: hidden !important;
-              justify-content: center !important;
+              padding: 8px 12px max(78px, calc(64px + env(safe-area-inset-bottom))) !important;
+              overflow-x: hidden !important;
+              overflow-y: auto !important;
+              -webkit-overflow-scrolling: touch;
+              justify-content: flex-start !important;
               align-items: stretch !important;
               min-height: 0 !important;
             }
             #s6 .sum-grid {
               display: grid !important;
-              grid-template-columns: 1fr 1fr !important;
-              grid-template-rows: repeat(4, minmax(0, 1fr)) !important;
+              grid-template-columns: 1fr !important;
+              grid-template-rows: none !important;
               flex-direction: unset !important;
               flex-wrap: unset !important;
-              gap: 6px !important;
-              height: 100% !important;
-              max-height: 100% !important;
+              gap: 8px !important;
+              height: auto !important;
+              max-height: none !important;
               max-width: 100% !important;
               width: 100% !important;
-              align-content: stretch !important;
+              align-content: start !important;
+              margin: 0 !important;
             }
             #s6 .sum-item {
               flex: unset !important;
               flex-basis: unset !important;
+              flex-direction: row !important;
+              align-items: center !important;
+              justify-content: flex-start !important;
+              text-align: left !important;
               width: 100% !important;
               max-width: none !important;
               min-height: 0 !important;
-              height: 100% !important;
-              padding: 8px 8px !important;
-              gap: 4px !important;
-              border-radius: 12px !important;
-              justify-content: center !important;
+              height: auto !important;
+              padding: 12px 14px !important;
+              gap: 12px !important;
+              border-radius: 14px !important;
+              border: 1px solid rgba(255, 77, 109, 0.4) !important;
+              box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28) !important;
+            }
+            #s6 .sum-item::after {
+              display: none !important;
+            }
+            #s6 .sum-item:hover {
+              transform: none !important;
             }
             #s6 .sum-num-big {
-              font-size: 8px !important;
-              padding: 3px 8px !important;
+              flex-shrink: 0;
+              font-size: 12px !important;
+              padding: 6px 10px !important;
               letter-spacing: 0.06em !important;
+              margin: 0 !important;
+              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22) !important;
             }
             #s6 .sum-text {
-              font-size: clamp(10px, 2.8vw, 12px) !important;
-              line-height: 1.2 !important;
+              flex: 1 1 auto;
+              min-width: 0;
+              text-align: left !important;
+              font-size: clamp(15px, 4.2vw, 17px) !important;
+              line-height: 1.35 !important;
+              text-shadow: none !important;
             }
           }
 
@@ -12657,6 +12678,13 @@
             #s2e .m1g-wrap {
               width: 100% !important;
               max-width: 640px !important;
+            }
+            #s2e .epi-quiz-q,
+            #s2e #m1g-q {
+              font-size: clamp(19px, 5.2vw, 23px) !important;
+              line-height: 1.45 !important;
+              font-weight: 800;
+              margin: 0 0 18px !important;
             }
             #s2e #mod1-game-intro {
               display: none !important;
