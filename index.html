@@ -10841,7 +10841,8 @@
       white-space: nowrap;
     }
 
-    #tutorial-control-item {
+    #tutorial-control-item,
+    #simulation-control-item {
       display: none;
     }
 
@@ -12096,10 +12097,10 @@
       </button>
       <span class="top-control-label">Transcrição</span>
     </div>
-    <div class="top-control-item">
+    <div class="top-control-item" id="simulation-control-item" aria-hidden="true">
       <button id="btn-simulation" type="button" onclick="toggleSimulationMode()" class="btn-simulation-toggle"
         title="Modo simulação — avançar sem concluir vídeos, jogos ou quizzes" aria-pressed="false"
-        aria-label="Ativar modo simulação">
+        aria-label="Ativar modo simulação" tabindex="-1">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path
             d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.76-.5 2.54l2.6 1.53c.63-1.24 1-2.65 1-4.15 0-5.16-3.99-9.41-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.06-4.09l-2.6-1.53C16.17 17.98 14.21 19 12 19z" />
@@ -19890,6 +19891,8 @@
   <script src="https://player.vimeo.com/api/player.js"></script>
   <script async src="https://player.pandavideo.com.br/api.v2.js"></script>
   <script src="audios/audio-manifest.js"></script>
+  <!-- Credenciais locais (tts-config.local.js, gerado do .env — nao versionar) -->
+  <script src="tts-config.local.js"></script>
   <script>
     /* ══════════════════════════════════════════
        BACKGROUND MUSIC
@@ -19949,12 +19952,42 @@
     }
 
     /* ══════════════════════════════════════════
-       ACESSIBILIDADE — Narração ElevenLabs (MP3)
+       ACESSIBILIDADE — Narração
+       Lê o HTML visível da página. Cache por hash do texto (pasta audios/ + memória).
+       Não regenera se o mesmo texto já tiver áudio.
        ══════════════════════════════════════════ */
     let narrationActive = false;
     let narrationPlaybackId = 0;
     const audioManifestById = new Map();
     let audioManifestLoaded = false;
+    let narrationDebounceTimer = null;
+    let ttsObjectUrl = null;
+    let ttsBearerToken = '';
+    const narrationBlobCache = new Map();
+
+    const NARRATION_LIVE_SLIDE_IDS = new Set([
+      's1', 's2', 's6', 's-mod1', 's2b', 's2b2', 's2b3', 's2e', 's2f', 's2g',
+      's-mod2', 's-mod2-acidente', 's-mod2-tipos', 's-mod2-doenca', 's-mod2-game',
+      's-mod3', 's-mod3-causas', 's-mod3-game',
+      's-mod4', 's-mod4-conceitos', 's-mod4-video', 's-mod4-game',
+      's-mod5', 's-mod5-video', 's-mod5-ruido', 's-mod5-video-riscos', 's-mod5-fatores1', 's-mod5-fatores2',
+      's-mod5-efeito-trabalho', 's-mod5-efeito-organismo', 's-mod5-perda', 's-mod5-video-sinais', 's-mod5-protetores', 's-mod5-game',
+      's-mod6', 's-mod6-video', 's-mod6-video-riscos', 's-mod6-riscos', 's-mod6-funcionamento', 's-mod6-armazenamento', 's-mod6-higienizacao', 's-mod6-game',
+      's-mod7', 's-mod7-video', 's-mod7-video-visual', 's-mod7-epr', 's-mod7-video-tipos', 's-mod7-tipos',
+      's-mod7-colocar-reutilizavel', 's-mod7-colocar-descartavel', 's-mod7-pff', 's-mod7-video-pff', 's-mod7-game',
+      's-mod8', 's-mod8-video', 's-mod8-riscos', 's-mod8-prevenir', 's-mod8-luvas-riscos', 's-mod8-luvas-tipos', 's-mod8-game',
+      's-fim'
+    ]);
+
+    const TTS_CONFIG = Object.assign({
+      apiBase: 'https://texttospeech.escolatecnocursos.cloud',
+      ttsPath: '/api/tts',
+      authPath: '/api/auth/login',
+      username: '',
+      password: '',
+      bearerToken: ''
+    }, window.__TTS_CONFIG__ || {});
+    ttsBearerToken = TTS_CONFIG.bearerToken || '';
 
     function ingestAudioManifest(data) {
       if (!data || !Array.isArray(data.slides)) return;
@@ -19963,11 +19996,7 @@
 
     async function loadAudioManifest() {
       if (audioManifestLoaded) return;
-
-      if (window.__AUDIO_NARRATION__) {
-        ingestAudioManifest(window.__AUDIO_NARRATION__);
-      }
-
+      if (window.__AUDIO_NARRATION__) ingestAudioManifest(window.__AUDIO_NARRATION__);
       if (!audioManifestById.size) {
         try {
           const res = await fetch('audios/manifest.json', { cache: 'no-cache' });
@@ -19977,7 +20006,6 @@
           console.log('Audio manifest load error:', err);
         }
       }
-
       audioManifestLoaded = true;
     }
 
@@ -19986,16 +20014,24 @@
       return audioManifestById.get(slide.id) || null;
     }
 
-    function pauseAccessibilityAudio() {
+    function stopSpeech() {
       const audio = document.getElementById('accessibility-audio');
-      if (audio && !audio.paused) audio.pause();
+      if (audio) {
+        try { audio.pause(); } catch (e) { /* ignore */ }
+        audio.removeAttribute('src');
+        try { audio.load(); } catch (e2) { /* ignore */ }
+      }
+      if (ttsObjectUrl) {
+        URL.revokeObjectURL(ttsObjectUrl);
+        ttsObjectUrl = null;
+      }
       if (typeof window !== 'undefined' && window.speechSynthesis) {
         window.speechSynthesis.cancel();
       }
     }
 
-    function speakTextWebSpeech(text, playbackId) {
-      // Robotized browser speech synthesis disabled as requested.
+    function pauseAccessibilityAudio() {
+      stopSpeech();
     }
 
     function onNarrationStart() {
@@ -20013,6 +20049,428 @@
       setTimeout(() => n.classList.remove('show'), 3500);
     }
 
+    function getPageLabel() {
+      const counter = document.getElementById('slide-counter');
+      if (counter && counter.textContent && counter.textContent.indexOf('/') !== -1) {
+        const parts = counter.textContent.split('/').map(function (p) { return p.trim(); });
+        if (parts.length === 2 && parts[0] && parts[1]) {
+          return 'Página ' + parts[0] + ' de ' + parts[1] + '.';
+        }
+      }
+      if (typeof currentSlide === 'number' && typeof TOTAL === 'number') {
+        return 'Página ' + (currentSlide + 1) + ' de ' + TOTAL + '.';
+      }
+      return 'Página 1.';
+    }
+
+    function cleanNarrationText(text) {
+      return String(text || '')
+        .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, ' ')
+        .replace(/[•·►▶◄◀→←↑↓✦✧★☆✓✔✕✖]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function normalizeNarrationKey(text) {
+      return cleanNarrationText(text).toLowerCase();
+    }
+
+    function hashNarrationText(text) {
+      const s = normalizeNarrationKey(text);
+      let h = 5381;
+      for (let i = 0; i < s.length; i++) h = ((h << 5) + h) ^ s.charCodeAt(i);
+      return (h >>> 0).toString(16);
+    }
+
+    function isElementVisibleForNarration(el) {
+      if (!el || !(el instanceof Element)) return false;
+      if (el.closest('[hidden], [aria-hidden="true"]')) return false;
+      const style = window.getComputedStyle(el);
+      if (style.display === 'none' || style.visibility === 'hidden' || parseFloat(style.opacity || '1') === 0) return false;
+      return true;
+    }
+
+    function shouldSkipNarrationNode(el) {
+      if (!el || !(el instanceof Element)) return true;
+      if (el.matches('script, style, svg, iframe, button, noscript, .wave, .nav-btn, .zoom-btn, [id$="-mobile-section"]')) return true;
+      if (el.matches('.btn-start, .btn-retry, .epi-quiz-check, .btn-nav, .nav-controls, #nav')) return true;
+      // Tag emoji / breadcrumb / dicas de UI — não são o conteúdo
+      if (el.matches('.section-tag, .slide-subtitle, .epi-flip-hint, .epi-flip-carousel-hint, .epi-flip-tap, .epi-flip-back-foot')) return true;
+      return false;
+    }
+
+    function collectVisibleSlideText(slide) {
+      if (!slide) return '';
+      const parts = [];
+
+      function walk(node) {
+        if (!node) return;
+        if (node.nodeType === Node.TEXT_NODE) {
+          const t = String(node.textContent || '').replace(/\s+/g, ' ').trim();
+          if (t) parts.push(t);
+          return;
+        }
+        if (node.nodeType !== Node.ELEMENT_NODE) return;
+        const el = node;
+        if (shouldSkipNarrationNode(el)) return;
+        if (!isElementVisibleForNarration(el)) return;
+
+        if (el.tagName === 'IMG') {
+          const alt = (el.getAttribute('alt') || '').trim();
+          if (alt) parts.push('Imagem: ' + alt + '.');
+          return;
+        }
+
+        for (let i = 0; i < el.childNodes.length; i++) walk(el.childNodes[i]);
+      }
+
+      walk(slide);
+      return cleanNarrationText(parts.join(' '));
+    }
+
+    function counterQuestionNum(elId) {
+      const el = document.getElementById(elId);
+      if (!el || !el.textContent) return 1;
+      const m = String(el.textContent).match(/(\d+)/);
+      return m ? parseInt(m[1], 10) : 1;
+    }
+
+    function isPanelVisible(el) {
+      if (!el) return false;
+      if (el.classList.contains('is-active')) return true;
+      const d = el.style && el.style.display;
+      if (d === 'none') return false;
+      if (d === 'block' || d === 'flex') return true;
+      try {
+        return window.getComputedStyle(el).display !== 'none';
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function resolveNarrationFolderSrc(slide) {
+      if (!slide) return null;
+      if (slide.id === 's2e') {
+        const resultEl = document.getElementById('mod1-game-result');
+        if (resultEl && resultEl.classList.contains('is-active')) return 'audios/s2e-result.mp3';
+        return 'audios/s2e-q' + ((typeof m1gIdx === 'number' ? m1gIdx : 0) + 1) + '.mp3';
+      }
+      if (slide.id === 's2g') {
+        const playEl = document.getElementById('epi-hier-play');
+        const resultEl = document.getElementById('epi-hier-result');
+        if (resultEl && resultEl.classList.contains('is-active')) return 'audios/s2g-result.mp3';
+        if (playEl && playEl.classList.contains('is-active')) {
+          const st = (typeof epiMatchState !== 'undefined' && epiMatchState['epi-hier']) || null;
+          return 'audios/s2g-q' + ((st && typeof st.idx === 'number' ? st.idx : 0) + 1) + '.mp3';
+        }
+        return 'audios/s2g-intro.mp3';
+      }
+      if (slide.id === 's-mod2-game') {
+        const playEl = document.getElementById('mod2tf-play');
+        const resultEl = document.getElementById('mod2tf-result');
+        if (resultEl && resultEl.style.display === 'block') return 'audios/s-mod2-game-intro.mp3';
+        if (playEl && playEl.style.display === 'block') {
+          return 'audios/s-mod2-game-q' + ((typeof mod2tfIdx === 'number' ? mod2tfIdx : 0) + 1) + '.mp3';
+        }
+        return 'audios/s-mod2-game-intro.mp3';
+      }
+      if (slide.id === 's-mod3-game') {
+        const playEl = document.getElementById('epi-inp-play');
+        const resultEl = document.getElementById('epi-inp-result');
+        if (resultEl && resultEl.classList.contains('is-active')) return 'audios/s-mod3-game-result.mp3';
+        if (playEl && playEl.classList.contains('is-active')) {
+          const st = (typeof epiMatchState !== 'undefined' && epiMatchState['epi-inp']) || null;
+          return 'audios/s-mod3-game-q' + ((st && typeof st.idx === 'number' ? st.idx : 0) + 1) + '.mp3';
+        }
+        return 'audios/s-mod3-game-intro.mp3';
+      }
+      const quizMap = {
+        's-mod4-game': { prefix: 's-mod4-game', intro: 'm4g-intro', play: 'm4g-play', result: 'm4g-result', counter: 'm4g-counter' },
+        's-mod5-game': { prefix: 's-mod5-game', intro: 'm5g-intro', play: 'm5g-play', result: 'm5g-result', counter: 'm5g-counter' },
+        's-mod6-game': { prefix: 's-mod6-game', intro: 'm6g-intro', play: 'm6g-play', result: 'm6g-result', counter: 'm6g-counter' },
+        's-mod7-game': { prefix: 's-mod7-game', intro: 'm7g-intro', play: 'm7g-play', result: 'm7g-result', counter: 'm7g-counter' },
+        's-mod8-game': { prefix: 's-mod8-game', intro: 'm8g-intro', play: 'm8g-play', result: 'm8g-result', counter: 'm8g-counter' }
+      };
+      const qz = quizMap[slide.id];
+      if (qz) {
+        const playEl = document.getElementById(qz.play);
+        const resultEl = document.getElementById(qz.result);
+        const introEl = document.getElementById(qz.intro);
+        if (isPanelVisible(resultEl)) return 'audios/' + qz.prefix + '-intro.mp3';
+        if (isPanelVisible(playEl)) return 'audios/' + qz.prefix + '-q' + counterQuestionNum(qz.counter) + '.mp3';
+        if (introEl) return 'audios/' + qz.prefix + '-intro.mp3';
+        return 'audios/' + qz.prefix + '-intro.mp3';
+      }
+      const entry = getAccessibilityEntry(slide);
+      if (entry && entry.file) return entry.file;
+      return 'audios/' + slide.id + '.mp3';
+    }
+
+    function getS2eNarrationText() {
+      const resultEl = document.getElementById('mod1-game-result');
+      if (resultEl && resultEl.classList.contains('is-active')) {
+        return cleanNarrationText(getPageLabel() + ' ' + collectVisibleSlideText(document.getElementById('s2e')));
+      }
+      if (typeof m1gDeck === 'undefined' || !m1gDeck.length) return cleanNarrationText(getPageLabel() + ' Teste Rápido.');
+      const idx = typeof m1gIdx === 'number' ? m1gIdx : 0;
+      const item = m1gDeck[idx];
+      if (!item) return cleanNarrationText(getPageLabel() + ' Teste Rápido.');
+      const lettersArr = ['A', 'B', 'C'];
+      const parts = [getPageLabel(), 'Teste Rápido.', 'Pergunta ' + (idx + 1) + ' de ' + m1gDeck.length + '.', item.q];
+      (item.opts || []).forEach(function (opt, i) { parts.push('Alternativa ' + lettersArr[i] + ': ' + opt); });
+      return cleanNarrationText(parts.join(' '));
+    }
+
+    function getS2gNarrationText() {
+      const playEl = document.getElementById('epi-hier-play');
+      const resultEl = document.getElementById('epi-hier-result');
+      const introEl = document.getElementById('epi-hier-intro');
+      const st = (typeof epiMatchState !== 'undefined' && epiMatchState['epi-hier']) || null;
+      if (resultEl && resultEl.classList.contains('is-active')) {
+        return cleanNarrationText(getPageLabel() + ' Associação concluída. Parabéns! Você associou corretamente as 5 categorias da hierarquia de controle de riscos.');
+      }
+      if (playEl && playEl.classList.contains('is-active') && st && st.deck && st.deck.length) {
+        const idx = typeof st.idx === 'number' ? st.idx : 0;
+        const item = st.deck[idx];
+        if (!item) return cleanNarrationText(getPageLabel() + ' Quiz — Módulo 1.');
+        const parts = [getPageLabel(), 'Quiz — Módulo 1.', 'Situação ' + (idx + 1) + ' de ' + st.deck.length + '.', item.text, 'Escolha a categoria:'];
+        (st.categories || []).forEach(function (cat, i) { parts.push('Alternativa ' + (i + 1) + ': ' + cat + '.'); });
+        return cleanNarrationText(parts.join(' '));
+      }
+      if (introEl) {
+        const h3 = introEl.querySelector('h3');
+        const p = introEl.querySelector('p');
+        return cleanNarrationText(getPageLabel() + ' ' + (h3 ? h3.textContent : '') + ' ' + (p ? p.textContent : ''));
+      }
+      return cleanNarrationText(getPageLabel() + ' Quiz — Módulo 1.');
+    }
+
+    function getMod2tfNarrationText() {
+      const playEl = document.getElementById('mod2tf-play');
+      const resultEl = document.getElementById('mod2tf-result');
+      const introEl = document.getElementById('mod2tf-intro');
+      if (resultEl && resultEl.style.display === 'block') {
+        return cleanNarrationText(getPageLabel() + ' ' + collectVisibleSlideText(document.getElementById('s-mod2-game')));
+      }
+      if (playEl && playEl.style.display === 'block' && typeof mod2tfDeck !== 'undefined' && mod2tfDeck.length) {
+        const idx = typeof mod2tfIdx === 'number' ? mod2tfIdx : 0;
+        const item = mod2tfDeck[idx];
+        if (!item) return cleanNarrationText(getPageLabel() + ' Desafio — Verdadeiro ou Falso.');
+        return cleanNarrationText([getPageLabel(), 'Desafio — Verdadeiro ou Falso.', 'Afirmação ' + (idx + 1) + ' de ' + mod2tfDeck.length + '.', item.text, 'Alternativas: Verdadeiro ou Falso.'].join(' '));
+      }
+      if (introEl) {
+        const h3 = introEl.querySelector('h3');
+        const p = introEl.querySelector('p');
+        return cleanNarrationText(getPageLabel() + ' ' + (h3 ? h3.textContent : '') + ' ' + (p ? p.textContent : ''));
+      }
+      return cleanNarrationText(getPageLabel() + ' Desafio — Verdadeiro ou Falso.');
+    }
+
+    function getEpiInpNarrationText() {
+      const playEl = document.getElementById('epi-inp-play');
+      const resultEl = document.getElementById('epi-inp-result');
+      const introEl = document.getElementById('epi-inp-intro');
+      const st = (typeof epiMatchState !== 'undefined' && epiMatchState['epi-inp']) || null;
+      if (resultEl && resultEl.classList.contains('is-active')) {
+        return cleanNarrationText(getPageLabel() + ' Associação concluída. Parabéns!');
+      }
+      if (playEl && playEl.classList.contains('is-active') && st && st.deck && st.deck.length) {
+        const idx = typeof st.idx === 'number' ? st.idx : 0;
+        const item = st.deck[idx];
+        if (!item) return cleanNarrationText(getPageLabel() + ' Quiz — Módulo 3.');
+        const parts = [getPageLabel(), 'Quiz — Módulo 3.', 'Situação ' + (idx + 1) + ' de ' + st.deck.length + '.', item.text, 'Escolha a categoria:'];
+        (st.categories || []).forEach(function (cat, i) { parts.push('Alternativa ' + (i + 1) + ': ' + cat + '.'); });
+        return cleanNarrationText(parts.join(' '));
+      }
+      if (introEl) {
+        const h3 = introEl.querySelector('h3');
+        const p = introEl.querySelector('p');
+        return cleanNarrationText(getPageLabel() + ' ' + (h3 ? h3.textContent : '') + ' ' + (p ? p.textContent : ''));
+      }
+      return cleanNarrationText(getPageLabel() + ' Quiz — Módulo 3.');
+    }
+
+    function getGenericQuizDomText(cfg) {
+      const playEl = document.getElementById(cfg.play);
+      const resultEl = document.getElementById(cfg.result);
+      const introEl = document.getElementById(cfg.intro);
+      if (isPanelVisible(resultEl)) {
+        return cleanNarrationText(getPageLabel() + ' ' + collectVisibleSlideText(document.getElementById(cfg.slideId)));
+      }
+      if (isPanelVisible(playEl)) {
+        const parts = [getPageLabel(), cfg.title + '.'];
+        const counter = document.getElementById(cfg.counter);
+        if (counter) parts.push(String(counter.textContent).replace('/', ' de ') + '.');
+        if (cfg.caseId) {
+          const c = document.getElementById(cfg.caseId);
+          if (c) parts.push(c.textContent);
+        }
+        if (cfg.qId) {
+          const q = document.getElementById(cfg.qId);
+          if (q) parts.push(q.textContent);
+        }
+        if (cfg.optsId) {
+          document.querySelectorAll('#' + cfg.optsId + ' .q-opt, #' + cfg.optsId + ' .m7g-opt, #' + cfg.optsId + ' .m8g-opt').forEach(function (opt, i) {
+            const letter = String.fromCharCode(65 + i);
+            parts.push('Alternativa ' + letter + ': ' + opt.textContent);
+          });
+        }
+        if (cfg.binary) parts.push('Alternativas: Liberado ou Não liberado.');
+        return cleanNarrationText(parts.join(' '));
+      }
+      if (introEl) {
+        const h3 = introEl.querySelector('h3');
+        const p = introEl.querySelector('p');
+        return cleanNarrationText(getPageLabel() + ' ' + (h3 ? h3.textContent : cfg.title) + ' ' + (p ? p.textContent : ''));
+      }
+      return cleanNarrationText(getPageLabel() + ' ' + cfg.title);
+    }
+
+    function getCurrentNarrationText() {
+      const slide = document.querySelector('.slide.active');
+      if (!slide) return '';
+      if (slide.id === 's2e') return getS2eNarrationText();
+      if (slide.id === 's2g') return getS2gNarrationText();
+      if (slide.id === 's-mod2-game') return getMod2tfNarrationText();
+      if (slide.id === 's-mod3-game') return getEpiInpNarrationText();
+      if (slide.id === 's-mod4-game') return getGenericQuizDomText({ slideId: 's-mod4-game', title: 'Quiz — Módulo 4', intro: 'm4g-intro', play: 'm4g-play', result: 'm4g-result', counter: 'm4g-counter', qId: 'm4g-q', optsId: 'm4g-options' });
+      if (slide.id === 's-mod5-game') return getGenericQuizDomText({ slideId: 's-mod5-game', title: 'Quiz — Módulo 5', intro: 'm5g-intro', play: 'm5g-play', result: 'm5g-result', counter: 'm5g-counter', qId: 'm5g-q', optsId: 'm5g-options' });
+      if (slide.id === 's-mod6-game') return getGenericQuizDomText({ slideId: 's-mod6-game', title: 'Quiz — Módulo 6', intro: 'm6g-intro', play: 'm6g-play', result: 'm6g-result', counter: 'm6g-counter', caseId: 'm6g-case', binary: true });
+      if (slide.id === 's-mod7-game') return getGenericQuizDomText({ slideId: 's-mod7-game', title: 'Quiz — Módulo 7', intro: 'm7g-intro', play: 'm7g-play', result: 'm7g-result', counter: 'm7g-counter', caseId: 'm7g-case', optsId: 'm7g-options' });
+      if (slide.id === 's-mod8-game') return getGenericQuizDomText({ slideId: 's-mod8-game', title: 'Quiz — Módulo 8', intro: 'm8g-intro', play: 'm8g-play', result: 'm8g-result', counter: 'm8g-counter', caseId: 'm8g-case', optsId: 'm8g-options' });
+      const body = collectVisibleSlideText(slide);
+      return cleanNarrationText(getPageLabel() + ' ' + body);
+    }
+
+
+    async function playAccessibilityAudioForActiveSlide() {
+      const slide = document.querySelector('.slide.active');
+      const audio = document.getElementById('accessibility-audio');
+      if (!slide || !audio) return false;
+
+      const playbackId = ++narrationPlaybackId;
+      stopSpeech();
+      await loadAudioManifest();
+
+      const liveSlidesOnly = NARRATION_LIVE_SLIDE_IDS.has(slide.id);
+      const entry = getAccessibilityEntry(slide);
+
+      if (liveSlidesOnly) {
+        const keepQuizNarrationOn =
+          (slide.id === 's2e' && document.getElementById('mod1-game-play') && document.getElementById('mod1-game-play').classList.contains('is-active')) ||
+          (slide.id === 's2g' && document.getElementById('epi-hier-play') && document.getElementById('epi-hier-play').classList.contains('is-active')) ||
+          (slide.id === 's-mod2-game' && document.getElementById('mod2tf-play') && document.getElementById('mod2tf-play').style.display === 'block') ||
+          (slide.id === 's-mod3-game' && document.getElementById('epi-inp-play') && document.getElementById('epi-inp-play').classList.contains('is-active')) ||
+          (slide.id === 's-mod4-game' && isPanelVisible(document.getElementById('m4g-play'))) ||
+          (slide.id === 's-mod5-game' && isPanelVisible(document.getElementById('m5g-play'))) ||
+          (slide.id === 's-mod6-game' && isPanelVisible(document.getElementById('m6g-play'))) ||
+          (slide.id === 's-mod7-game' && isPanelVisible(document.getElementById('m7g-play'))) ||
+          (slide.id === 's-mod8-game' && isPanelVisible(document.getElementById('m8g-play')));
+
+        audio.onended = function () {
+          if (playbackId !== narrationPlaybackId) return;
+          if (keepQuizNarrationOn) {
+            // Mantém Transcrição ativa para a próxima pergunta
+            narrationActive = true;
+            setNarrationButtonState(true);
+            return;
+          }
+          setNarrationButtonState(false);
+          narrationActive = false;
+        };
+        audio.onplay = function () {
+          if (playbackId !== narrationPlaybackId) return;
+          onNarrationStart();
+        };
+
+        // 1) MP3 da pasta (no quiz: s2e-q1 / s2e-q2 / s2e-q3)
+        const folderSrc = resolveNarrationFolderSrc(slide);
+        const folderOk = await tryPlayMp3(audio, folderSrc, playbackId);
+        if (playbackId !== narrationPlaybackId) return false;
+        if (folderOk) {
+          console.log('[Narração] pasta:', folderSrc);
+          return true;
+        }
+
+        // 2) Só gera via API se o arquivo da pasta não existir / não tocar
+        const text = getCurrentNarrationText();
+        if (!text) {
+          showNarrationError('Áudio não encontrado em audios/ e sem texto para gerar.');
+          return false;
+        }
+        const hash = hashNarrationText(text);
+        console.log('[Narração] gerando (sem MP3 na pasta):', slide.id, text.slice(0, 120));
+
+        if (narrationBlobCache.has(hash)) {
+          return playBlobOnAudio(audio, narrationBlobCache.get(hash), playbackId);
+        }
+
+        try {
+          const blob = await fetchTtsBlob(text);
+          if (playbackId !== narrationPlaybackId) return false;
+          narrationBlobCache.set(hash, blob);
+          return playBlobOnAudio(audio, blob, playbackId);
+        } catch (err) {
+          console.log('TTS erro:', err);
+          showNarrationError('Erro ao gerar narração. Coloque o MP3 em ' + folderSrc);
+          return false;
+        }
+      }
+
+      if (!entry || !entry.file || entry.audioReady === false) {
+        showNarrationError('Transcrição em áudio indisponível para este slide.');
+        return false;
+      }
+      audio.onended = function () {
+        if (playbackId !== narrationPlaybackId) return;
+        setNarrationButtonState(false);
+        narrationActive = false;
+      };
+      audio.onplay = function () {
+        if (playbackId !== narrationPlaybackId) return;
+        onNarrationStart();
+      };
+      const mp3Ok = await tryPlayMp3(audio, entry.file, playbackId);
+      if (playbackId !== narrationPlaybackId) return false;
+      if (mp3Ok) return true;
+      showNarrationError('Erro ao carregar áudio do slide.');
+      return false;
+    }
+
+    async function getTtsBearerToken() {
+      if (ttsBearerToken) return ttsBearerToken;
+      if (!TTS_CONFIG.username || !TTS_CONFIG.password) {
+        throw new Error('TTS: configure username/password em tts-config.local.js');
+      }
+      const res = await fetch(TTS_CONFIG.apiBase + TTS_CONFIG.authPath, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: TTS_CONFIG.username,
+          password: TTS_CONFIG.password
+        })
+      });
+      if (!res.ok) throw new Error('TTS login falhou (' + res.status + ')');
+      const data = await res.json();
+      ttsBearerToken = data.token || data.accessToken || '';
+      if (!ttsBearerToken) throw new Error('TTS: token ausente na resposta de login');
+      return ttsBearerToken;
+    }
+
+    async function fetchTtsBlob(text) {
+      const token = await getTtsBearerToken();
+      const res = await fetch(TTS_CONFIG.apiBase + TTS_CONFIG.ttsPath, {
+        method: 'POST',
+        headers: {
+          Authorization: 'Bearer ' + token,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ text: text })
+      });
+      if (!res.ok) throw new Error('TTS falhou (' + res.status + ')');
+      return res.blob();
+    }
+
     function tryPlayMp3(audio, src, playbackId) {
       return new Promise((resolve) => {
         let settled = false;
@@ -20024,7 +20482,6 @@
           audio.removeEventListener('canplay', onReady);
           resolve(ok);
         };
-
         const onError = () => finish(false);
         const onReady = async () => {
           if (playbackId !== narrationPlaybackId) {
@@ -20039,16 +20496,30 @@
             finish(false);
           }
         };
-
         audio.addEventListener('error', onError);
         audio.addEventListener('canplay', onReady);
-
         audio.setAttribute('data-current-src', src);
         audio.src = src;
         audio.load();
-
         const timer = setTimeout(() => finish(false), 10000);
       });
+    }
+
+    async function playBlobOnAudio(audio, blob, playbackId) {
+      if (ttsObjectUrl) URL.revokeObjectURL(ttsObjectUrl);
+      ttsObjectUrl = URL.createObjectURL(blob);
+      audio.onended = function () {
+        if (playbackId !== narrationPlaybackId) return;
+        setNarrationButtonState(false);
+        narrationActive = false;
+      };
+      audio.onplay = function () {
+        if (playbackId !== narrationPlaybackId) return;
+        onNarrationStart();
+      };
+      audio.src = ttsObjectUrl;
+      await audio.play();
+      return playbackId === narrationPlaybackId;
     }
 
     function setNarrationButtonState(active) {
@@ -20059,70 +20530,30 @@
       btn.setAttribute('aria-label', active ? 'Parar transcrição em áudio' : 'Ouvir transcrição em áudio do slide');
     }
 
-    async function playAccessibilityAudioForActiveSlide() {
-      await loadAudioManifest();
-      const slide = document.querySelector('.slide.active');
-      const audio = document.getElementById('accessibility-audio');
-      if (!slide || !audio) return false;
-
-      const entry = getAccessibilityEntry(slide);
-      if (!entry || !entry.text) {
-        console.log('Transcrição não disponível para o slide:', slide.id);
-        showNarrationError('Transcrição em áudio indisponível para este slide.');
-        return false;
-      }
-
-      const playbackId = ++narrationPlaybackId;
-
-      audio.pause();
-      audio.currentTime = 0;
-      audio.onended = null;
-      audio.onplay = () => {
-        if (playbackId !== narrationPlaybackId) return;
-        onNarrationStart();
-      };
-
-      if (entry.audioReady === false || !entry.file) {
-        console.log('Áudio MP3 ElevenLabs não gerado para o slide:', slide.id);
-        showNarrationError('Locução em áudio oficial ainda não disponível para este slide.');
-        return false;
-      }
-
-      const mp3Ok = await tryPlayMp3(audio, entry.file, playbackId);
-      if (playbackId !== narrationPlaybackId) return false;
-
-      if (mp3Ok) return true;
-
-      console.log('Não foi possível reproduzir o MP3 ElevenLabs.');
-      showNarrationError('Erro ao carregar locução em áudio do slide.');
-      return false;
-    }
-
     async function toggleAccessibilityNarration() {
       if (narrationActive) {
         narrationActive = false;
         narrationPlaybackId++;
-        pauseAccessibilityAudio();
+        stopSpeech();
         setNarrationButtonState(false);
         return;
       }
-
       narrationActive = true;
       setNarrationButtonState(true);
-
       const started = await playAccessibilityAudioForActiveSlide();
       if (!started && narrationActive) {
-        // Mantém o modo ligado mesmo se falhar neste slide; tenta de novo ao avançar
         console.log('Transcrição ativa — aguardando próximo slide ou nova tentativa.');
       }
     }
 
     async function handleSlideAccessibilityAudio() {
       if (!narrationActive) return;
-      pauseAccessibilityAudio();
-      await playAccessibilityAudioForActiveSlide();
+      clearTimeout(narrationDebounceTimer);
+      narrationDebounceTimer = setTimeout(async function () {
+        stopSpeech();
+        await playAccessibilityAudioForActiveSlide();
+      }, 300);
     }
-
     /* ══════════════════════════════════════════
        NAVIGATION
        ══════════════════════════════════════════ */
@@ -21695,7 +22126,8 @@
     })();
 
     /* ══════════════════════════════════════════
-       MOBILE — toque 2x na logo liga/desliga simulação
+       ATALHO — toque/clique 2x na logo liga/desliga simulação
+       (botão visual oculto; uso interno)
        ══════════════════════════════════════════ */
     (function setupLogoDoubleTapSimulation() {
       const logo = document.getElementById('logo');
@@ -21704,12 +22136,7 @@
       let lastTap = 0;
       const TAP_GAP = 320;
 
-      function isMobileShortcut() {
-        return window.matchMedia('(max-width: 768px), (pointer: coarse)').matches;
-      }
-
       function triggerSimToggle(e) {
-        if (!isMobileShortcut()) return;
         if (e) {
           e.preventDefault();
           e.stopPropagation();
@@ -21720,7 +22147,6 @@
       }
 
       logo.addEventListener('touchend', (e) => {
-        if (!isMobileShortcut()) return;
         const now = Date.now();
         if (now - lastTap < TAP_GAP) {
           lastTap = 0;
@@ -21731,13 +22157,12 @@
       }, { passive: false });
 
       logo.addEventListener('dblclick', (e) => {
-        if (!isMobileShortcut()) return;
         triggerSimToggle(e);
       });
 
       logo.setAttribute('role', 'button');
       logo.setAttribute('aria-label', 'Toque duas vezes para alternar o modo simulação');
-      logo.title = 'Toque 2x: modo simulação';
+      logo.title = '2x na logo: modo simulação';
     })();
 
     /* ══════════════════════════════════════════
@@ -21868,6 +22293,9 @@
       btn.hidden = false;
       btn.disabled = false;
       requestAnimationFrame(syncMod1GameVerticalLayout);
+      if (typeof handleSlideAccessibilityAudio === 'function') {
+        handleSlideAccessibilityAudio();
+      }
     }
 
     function m1gSelect(el, i) {
@@ -22099,6 +22527,9 @@
       const fb = document.getElementById(gameId + '-feedback');
       if (fb) { fb.textContent = ''; fb.style.display = 'none'; fb.className = 'epi-match-feedback'; }
       st.busy = false;
+      if ((gameId === 'epi-hier' || gameId === 'epi-inp') && typeof handleSlideAccessibilityAudio === 'function') {
+        handleSlideAccessibilityAudio();
+      }
     }
 
     function epiMatchChoice(gameId, cat) {
@@ -22136,6 +22567,9 @@
       if (req) req.classList.add('req-done');
       if (gameId === 'epi-inp') mod3_game_done = true;
       if (typeof updateNextButton === 'function') updateNextButton();
+      if ((gameId === 'epi-hier' || gameId === 'epi-inp') && typeof handleSlideAccessibilityAudio === 'function') {
+        handleSlideAccessibilityAudio();
+      }
     }
 
     function epiToggleCard(el) {
@@ -23175,6 +23609,9 @@
         card.style.animation = 'fadeIn 0.35s ease';
       }
       mod2tfBusy = false;
+      if (typeof handleSlideAccessibilityAudio === 'function') {
+        handleSlideAccessibilityAudio();
+      }
     }
 
     function handleMod2TfChoice(value) {
@@ -23268,6 +23705,9 @@
         }
       }
       updateNextButton();
+      if (typeof handleSlideAccessibilityAudio === 'function') {
+        handleSlideAccessibilityAudio();
+      }
     }
 
     function resetMod2TfGame() {
@@ -26296,6 +26736,9 @@
         var btn = document.getElementById('m4g-check');
         btn.hidden = false;
         btn.disabled = false;
+        if (typeof handleSlideAccessibilityAudio === 'function') {
+          handleSlideAccessibilityAudio();
+        }
       }
 
       function m4gSelect(el, i) {
@@ -26530,6 +26973,9 @@
         var btn = document.getElementById('m5g-check');
         btn.hidden = false;
         btn.disabled = false;
+        if (typeof handleSlideAccessibilityAudio === 'function') {
+          handleSlideAccessibilityAudio();
+        }
       }
 
       function m5gSelect(el, i) {
@@ -26723,6 +27169,9 @@
         var fb = document.getElementById('m6g-feedback');
         fb.className = 'm6g-feedback';
         fb.textContent = '';
+        if (typeof handleSlideAccessibilityAudio === 'function') {
+          handleSlideAccessibilityAudio();
+        }
       }
 
       window.m6gAnswer = function (choseLiberado) {
@@ -26929,6 +27378,9 @@
         var fb = document.getElementById('m7g-feedback');
         fb.className = 'm7g-feedback';
         fb.textContent = '';
+        if (typeof handleSlideAccessibilityAudio === 'function') {
+          handleSlideAccessibilityAudio();
+        }
       }
 
       window.m7gAnswer = function (i) {
@@ -27241,6 +27693,9 @@
         var fb = document.getElementById('m8g-feedback');
         fb.className = 'm8g-feedback';
         fb.textContent = '';
+        if (typeof handleSlideAccessibilityAudio === 'function') {
+          handleSlideAccessibilityAudio();
+        }
       }
 
       window.m8gAnswer = function (i) {

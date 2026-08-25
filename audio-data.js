@@ -15,117 +15,8 @@ const HTML_PATH = path.join(ROOT, 'index.html');
 const OUTPUT_DIR = path.join(ROOT, 'audios');
 const MANIFEST_PATH = path.join(OUTPUT_DIR, 'manifest.json');
 
-/** Textos customizados para slides com pouco conteúdo textual ou conteúdo dinâmico. */
-const NARRATION_OVERRIDES = {
-  s1:
-    'Módulo de Treinamento. Segurança do Trabalho. NR 06 — Equipamento de Proteção Individual. Treinamento sobre o uso correto de Equipamentos de Proteção Individual: conceitos, hierarquia de controle de riscos, acidentes e doenças ocupacionais, e a proteção auditiva, visual, respiratória e das mãos, conforme a NR-06.',
-  s2:
-    'Apresentação. Bem-vindo ao Treinamento. NR 06 — Equipamento de Proteção Individual. Assista ao vídeo de introdução e avance quando concluir.',
-  s6:
-    'Sumário. Conteúdo Programático. Módulo 1: Introdução, Objetivo, CA e Hierarquia de Controle de Riscos. Módulo 2: Acidente de Trabalho e Doença Ocupacional. Módulo 3: Comportamentos e Condições Inseguras. Módulo 4: Conceitos de Perigo e Risco. Módulo 5: Proteção Auditiva. Módulo 6: Proteção Visual. Módulo 7: Proteção Respiratória. Módulo 8: Proteção das Mãos.',
-  's-mod1':
-    'Início do Módulo 1. Introdução, Objetivo, CA e Hierarquia de Controle de Riscos.',
-  s2b:
-    'Introdução. O que são EPIs? Introdução, Objetivo, CA e Hierarquia de Controle de Riscos. Equipamento de Proteção Individual é todo equipamento de uso pessoal, utilizado pelo trabalhador para se proteger de riscos à sua segurança e saúde.',
-  s2b2:
-    'Objetivo. Objetivo do Treinamento. Introdução, Objetivo, CA e Hierarquia de Controle de Riscos. Proporcionar aos participantes o conhecimento básico relacionado aos riscos presentes no ambiente de trabalho e apresentar formas de controle por meio de cuidados e uso adequado de proteção.',
-  s2b3:
-    'Legislação. Certificado de Aprovação, CA. Introdução, Objetivo, CA e Hierarquia de Controle de Riscos. É um documento emitido pelo Ministério do Trabalho e Emprego, MTE, que comprova que um Equipamento de Proteção Individual foi testado e aprovado para proteger o trabalhador contra riscos específicos. Somente EPIs com CA válido podem ser comercializados e utilizados no Brasil. O CA garante que o equipamento atende aos requisitos técnicos de segurança, foi submetido a ensaios e avaliações de conformidade, e é adequado para a proteção indicada pelo fabricante.',
-  s2e:
-    'Quiz. Módulo 1. Responda 3 perguntas sobre Certificado de Aprovação, objetivo do treinamento e uso de EPI. Escolha a alternativa e toque em Verificar resposta. Para avançar, é preciso acertar pelo menos 2 de 3.',
-  s2f:
-    'Vídeo. Hierarquia de Controle de Riscos. Assista ao vídeo e avance quando concluir.',
-  s2g:
-    'Associe. Hierarquia de Controle de Riscos. Associe cada conceito à categoria correta. A hierarquia organiza as medidas da mais eficaz até a menos eficaz: Eliminação, Redução ou Substituição, Controles de Engenharia, Controles Administrativos e EPI.',
-  's-mod2':
-    'Início do Módulo 2. Acidente de Trabalho e Doença Ocupacional.',
-  's-mod2-acidente':
-    'Conceito. O que é um Acidente de Trabalho? Acidente de Trabalho e Doença Ocupacional. Acidente de trabalho é aquele que ocorre a serviço da empresa ou em razão do trabalho, podendo causar lesões, doenças ou reduzir a capacidade de trabalho, de forma temporária ou permanente.',
-  's-mod2-tipos':
-    'Também são considerados. Outros Tipos de Acidente de Trabalho. Toque em cada card para saber mais. Acidentes Típicos: ocorrem pelo exercício do trabalho a serviço da empresa. Acidente de Trajeto: ocorre no percurso da residência para o local de trabalho. Doença Profissional ou do Trabalho: causada ou desencadeada pelas atividades realizadas no ambiente de trabalho.',
-  's-mod2-doenca':
-    'Conceito. Doença Ocupacional. Acidente de Trabalho e Doença Ocupacional. Doença ocupacional ou profissional é aquela causada ou desencadeada pelo trabalho, em razão da atividade exercida ou das condições do ambiente, podendo afetar a saúde do trabalhador ao longo do tempo. Exemplos mais comuns: Cervicalgia Ocupacional, Lombalgia Ocupacional e LER/DORT.',
-  's-mod3-causas':
-    'Comportamentos e Condições Inseguras. Por que os comportamentos inseguros acontecem? Na maioria das vezes, eles estão ligados a falhas humanas: seja por imperícia, negligência ou imprudência. Imperícia é a falta de conhecimento ou habilidade. Negligência é quando a pessoa sabe o que fazer, mas não faz com o devido cuidado. Imprudência é assumir riscos desnecessários.',
-  's-mod3-jogo':
-    'Associe. Imperícia, Negligência ou Imprudência. Associe cada situação ao conceito correto. Imperícia: falta de habilidade técnica e de conhecimento básico. Negligência: omissão de cuidados e precauções exigidas. Imprudência: ação sem a devida cautela, mesmo conhecendo os procedimentos corretos.',
-  's-mod4-conceitos':
-    'Conceitos. Perigo e Risco. Perigo: condição, situação ou agente com potencial de causar dano, contribuindo para a ocorrência de lesões, doenças ou outros prejuízos à saúde. Risco: chance de ocorrência de dano, considerando a probabilidade e a gravidade associada à exposição ao perigo. O perigo pode existir sem risco. O risco surge quando há exposição ao perigo. A consequência pode ser acidentes, lesões, doenças ou outro dano à saúde.',
-  's-mod4-video':
-    'Vídeo. Perigo e Risco. Conceitos de Perigo e Risco. Assista ao vídeo e avance quando concluir.',
-  's-mod4-quiz':
-    'Quiz. Teste seu conhecimento. Durante o trajeto ao trabalho, o que caracteriza corretamente o risco na situação apresentada? Dirigir em alta velocidade ou desrespeitar as leis de trânsito. Chegar ao destino com segurança. A possibilidade de ocorrer um acidente de trânsito devido à exposição a condições perigosas.',
-  's-mod5-video':
-    'Vídeo. Proteção Auditiva. Assista ao vídeo e avance quando concluir.',
-  's-mod5-ruido':
-    'Estamos expostos ao ruído no dia a dia. Em casa, no trabalho e até viajando ou nos divertindo, estamos expostos ao ruído em nossa vida diária. O ruído no trabalho se apresenta como a situação mais perigosa em função das muitas máquinas e equipamentos ruidosos existentes, e o longo tempo que passamos sob estas condições. Atenção: o ruído contínuo e excessivo pode causar a perda ou a redução da audição.',
-  's-mod5-video-riscos':
-    'Vídeo. Riscos do som. Proteção Auditiva. Assista ao vídeo e avance quando concluir.',
-  's-mod5-fatores1':
-    'O que influencia o risco? Parte 1. Tempo de exposição: quanto maior este tempo, maior o perigo. Tipos de ruído: contínuo ocorre sem parar; intermitente ocorre de vez em quando; de impacto ocorre de repente.',
-  's-mod5-fatores2':
-    'O que influencia o risco? Parte 2. Sensibilidade individual: varia de acordo com a idade e com a resistência do organismo de cada pessoa. Distância da fonte ruidosa: quanto mais próximo, maior o perigo. Intensidade: quanto maior a intensidade, maior o risco para o trabalhador.',
-  's-mod5-efeito-trabalho':
-    'Efeito do ruído no trabalho. Observe a imagem e avance quando estiver pronto.',
-  's-mod5-efeito-organismo':
-    'Efeito do ruído no organismo. Observe a imagem e avance quando estiver pronto.',
-  's-mod5-perda':
-    'Formas de perda auditiva. Toque em cada card para saber mais. Trauma acústico: perda auditiva repentina causada por ruídos de impacto, como explosões. Perda auditiva temporária: ocorre após exposição a ruído intenso e a audição volta ao normal após algum tempo longe do ruído. Perda auditiva permanente: ocorre pela exposição repetida durante longos períodos a ruídos de alta intensidade e é irreversível.',
-  's-mod5-video-sinais':
-    'Vídeo. Sinais de Perda Auditiva. Proteção Auditiva. Assista ao vídeo e avance quando concluir.',
-  's-mod5-protetores':
-    'Tipos de protetores. Toque em cada card para saber mais. Espuma moldável: adaptam-se aos canais auditivos, são descartáveis, confortáveis e permitem o uso com outros EPIs. Pré-moldados: feitos em silicone, reutilizáveis e devem ser higienizados. Tipo concha: protegem os dois ouvidos de forma igual, com diferentes níveis de proteção.',
-  's-mod6':
-    'Início do Módulo 6. Proteção Visual.',
-  's-mod6-video':
-    'Vídeo. Proteção Visual. Assista ao vídeo e avance quando concluir.',
-  's-mod6-video-riscos':
-    'Vídeo. Riscos que sua visão corre. Proteção Visual. Assista ao vídeo e avance quando concluir.',
-  's-mod6-riscos':
-    'Riscos que sua visão corre. No ambiente de trabalho, a visão está exposta a diversos riscos: partículas, respingos químicos, radiação, luminosidade intensa e impactos que podem causar lesões, muitas vezes irreversíveis. Por isso, conhecer esses riscos e usar corretamente a proteção visual é essencial para preservar um dos sentidos mais importantes para o trabalho e para a vida.',
-  's-mod6-funcionamento':
-    'Como funciona a visão e sua importância. A visão é o sentido que mais envia informações ao cérebro, sendo essencial para o aprendizado e a comunicação. Defesas naturais: quando um corpo estranho entra no olho, o organismo produz lágrimas automaticamente para ajudar a expulsá-lo. Outra defesa importante é o reflexo de fechar os olhos rapidamente ao perceber uma ameaça imediata.',
-  's-mod6-armazenamento':
-    'Armazenamento e substituição. Armazenamento: mantenha os óculos em local apropriado, como um armário, e nunca os deixe apoiados sobre as lentes, para evitar danos e garantir a proteção. Substituição: ao identificar danos ou desgaste que comprometam a visão, solicite imediatamente a substituição dos óculos por um novo.',
-  's-mod6-higienizacao':
-    'Higienização dos óculos. Utilize água e sabão neutro para limpar os óculos e evite o uso de solventes. Após a limpeza, seque com pano macio. Em óculos com tratamento antiembaçante, prefira a limpeza com pano seco, pois lavagens frequentes podem reduzir sua eficácia.',
-  's-mod7':
-    'Início do Módulo 7. Proteção Respiratória.',
-  's-mod7-video':
-    'Vídeo. Proteção Respiratória. Assista ao vídeo e avance quando concluir.',
-  's-mod7-video-visual':
-    'Vídeo. Proteção Visual no Trabalho. Assista ao vídeo e avance quando concluir.',
-  's-mod7-epr':
-    'Como se proteger? Uma das formas de se proteger contra a inalação de contaminantes atmosféricos é através do uso de Equipamento de Proteção Respiratória, o EPR. Esses equipamentos, chamados respiradores ou máscaras, cobrem a boca e o nariz e protegem a respiração por meio de filtros ou fornecimento de ar.',
-  's-mod7-video-tipos':
-    'Tipos de respiradores. Os respiradores se dividem em purificadores de ar — sem manutenção, baixa manutenção, com manutenção, peça facial inteira e ar forçado PAPR — e de adução de ar — ar mandado e máscara autônoma.',
-  's-mod7-tipos':
-    'Tipos de respiradores. Peça semifacial filtrante, PFF: máscara descartável que cobre nariz e boca, filtrando partículas presentes no ar, indicada para exposições a poeiras e névoas. Semifacial com filtro: respirador reutilizável, com corpo de borracha ou silicone e filtros ou cartuchos substituíveis, indicado para vapores orgânicos, gases e partículas. Máscara com fornecimento de ar: fornece ar respirável de uma fonte externa, usada em ambientes com atmosferas mais críticas ou deficientes de oxigênio.',
-  's-mod7-colocar-reutilizavel':
-    'Respiradores reutilizáveis de silicone ou elastômero sintético. Ajuste os tirantes, confira a vedação com pressão positiva e negativa e, se houver vazamento, reajuste a posição e a tensão dos elásticos.',
-  's-mod7-colocar-descartavel':
-    'Respiradores descartáveis. Apoie no queixo, cubra nariz e boca, ajuste elásticos e grampo nasal. Faça o teste de vedação: inspire nos valvulados ou expire nos não valvulados, e reajuste se houver vazamento.',
-  's-mod7-pff':
-    'Eficiência dos filtros PFF. PFF1: 80% de eficácia. PFF2: 94% de eficácia. PFF3: 99,9% de eficácia.',
-  's-mod7-video-pff':
-    'Vídeo. Barba e Respirador. Proteção Respiratória. A barba pode comprometer a vedação do respirador. Assista ao vídeo e avance quando concluir.',
-  's-mod8':
-    'Início do Módulo 8. Proteção das Mãos.',
-  's-mod8-video':
-    'Vídeo. Proteção das Mãos. Assista ao vídeo e avance quando concluir.',
-  's-mod8-riscos':
-    'Conhecendo os riscos. Desatenção. Uso de adornos. Falta de proteção em máquinas e equipamentos. Uso de objetos cortantes, como estiletes e facas. Uso de equipamentos inadequados. Uso inadequado de produtos químicos. Importante: conhecendo os riscos existentes no seu local de trabalho, você conseguirá prevenir mais facilmente os acidentes.',
-  's-mod8-prevenir':
-    'Formas de prevenir. Identificar e conhecer os riscos do setor. Participar de treinamentos. Utilizar todos os EPIs recomendados. Trabalhar de maneira segura. Comunicar todas as condições de risco. Respeitar seus limites. Seguir as normas, procedimentos e regras da empresa. Atenção: trabalhar preventivamente é a melhor forma de evitar acidentes graves, portanto, seja preventivo.',
-  's-mod8-luvas-riscos':
-    'Medidas de controle. Grupos de risco. Existem diversos modelos diferentes de luvas de segurança, e cada um deles oferece proteção para determinados grupos de risco. Riscos físicos ou mecânicos: cortes, abrasões, perfurações, choques. Riscos químicos ou biológicos: bactérias, fungos, parasitas, vírus.',
-  's-mod8-luvas-tipos':
-    'Principais modelos de luvas. Luva anticorte: protege contra cortes nas mãos. Luva de látex natural: flexível e resistente, protege contra ácidos, álcool e produtos químicos. Luva de látex nitrílica: excelente proteção contra óleos, solventes, gordura animal e graxa. Luva de PVC: flexível, excelente proteção contra ácidos, cáusticos, bases, álcoois e abrasões. Luva de vaqueta e raspa de couro: boas opções para o risco de abrasão e até mesmo solda, pois o couro é muito resistente.',
-  's-mod8-game':
-    'Quiz NR-06 — Módulo 8. Atividade Luva Certa. Proteção das mãos. Leia a situação e toque na luva ou atitude correta. O feedback é automático. São seis desafios. Para avançar, acerte pelo menos quatro de seis.',
-  's-fim':
-    'Parabéns. Você concluiu o treinamento NR 06 — Equipamento de Proteção Individual. Por mérito, dedicação e compromisso com a segurança, você percorreu os oito módulos e demonstrou responsabilidade com a sua vida e com a vida dos seus colegas. A segurança é um direito de todos e um dever de cada um. Continue fazendo a sua parte.',
-};
+/** Sem overrides: a narração lê o HTML da página (e quizzes por pergunta). */
+const NARRATION_OVERRIDES = {};
 
 function cleanText(text) {
   return (text || '')
@@ -134,23 +25,124 @@ function cleanText(text) {
     .trim();
 }
 
-function extractSlideText(slide) {
-  const clone = slide.cloneNode(true);
-  clone
-    .querySelectorAll('script, iframe, svg, .wave, button, style, .nav-btn, .zoom-btn, [id$="-mobile-section"]')
-    .forEach((el) => el.remove());
+const EXTRACT_REMOVE_SELECTOR = [
+  'script', 'iframe', 'svg', 'style', 'button:not(.epi-flip-card)',
+  '.wave', '.nav-btn', '.zoom-btn', '[id$="-mobile-section"]',
+  '[hidden]', '[aria-hidden="true"]',
+  // Chrome da página (não é o conteúdo): tag emoji + breadcrumb do módulo
+  '.section-tag',
+  '.slide-subtitle',
+  '.epi-flip-hint',
+  '.epi-flip-carousel-hint',
+  '.epi-flip-tap',
+  '.epi-flip-back-foot',
+  '.m2t-carousel-nav',
+  '.m2d-carousel-nav',
+  '#mod1-game-intro', '#mod1-game-result',
+  '#epi-hier-result',
+  '#mod2tf-intro', '#mod2tf-result',
+].join(', ');
 
+/**
+ * Monta o texto de narração a partir do que importa na tela:
+ * título + conteúdo principal (cards, parágrafos, listas).
+ * Ignora tags "Introdução"/"Objetivo" e o subtítulo-breadcrumb do módulo.
+ */
+function extractSlideText(slide) {
   const custom = slide.getAttribute('data-audio-text');
   if (custom) return cleanText(custom);
 
-  let text = cleanText(clone.textContent || '');
+  const parts = [];
+
+  // Capa / intro de módulo: ler bloco principal
+  if (slide.id === 's1') {
+    const tag = slide.querySelector('.s1-tag');
+    const h1 = slide.querySelector('h1');
+    const p = slide.querySelector('.s1-text-col > p');
+    if (tag) parts.push(cleanText(tag.textContent));
+    if (h1) parts.push(cleanText(h1.textContent));
+    if (p) parts.push(cleanText(p.textContent));
+    slide.querySelectorAll('.s1-badge').forEach((badge) => {
+      const strong = badge.querySelector('strong');
+      const span = badge.querySelector('span');
+      const line = [strong && strong.textContent, span && span.textContent]
+        .map(cleanText)
+        .filter(Boolean)
+        .join('. ');
+      if (line) parts.push(line);
+    });
+    return parts.filter(Boolean).join('. ');
+  }
+
+  if (slide.classList.contains('mod-intro-slide')) {
+    const badge = slide.querySelector('.mod-intro-badge');
+    const title = slide.querySelector('.mod-intro-title');
+    const sub = slide.querySelector('.mod-intro-sub');
+    if (badge) parts.push(cleanText(badge.textContent));
+    if (title) parts.push(cleanText(title.textContent));
+    if (sub) parts.push(cleanText(sub.textContent));
+    return parts.filter(Boolean).join('. ');
+  }
+
+  const titleEl = slide.querySelector('.slide-title, h1');
+  if (titleEl) parts.push(cleanText(titleEl.textContent));
+
+  const content = slide.querySelector('.content-area');
+  if (content) {
+    const clone = content.cloneNode(true);
+
+    // Cards viráveis: título + texto do verso (antes de remover botões genéricos)
+    clone.querySelectorAll('button.epi-flip-card, .epi-flip-card').forEach((card) => {
+      const title =
+        cleanText(card.querySelector('.epi-flip-front h4')?.textContent || '') ||
+        cleanText(card.querySelector('.epi-flip-back h4')?.textContent || '');
+      const back = cleanText(card.querySelector('.epi-flip-back p')?.textContent || '');
+      const span = slide.ownerDocument.createElement('span');
+      span.textContent = [title, back].filter(Boolean).join('. ') + '. ';
+      card.replaceWith(span);
+    });
+
+    clone.querySelectorAll(EXTRACT_REMOVE_SELECTOR).forEach((el) => el.remove());
+
+    ['#mod1-game-play', '#epi-hier-intro', '#epi-hier-play', '#mod2tf-play'].forEach((sel) => {
+      const orig = slide.querySelector(sel);
+      const copy = clone.querySelector(sel);
+      if (!orig || !copy) return;
+      if (sel === '#epi-hier-intro' || sel === '#epi-hier-play') {
+        const anyActive = slide.querySelector(
+          '#epi-hier-intro.is-active, #epi-hier-play.is-active, #epi-hier-result.is-active'
+        );
+        if (!anyActive && sel === '#epi-hier-intro') return;
+        if (!orig.classList.contains('is-active')) copy.remove();
+      }
+    });
+
+    clone.querySelectorAll('img[alt]').forEach((img) => {
+      const alt = cleanText(img.getAttribute('alt') || '');
+      if (!alt) {
+        img.remove();
+        return;
+      }
+      const span = slide.ownerDocument.createElement('span');
+      span.textContent = ` Imagem: ${alt}. `;
+      img.replaceWith(span);
+    });
+
+    const body = cleanText(clone.textContent || '');
+    if (body) parts.push(body);
+  }
+
+  let text = parts.filter(Boolean).join('. ');
 
   if (text.length < 40) {
     const iframeTitle = slide.querySelector('iframe[title]')?.getAttribute('title');
     const imgAlt = slide.querySelector('img[alt]')?.getAttribute('alt');
-    const title = slide.querySelector('.slide-title')?.textContent;
-    const parts = [title, iframeTitle, imgAlt].map(cleanText).filter(Boolean);
-    if (parts.length) text = parts.join('. ');
+    const title = titleEl?.textContent;
+    const fallback = [title, iframeTitle, imgAlt]
+      .map(cleanText)
+      .filter(Boolean)
+      .filter((part, idx, arr) => arr.findIndex((p) => p.toLowerCase() === part.toLowerCase()) === idx);
+    if (fallback.length) text = fallback.join('. ');
   }
 
   return text;
@@ -176,6 +168,89 @@ function parseQ5Questions(html) {
   } catch {
     return [];
   }
+}
+
+function parseM1gDeck(html) {
+  const match = html.match(/const\s+m1gDeck\s*=\s*(\[[\s\S]*?\n\s*\]);/);
+  if (!match) return [];
+  try {
+    return Function(`"use strict"; return (${match[1]});`)();
+  } catch {
+    return [];
+  }
+}
+
+/** Texto de uma pergunta do quiz da página 8 (s2e), com alternativas A/B/C. */
+function buildM1gQuestionNarration(item, index, total, pageLabel = 'Página 8 de 61.') {
+  const letters = ['A', 'B', 'C', 'D', 'E'];
+  const parts = [
+    pageLabel,
+    'Teste Rápido.',
+    `Pergunta ${index + 1} de ${total}.`,
+    cleanText(item.q),
+  ];
+  (item.opts || []).forEach((opt, i) => {
+    parts.push(`Alternativa ${letters[i] || i + 1}: ${cleanText(opt)}`);
+  });
+  return parts.filter(Boolean).join(' ');
+}
+
+function parseEpiHierGame(html) {
+  const block = html.match(/'epi-hier':\s*\{([\s\S]*?)\},\s*'epi-inp'/);
+  if (!block) return { categories: [], deck: [] };
+  let categories = [];
+  let deck = [];
+  try {
+    const catsMatch = block[1].match(/categories:\s*(\[[\s\S]*?\])/);
+    if (catsMatch) categories = Function(`"use strict"; return (${catsMatch[1]});`)();
+  } catch { /* ignore */ }
+  try {
+    const deckMatch = block[1].match(/deck:\s*(\[[\s\S]*?\])\s*,\s*idx/);
+    if (deckMatch) deck = Function(`"use strict"; return (${deckMatch[1]});`)();
+  } catch { /* ignore */ }
+  return { categories, deck };
+}
+
+function parseEpiInpGame(html) {
+  const block = html.match(/'epi-inp':\s*\{([\s\S]*?)idx:\s*0/);
+  if (!block) return { categories: [], deck: [] };
+  let categories = [];
+  let deck = [];
+  try {
+    const catsMatch = block[1].match(/categories:\s*(\[[\s\S]*?\])/);
+    if (catsMatch) categories = Function(`"use strict"; return (${catsMatch[1]});`)();
+  } catch { /* ignore */ }
+  try {
+    const deckMatch = block[1].match(/deck:\s*(\[[\s\S]*?\])\s*,/);
+    if (deckMatch) deck = Function(`"use strict"; return (${deckMatch[1]});`)();
+  } catch { /* ignore */ }
+  return { categories, deck };
+}
+
+function buildS2gIntroNarration(pageLabel = 'Página 10 de 61.') {
+  return cleanText(
+    `${pageLabel} Quiz — Módulo 1. Leia cada frase e escolha a categoria correta: Eliminação, Redução ou Substituição, Engenharia, Administrativos ou EPI — da medida mais eficaz até a última barreira.`
+  );
+}
+
+function buildS2gQuestionNarration(item, index, total, categories, pageLabel = 'Página 10 de 61.') {
+  const parts = [
+    pageLabel,
+    'Quiz — Módulo 1.',
+    `Situação ${index + 1} de ${total}.`,
+    cleanText(item.text),
+    'Escolha a categoria:',
+  ];
+  (categories || []).forEach((cat, i) => {
+    parts.push(`Alternativa ${i + 1}: ${cleanText(cat)}.`);
+  });
+  return parts.filter(Boolean).join(' ');
+}
+
+function buildS2gResultNarration(pageLabel = 'Página 10 de 61.') {
+  return cleanText(
+    `${pageLabel} Associação concluída. Parabéns! Você associou corretamente as 5 categorias da hierarquia de controle de riscos.`
+  );
 }
 
 function parseMod1GameDeck(html) {
@@ -231,18 +306,36 @@ function parseMod2tfDeck(html) {
   }
 }
 
+function buildMod2tfQuestionNarration(item, index, total, pageLabel = 'Página 15 de 61.') {
+  return cleanText(
+    [
+      pageLabel,
+      'Desafio — Verdadeiro ou Falso.',
+      `Afirmação ${index + 1} de ${total}.`,
+      item.text,
+      'Alternativas: Verdadeiro ou Falso.',
+    ].join(' ')
+  );
+}
+
+function buildMod2tfIntroNarration(pageLabel = 'Página 15 de 61.') {
+  return cleanText(
+    `${pageLabel} Desafio — Verdadeiro ou Falso. Responda se cada afirmação sobre acidente de trabalho e doença ocupacional é verdadeira ou falsa.`
+  );
+}
+
 function buildMod2tfNarration(deck) {
   if (!deck.length) {
-    return 'Desafio Módulo 2 — Verdadeiro ou Falso. Responda seis afirmações sobre o equipamento e valide o que você aprendeu no módulo.';
+    return 'Desafio Módulo 2 — Verdadeiro ou Falso. Responda afirmações sobre o módulo e valide o que você aprendeu.';
   }
 
   const parts = [
-    'Desafio Módulo 2 — Verdadeiro ou Falso. Responda seis afirmações sobre o equipamento e valide o que você aprendeu no módulo.',
+    'Desafio Módulo 2 — Verdadeiro ou Falso. Responda afirmações sobre acidente de trabalho e doença ocupacional.',
   ];
 
   deck.forEach((item, index) => {
     parts.push(`Afirmação ${index + 1}: ${cleanText(item.text)}`);
-    parts.push(`Resposta correta: ${item.answer ? 'Verdadeiro' : 'Falso'}. ${cleanText(item.tip)}`);
+    parts.push(`Alternativas: Verdadeiro ou Falso.`);
   });
 
   return parts.join(' ');
@@ -462,6 +555,8 @@ function buildM7gNarration(deck) {
 
   return parts.join(' ');
 }
+
+function parseQm4Questions(html) {
   const match = html.match(/const\s+qm4_data\s*=\s*(\[[\s\S]*?\n\s*\]);/);
   if (!match) return [];
   try {
@@ -533,7 +628,10 @@ function buildManifest(htmlPath = HTML_PATH) {
     const mod1Deck = parseMod1GameDeck(html);
   const qm2Questions = parseQm2Questions(html);
 
-  const slides = [...doc.querySelectorAll('#slides .slide')].map((slide, index) => {
+  const allSlides = [...doc.querySelectorAll('#slides .slide')];
+  const totalPages = allSlides.length;
+
+  const slides = allSlides.map((slide, index) => {
     const id = slide.id || `slide-${index + 1}`;
     let text = NARRATION_OVERRIDES[id];
 
@@ -547,8 +645,6 @@ function buildManifest(htmlPath = HTML_PATH) {
       text = buildQuizNarration(parseQm4Questions(html), 4);
     } else if (text === null && id === 's6f') {
       text = buildQuizNarration(parseQm6Questions(html), 6);
-    } else if (text === null && id === 's2e') {
-      text = buildMod1Narration(mod1Deck);
     } else if (text === null && id === 's3f') {
       text = buildMod2Narration(qm2Questions);
     } else if ((text === undefined || text === null) && id === 's-mod2-game') {
@@ -566,11 +662,17 @@ function buildManifest(htmlPath = HTML_PATH) {
     } else if ((text === undefined || text === null) && id === 's-mod7-game') {
       text = buildM7gNarration(parseM7gDeck(html));
     } else if (text === undefined || text === null) {
+      // Lê o HTML da página (páginas 1–10 e demais sem override)
       text = extractSlideText(slide);
     }
 
     if (!text) {
       text = `Slide ${index + 1}. ${slideTitle(slide)}`;
+    }
+
+    const pageLabel = `Página ${index + 1} de ${totalPages}.`;
+    if (!/^Página\s+\d+\s+de\s+\d+/i.test(text)) {
+      text = cleanText(`${pageLabel} ${text}`);
     }
 
     return {
@@ -627,6 +729,23 @@ module.exports = {
   cleanText,
   buildMod1Narration,
   parseMod1GameDeck,
+  parseM1gDeck,
+  buildM1gQuestionNarration,
+  parseEpiHierGame,
+  parseEpiInpGame,
+  buildS2gIntroNarration,
+  buildS2gQuestionNarration,
+  buildS2gResultNarration,
+  parseMod2tfDeck,
+  buildMod2tfNarration,
+  buildMod2tfQuestionNarration,
+  buildMod2tfIntroNarration,
   buildMod2Narration,
   parseQm2Questions,
+  parseM3gDeck,
+  parseM4gDeck,
+  parseM5gDeck,
+  parseM6gDeck,
+  parseM7gDeck,
+  parseM8gDeck,
 };
