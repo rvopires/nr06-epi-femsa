@@ -10870,6 +10870,10 @@
       display: none;
     }
 
+    #simulation-control-item.is-visible {
+      display: flex;
+    }
+
     .control-btn-text {
       display: none;
     }
@@ -19926,12 +19930,18 @@
 
     function updateSimulationButton() {
       const btn = document.getElementById('btn-simulation');
+      const item = document.getElementById('simulation-control-item');
       const label = document.querySelector('.simulation-text');
       if (!btn) return;
       btn.classList.toggle('active', simulationMode);
       btn.setAttribute('aria-pressed', simulationMode ? 'true' : 'false');
       btn.setAttribute('aria-label', simulationMode ? 'Desativar modo simulação' : 'Ativar modo simulação');
+      btn.tabIndex = simulationMode ? 0 : -1;
       if (label) label.textContent = simulationMode ? 'Simulação: ON' : 'Simulação: OFF';
+      if (item) {
+        item.classList.toggle('is-visible', simulationMode);
+        item.setAttribute('aria-hidden', simulationMode ? 'false' : 'true');
+      }
     }
 
     function toggleSimulationMode() {
