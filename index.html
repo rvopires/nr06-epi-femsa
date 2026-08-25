@@ -2841,6 +2841,30 @@
         letter-spacing: 0.1em;
       }
 
+      /* Página 13: tag curta no mobile */
+      #s-mod2-tipos .section-tag {
+        font-size: 0;
+        letter-spacing: 0;
+        gap: 0;
+      }
+      #s-mod2-tipos .section-tag::after {
+        content: '📂 Tipos';
+        font-size: 9px;
+        letter-spacing: 0.1em;
+      }
+
+      /* Página 17: tag curta no mobile */
+      #s-mod3-causas .section-tag {
+        font-size: 0;
+        letter-spacing: 0;
+        gap: 0;
+      }
+      #s-mod3-causas .section-tag::after {
+        content: '🧠 Causas';
+        font-size: 9px;
+        letter-spacing: 0.1em;
+      }
+
       #s-mod2-tipos .epi-flip-back p,
       #s-mod2-doenca .epi-flip-back p,
       #s-mod3-causas .epi-flip-back p,
@@ -22123,46 +22147,6 @@
           showSimModeToast(simulationMode);
         }
       });
-    })();
-
-    /* ══════════════════════════════════════════
-       ATALHO — toque/clique 2x na logo liga/desliga simulação
-       (botão visual oculto; uso interno)
-       ══════════════════════════════════════════ */
-    (function setupLogoDoubleTapSimulation() {
-      const logo = document.getElementById('logo');
-      if (!logo) return;
-
-      let lastTap = 0;
-      const TAP_GAP = 320;
-
-      function triggerSimToggle(e) {
-        if (e) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
-        toggleSimulationMode();
-        showSimModeToast(simulationMode);
-        if (typeof playClickSound === 'function') playClickSound();
-      }
-
-      logo.addEventListener('touchend', (e) => {
-        const now = Date.now();
-        if (now - lastTap < TAP_GAP) {
-          lastTap = 0;
-          triggerSimToggle(e);
-        } else {
-          lastTap = now;
-        }
-      }, { passive: false });
-
-      logo.addEventListener('dblclick', (e) => {
-        triggerSimToggle(e);
-      });
-
-      logo.setAttribute('role', 'button');
-      logo.setAttribute('aria-label', 'Toque duas vezes para alternar o modo simulação');
-      logo.title = '2x na logo: modo simulação';
     })();
 
     /* ══════════════════════════════════════════
