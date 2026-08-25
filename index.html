@@ -2773,6 +2773,14 @@
         perspective: 1400px;
       }
 
+      #s-mod2-doenca .epi-flip-grid {
+        max-width: 300px;
+      }
+
+      #s-mod3-causas .epi-flip-grid {
+        max-width: 300px;
+      }
+
       #s-mod5-perda .m5p-grid {
         display: block;
         width: 100%;
@@ -2789,6 +2797,14 @@
         display: none;
         width: 100%;
         height: clamp(300px, 52vh, 380px) !important;
+      }
+
+      #s-mod2-doenca .epi-flip-card {
+        height: clamp(230px, 40vh, 300px) !important;
+      }
+
+      #s-mod3-causas .epi-flip-card {
+        height: clamp(230px, 40vh, 300px) !important;
       }
 
       #s-mod5-perda .m5p-card {
@@ -3283,6 +3299,19 @@
       margin: 0 0 22px;
       text-align: center;
       line-height: 1.4;
+    }
+
+    /* Quizzes estilo Módulo 1 (múltipla escolha) — pergunta legível no mobile */
+    @media screen and (max-width: 768px) {
+      .epi-quiz-q,
+      #m1g-q,
+      #m4g-q,
+      #m5g-q {
+        font-size: clamp(19px, 5.2vw, 23px) !important;
+        line-height: 1.45 !important;
+        font-weight: 800;
+        margin: 0 0 18px !important;
+      }
     }
 
     #s2e .q-opt,
@@ -7364,6 +7393,37 @@
       border-radius: 999px;
       white-space: nowrap;
       z-index: 20;
+    }
+
+    #s-mod2-tipos .epi-flip-card.req-item::after,
+    #s-mod2-doenca .epi-flip-card.req-item::after,
+    #s-mod3-causas .epi-flip-card.req-item::after,
+    #s-mod5-protetores .epi-flip-card.req-item::after,
+    #s-mod5-perda .m5p-card.req-item::after {
+      display: none !important;
+    }
+
+    #s-mod2-tipos .epi-flip-card.req-item.req-done::after,
+    #s-mod2-doenca .epi-flip-card.req-item.req-done::after,
+    #s-mod3-causas .epi-flip-card.req-item.req-done::after,
+    #s-mod5-protetores .epi-flip-card.req-item.req-done::after,
+    #s-mod5-perda .m5p-card.req-item.req-done::after {
+      display: block !important;
+      content: '✓';
+      background: #27ae60;
+      color: #fff;
+      opacity: 1;
+      top: 8px;
+      right: 8px;
+      left: auto;
+      transform: none;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+      z-index: 20;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
     }
 
     #s2b .atex-source-card.req-done .atex-source-front {
@@ -12701,7 +12761,7 @@
         </style>
         <div class="top-bar">
           <span class="section-tag">🎮 DESAFIO</span>
-          <div class="slide-title" style="margin-top:6px">Quiz — <span>Módulo 1</span></div>
+          <div class="slide-title" style="margin-top:6px">Teste <span>Rápido</span></div>
           <div class="slide-subtitle">Introdução, Objetivo, CA e Hierarquia de Controle de Riscos</div>
         </div>
         <div class="content-area">
@@ -13053,13 +13113,13 @@
         <div class="top-bar">
           <div><span class="section-tag">📂 Também são considerados</span>
             <div class="slide-title" style="margin-top:6px">Outros Tipos de <span>Acidente de Trabalho</span></div>
-            <div class="slide-subtitle">Toque em cada card para saber mais</div>
+            <div class="slide-subtitle">Vire todos os cards para avançar</div>
           </div>
         </div>
         <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;overflow-y:auto;">
-          <p class="epi-flip-hint">Toque no card para virar e ver a explicação</p>
+          <p class="epi-flip-hint">Toque em cada card para virar — vire os 3 para desbloquear o avanço</p>
           <div class="epi-flip-grid" id="m2t-card-viewport">
-            <button type="button" class="epi-flip-card epi-flip-card--orange m2t-card-active" onclick="epiFlipCard(this)" aria-pressed="false">
+            <button type="button" class="epi-flip-card epi-flip-card--orange m2t-card-active req-item" onclick="epiFlipCard(this)" aria-pressed="false">
               <div class="epi-flip-inner">
                 <div class="epi-flip-face epi-flip-front">
                   <img src="img/acidente-tipico.png" alt="Acidentes Típicos">
@@ -13080,7 +13140,7 @@
                 </div>
               </div>
             </button>
-            <button type="button" class="epi-flip-card epi-flip-card--blue" onclick="epiFlipCard(this)" aria-pressed="false">
+            <button type="button" class="epi-flip-card epi-flip-card--blue req-item" onclick="epiFlipCard(this)" aria-pressed="false">
               <div class="epi-flip-inner">
                 <div class="epi-flip-face epi-flip-front">
                   <img src="img/acidente-trajeto.png" alt="Acidente de Trajeto">
@@ -13101,7 +13161,7 @@
                 </div>
               </div>
             </button>
-            <button type="button" class="epi-flip-card epi-flip-card--wine" onclick="epiFlipCard(this)" aria-pressed="false">
+            <button type="button" class="epi-flip-card epi-flip-card--wine req-item" onclick="epiFlipCard(this)" aria-pressed="false">
               <div class="epi-flip-inner">
                 <div class="epi-flip-face epi-flip-front">
                   <img src="img/doenca-profissional.png" alt="Doença Profissional ou do Trabalho">
@@ -13132,7 +13192,7 @@
               <svg viewBox="0 0 20 20" fill="currentColor"><polygon points="5,3 17,10 5,17"/></svg>
             </button>
           </div>
-          <p class="epi-flip-carousel-hint">Deslize ou use as setas · Toque no card para virar</p>
+          <p class="epi-flip-carousel-hint">Passe por todos os cards · Vire cada um para avançar</p>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
@@ -13144,7 +13204,7 @@
         <div class="top-bar">
           <div><span class="section-tag">🩺 Conceito</span>
             <div class="slide-title" style="margin-top:6px">Doença <span>Ocupacional</span></div>
-            <div class="slide-subtitle">Acidente de Trabalho e Doença Ocupacional</div>
+            <div class="slide-subtitle">Vire todos os cards para avançar</div>
           </div>
         </div>
         <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;overflow-y:auto;flex:1;min-height:0;padding-bottom:110px;">
@@ -13152,9 +13212,9 @@
             <span class="epi-badge-tag">CONCEITO</span>
             <p>Doença ocupacional ou profissional é aquela causada ou desencadeada pelo trabalho, em razão da atividade exercida ou das condições do ambiente, podendo afetar a saúde do trabalhador ao longo do tempo.</p>
           </div>
-          <p class="epi-flip-hint">Toque no card para virar e ver a explicação</p>
+          <p class="epi-flip-hint">Toque em cada card para virar — vire os 3 para desbloquear o avanço</p>
           <div class="epi-flip-grid" id="m2d-card-viewport">
-            <button type="button" class="epi-flip-card epi-flip-card--violet m2d-card-active" onclick="epiFlipCard(this)" aria-pressed="false">
+            <button type="button" class="epi-flip-card epi-flip-card--violet m2d-card-active req-item" onclick="epiFlipCard(this)" aria-pressed="false">
               <div class="epi-flip-inner">
                 <div class="epi-flip-face epi-flip-front">
                   <img src="img/pag14.1.jpeg" alt="Cervicalgia Ocupacional">
@@ -13175,7 +13235,7 @@
                 </div>
               </div>
             </button>
-            <button type="button" class="epi-flip-card epi-flip-card--blue" onclick="epiFlipCard(this)" aria-pressed="false">
+            <button type="button" class="epi-flip-card epi-flip-card--blue req-item" onclick="epiFlipCard(this)" aria-pressed="false">
               <div class="epi-flip-inner">
                 <div class="epi-flip-face epi-flip-front">
                   <img src="img/pag14.2.jpeg" alt="Lombalgia Ocupacional">
@@ -13196,7 +13256,7 @@
                 </div>
               </div>
             </button>
-            <button type="button" class="epi-flip-card epi-flip-card--orange" onclick="epiFlipCard(this)" aria-pressed="false">
+            <button type="button" class="epi-flip-card epi-flip-card--orange req-item" onclick="epiFlipCard(this)" aria-pressed="false">
               <div class="epi-flip-inner">
                 <div class="epi-flip-face epi-flip-front">
                   <img src="img/pag14.3.jpeg" alt="LER/DORT">
@@ -13227,7 +13287,7 @@
               <svg viewBox="0 0 20 20" fill="currentColor"><polygon points="5,3 17,10 5,17"/></svg>
             </button>
           </div>
-          <p class="epi-flip-carousel-hint">Deslize ou use as setas · Toque no card para virar</p>
+          <p class="epi-flip-carousel-hint">Passe por todos os cards · Vire cada um para avançar</p>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
@@ -13609,7 +13669,7 @@
         <div class="top-bar">
           <div><span class="section-tag">🧠 Comportamentos e Condições Inseguras</span>
             <div class="slide-title" style="margin-top:6px">Por que os comportamentos <span>inseguros acontecem?</span></div>
-            <div class="slide-subtitle">Comportamentos e Condições Inseguras</div>
+            <div class="slide-subtitle">Vire todos os cards para avançar</div>
           </div>
         </div>
         <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;overflow-y:auto;flex:1;min-height:0;padding-bottom:110px;">
@@ -13617,9 +13677,9 @@
             <span class="epi-badge-tag">CONCEITO</span>
             <p>Na maioria das vezes, eles estão ligados a <strong>falhas humanas</strong>: seja por imperícia, negligência ou imprudência.</p>
           </div>
-          <p class="epi-flip-hint">Toque no card para virar e ver a explicação</p>
+          <p class="epi-flip-hint">Toque em cada card para virar — vire os 3 para desbloquear o avanço</p>
           <div class="epi-flip-grid" id="m3c-card-viewport">
-            <button type="button" class="epi-flip-card epi-flip-card--orange m3c-card-active" onclick="epiFlipCard(this)" aria-pressed="false">
+            <button type="button" class="epi-flip-card epi-flip-card--orange m3c-card-active req-item" onclick="epiFlipCard(this)" aria-pressed="false">
               <div class="epi-flip-inner">
                 <div class="epi-flip-face epi-flip-front">
                   <img src="img/pag17.impericia.png" alt="Imperícia">
@@ -13640,7 +13700,7 @@
                 </div>
               </div>
             </button>
-            <button type="button" class="epi-flip-card epi-flip-card--blue" onclick="epiFlipCard(this)" aria-pressed="false">
+            <button type="button" class="epi-flip-card epi-flip-card--blue req-item" onclick="epiFlipCard(this)" aria-pressed="false">
               <div class="epi-flip-inner">
                 <div class="epi-flip-face epi-flip-front">
                   <img src="img/pag17.negligencia.png" alt="Negligência">
@@ -13661,7 +13721,7 @@
                 </div>
               </div>
             </button>
-            <button type="button" class="epi-flip-card epi-flip-card--wine" onclick="epiFlipCard(this)" aria-pressed="false">
+            <button type="button" class="epi-flip-card epi-flip-card--wine req-item" onclick="epiFlipCard(this)" aria-pressed="false">
               <div class="epi-flip-inner">
                 <div class="epi-flip-face epi-flip-front">
                   <img src="img/pag17.imprudencia.png" alt="Imprudência">
@@ -13692,7 +13752,7 @@
               <svg viewBox="0 0 20 20" fill="currentColor"><polygon points="5,3 17,10 5,17"/></svg>
             </button>
           </div>
-          <p class="epi-flip-carousel-hint">Deslize ou use as setas · Toque no card para virar</p>
+          <p class="epi-flip-carousel-hint">Passe por todos os cards · Vire cada um para avançar</p>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
@@ -14378,7 +14438,7 @@
         <div class="top-bar">
           <div><span class="section-tag">⚡ Conceitos</span>
             <div class="slide-title" style="margin-top:6px">Perigo <span>e Risco</span></div>
-            <div class="slide-subtitle">Perigo e risco — ligue a exposição para ver a diferença</div>
+            <div class="slide-subtitle">Toque em Simular a exposição para avançar</div>
           </div>
         </div>
         <div class="content-area">
@@ -14426,6 +14486,7 @@
               </div>
             </div>
           </div>
+          <div class="req-item" id="m4pr-req" style="display:none"></div>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
@@ -14659,6 +14720,15 @@
           }
           @media (max-width: 520px) {
             #s-mod4-game .m4g-answers { grid-template-columns: 1fr; }
+          }
+          @media screen and (max-width: 768px) {
+            #s-mod4-game .epi-quiz-q,
+            #s-mod4-game #m4g-q {
+              font-size: clamp(19px, 5.2vw, 23px) !important;
+              line-height: 1.45 !important;
+              font-weight: 800;
+              margin: 0 0 18px !important;
+            }
           }
         </style>
 
@@ -15408,13 +15478,13 @@
         <div class="top-bar">
           <div><span class="section-tag">📂 Perda da Audição</span>
             <div class="slide-title" style="margin-top:6px">Formas de <span>Perda Auditiva</span></div>
-            <div class="slide-subtitle">Toque em cada card para saber mais</div>
+            <div class="slide-subtitle">Vire todos os cards para avançar</div>
           </div>
         </div>
         <div class="content-area">
-          <p class="m5p-hint">Toque no card para virar e ver a explicação</p>
+          <p class="m5p-hint">Toque em cada card para virar — vire os 3 para desbloquear o avanço</p>
           <div class="m5p-grid" id="m5p-card-viewport">
-            <button type="button" class="m5p-card m5p-card--trauma m5p-card-active" onclick="m5pFlipCard(this)" aria-pressed="false">
+            <button type="button" class="m5p-card m5p-card--trauma m5p-card-active req-item" onclick="m5pFlipCard(this)" aria-pressed="false">
               <div class="m5p-inner">
                 <div class="m5p-face m5p-front">
                   <img src="img/TRAUMAACUSTICO.png" alt="Trauma Acústico">
@@ -15436,7 +15506,7 @@
               </div>
             </button>
 
-            <button type="button" class="m5p-card m5p-card--temp" onclick="m5pFlipCard(this)" aria-pressed="false">
+            <button type="button" class="m5p-card m5p-card--temp req-item" onclick="m5pFlipCard(this)" aria-pressed="false">
               <div class="m5p-inner">
                 <div class="m5p-face m5p-front">
                   <img src="img/PERDATEMPORARIA.png" alt="Perda Auditiva Temporária">
@@ -15458,7 +15528,7 @@
               </div>
             </button>
 
-            <button type="button" class="m5p-card m5p-card--perm" onclick="m5pFlipCard(this)" aria-pressed="false">
+            <button type="button" class="m5p-card m5p-card--perm req-item" onclick="m5pFlipCard(this)" aria-pressed="false">
               <div class="m5p-inner">
                 <div class="m5p-face m5p-front">
                   <img src="img/PERDAPERMANENTE.png" alt="Perda Auditiva Permanente">
@@ -15489,7 +15559,7 @@
               <svg viewBox="0 0 20 20" fill="currentColor"><polygon points="5,3 17,10 5,17"/></svg>
             </button>
           </div>
-          <p class="epi-flip-carousel-hint">Deslize ou use as setas · Toque no card para virar</p>
+          <p class="epi-flip-carousel-hint">Passe por todos os cards · Vire cada um para avançar</p>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
@@ -15527,13 +15597,13 @@
         <div class="top-bar">
           <div><span class="section-tag">🎧 Proteção Auditiva</span>
             <div class="slide-title" style="margin-top:6px">Tipos de <span>Protetores</span></div>
-            <div class="slide-subtitle">Toque em cada card para saber mais</div>
+            <div class="slide-subtitle">Vire todos os cards para avançar</div>
           </div>
         </div>
         <div class="content-area" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;overflow-y:auto;">
-          <p class="epi-flip-hint">Toque no card para virar e ver a explicação</p>
+          <p class="epi-flip-hint">Toque em cada card para virar — vire os 3 para desbloquear o avanço</p>
           <div class="epi-flip-grid" id="m5pr-card-viewport">
-            <button type="button" class="epi-flip-card epi-flip-card--orange epi-flip-card--fit m5pr-card-active" onclick="epiFlipCard(this)" aria-pressed="false">
+            <button type="button" class="epi-flip-card epi-flip-card--orange epi-flip-card--fit m5pr-card-active req-item" onclick="epiFlipCard(this)" aria-pressed="false">
               <div class="epi-flip-inner">
                 <div class="epi-flip-face epi-flip-front">
                   <img src="img/moldavel.png" alt="Espuma Moldável">
@@ -15554,7 +15624,7 @@
                 </div>
               </div>
             </button>
-            <button type="button" class="epi-flip-card epi-flip-card--teal epi-flip-card--fit" onclick="epiFlipCard(this)" aria-pressed="false">
+            <button type="button" class="epi-flip-card epi-flip-card--teal epi-flip-card--fit req-item" onclick="epiFlipCard(this)" aria-pressed="false">
               <div class="epi-flip-inner">
                 <div class="epi-flip-face epi-flip-front">
                   <img src="img/premoldavel.png" alt="Pré-Moldados">
@@ -15575,7 +15645,7 @@
                 </div>
               </div>
             </button>
-            <button type="button" class="epi-flip-card epi-flip-card--blue epi-flip-card--fit" onclick="epiFlipCard(this)" aria-pressed="false">
+            <button type="button" class="epi-flip-card epi-flip-card--blue epi-flip-card--fit req-item" onclick="epiFlipCard(this)" aria-pressed="false">
               <div class="epi-flip-inner">
                 <div class="epi-flip-face epi-flip-front">
                   <img src="img/concha.png" alt="Tipo Concha">
@@ -15606,7 +15676,7 @@
               <svg viewBox="0 0 20 20" fill="currentColor"><polygon points="5,3 17,10 5,17"/></svg>
             </button>
           </div>
-          <p class="epi-flip-carousel-hint">Deslize ou use as setas · Toque no card para virar</p>
+          <p class="epi-flip-carousel-hint">Passe por todos os cards · Vire cada um para avançar</p>
         </div>
         <div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path d="M0,55 C480,10 960,90 1440,40 L1440,100 L0,100 Z" fill="rgba(120, 1, 22,0.07)" />
@@ -18706,7 +18776,7 @@
         <div class="top-bar">
           <div><span class="section-tag">🧤 Luvas de Segurança</span>
             <div class="slide-title" style="margin-top:6px">Principais <span>Modelos</span> <span>de Luvas</span></div>
-            <div class="slide-subtitle">Proteção das Mãos</div>
+            <div class="slide-subtitle">Passe por todos os modelos para avançar</div>
           </div>
         </div>
         <div class="content-area">
@@ -21285,8 +21355,14 @@
           n.textContent = 'Toque em todos os cards para avançar';
         } else if (slide?.id === 's2e' || slide?.id === 's-mod2-game' || slide?.id === 's-mod4-game' || slide?.id === 's-mod5-game' || slide?.id === 's-mod6-game' || slide?.id === 's-mod7-game' || slide?.id === 's-mod8-game') {
           n.textContent = 'Responda o quiz para avançar';
-        } else if (slide?.id === 's2g') {
+        } else if (slide?.id === 's2g' || slide?.id === 's-mod3-game') {
           n.textContent = 'Conclua a associação para avançar';
+        } else if (slide?.id === 's-mod2-tipos' || slide?.id === 's-mod2-doenca' || slide?.id === 's-mod3-causas' || slide?.id === 's-mod5-perda' || slide?.id === 's-mod5-protetores') {
+          n.textContent = 'Passe por todos os cards e vire cada um para avançar';
+        } else if (slide?.id === 's-mod6-armazenamento' || slide?.id === 's-mod7-tipos' || slide?.id === 's-mod7-pff' || slide?.id === 's-mod8-luvas-riscos' || slide?.id === 's-mod8-luvas-tipos') {
+          n.textContent = 'Passe por todos os cards para avançar';
+        } else if (slide?.id === 's-mod4-conceitos') {
+          n.textContent = 'Simule a exposição para avançar';
         } else {
           n.textContent = 'Termine de assistir o vídeo para avançar';
         }
@@ -22071,11 +22147,115 @@
 
     function epiFlipCard(el) {
       if (!el) return;
+      // Qualquer card de virar trava o avanço até ser virado
+      if ((el.classList.contains('epi-flip-card') || el.classList.contains('m5p-card')) && !el.classList.contains('req-item')) {
+        el.classList.add('req-item');
+      }
       el.classList.toggle('is-flipped');
       el.setAttribute('aria-pressed', el.classList.contains('is-flipped') ? 'true' : 'false');
       if (typeof playClickSound === 'function') playClickSound();
+      if (el.classList.contains('is-flipped') && el.classList.contains('req-item') && !el.classList.contains('req-done')) {
+        el.classList.add('req-done');
+        if (typeof updateNextButton === 'function') updateNextButton();
+      }
     }
     function m5pFlipCard(el) { epiFlipCard(el); }
+
+    // Garante req-item em todos os cards de virar (trava o avançar desde o início)
+    (function initFlipCardGates() {
+      function apply() {
+        document.querySelectorAll('.epi-flip-card, .m5p-card').forEach(function (card) {
+          if (!card.classList.contains('req-item')) card.classList.add('req-item');
+        });
+        if (typeof updateNextButton === 'function') updateNextButton();
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', apply);
+      } else {
+        apply();
+      }
+    })();
+
+    /* ── Gate mobile: passar por TODOS os cards do carrossel para liberar avançar ── */
+    (function () {
+      var gates = {};
+      function isMobilePortraitCarousel() {
+        return window.matchMedia('screen and (max-width: 768px) and (orientation: portrait)').matches;
+      }
+      function ensureCarouselReq(slideId, gateId) {
+        var slide = document.getElementById(slideId);
+        if (!slide) return null;
+        var req = document.getElementById(gateId);
+        if (!req) {
+          req = document.createElement('div');
+          req.id = gateId;
+          req.className = 'req-item';
+          req.setAttribute('data-carousel-gate', '1');
+          req.style.display = 'none';
+          slide.appendChild(req);
+        }
+        return req;
+      }
+      /**
+       * slideId: id da section
+       * gateId: id único do req-item oculto
+       * idx: índice visitado (0-based)
+       * total: quantidade de cards
+       */
+      window.markCarouselProgress = function (slideId, gateId, idx, total) {
+        if (!gates[gateId]) gates[gateId] = { visited: {}, unlocked: false };
+        var g = gates[gateId];
+        var req = ensureCarouselReq(slideId, gateId);
+        if (!req) return;
+        if (typeof idx === 'number' && idx >= 0) g.visited[idx] = true;
+        total = Math.max(1, Number(total) || 1);
+
+        // Desktop / landscape: carrossel não trava — exceto pág. 59 (luvas tipos)
+        var requireAlways = (gateId === 'carousel-req-m8l');
+        if (!isMobilePortraitCarousel() && !requireAlways) {
+          if (!req.classList.contains('req-done')) {
+            req.classList.add('req-done');
+            if (typeof updateNextButton === 'function') updateNextButton();
+          }
+          return;
+        }
+
+        if (g.unlocked || req.classList.contains('req-done')) {
+          g.unlocked = true;
+          return;
+        }
+
+        var count = 0;
+        for (var k in g.visited) {
+          if (Object.prototype.hasOwnProperty.call(g.visited, k)) count++;
+        }
+        if (count >= total) {
+          g.unlocked = true;
+          req.classList.add('req-done');
+          if (typeof updateNextButton === 'function') updateNextButton();
+        } else if (typeof updateNextButton === 'function') {
+          updateNextButton();
+        }
+      };
+
+      function unlockCarouselGatesOnDesktop() {
+        if (isMobilePortraitCarousel()) return;
+        Object.keys(gates).forEach(function (gateId) {
+          if (gateId === 'carousel-req-m8l') return; // pág. 59: exige passar todos também no desktop
+          var req = document.getElementById(gateId);
+          if (req) req.classList.add('req-done');
+        });
+        document.querySelectorAll('[data-carousel-gate="1"]').forEach(function (req) {
+          if (req.id === 'carousel-req-m8l') return;
+          req.classList.add('req-done');
+        });
+        if (typeof updateNextButton === 'function') updateNextButton();
+      }
+      window.addEventListener('resize', unlockCarouselGatesOnDesktop);
+      window.addEventListener('orientationchange', function () {
+        setTimeout(unlockCarouselGatesOnDesktop, 150);
+      });
+    })();
 
     function m4PrToggle() {
       const stage = document.getElementById('m4pr-stage');
@@ -22089,6 +22269,13 @@
         ? '✓ Exposição ligada — veja o card de Risco'
         : '👉 Toque no botão para simular a exposição';
       if (typeof playClickSound === 'function') playClickSound();
+      if (on) {
+        const req = document.getElementById('m4pr-req');
+        if (req && !req.classList.contains('req-done')) {
+          req.classList.add('req-done');
+          if (typeof updateNextButton === 'function') updateNextButton();
+        }
+      }
     }
 
     /* ── MÓDULO 2 TIPOS — Mobile Carousel ── */
@@ -22131,6 +22318,7 @@
         m2tIdx = newIdx;
         if (typeof playClickSound === 'function') playClickSound();
         m2tUpdateUI();
+        if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod2-tipos', 'carousel-req-m2t', m2tIdx, m2tTotal);
       };
 
       var m2tSX = 0;
@@ -22150,6 +22338,7 @@
       function m2tInit() {
         m2tIdx = 0;
         m2tUpdateUI();
+        if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod2-tipos', 'carousel-req-m2t', 0, m2tTotal);
         m2tInitSwipe();
       }
 
@@ -22211,6 +22400,7 @@
         m2dIdx = newIdx;
         if (typeof playClickSound === 'function') playClickSound();
         m2dUpdateUI();
+        if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod2-doenca', 'carousel-req-m2d', m2dIdx, m2dTotal);
       };
 
       var m2dSX = 0;
@@ -22230,6 +22420,7 @@
       function m2dInit() {
         m2dIdx = 0;
         m2dUpdateUI();
+        if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod2-doenca', 'carousel-req-m2d', 0, m2dTotal);
         m2dInitSwipe();
       }
 
@@ -22290,6 +22481,7 @@
         m3cIdx = newIdx;
         if (typeof playClickSound === 'function') playClickSound();
         m3cUpdateUI();
+        if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod3-causas', 'carousel-req-m3c', m3cIdx, m3cTotal);
       };
 
       var m3cSX = 0;
@@ -22309,6 +22501,7 @@
       function m3cInit() {
         m3cIdx = 0;
         m3cUpdateUI();
+        if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod3-causas', 'carousel-req-m3c', 0, m3cTotal);
         m3cInitSwipe();
       }
 
@@ -22370,6 +22563,7 @@
         m5pIdx = newIdx;
         if (typeof playClickSound === 'function') playClickSound();
         m5pUpdateUI();
+        if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod5-perda', 'carousel-req-m5p', m5pIdx, m5pTotal);
       };
 
       var m5pSX = 0;
@@ -22389,6 +22583,7 @@
       function m5pInit() {
         m5pIdx = 0;
         m5pUpdateUI();
+        if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod5-perda', 'carousel-req-m5p', 0, m5pTotal);
         m5pInitSwipe();
       }
 
@@ -22450,6 +22645,7 @@
         m5prIdx = newIdx;
         if (typeof playClickSound === 'function') playClickSound();
         m5prUpdateUI();
+        if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod5-protetores', 'carousel-req-m5pr', m5prIdx, m5prTotal);
       };
 
       var m5prSX = 0;
@@ -22469,6 +22665,7 @@
       function m5prInit() {
         m5prIdx = 0;
         m5prUpdateUI();
+        if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod5-protetores', 'carousel-req-m5pr', 0, m5prTotal);
         m5prInitSwipe();
       }
 
@@ -22526,6 +22723,7 @@
         m6aIdx = newIdx;
         if (typeof playClickSound === 'function') playClickSound();
         m6aUpdateUI();
+        if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod6-armazenamento', 'carousel-req-m6a', m6aIdx, m6aTotal);
       };
 
       var m6aSX = 0;
@@ -22545,6 +22743,7 @@
       function m6aInit() {
         m6aIdx = 0;
         m6aUpdateUI();
+        if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod6-armazenamento', 'carousel-req-m6a', 0, m6aTotal);
         m6aInitSwipe();
       }
 
@@ -22602,6 +22801,7 @@
         m7tIdx = newIdx;
         if (typeof playClickSound === 'function') playClickSound();
         m7tUpdateUI();
+        if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod7-tipos', 'carousel-req-m7t', m7tIdx, m7tTotal);
       };
 
       var m7tSX = 0;
@@ -22621,6 +22821,7 @@
       function m7tInit() {
         m7tIdx = 0;
         m7tUpdateUI();
+        if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod7-tipos', 'carousel-req-m7t', 0, m7tTotal);
         m7tInitSwipe();
       }
 
@@ -22678,6 +22879,7 @@
         m7pIdx = newIdx;
         if (typeof playClickSound === 'function') playClickSound();
         m7pUpdateUI();
+        if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod7-pff', 'carousel-req-m7p', m7pIdx, m7pTotal);
       };
 
       var m7pSX = 0;
@@ -22697,6 +22899,7 @@
       function m7pInit() {
         m7pIdx = 0;
         m7pUpdateUI();
+        if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod7-pff', 'carousel-req-m7p', 0, m7pTotal);
         m7pInitSwipe();
       }
 
@@ -22754,6 +22957,7 @@
         m8rIdx = newIdx;
         if (typeof playClickSound === 'function') playClickSound();
         m8rUpdateUI();
+        if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod8-luvas-riscos', 'carousel-req-m8r', m8rIdx, m8rTotal);
       };
 
       var m8rSX = 0;
@@ -22773,6 +22977,7 @@
       function m8rInit() {
         m8rIdx = 0;
         m8rUpdateUI();
+        if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod8-luvas-riscos', 'carousel-req-m8r', 0, m8rTotal);
         m8rInitSwipe();
       }
 
@@ -26857,6 +27062,7 @@
                   m8lIdx = idx;
                   if (typeof playClickSound === 'function') playClickSound();
                   m8lUpdateUI();
+                  if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod8-luvas-tipos', 'carousel-req-m8l', m8lIdx, m8lTotal);
                 };
                 dots.appendChild(b);
               })(d);
@@ -26875,6 +27081,7 @@
         m8lIdx = newIdx;
         if (typeof playClickSound === 'function') playClickSound();
         m8lUpdateUI();
+        if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod8-luvas-tipos', 'carousel-req-m8l', m8lIdx, m8lTotal);
       };
 
       function m8lUpdateHint() {
@@ -26907,6 +27114,7 @@
       function m8lInit() {
         m8lIdx = 0;
         m8lUpdateUI();
+        if (typeof markCarouselProgress === 'function') markCarouselProgress('s-mod8-luvas-tipos', 'carousel-req-m8l', 0, m8lTotal);
         m8lInitSwipe();
       }
 
